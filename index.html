@@ -463,6 +463,155 @@
   footer p{color:var(--text-muted);font-size:13px;}
   footer a.mail{color:var(--gold);}
 
+  /* ---------- HERO PHOTO ---------- */
+  .hero-photo-frame{
+    border-radius:10px;
+    overflow:hidden;
+  }
+  .hero-photo{
+    position:relative;
+    width:100%;
+    aspect-ratio:4/3;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    overflow:hidden;
+    background:
+      radial-gradient(circle at 50% 20%, rgba(212,175,55,0.14), transparent 60%),
+      linear-gradient(180deg, var(--bg-panel-2), var(--bg-panel));
+  }
+  .hero-photo img{
+    height:112%;
+    width:auto;
+    max-width:none;
+    object-fit:contain;
+    filter:drop-shadow(0 18px 30px rgba(0,0,0,0.5));
+  }
+  .hero-photo-badge{
+    position:absolute;
+    top:14px;
+    left:14px;
+    background:rgba(11,14,20,0.75);
+    border:1px solid var(--border);
+    backdrop-filter:blur(6px);
+    border-radius:6px;
+    padding:6px 10px;
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--gold);
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .hero-photo-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--up);display:inline-block;}
+  .mini-chart{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:10px 16px;
+    border-top:1px solid var(--border);
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--text-muted);
+  }
+
+  /* ---------- STEPS (proceso) ---------- */
+  .steps{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+    border:1px solid var(--border);
+    border-radius:10px;
+    overflow:hidden;
+  }
+  .step-item{
+    display:grid;
+    grid-template-columns:90px 1fr auto;
+    gap:24px;
+    align-items:center;
+    padding:32px 28px;
+    background:var(--bg-panel);
+  }
+  .step-item:not(:last-child){border-bottom:1px solid var(--border);}
+  .step-item:nth-child(even){background:var(--bg-panel-2);}
+  @media(max-width:760px){
+    .step-item{grid-template-columns:1fr;gap:14px;}
+  }
+  .step-num{
+    font-family:var(--mono);
+    font-size:34px;
+    color:var(--gold-dim);
+    line-height:1;
+  }
+  .step-body h3{font-size:19px;margin-bottom:8px;}
+  .step-body p{color:var(--text-muted);font-size:14.5px;max-width:560px;}
+  .step-body .step-meta{
+    display:inline-block;
+    font-family:var(--mono);
+    font-size:11.5px;
+    color:var(--up);
+    margin-top:10px;
+    border:1px solid rgba(38,166,154,0.3);
+    background:rgba(38,166,154,0.08);
+    padding:3px 9px;
+    border-radius:4px;
+  }
+  .step-cta{white-space:nowrap;}
+  @media(max-width:760px){.step-cta{justify-self:start;}}
+
+  /* ---------- TESTIMONIOS ---------- */
+  #testimonios{border-bottom:1px solid var(--border);}
+  .testi-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+  }
+  @media(max-width:860px){.testi-grid{grid-template-columns:1fr;}}
+  .testi{
+    background:var(--bg-panel);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:24px;
+  }
+  .testi .stars{color:var(--gold);font-size:13px;margin-bottom:12px;letter-spacing:2px;}
+  .testi p{font-size:14px;color:var(--text-muted);margin-bottom:16px;}
+  .testi .who{font-family:var(--mono);font-size:12px;color:var(--text);}
+
+  /* ---------- FOOTER SOCIAL / RATING ---------- */
+  .footer-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:20px;
+    padding-bottom:28px;
+    margin-bottom:28px;
+    border-bottom:1px solid var(--border);
+  }
+  .rating-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:var(--mono);
+    font-size:12.5px;
+    color:var(--text-muted);
+  }
+  .rating-badge b{color:var(--gold);}
+  .social-links{
+    display:flex;
+    gap:10px;
+  }
+  .social-links a{
+    font-family:var(--mono);
+    font-size:12px;
+    border:1px solid var(--border);
+    border-radius:6px;
+    padding:7px 12px;
+    color:var(--text-muted);
+  }
+  .social-links a:hover{border-color:var(--gold-dim);color:var(--gold);}
+  footer .location{font-size:12.5px;color:var(--text-muted);margin-top:6px;}
+
   ::selection{background:var(--gold);color:#0B0E14;}
 </style>
 </head>
@@ -473,8 +622,9 @@
     <div class="logo">MENTORY<span>CAP</span></div>
     <ul class="nav-links nav-mobile-hide">
       <li><a href="#historia">Historia</a></li>
-      <li><a href="#hoy">Qué hago hoy</a></li>
+      <li><a href="#pasos">Los 3 pasos</a></li>
       <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#testimonios">Testimonios</a></li>
     </ul>
     <a href="#comunidad" class="nav-cta">Unirme a la comunidad</a>
   </nav>
@@ -484,10 +634,10 @@
   <div class="container hero-grid">
     <div>
       <div class="eyebrow">MENTORYCAP · TRADING &amp; GESTIÓN DE CAPITAL</div>
-      <h1>De perder cuentas de fondeo a <em>gestionar capital</em> de otros.</h1>
-      <p class="lead">Soy Oscar. Ayudo a personas a aprender a operar en los mercados desde cero, y gestiono el capital de quienes prefieren invertir sin operar ellos mismos.</p>
+      <h1>Un ecosistema, <em>tres pasos</em>, un mismo objetivo: tu libertad financiera.</h1>
+      <p class="lead">Soy Oscar Rojas. Ayudo a personas a aprender a operar en los mercados desde cero, y gestiono el capital de quienes prefieren invertir sin operar ellos mismos.</p>
       <div class="hero-actions">
-        <a href="#comunidad" class="btn btn-primary">Unirme a la comunidad gratis</a>
+        <a href="#pasos" class="btn btn-primary">Ver los 3 pasos</a>
         <a href="#servicios" class="btn btn-outline">Ver todos los servicios</a>
       </div>
       <div class="hero-stats">
@@ -505,44 +655,15 @@
         </div>
       </div>
     </div>
-    <div class="chart-panel">
-      <div class="chart-panel-head">
-        <span>MENTORYCAP:PROCESO</span>
-        <b>CONSTANCIA &gt; SUERTE</b>
+    <div class="hero-photo-frame">
+      <div class="hero-photo">
+        <div class="hero-photo-badge"><span class="dot"></span> OSCAR ROJAS · FOUNDER</div>
+        <img src="images/oscar.png" alt="Oscar Rojas, fundador de MentoryCap">
       </div>
-      <svg class="candles" viewBox="0 0 320 160" width="100%" height="160">
-        <!-- eje base -->
-        <line x1="0" y1="140" x2="320" y2="140" stroke="#262B3A" stroke-width="1"/>
-        <!-- velas: mecha + cuerpo, alternando subida/bajada, tendencia ascendente -->
-        <g>
-          <line class="wick-down" x1="16" y1="70" x2="16" y2="110"/>
-          <rect class="candle-down" x="10" y="80" width="12" height="22"/>
-          <line class="wick-up" x1="40" y1="60" x2="40" y2="100"/>
-          <rect class="candle-up" x="34" y="70" width="12" height="20"/>
-          <line class="wick-down" x1="64" y1="75" x2="64" y2="115"/>
-          <rect class="candle-down" x="58" y="82" width="12" height="24"/>
-          <line class="wick-up" x1="88" y1="55" x2="88" y2="95"/>
-          <rect class="candle-up" x="82" y="60" width="12" height="26"/>
-          <line class="wick-up" x1="112" y1="45" x2="112" y2="85"/>
-          <rect class="candle-up" x="106" y="52" width="12" height="24"/>
-          <line class="wick-down" x1="136" y1="50" x2="136" y2="90"/>
-          <rect class="candle-down" x="130" y="58" width="12" height="20"/>
-          <line class="wick-up" x1="160" y1="35" x2="160" y2="75"/>
-          <rect class="candle-up" x="154" y="42" width="12" height="24"/>
-          <line class="wick-up" x1="184" y1="28" x2="184" y2="65"/>
-          <rect class="candle-up" x="178" y="34" width="12" height="22"/>
-          <line class="wick-down" x1="208" y1="32" x2="208" y2="68"/>
-          <rect class="candle-down" x="202" y="38" width="12" height="18"/>
-          <line class="wick-up" x1="232" y1="18" x2="232" y2="55"/>
-          <rect class="candle-up" x="226" y="24" width="12" height="24"/>
-          <line class="wick-up" x1="256" y1="10" x2="256" y2="45"/>
-          <rect class="candle-up" x="250" y="16" width="12" height="22"/>
-          <line class="wick-down" x1="280" y1="14" x2="280" y2="48"/>
-          <rect class="candle-down" x="274" y="20" width="12" height="16"/>
-          <line class="wick-up" x1="304" y1="4" x2="304" y2="35"/>
-          <rect class="candle-up" x="298" y="8" width="12" height="20"/>
-        </g>
-      </svg>
+      <div class="mini-chart">
+        <span>MENTORYCAP:PROCESO</span>
+        <span class="up">CONSTANCIA &gt; SUERTE</span>
+      </div>
     </div>
   </div>
 </section>
@@ -578,28 +699,40 @@
   </div>
 </section>
 
-<section id="hoy">
+<section id="pasos">
   <div class="container">
     <div class="section-head">
       <div class="eyebrow">QUÉ HAGO HOY</div>
-      <h2>Tres formas de trabajar conmigo</h2>
-      <p>Sin importar si quieres aprender a operar tú mismo, sumarte a una comunidad para crecer con otros, o simplemente invertir tu capital sin operar, hay un camino pensado para eso.</p>
+      <h2>Tu proceso en MentoryCap, en 3 pasos</h2>
+      <p>No importa en qué punto estés hoy. Hay una ruta clara para pasar de curioso a independiente, y de independiente a inversionista.</p>
     </div>
-    <div class="pilares">
-      <div class="pilar">
-        <span class="num">01</span>
-        <h3>Formación — Mentorycap Private</h3>
-        <p>Te enseño el proceso completo desde cero: análisis, gestión de riesgo y la psicología operativa que realmente sostiene los resultados en el tiempo.</p>
+    <div class="steps">
+      <div class="step-item">
+        <span class="step-num">01</span>
+        <div class="step-body">
+          <h3>Únete a la comunidad gratuita</h3>
+          <p>Entras a un espacio abierto sobre mercados financieros, noticias y mindset. No es una sala de señales: es contenido educativo para que empieces a entender cómo funciona la economía digital.</p>
+          <span class="step-meta">Gratis · acceso con aprobación manual</span>
+        </div>
+        <a href="#comunidad" class="btn btn-outline step-cta">Entrar a la comunidad</a>
       </div>
-      <div class="pilar">
-        <span class="num">02</span>
-        <h3>Comunidad gratuita</h3>
-        <p>Un chat abierto donde comparto análisis y contenido educativo con quienes están dando sus primeros pasos. El acceso se revisa manualmente.</p>
+      <div class="step-item">
+        <span class="step-num">02</span>
+        <div class="step-body">
+          <h3>Fórmate con Mentorycap Private</h3>
+          <p>Aprendes a operar con método, disciplina y criterio profesional: sesiones 1-1 en vivo conmigo, el curso completo MASTER TRADING, acceso a todas las clases grabadas y soporte directo por WhatsApp.</p>
+          <span class="step-meta">Plan recomendado: $897 / 3 meses</span>
+        </div>
+        <a href="https://whop.com/mentorycap/" target="_blank" rel="noopener" class="btn btn-outline step-cta">Ver planes</a>
       </div>
-      <div class="pilar">
-        <span class="num">03</span>
-        <h3>RC Capital</h3>
-        <p>Gestión de capital privado para quienes no tienen el tiempo de aprender a operar, o simplemente prefieren invertir su dinero sin operar ellos mismos.</p>
+      <div class="step-item">
+        <span class="step-num">03</span>
+        <div class="step-body">
+          <h3>Pasa a la gestión de capital con RC Capital</h3>
+          <p>Si prefieres invertir sin operar, gestiono tu capital de forma activa. Es gestión lifetime: puedes retirar tu capital en cualquier momento con 48 horas de anticipación.</p>
+          <span class="step-meta">Acceso gratis · reparto 70% inversor / 30% gestor</span>
+        </div>
+        <a href="https://whop.com/mentorycap/" target="_blank" rel="noopener" class="btn btn-outline step-cta">Aplicar a RC Capital</a>
       </div>
     </div>
   </div>
@@ -614,39 +747,39 @@
     <div class="catalogo">
 
       <div class="plan">
-        <div class="plan-tag">Comunidad</div>
+        <div class="plan-tag">Paso 1 · Comunidad</div>
         <h3>Comunidad MentoryCap</h3>
         <div class="price">Gratis</div>
-        <div class="price-sub">Acceso sujeto a revisión manual</div>
+        <div class="price-sub">Mercados financieros, noticias y mindset</div>
         <ul>
-          <li>Chat con análisis e ideas de mercado</li>
-          <li>Contenido educativo constante</li>
+          <li>No es una sala de señales ni de afiliados</li>
+          <li>Contenido educativo e informativo constante</li>
           <li>Ideal si estás dando tus primeros pasos</li>
-          <li>Cupos limitados, aprobación caso por caso</li>
+          <li>Acceso sujeto a revisión manual</li>
         </ul>
         <a href="#comunidad" class="btn btn-outline">Solicitar acceso</a>
       </div>
 
       <div class="plan featured">
-        <div class="plan-tag">Formación</div>
+        <div class="plan-tag">Paso 2 · Formación</div>
         <h3>Mentorycap Private</h3>
-        <div class="price">$397 <small>/ 1 mes</small></div>
-        <div class="price-sub">También disponible: $897 / 3 meses · $1,497 / 6 meses</div>
+        <div class="price">$897 <small>/ 3 meses</small></div>
+        <div class="price-sub">También disponible: $397 / 1 mes · $1,497 / 6 meses</div>
         <ul>
-          <li>Formación completa desde cero</li>
-          <li>Análisis técnico y gestión de riesgo</li>
-          <li>Psicología operativa y disciplina</li>
-          <li>Comunidad privada de alumnos</li>
-          <li>Acompañamiento directo</li>
+          <li>Sesiones 1-1 en vivo conmigo</li>
+          <li>Curso completo grabado: MASTER TRADING</li>
+          <li>Acceso a todas las clases anteriores</li>
+          <li>Soporte directo por WhatsApp</li>
+          <li>Análisis técnico, gestión de riesgo y psicología operativa</li>
         </ul>
-        <a href="mailto:mentorycap@gmail.com?subject=Quiero%20información%20de%20Mentorycap%20Private" class="btn btn-primary">Quiero información</a>
+        <a href="https://whop.com/mentorycap/" target="_blank" rel="noopener" class="btn btn-primary">Ver planes en Whop</a>
       </div>
 
       <div class="plan">
-        <div class="plan-tag">Gestión de capital</div>
+        <div class="plan-tag">Paso 3 · Gestión de capital</div>
         <h3>RC Capital</h3>
         <div class="price">Acceso gratis</div>
-        <div class="price-sub">Cobro solo por resultados, no por gestión</div>
+        <div class="price-sub">Gestión lifetime · retiro con 48h de anticipación</div>
         <div class="split-visual">
           <div class="split-bar"><span class="inv"></span><span class="ges"></span></div>
         </div>
@@ -655,13 +788,40 @@
           <span>Gestor: 30%</span>
         </div>
         <ul>
-          <li>Para quienes no tienen tiempo de operar</li>
-          <li>Capital gestionado activamente</li>
-          <li>Ganas solo si el capital gestionado gana</li>
+          <li>Para quienes no tienen tiempo o experiencia para operar</li>
+          <li>Enfoque en preservación de capital y crecimiento sostenible</li>
+          <li>Puedes retirar tu capital en cualquier momento</li>
+          <li>Comunicación transparente sobre el desempeño</li>
         </ul>
-        <a href="mailto:mentorycap@gmail.com?subject=Quiero%20aplicar%20a%20RC%20Capital" class="btn btn-outline">Aplicar a RC Capital</a>
+        <a href="https://whop.com/mentorycap/" target="_blank" rel="noopener" class="btn btn-outline">Aplicar a RC Capital</a>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<section id="testimonios">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">5.0 · 7 RESEÑAS EN WHOP</div>
+      <h2>Lo que dicen quienes ya están dentro</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi">
+        <div class="stars">★★★★★</div>
+        <p>Cuenta que desde que empezó a tomar clases, su enfoque y sus resultados en el trading mejoraron de forma notable, destacando lo simple que se vuelven los conceptos complejos.</p>
+        <div class="who">— Christopher R.</div>
+      </div>
+      <div class="testi">
+        <div class="stars">★★★★★</div>
+        <p>Agradece haber sido introducido al mundo del trading con una guía que le ayudó a entender el mercado y desarrollar sus habilidades poco a poco.</p>
+        <div class="who">— Carlos F.</div>
+      </div>
+      <div class="testi">
+        <div class="stars">★★★★★</div>
+        <p>Describe el contenido como completo y bien estructurado, abarcando desde cripto hasta mindset y desarrollo personal.</p>
+        <div class="who">— Eugenio B.</div>
+      </div>
     </div>
   </div>
 </section>
@@ -710,9 +870,23 @@
 </section>
 
 <footer>
-  <div class="container footer-grid">
-    <div class="logo">MENTORY<span style="color:var(--gold)">CAP</span></div>
-    <p>© <span id="year"></span> MentoryCap · Contacto: <a class="mail" href="mailto:mentorycap@gmail.com">mentorycap@gmail.com</a></p>
+  <div class="container">
+    <div class="footer-top">
+      <div class="rating-badge"><b>★ 5.0</b> · 7 reseñas · 26 miembros en la comunidad</div>
+      <div class="social-links">
+        <a href="https://instagram.com/oscar.rojasc" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://tiktok.com/@mentorycap" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://x.com/oscar_rojasc_" target="_blank" rel="noopener">X</a>
+        <a href="https://www.youtube.com/@oscarrojasc" target="_blank" rel="noopener">YouTube</a>
+      </div>
+    </div>
+    <div class="footer-grid">
+      <div>
+        <div class="logo">MENTORY<span style="color:var(--gold)">CAP</span></div>
+        <p class="location">Colón, Panamá</p>
+      </div>
+      <p>© <span id="year"></span> MentoryCap · Contacto: <a class="mail" href="mailto:mentorycap@gmail.com">mentorycap@gmail.com</a></p>
+    </div>
   </div>
 </footer>
 

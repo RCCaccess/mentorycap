@@ -54,6 +54,19 @@
     display:block;
   }
   .footer-logo-img{height:28px;}
+  .logo-lockup{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .logo-lockup .logo-text{
+    font-family:var(--display);
+    font-weight:700;
+    font-size:19px;
+    letter-spacing:-0.02em;
+  }
+  .logo-lockup .logo-text span{color:var(--gold);}
+  footer .logo-lockup .logo-text{font-size:16px;}
 
     font-family:var(--mono);
     font-size:12px;
@@ -645,7 +658,10 @@
 
 <header>
   <nav>
-    <img src="images/logo.png" alt="MentoryCap" class="logo-img">
+    <div class="logo-lockup">
+      <img src="images/logo.png" alt="MentoryCap" class="logo-img">
+      <span class="logo-text">MENTORY<span>CAP</span></span>
+    </div>
     <ul class="nav-links nav-mobile-hide">
       <li><a href="#historia">Historia</a></li>
       <li><a href="#servicios">Servicios</a></li>
@@ -873,8 +889,11 @@
     </div>
     <div class="footer-grid">
       <div>
-        <img src="images/logo.png" alt="MentoryCap" class="logo-img footer-logo-img">
-        <p class="location">Colón, Panamá</p>
+        <div class="logo-lockup">
+          <img src="images/logo.png" alt="MentoryCap" class="logo-img footer-logo-img">
+          <span class="logo-text">MENTORY<span style="color:var(--gold)">CAP</span></span>
+        </div>
+        <p class="location">Panamá, Panamá</p>
       </div>
       <p>© <span id="year"></span> MentoryCap · Contacto: <span class="mail">mentorycap@gmail.com</span></p>
     </div>

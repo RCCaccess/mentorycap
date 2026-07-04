@@ -652,6 +652,115 @@
   footer .location{font-size:12.5px;color:var(--text-muted);margin-top:6px;}
 
   ::selection{background:var(--gold);color:#0B0E14;}
+
+  /* ---------- MODALES DE DETALLE ---------- */
+  .modal-overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(6,8,12,0.75);
+    backdrop-filter:blur(4px);
+    z-index:200;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+  }
+  .modal-overlay.open{display:flex;}
+  .modal-box{
+    background:var(--bg-panel);
+    border:1px solid var(--gold-dim);
+    border-radius:12px;
+    max-width:600px;
+    width:100%;
+    max-height:85vh;
+    overflow-y:auto;
+    padding:34px;
+    position:relative;
+  }
+  .modal-close{
+    position:absolute;
+    top:18px;
+    right:18px;
+    background:var(--bg-panel-2);
+    border:1px solid var(--border);
+    color:var(--text-muted);
+    width:34px;
+    height:34px;
+    border-radius:8px;
+    font-size:16px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .modal-close:hover{color:var(--gold);border-color:var(--gold-dim);}
+  .modal-eyebrow{
+    font-family:var(--mono);
+    font-size:11.5px;
+    letter-spacing:0.08em;
+    color:var(--gold);
+    text-transform:uppercase;
+    margin-bottom:10px;
+  }
+  .modal-box h2{
+    font-family:var(--display);
+    font-size:23px;
+    margin-bottom:16px;
+    padding-right:30px;
+  }
+  .modal-box p{
+    color:var(--text-muted);
+    font-size:14.5px;
+    line-height:1.65;
+    margin-bottom:16px;
+  }
+  .modal-box h4{
+    font-family:var(--mono);
+    font-size:12.5px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    color:var(--text);
+    margin:22px 0 12px;
+  }
+  .modal-box ul{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-bottom:16px;
+  }
+  .modal-box li{
+    font-size:14.5px;
+    color:var(--text-muted);
+    padding-left:22px;
+    position:relative;
+    line-height:1.5;
+  }
+  .modal-box li::before{
+    content:'—';
+    position:absolute;
+    left:0;
+    color:var(--gold-dim);
+  }
+  .modal-highlight{
+    border:1px dashed var(--gold-dim);
+    border-radius:8px;
+    padding:14px 16px;
+    font-size:14px;
+    color:var(--gold);
+    margin-bottom:16px;
+    background:rgba(212,175,55,0.06);
+  }
+  .modal-chip{
+    display:inline-block;
+    font-family:var(--mono);
+    font-size:11.5px;
+    color:var(--up);
+    border:1px solid rgba(38,166,154,0.3);
+    background:rgba(38,166,154,0.08);
+    padding:4px 10px;
+    border-radius:4px;
+    margin-bottom:18px;
+  }
+  .modal-box .btn{width:100%;justify-content:center;margin-top:6px;}
 </style>
 </head>
 <body>
@@ -763,7 +872,7 @@
         <span class="num">01</span>
         <h3>Comunidad MentoryCap</h3>
         <p>Un espacio gratuito para compartir sobre mercados financieros, noticias y mindset. Ideal si estás dando tus primeros pasos.</p>
-        <a href="#contacto" class="btn btn-outline js-contacto" data-servicio="Comunidad MentoryCap">Quiero más información</a>
+        <button class="btn btn-outline" onclick="openModal('modal-comunidad')" type="button">Leer más</button>
       </div>
       <div class="pilar">
         <div class="pilar-art">
@@ -784,7 +893,7 @@
         <span class="num">02</span>
         <h3>Mentorycap Private</h3>
         <p>Formación completa para aprender a operar desde cero, con acompañamiento personalizado y en grupo reducido.</p>
-        <a href="#contacto" class="btn btn-outline js-contacto" data-servicio="Mentorycap Private">Quiero más información</a>
+        <button class="btn btn-outline" onclick="openModal('modal-private')" type="button">Leer más</button>
       </div>
       <div class="pilar">
         <div class="pilar-art">
@@ -796,7 +905,7 @@
         <span class="num">03</span>
         <h3>RC Capital</h3>
         <p>Gestión de capital para quienes prefieren invertir sin operar ellos mismos. Te explico cómo funciona según tu caso.</p>
-        <a href="#contacto" class="btn btn-outline js-contacto" data-servicio="RC Capital">Quiero más información</a>
+        <button class="btn btn-outline" onclick="openModal('modal-rccapital')" type="button">Leer más</button>
       </div>
     </div>
   </div>
@@ -900,10 +1009,87 @@
   </div>
 </footer>
 
+<!-- ---------- MODAL: COMUNIDAD ---------- -->
+<div class="modal-overlay" id="modal-comunidad" onclick="if(event.target===this) closeModal('modal-comunidad')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-comunidad')" aria-label="Cerrar">✕</button>
+    <div class="modal-eyebrow">🌐 MentoryCap · Comunidad abierta</div>
+    <h2>Un espacio gratuito para estar al día</h2>
+    <p>Diseñado para estar en contacto y mantenernos actualizados sobre lo que sucede en los mercados financieros.</p>
+    <div class="modal-highlight">🚫 Esta no es una sala de señales de trading, ni de marketing de afiliados.</div>
+    <p>El contenido es educativo e informativo: datos, noticias e información relevante para que empieces a entender cómo funciona la economía digital, los mercados y las herramientas que deberías tener para gestionar tu economía personal y acceder a nuevas oportunidades de inversión.</p>
+    <button class="btn btn-primary js-contacto" data-servicio="Comunidad MentoryCap" onclick="closeModal('modal-comunidad')">Quiero más información</button>
+  </div>
+</div>
+
+<!-- ---------- MODAL: MENTORYCAP PRIVATE ---------- -->
+<div class="modal-overlay" id="modal-private" onclick="if(event.target===this) closeModal('modal-private')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-private')" aria-label="Cerrar">✕</button>
+    <div class="modal-eyebrow">Mentorycap Private</div>
+    <h2>Programa personalizado para aprender a invertir</h2>
+    <p>MASTER TRADING está diseñado para personas que desean aprender a operar los mercados financieros de forma independiente, con método, disciplina y criterio profesional. No necesitas grandes cantidades de dinero para comenzar, pero sí compromiso y dedicación para desarrollar esta habilidad.</p>
+    <span class="modal-chip">Disponible en planes de 1, 3 o 6 meses</span>
+    <h4>Incluye</h4>
+    <ul>
+      <li>Sesiones 1-1 en vivo con Oscar sobre análisis técnico, estrategia, psicología y gestión de riesgo.</li>
+      <li>Acceso completo al curso grabado MASTER TRADING.</li>
+      <li>Acceso a todas las grabaciones de clases anteriores, con ejemplos prácticos.</li>
+      <li>Soporte directo por WhatsApp.</li>
+    </ul>
+    <h4>Objetivo</h4>
+    <p>Ayudarte a desarrollar una base técnica sólida y una mentalidad profesional para que puedas gestionar tu propio capital en los mercados financieros. Operar puede convertirse en una nueva fuente de ingresos si aprendes a interpretar correctamente sus movimientos, gestionas adecuadamente el riesgo y mantienes la disciplina necesaria para preservar tu capital.</p>
+    <p>El verdadero desafío no está solo en la estrategia, sino en el control emocional frente a las ganancias y las pérdidas. Si quieres formar parte de un grupo de personas que busca tomar el control de sus finanzas y aprovechar las oportunidades de la economía digital, este programa es para ti. ¡Te veo dentro!</p>
+    <button class="btn btn-primary js-contacto" data-servicio="Mentorycap Private" onclick="closeModal('modal-private')">Quiero más información</button>
+  </div>
+</div>
+
+<!-- ---------- MODAL: RC CAPITAL ---------- -->
+<div class="modal-overlay" id="modal-rccapital" onclick="if(event.target===this) closeModal('modal-rccapital')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-rccapital')" aria-label="Cerrar">✕</button>
+    <div class="modal-eyebrow">RC Capital</div>
+    <h2>Te ayudo a gestionar tu capital en los mercados</h2>
+    <p>Un servicio privado de gestión de capital diseñado para personas que desean participar en los mercados financieros sin necesidad de operar por sí mismas.</p>
+    <h4>Ideal para personas que</h4>
+    <ul>
+      <li>Disponen de capital para invertir, pero no cuentan con el tiempo o la experiencia necesaria para operar los mercados.</li>
+      <li>Buscan un enfoque orientado a la preservación del capital, la consistencia y el crecimiento sostenible a largo plazo.</li>
+    </ul>
+    <h4>Transparencia y riesgo</h4>
+    <p>Toda inversión en mercados financieros implica riesgo. Los resultados pasados no garantizan resultados futuros y pueden producirse períodos de rentabilidad negativa o incluso pérdidas significativas del capital invertido.</p>
+    <h4>Modelo de participación</h4>
+    <p>Las ganancias se distribuyen bajo un esquema de reparto de beneficios: el inversor recibe el 70% y RC Capital, como gestor, el 30%. Puedes retirar en cualquier momento todo tu capital y recibirlo en menos de 48 horas.</p>
+    <h4>Nuestro compromiso</h4>
+    <ul>
+      <li>Gestión basada en criterios objetivos y disciplina operativa.</li>
+      <li>Control de riesgo adaptado a las condiciones del mercado.</li>
+      <li>Comunicación transparente y acceso a información real sobre el desempeño de la inversión.</li>
+    </ul>
+    <p>Nuestro propósito es brindar una alternativa profesional para quienes desean diversificar su patrimonio y poner a trabajar un % de su capital en los mercados financieros, sin tener que gestionar directamente la operativa.</p>
+    <button class="btn btn-primary js-contacto" data-servicio="RC Capital" onclick="closeModal('modal-rccapital')">Quiero más información</button>
+  </div>
+</div>
+
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Botones "Quiero más información" de las tarjetas de servicio:
+  // Modales de detalle de cada servicio
+  function openModal(id){
+    document.getElementById(id).classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(id){
+    document.getElementById(id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape'){
+      document.querySelectorAll('.modal-overlay.open').forEach(m => closeModal(m.id));
+    }
+  });
+
+  // Botones "Quiero más información" (dentro de los modales):
   // hacen scroll al formulario y preseleccionan el servicio.
   document.querySelectorAll('.js-contacto').forEach(btn => {
     btn.addEventListener('click', function(e){
@@ -911,7 +1097,10 @@
       const servicio = this.dataset.servicio;
       const select = document.getElementById('servicio');
       if (select && servicio) select.value = servicio;
-      document.getElementById('contacto').scrollIntoView({behavior:'smooth'});
+      document.body.style.overflow = '';
+      setTimeout(() => {
+        document.getElementById('contacto').scrollIntoView({behavior:'smooth'});
+      }, 50);
     });
   });
 

@@ -262,16 +262,33 @@
   }
   @media(max-width:860px){.pilares{grid-template-columns:1fr;}}
   .pilar{
-    background:var(--bg-panel);
+    background:linear-gradient(180deg, var(--bg-panel-2), var(--bg-panel));
     border:1px solid var(--border);
-    border-radius:8px;
-    padding:28px;
+    border-radius:12px;
+    padding:0 28px 28px;
+    overflow:hidden;
+    transition:transform .2s ease, border-color .2s ease;
+  }
+  .pilar:hover{
+    transform:translateY(-4px);
+    border-color:var(--gold-dim);
+  }
+  .pilar-art{
+    margin:0 -28px 24px;
+    height:150px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:
+      radial-gradient(circle at 50% 30%, rgba(212,175,55,0.16), transparent 65%),
+      var(--bg-panel);
+    border-bottom:1px solid var(--border);
   }
   .pilar .num{
     font-family:var(--mono);
     color:var(--gold-dim);
     font-size:13px;
-    margin-bottom:16px;
+    margin-bottom:14px;
     display:block;
   }
   .pilar h3{font-size:19px;margin-bottom:10px;}
@@ -471,7 +488,7 @@
   .hero-photo{
     position:relative;
     width:100%;
-    aspect-ratio:4/5;
+    aspect-ratio:2/3;
     display:flex;
     align-items:flex-end;
     justify-content:center;
@@ -481,11 +498,11 @@
       linear-gradient(180deg, var(--bg-panel-2), var(--bg-panel));
   }
   .hero-photo img{
-    width:92%;
-    height:auto;
-    max-width:none;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:top center;
     display:block;
-    filter:drop-shadow(0 18px 30px rgba(0,0,0,0.5));
   }
   .hero-photo-badge{
     position:absolute;
@@ -625,7 +642,6 @@
       <li><a href="#testimonios">Testimonios</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
-    <a href="#contacto" class="nav-cta">Más información</a>
   </nav>
 </header>
 
@@ -633,7 +649,7 @@
   <div class="container hero-grid">
     <div>
       <div class="eyebrow">MENTORYCAP · TRADING &amp; GESTIÓN DE CAPITAL</div>
-      <h1>Trading, comunidad y gestión de capital, para tu <em>independencia financiera</em>.</h1>
+      <h1>Dale mayor utilidad a tus ingresos y construye tu <em>independencia financiera</em>.</h1>
       <p class="lead">Soy Oscar Rojas. Ayudo a personas a aprender a operar en los mercados desde cero, y gestiono el capital de quienes prefieren invertir sin operar ellos mismos.</p>
       <div class="hero-actions">
         <a href="#historia" class="btn btn-primary">Conocer mi historia</a>
@@ -707,18 +723,50 @@
     </div>
     <div class="pilares">
       <div class="pilar">
+        <div class="pilar-art">
+          <svg width="76" height="76" viewBox="0 0 100 100" fill="none">
+            <rect x="14" y="20" width="52" height="36" rx="9" fill="#131722" stroke="#26A69A" stroke-width="2.5"/>
+            <path d="M24 56 L24 68 L37 56" fill="#131722" stroke="#26A69A" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+            <rect x="34" y="34" width="52" height="36" rx="9" fill="#1A2030" stroke="#D4AF37" stroke-width="2.5"/>
+            <path d="M76 70 L76 82 L63 70" fill="#1A2030" stroke="#D4AF37" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+            <circle cx="48" cy="52" r="2.6" fill="#D4AF37"/>
+            <circle cx="60" cy="52" r="2.6" fill="#D4AF37"/>
+            <circle cx="72" cy="52" r="2.6" fill="#D4AF37"/>
+          </svg>
+        </div>
         <span class="num">01</span>
         <h3>Comunidad MentoryCap</h3>
-        <p>Un grupo gratuito en Telegram sobre mercados financieros, noticias y mindset. Ideal si estás dando tus primeros pasos.</p>
+        <p>Un espacio gratuito para compartir sobre mercados financieros, noticias y mindset. Ideal si estás dando tus primeros pasos.</p>
         <a href="#contacto" class="btn btn-outline js-contacto" data-servicio="Comunidad MentoryCap" style="margin-top:20px;">Quiero más información</a>
       </div>
       <div class="pilar">
+        <div class="pilar-art">
+          <svg width="76" height="76" viewBox="0 0 100 100" fill="none">
+            <g opacity="0.55">
+              <rect x="14" y="52" width="7" height="20" fill="#26A69A"/>
+              <line x1="17.5" y1="46" x2="17.5" y2="78" stroke="#26A69A" stroke-width="2"/>
+              <rect x="27" y="40" width="7" height="26" fill="#8A7328"/>
+              <line x1="30.5" y1="34" x2="30.5" y2="72" stroke="#8A7328" stroke-width="2"/>
+              <rect x="40" y="58" width="7" height="14" fill="#EF5350"/>
+              <line x1="43.5" y1="52" x2="43.5" y2="78" stroke="#EF5350" stroke-width="2"/>
+            </g>
+            <path d="M32 30 L58 18 L84 30 L58 42 Z" fill="#1A2030" stroke="#D4AF37" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M42 35 V48 C42 53 49 57 58 57 C67 57 74 53 74 48 V35" stroke="#D4AF37" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <line x1="84" y1="30" x2="84" y2="46" stroke="#D4AF37" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
         <span class="num">02</span>
         <h3>Mentorycap Private</h3>
         <p>Formación completa para aprender a operar desde cero, con acompañamiento personalizado y en grupo reducido.</p>
         <a href="#contacto" class="btn btn-outline js-contacto" data-servicio="Mentorycap Private" style="margin-top:20px;">Quiero más información</a>
       </div>
       <div class="pilar">
+        <div class="pilar-art">
+          <svg width="76" height="76" viewBox="0 0 100 100" fill="none">
+            <path d="M50 14 L82 26 V50 C82 68 68 80 50 86 C32 80 18 68 18 50 V26 Z" fill="#1A2030" stroke="#D4AF37" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M36 50 L46 60 L66 38" stroke="#26A69A" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
         <span class="num">03</span>
         <h3>RC Capital</h3>
         <p>Gestión de capital para quienes prefieren invertir sin operar ellos mismos. Te explico cómo funciona según tu caso.</p>
@@ -731,7 +779,7 @@
 <section id="testimonios">
   <div class="container">
     <div class="section-head">
-      <div class="eyebrow">5.0 · 7 RESEÑAS EN WHOP</div>
+      <div class="eyebrow">5.0 · 7 RESEÑAS</div>
       <h2>Lo que dicen quienes ya están dentro</h2>
     </div>
     <div class="testi-grid">

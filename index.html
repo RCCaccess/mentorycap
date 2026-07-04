@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MentoryCap — Trading, Formación y Gestión de Capital</title>
+<meta name="description" content="MentoryCap: formación en trading, comunidad gratuita y RC Capital, gestión de capital privado con Oscar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0B0E14;
+    --bg-panel: #131722;
+    --bg-panel-2: #1A2030;
+    --border: #262B3A;
+    --text: #E8EAED;
+    --text-muted: #8B94A7;
+    --gold: #D4AF37;
+    --gold-dim: #8A7328;
+    --up: #26A69A;
+    --down: #EF5350;
+    --radius: 6px;
+    --display: 'Space Grotesk', sans-serif;
+    --body: 'Inter', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+
+  .container{
+    max-width:1120px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--gold);
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:16px;
+  }
+  .eyebrow::before{
+    content:'';
+    width:16px;height:1px;
+    background:var(--gold-dim);
+    display:inline-block;
+  }
+
+  h1,h2,h3{
+    font-family:var(--display);
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(11,14,20,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 24px;
+    max-width:1120px;
+    margin:0 auto;
+  }
+  .logo{
+    font-family:var(--display);
+    font-weight:700;
+    font-size:19px;
+    letter-spacing:-0.02em;
+  }
+  .logo span{color:var(--gold);}
+  .nav-links{
+    display:flex;
+    gap:32px;
+    font-size:14px;
+    color:var(--text-muted);
+  }
+  .nav-links a:hover{color:var(--text);}
+  .nav-cta{
+    background:var(--gold);
+    color:#0B0E14;
+    font-weight:600;
+    font-size:13px;
+    padding:10px 18px;
+    border-radius:var(--radius);
+    white-space:nowrap;
+  }
+  .nav-cta:hover{background:#e2bd4c;}
+  .nav-mobile-hide{display:flex;}
+  @media(max-width:760px){
+    .nav-mobile-hide{display:none;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:100px 0 90px;
+    overflow:hidden;
+    border-bottom:1px solid var(--border);
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:56px;
+    align-items:center;
+  }
+  @media(max-width:860px){
+    .hero-grid{grid-template-columns:1fr;}
+  }
+  .hero h1{
+    font-size:44px;
+    line-height:1.12;
+    margin-bottom:22px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--gold);
+  }
+  .hero p.lead{
+    font-size:17px;
+    color:var(--text-muted);
+    max-width:520px;
+    margin-bottom:32px;
+  }
+  .hero-actions{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-bottom:40px;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:14px 24px;
+    border-radius:var(--radius);
+    font-weight:600;
+    font-size:14px;
+    cursor:pointer;
+    border:1px solid transparent;
+    transition:transform .15s ease, background .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-primary{background:var(--gold);color:#0B0E14;}
+  .btn-primary:hover{background:#e2bd4c;}
+  .btn-outline{border-color:var(--border);color:var(--text);}
+  .btn-outline:hover{border-color:var(--gold-dim);}
+
+  .hero-stats{
+    display:flex;
+    gap:32px;
+    font-family:var(--mono);
+  }
+  .hero-stat b{
+    display:block;
+    font-size:22px;
+    color:var(--text);
+  }
+  .hero-stat span{
+    font-size:12px;
+    color:var(--text-muted);
+  }
+  .up{color:var(--up);}
+  .down{color:var(--down);}
+
+  /* chart visual */
+  .chart-panel{
+    background:var(--bg-panel);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:20px;
+  }
+  .chart-panel-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--text-muted);
+    margin-bottom:14px;
+  }
+  .chart-panel-head b{color:var(--text);}
+  svg.candles rect.candle-up{fill:var(--up);}
+  svg.candles rect.candle-down{fill:var(--down);}
+  svg.candles line{stroke-width:1.5;}
+  svg.candles line.wick-up{stroke:var(--up);}
+  svg.candles line.wick-down{stroke:var(--down);}
+
+  /* ---------- SECTION GENERIC ---------- */
+  section{padding:88px 0;}
+  .section-head{
+    max-width:640px;
+    margin-bottom:56px;
+  }
+  .section-head h2{font-size:32px;}
+  .section-head p{color:var(--text-muted);margin-top:14px;font-size:15.5px;}
+
+  /* ---------- HISTORIA / TIMELINE ---------- */
+  #historia{border-bottom:1px solid var(--border);background:linear-gradient(180deg, transparent, rgba(212,175,55,0.02));}
+  .timeline{
+    position:relative;
+    border-left:1px solid var(--border);
+    padding-left:36px;
+    display:flex;
+    flex-direction:column;
+    gap:44px;
+  }
+  .t-item{position:relative;}
+  .t-item::before{
+    content:'';
+    position:absolute;
+    left:-42px;
+    top:4px;
+    width:11px;height:11px;
+    border-radius:50%;
+    background:var(--bg);
+    border:2px solid var(--gold);
+  }
+  .t-date{
+    font-family:var(--mono);
+    font-size:12.5px;
+    color:var(--gold);
+    letter-spacing:0.06em;
+    margin-bottom:6px;
+    display:block;
+  }
+  .t-item h3{font-size:19px;margin-bottom:8px;font-weight:600;}
+  .t-item p{color:var(--text-muted);font-size:15px;max-width:620px;}
+
+  /* ---------- PILARES ---------- */
+  #hoy{border-bottom:1px solid var(--border);}
+  .pilares{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+  }
+  @media(max-width:860px){.pilares{grid-template-columns:1fr;}}
+  .pilar{
+    background:var(--bg-panel);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:28px;
+  }
+  .pilar .num{
+    font-family:var(--mono);
+    color:var(--gold-dim);
+    font-size:13px;
+    margin-bottom:16px;
+    display:block;
+  }
+  .pilar h3{font-size:19px;margin-bottom:10px;}
+  .pilar p{color:var(--text-muted);font-size:14.5px;}
+
+  /* ---------- CATALOGO ---------- */
+  .catalogo{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+    align-items:stretch;
+  }
+  @media(max-width:900px){.catalogo{grid-template-columns:1fr;}}
+  .plan{
+    background:var(--bg-panel);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:30px;
+    display:flex;
+    flex-direction:column;
+  }
+  .plan.featured{
+    border-color:var(--gold-dim);
+    background:linear-gradient(180deg, var(--bg-panel-2), var(--bg-panel));
+    position:relative;
+  }
+  .plan.featured::before{
+    content:'RECOMENDADO';
+    position:absolute;
+    top:-11px;
+    left:30px;
+    background:var(--gold);
+    color:#0B0E14;
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:0.08em;
+    padding:4px 10px;
+    border-radius:4px;
+    font-weight:600;
+  }
+  .plan-tag{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--text-muted);
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    margin-bottom:10px;
+  }
+  .plan h3{font-size:21px;margin-bottom:6px;}
+  .plan .price{
+    font-family:var(--mono);
+    font-size:28px;
+    margin:14px 0 4px;
+  }
+  .plan .price small{
+    font-size:13px;
+    color:var(--text-muted);
+    font-weight:400;
+  }
+  .plan .price-sub{
+    font-size:13px;
+    color:var(--text-muted);
+    margin-bottom:20px;
+  }
+  .plan ul{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-bottom:26px;
+    flex-grow:1;
+  }
+  .plan li{
+    font-size:14px;
+    color:var(--text-muted);
+    padding-left:20px;
+    position:relative;
+  }
+  .plan li::before{
+    content:'—';
+    position:absolute;
+    left:0;
+    color:var(--gold-dim);
+  }
+  .plan .btn{width:100%;justify-content:center;}
+
+  .split-visual{
+    font-family:var(--mono);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin:14px 0 18px;
+  }
+  .split-bar{
+    flex-grow:1;
+    height:8px;
+    border-radius:4px;
+    background:var(--border);
+    overflow:hidden;
+    display:flex;
+  }
+  .split-bar span{display:block;height:100%;}
+  .split-bar .inv{background:var(--up);width:70%;}
+  .split-bar .ges{background:var(--gold-dim);width:30%;}
+  .split-legend{
+    display:flex;
+    justify-content:space-between;
+    font-size:12px;
+    color:var(--text-muted);
+    margin-bottom:20px;
+  }
+
+  /* ---------- FORM ---------- */
+  #comunidad{
+    border-bottom:1px solid var(--border);
+    background:var(--bg-panel);
+  }
+  .form-wrap{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:56px;
+    align-items:start;
+  }
+  @media(max-width:860px){.form-wrap{grid-template-columns:1fr;}}
+  .form-side h2{font-size:30px;margin-bottom:16px;}
+  .form-side p{color:var(--text-muted);font-size:15px;margin-bottom:14px;}
+  .form-note{
+    font-family:var(--mono);
+    font-size:12.5px;
+    color:var(--gold);
+    border:1px dashed var(--gold-dim);
+    border-radius:6px;
+    padding:14px 16px;
+    margin-top:20px;
+  }
+  form{
+    background:var(--bg);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:32px;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+  }
+  .field label{
+    display:block;
+    font-size:13px;
+    color:var(--text-muted);
+    margin-bottom:8px;
+    font-family:var(--mono);
+  }
+  .field input, .field select, .field textarea{
+    width:100%;
+    background:var(--bg-panel);
+    border:1px solid var(--border);
+    color:var(--text);
+    padding:12px 14px;
+    border-radius:6px;
+    font-size:14.5px;
+    font-family:var(--body);
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{
+    outline:none;
+    border-color:var(--gold-dim);
+  }
+  .field textarea{resize:vertical;min-height:80px;}
+  form button{
+    margin-top:6px;
+  }
+  #form-msg{
+    font-size:14px;
+    font-family:var(--mono);
+    display:none;
+    padding:12px 14px;
+    border-radius:6px;
+  }
+  #form-msg.ok{display:block;background:rgba(38,166,154,0.12);color:var(--up);border:1px solid rgba(38,166,154,0.3);}
+  #form-msg.err{display:block;background:rgba(239,83,80,0.12);color:var(--down);border:1px solid rgba(239,83,80,0.3);}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:48px 0;}
+  .footer-grid{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:20px;
+  }
+  footer .logo{font-size:16px;}
+  footer p{color:var(--text-muted);font-size:13px;}
+  footer a.mail{color:var(--gold);}
+
+  ::selection{background:var(--gold);color:#0B0E14;}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">MENTORY<span>CAP</span></div>
+    <ul class="nav-links nav-mobile-hide">
+      <li><a href="#historia">Historia</a></li>
+      <li><a href="#hoy">Qué hago hoy</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+    </ul>
+    <a href="#comunidad" class="nav-cta">Unirme a la comunidad</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">MENTORYCAP · TRADING &amp; GESTIÓN DE CAPITAL</div>
+      <h1>De perder cuentas de fondeo a <em>gestionar capital</em> de otros.</h1>
+      <p class="lead">Soy Oscar. Ayudo a personas a aprender a operar en los mercados desde cero, y gestiono el capital de quienes prefieren invertir sin operar ellos mismos.</p>
+      <div class="hero-actions">
+        <a href="#comunidad" class="btn btn-primary">Unirme a la comunidad gratis</a>
+        <a href="#servicios" class="btn btn-outline">Ver todos los servicios</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <b>2021</b>
+          <span>Inicio en trading</span>
+        </div>
+        <div class="hero-stat">
+          <b class="up">20+</b>
+          <span>Estudiantes formados</span>
+        </div>
+        <div class="hero-stat">
+          <b>70/30</b>
+          <span>Split en RC Capital</span>
+        </div>
+      </div>
+    </div>
+    <div class="chart-panel">
+      <div class="chart-panel-head">
+        <span>MENTORYCAP:PROCESO</span>
+        <b>CONSTANCIA &gt; SUERTE</b>
+      </div>
+      <svg class="candles" viewBox="0 0 320 160" width="100%" height="160">
+        <!-- eje base -->
+        <line x1="0" y1="140" x2="320" y2="140" stroke="#262B3A" stroke-width="1"/>
+        <!-- velas: mecha + cuerpo, alternando subida/bajada, tendencia ascendente -->
+        <g>
+          <line class="wick-down" x1="16" y1="70" x2="16" y2="110"/>
+          <rect class="candle-down" x="10" y="80" width="12" height="22"/>
+          <line class="wick-up" x1="40" y1="60" x2="40" y2="100"/>
+          <rect class="candle-up" x="34" y="70" width="12" height="20"/>
+          <line class="wick-down" x1="64" y1="75" x2="64" y2="115"/>
+          <rect class="candle-down" x="58" y="82" width="12" height="24"/>
+          <line class="wick-up" x1="88" y1="55" x2="88" y2="95"/>
+          <rect class="candle-up" x="82" y="60" width="12" height="26"/>
+          <line class="wick-up" x1="112" y1="45" x2="112" y2="85"/>
+          <rect class="candle-up" x="106" y="52" width="12" height="24"/>
+          <line class="wick-down" x1="136" y1="50" x2="136" y2="90"/>
+          <rect class="candle-down" x="130" y="58" width="12" height="20"/>
+          <line class="wick-up" x1="160" y1="35" x2="160" y2="75"/>
+          <rect class="candle-up" x="154" y="42" width="12" height="24"/>
+          <line class="wick-up" x1="184" y1="28" x2="184" y2="65"/>
+          <rect class="candle-up" x="178" y="34" width="12" height="22"/>
+          <line class="wick-down" x1="208" y1="32" x2="208" y2="68"/>
+          <rect class="candle-down" x="202" y="38" width="12" height="18"/>
+          <line class="wick-up" x1="232" y1="18" x2="232" y2="55"/>
+          <rect class="candle-up" x="226" y="24" width="12" height="24"/>
+          <line class="wick-up" x1="256" y1="10" x2="256" y2="45"/>
+          <rect class="candle-up" x="250" y="16" width="12" height="22"/>
+          <line class="wick-down" x1="280" y1="14" x2="280" y2="48"/>
+          <rect class="candle-down" x="274" y="20" width="12" height="16"/>
+          <line class="wick-up" x1="304" y1="4" x2="304" y2="35"/>
+          <rect class="candle-up" x="298" y="8" width="12" height="20"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section id="historia">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">MI HISTORIA</div>
+      <h2>No fue lineal. Fue constancia.</h2>
+    </div>
+    <div class="timeline">
+      <div class="t-item">
+        <span class="t-date">2021</span>
+        <h3>Buscando una fuente de ingreso adicional</h3>
+        <p>Entré al trading buscando algo que ya había probado en otros negocios y no encontraba: libertad de tiempo, de lugar y la posibilidad de ser independiente.</p>
+      </div>
+      <div class="t-item">
+        <span class="t-date">2021 – 2023</span>
+        <h3>Mentorías, academias y cuentas perdidas</h3>
+        <p>Invertí bastante dinero en aprender con distintos mentores: cómo leer gráficos, cómo operar, cómo usar criptomonedas. Hacía buenas operaciones, pero terminaba perdiendo cuentas reales y de fondeo una y otra vez.</p>
+      </div>
+      <div class="t-item">
+        <span class="t-date">El punto de quiebre</span>
+        <h3>No es cuánto haces, es cuánto te mantienes</h3>
+        <p>Con el tiempo entendí que el problema nunca fue mi análisis, sino la gestión y la constancia. Empecé de nuevo con cuentas pequeñas y, poco a poco, los resultados reales empezaron a llegar.</p>
+      </div>
+      <div class="t-item">
+        <span class="t-date">Hoy</span>
+        <h3>MentoryCap y RC Capital</h3>
+        <p>Creé MentoryCap para enseñar ese proceso completo desde cero. Hoy más de 20 estudiantes gestionan su propio capital en los mercados, y desarrollé RC Capital para quienes prefieren que su dinero sea gestionado por alguien más.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="hoy">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">QUÉ HAGO HOY</div>
+      <h2>Tres formas de trabajar conmigo</h2>
+      <p>Sin importar si quieres aprender a operar tú mismo, sumarte a una comunidad para crecer con otros, o simplemente invertir tu capital sin operar, hay un camino pensado para eso.</p>
+    </div>
+    <div class="pilares">
+      <div class="pilar">
+        <span class="num">01</span>
+        <h3>Formación — Mentorycap Private</h3>
+        <p>Te enseño el proceso completo desde cero: análisis, gestión de riesgo y la psicología operativa que realmente sostiene los resultados en el tiempo.</p>
+      </div>
+      <div class="pilar">
+        <span class="num">02</span>
+        <h3>Comunidad gratuita</h3>
+        <p>Un chat abierto donde comparto análisis y contenido educativo con quienes están dando sus primeros pasos. El acceso se revisa manualmente.</p>
+      </div>
+      <div class="pilar">
+        <span class="num">03</span>
+        <h3>RC Capital</h3>
+        <p>Gestión de capital privado para quienes no tienen el tiempo de aprender a operar, o simplemente prefieren invertir su dinero sin operar ellos mismos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="servicios">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">CATÁLOGO DE SERVICIOS</div>
+      <h2>Elige cómo quieres avanzar</h2>
+    </div>
+    <div class="catalogo">
+
+      <div class="plan">
+        <div class="plan-tag">Comunidad</div>
+        <h3>Comunidad MentoryCap</h3>
+        <div class="price">Gratis</div>
+        <div class="price-sub">Acceso sujeto a revisión manual</div>
+        <ul>
+          <li>Chat con análisis e ideas de mercado</li>
+          <li>Contenido educativo constante</li>
+          <li>Ideal si estás dando tus primeros pasos</li>
+          <li>Cupos limitados, aprobación caso por caso</li>
+        </ul>
+        <a href="#comunidad" class="btn btn-outline">Solicitar acceso</a>
+      </div>
+
+      <div class="plan featured">
+        <div class="plan-tag">Formación</div>
+        <h3>Mentorycap Private</h3>
+        <div class="price">$397 <small>/ 1 mes</small></div>
+        <div class="price-sub">También disponible: $897 / 3 meses · $1,497 / 6 meses</div>
+        <ul>
+          <li>Formación completa desde cero</li>
+          <li>Análisis técnico y gestión de riesgo</li>
+          <li>Psicología operativa y disciplina</li>
+          <li>Comunidad privada de alumnos</li>
+          <li>Acompañamiento directo</li>
+        </ul>
+        <a href="mailto:mentorycap@gmail.com?subject=Quiero%20información%20de%20Mentorycap%20Private" class="btn btn-primary">Quiero información</a>
+      </div>
+
+      <div class="plan">
+        <div class="plan-tag">Gestión de capital</div>
+        <h3>RC Capital</h3>
+        <div class="price">Acceso gratis</div>
+        <div class="price-sub">Cobro solo por resultados, no por gestión</div>
+        <div class="split-visual">
+          <div class="split-bar"><span class="inv"></span><span class="ges"></span></div>
+        </div>
+        <div class="split-legend">
+          <span>Inversor: 70%</span>
+          <span>Gestor: 30%</span>
+        </div>
+        <ul>
+          <li>Para quienes no tienen tiempo de operar</li>
+          <li>Capital gestionado activamente</li>
+          <li>Ganas solo si el capital gestionado gana</li>
+        </ul>
+        <a href="mailto:mentorycap@gmail.com?subject=Quiero%20aplicar%20a%20RC%20Capital" class="btn btn-outline">Aplicar a RC Capital</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="comunidad">
+  <div class="container form-wrap">
+    <div class="form-side">
+      <div class="eyebrow">ACCESO A LA COMUNIDAD</div>
+      <h2>Solicita tu acceso</h2>
+      <p>Es gratuita, pero reviso cada solicitud a mano antes de dar acceso. Déjame tu nombre y correo, y en cuanto la revise te escribo para confirmarte o para pedirte algún dato adicional.</p>
+      <div class="form-note">
+        Al enviar este formulario me llega una notificación por correo. Yo apruebo o rechazo el acceso manualmente y te respondo al email que dejes aquí.
+      </div>
+    </div>
+    <form id="access-form">
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+      <input type="hidden" name="access_key" value="TU_ACCESS_KEY_DE_WEB3FORMS_AQUI">
+      <input type="hidden" name="subject" value="Nueva solicitud de acceso — Comunidad MentoryCap">
+      <input type="hidden" name="from_name" value="Web MentoryCap">
+
+      <div class="field">
+        <label for="nombre">Nombre completo</label>
+        <input type="text" id="nombre" name="Nombre" required placeholder="Tu nombre">
+      </div>
+      <div class="field">
+        <label for="correo">Correo electrónico</label>
+        <input type="email" id="correo" name="Correo" required placeholder="tucorreo@email.com">
+      </div>
+      <div class="field">
+        <label for="experiencia">Experiencia en trading</label>
+        <select id="experiencia" name="Experiencia">
+          <option value="Ninguna">Ninguna todavía</option>
+          <option value="Principiante">Principiante</option>
+          <option value="Intermedio">Intermedio</option>
+          <option value="Avanzado">Avanzado</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="mensaje">Cuéntame brevemente qué buscas (opcional)</label>
+        <textarea id="mensaje" name="Mensaje" placeholder="Ej: quiero aprender a operar desde cero..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" id="submit-btn">Enviar solicitud</button>
+      <div id="form-msg"></div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-grid">
+    <div class="logo">MENTORY<span style="color:var(--gold)">CAP</span></div>
+    <p>© <span id="year"></span> MentoryCap · Contacto: <a class="mail" href="mailto:mentorycap@gmail.com">mentorycap@gmail.com</a></p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const form = document.getElementById('access-form');
+  const msg = document.getElementById('form-msg');
+  const btn = document.getElementById('submit-btn');
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+    msg.className = '';
+    msg.style.display = 'none';
+
+    const formData = new FormData(form);
+
+    try{
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: formData
+      });
+      const result = await response.json();
+
+      if (result.success) {
+        msg.textContent = 'Solicitud enviada. Voy a revisarla y te contacto a tu correo para confirmarte el acceso.';
+        msg.className = 'ok';
+        form.reset();
+      } else {
+        msg.textContent = 'No se pudo enviar la solicitud. Intenta de nuevo o escríbeme directo a mentorycap@gmail.com.';
+        msg.className = 'err';
+      }
+    } catch (err) {
+      msg.textContent = 'Hubo un error de conexión. Escríbeme directo a mentorycap@gmail.com.';
+      msg.className = 'err';
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Enviar solicitud';
+    }
+  });
+</script>
+
+</body>
+</html>

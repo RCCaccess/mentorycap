@@ -471,7 +471,7 @@
   .hero-photo{
     position:relative;
     width:100%;
-    aspect-ratio:4/3;
+    aspect-ratio:4/5;
     display:flex;
     align-items:flex-end;
     justify-content:center;
@@ -481,10 +481,10 @@
       linear-gradient(180deg, var(--bg-panel-2), var(--bg-panel));
   }
   .hero-photo img{
-    height:112%;
-    width:auto;
+    width:92%;
+    height:auto;
     max-width:none;
-    object-fit:contain;
+    display:block;
     filter:drop-shadow(0 18px 30px rgba(0,0,0,0.5));
   }
   .hero-photo-badge{
@@ -601,7 +601,7 @@
     display:flex;
     gap:10px;
   }
-  .social-links a{
+  .social-links span{
     font-family:var(--mono);
     font-size:12px;
     border:1px solid var(--border);
@@ -609,7 +609,6 @@
     padding:7px 12px;
     color:var(--text-muted);
   }
-  .social-links a:hover{border-color:var(--gold-dim);color:var(--gold);}
   footer .location{font-size:12.5px;color:var(--text-muted);margin-top:6px;}
 
   ::selection{background:var(--gold);color:#0B0E14;}
@@ -677,23 +676,23 @@
     <div class="timeline">
       <div class="t-item">
         <span class="t-date">2021</span>
-        <h3>Buscando una fuente de ingreso adicional</h3>
-        <p>Entré al trading buscando algo que ya había probado en otros negocios y no encontraba: libertad de tiempo, de lugar y la posibilidad de ser independiente.</p>
+        <h3>Buscando algo distinto</h3>
+        <p>Todo empezó porque quería un ingreso extra. Ya había pasado por varios negocios y ninguno me daba lo que en el fondo buscaba: manejar mi propio tiempo, no depender de un lugar fijo para trabajar. El trading apareció como esa posibilidad, casi de casualidad.</p>
       </div>
       <div class="t-item">
         <span class="t-date">2021 – 2023</span>
-        <h3>Mentorías, academias y cuentas perdidas</h3>
-        <p>Invertí bastante dinero en aprender con distintos mentores: cómo leer gráficos, cómo operar, cómo usar criptomonedas. Hacía buenas operaciones, pero terminaba perdiendo cuentas reales y de fondeo una y otra vez.</p>
+        <h3>El precio de aprender</h3>
+        <p>Me metí de lleno: mentorías, academias, cursos con distintos traders. Aprendí a leer gráficos, a operar, a moverme en criptomonedas. Y lo curioso es que hacía buenas operaciones — el problema nunca fue el análisis — pero terminaba perdiendo cuentas reales y de fondeo una y otra vez. Fue una etapa cara, en dinero y en frustración.</p>
       </div>
       <div class="t-item">
         <span class="t-date">El punto de quiebre</span>
-        <h3>No es cuánto haces, es cuánto te mantienes</h3>
-        <p>Con el tiempo entendí que el problema nunca fue mi análisis, sino la gestión y la constancia. Empecé de nuevo con cuentas pequeñas y, poco a poco, los resultados reales empezaron a llegar.</p>
+        <h3>Entender lo que de verdad importaba</h3>
+        <p>Con el tiempo até cabos: no se trataba de acertar la operación perfecta, sino de aguantar en el juego el tiempo suficiente para que la constancia hiciera su trabajo. Volví a empezar, esta vez con cuentas pequeñas y bastante más paciencia. Los resultados no llegaron de un día para otro, pero llegaron.</p>
       </div>
       <div class="t-item">
         <span class="t-date">Hoy</span>
         <h3>MentoryCap y RC Capital</h3>
-        <p>Creé MentoryCap para enseñar ese proceso completo desde cero. Hoy más de 20 estudiantes gestionan su propio capital en los mercados, y desarrollé RC Capital para quienes prefieren que su dinero sea gestionado por alguien más.</p>
+        <p>Hoy enseño ese mismo proceso, tropiezos incluidos, a quien quiera aprender a operar desde cero. Ya son más de 20 estudiantes gestionando su propio capital en los mercados. Y para quienes prefieren no operar directamente, armé RC Capital, donde gestiono su dinero yo mismo.</p>
       </div>
     </div>
   </div>
@@ -711,7 +710,7 @@
         <span class="num">01</span>
         <h3>Comunidad MentoryCap</h3>
         <p>Un grupo gratuito en Telegram sobre mercados financieros, noticias y mindset. Ideal si estás dando tus primeros pasos.</p>
-        <a href="https://t.me/+HmKqWoknwitkNTNh" target="_blank" rel="noopener" class="btn btn-outline" style="margin-top:20px;">Unirme en Telegram</a>
+        <a href="#contacto" class="btn btn-outline js-contacto" data-servicio="Comunidad MentoryCap" style="margin-top:20px;">Quiero más información</a>
       </div>
       <div class="pilar">
         <span class="num">02</span>
@@ -760,9 +759,9 @@
     <div class="form-side">
       <div class="eyebrow">CONTACTO</div>
       <h2>¿Quieres más información?</h2>
-      <p>Cuéntame qué te interesa y con qué te puedo ayudar. Reviso cada mensaje personalmente y te contacto con los detalles: precios, cupos y cómo seguir.</p>
+      <p>Cuéntame qué te interesa y con qué te puedo ayudar. Reviso cada mensaje personalmente y te contacto directo por WhatsApp con los detalles: precios, cupos y cómo seguir.</p>
       <div class="form-note">
-        La Comunidad y RC Capital son gratuitas pero requieren mi aprobación. Mentorycap Private es un cupo limitado. En cualquier caso, te respondo directo a tu correo.
+        La Comunidad y RC Capital son gratuitas pero requieren mi aprobación. Mentorycap Private es un cupo limitado. Te voy a escribir directo a tu WhatsApp.
       </div>
     </div>
     <form id="contact-form">
@@ -778,6 +777,10 @@
       <div class="field">
         <label for="correo">Correo electrónico</label>
         <input type="email" id="correo" name="Correo" required placeholder="tucorreo@email.com">
+      </div>
+      <div class="field">
+        <label for="whatsapp">Número de WhatsApp</label>
+        <input type="tel" id="whatsapp" name="WhatsApp" required placeholder="+507 6000 0000">
       </div>
       <div class="field">
         <label for="servicio">¿Qué te interesa?</label>
@@ -804,10 +807,10 @@
     <div class="footer-top">
       <div class="rating-badge"><b>★ 5.0</b> · 7 reseñas · 26 miembros en la comunidad</div>
       <div class="social-links">
-        <a href="https://instagram.com/oscar.rojasc" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://tiktok.com/@mentorycap" target="_blank" rel="noopener">TikTok</a>
-        <a href="https://x.com/oscar_rojasc_" target="_blank" rel="noopener">X</a>
-        <a href="https://www.youtube.com/@oscarrojasc" target="_blank" rel="noopener">YouTube</a>
+        <span>Instagram</span>
+        <span>TikTok</span>
+        <span>X</span>
+        <span>YouTube</span>
       </div>
     </div>
     <div class="footer-grid">
@@ -815,7 +818,7 @@
         <div class="logo">MENTORY<span style="color:var(--gold)">CAP</span></div>
         <p class="location">Colón, Panamá</p>
       </div>
-      <p>© <span id="year"></span> MentoryCap · Contacto: <a class="mail" href="mailto:mentorycap@gmail.com">mentorycap@gmail.com</a></p>
+      <p>© <span id="year"></span> MentoryCap · Contacto: <span class="mail">mentorycap@gmail.com</span></p>
     </div>
   </div>
 </footer>

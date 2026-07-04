@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MentoryCap — Trading, Formación y Gestión de Capital</title>
 <meta name="description" content="MentoryCap: formación en trading, comunidad gratuita y RC Capital, gestión de capital privado con Oscar.">
+<link rel="icon" type="image/png" href="images/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -47,7 +48,13 @@
     padding:0 24px;
   }
 
-  .eyebrow{
+  .logo-img{
+    height:32px;
+    width:auto;
+    display:block;
+  }
+  .footer-logo-img{height:28px;}
+
     font-family:var(--mono);
     font-size:12px;
     letter-spacing:0.12em;
@@ -268,7 +275,10 @@
     padding:0 28px 28px;
     overflow:hidden;
     transition:transform .2s ease, border-color .2s ease;
+    display:flex;
+    flex-direction:column;
   }
+  .pilar > .btn{margin-top:auto;align-self:flex-start;}
   .pilar:hover{
     transform:translateY(-4px);
     border-color:var(--gold-dim);
@@ -635,7 +645,7 @@
 
 <header>
   <nav>
-    <div class="logo">MENTORY<span>CAP</span></div>
+    <img src="images/logo.png" alt="MentoryCap" class="logo-img">
     <ul class="nav-links nav-mobile-hide">
       <li><a href="#historia">Historia</a></li>
       <li><a href="#servicios">Servicios</a></li>
@@ -737,7 +747,7 @@
         <span class="num">01</span>
         <h3>Comunidad MentoryCap</h3>
         <p>Un espacio gratuito para compartir sobre mercados financieros, noticias y mindset. Ideal si estás dando tus primeros pasos.</p>
-        <a href="#contacto" class="btn btn-outline js-contacto" data-servicio="Comunidad MentoryCap" style="margin-top:20px;">Quiero más información</a>
+        <a href="#contacto" class="btn btn-outline js-contacto" data-servicio="Comunidad MentoryCap">Quiero más información</a>
       </div>
       <div class="pilar">
         <div class="pilar-art">
@@ -758,7 +768,7 @@
         <span class="num">02</span>
         <h3>Mentorycap Private</h3>
         <p>Formación completa para aprender a operar desde cero, con acompañamiento personalizado y en grupo reducido.</p>
-        <a href="#contacto" class="btn btn-outline js-contacto" data-servicio="Mentorycap Private" style="margin-top:20px;">Quiero más información</a>
+        <a href="#contacto" class="btn btn-outline js-contacto" data-servicio="Mentorycap Private">Quiero más información</a>
       </div>
       <div class="pilar">
         <div class="pilar-art">
@@ -770,7 +780,7 @@
         <span class="num">03</span>
         <h3>RC Capital</h3>
         <p>Gestión de capital para quienes prefieren invertir sin operar ellos mismos. Te explico cómo funciona según tu caso.</p>
-        <a href="#contacto" class="btn btn-outline js-contacto" data-servicio="RC Capital" style="margin-top:20px;">Quiero más información</a>
+        <a href="#contacto" class="btn btn-outline js-contacto" data-servicio="RC Capital">Quiero más información</a>
       </div>
     </div>
   </div>
@@ -863,7 +873,7 @@
     </div>
     <div class="footer-grid">
       <div>
-        <div class="logo">MENTORY<span style="color:var(--gold)">CAP</span></div>
+        <img src="images/logo.png" alt="MentoryCap" class="logo-img footer-logo-img">
         <p class="location">Colón, Panamá</p>
       </div>
       <p>© <span id="year"></span> MentoryCap · Contacto: <span class="mail">mentorycap@gmail.com</span></p>

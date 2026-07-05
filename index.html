@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MentoryCap — Trading, Formación y Gestión de Capital</title>
-<meta name="description" content="MentoryCap: Academy para aprender trading, Community gratuita y Partners para gestión de capital privado, con Oscar Rojas.">
+<meta name="description" content="MentoryCap: Academy para aprender trading, Community por membresía mensual y Partners para gestión de capital privado, con Oscar Rojas.">
 <link rel="icon" type="image/png" href="images/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -943,7 +943,7 @@
         </div>
         <span class="num">01</span>
         <h3>Mentorycap Community</h3>
-        <p>Un espacio gratuito para compartir sobre mercados financieros, noticias y mindset. Ideal si estás dando tus primeros pasos.</p>
+        <p>Una membresía para quienes desean mantenerse conectados con los mercados y fortalecer su criterio financiero.</p>
         <button class="btn btn-outline" onclick="openModal('modal-comunidad')" type="button">Leer más</button>
       </div>
       <div class="pilar">
@@ -1016,7 +1016,7 @@
       <h2>¿Quieres más información?</h2>
       <p>Cuéntame qué te interesa y con qué te puedo ayudar. Reviso cada mensaje personalmente y te contacto directo por WhatsApp con los detalles: precios, cupos y cómo seguir.</p>
       <div class="form-note">
-        <strong style="color:var(--text);">MentoryCap Community</strong> es de acceso gratuito. Solo debes completar tus datos, darle Enviar y te escribiré para validar tu ingreso.<br><br>
+        <strong style="color:var(--text);">MentoryCap Community</strong> es una membresía mensual. Completa tus datos, dale Enviar y te escribiré con los detalles de precio y acceso.<br><br>
         <strong style="color:var(--text);">MentoryCap Academy</strong> ofrece admisión limitada, ya que trabajo personalmente con cada participante. Para acceder, debes completar tus datos y agendar una llamada donde evaluaremos tus objetivos y si el programa es el adecuado para ti.<br><br>
         <strong style="color:var(--text);">MentoryCap Partners</strong> es mi círculo más exclusivo, diseñado para un grupo muy reducido de socios estratégicos. El acceso está sujeto a un proceso de evaluación y aprobación.
       </div>
@@ -1043,7 +1043,7 @@
         <label for="servicio">¿Qué te interesa?</label>
         <select id="servicio" name="Servicio de interés" required>
           <option value="">Selecciona una opción</option>
-          <option value="Mentorycap Community">Mentorycap Community (gratis)</option>
+          <option value="Mentorycap Community">Mentorycap Community (membresía mensual)</option>
           <option value="Mentorycap Academy">Mentorycap Academy (formación)</option>
           <option value="Mentorycap Partners - RC Capital">Mentorycap Partners · RC Capital (inversionista)</option>
           <option value="Mentorycap Partners - Business Partners">Mentorycap Partners · Business Partners (socio de negocios)</option>
@@ -1088,10 +1088,15 @@
 <div class="modal-overlay" id="modal-comunidad" onclick="if(event.target===this) closeModal('modal-comunidad')">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('modal-comunidad')" aria-label="Cerrar">✕</button>
-    <div class="modal-eyebrow">🌐 Mentorycap Community · Comunidad abierta</div>
-    <h2>Un espacio gratuito para estar al día</h2>
-    <p>Diseñado para estar en contacto y mantenernos actualizados sobre lo que sucede en los mercados financieros.</p>
-    <p>El contenido es educativo e informativo: datos, noticias e información relevante para que empieces a entender cómo funciona la economía digital, los mercados y las herramientas que deberías tener para gestionar tu economía personal y acceder a nuevas oportunidades de inversión.</p>
+    <div class="modal-eyebrow">📈 MentoryCap Community</div>
+    <h2>Una membresía para mantenerte conectado con los mercados</h2>
+    <p>MentoryCap Community es un espacio abierto para cualquier persona interesada en aprender más sobre los mercados financieros y formar parte de una comunidad con una visión de crecimiento a largo plazo.</p>
+    <p>Aquí compartimos conocimientos, ideas, herramientas, noticias relevantes, recursos educativos y conversaciones sobre Forex, criptomonedas, inversión, economía y educación financiera. También encontrarás sesiones de preguntas y respuestas, reflexiones y contenido pensado para ayudarte a comprender mejor el funcionamiento de los mercados y desarrollar una base sólida para tomar mejores decisiones.</p>
+    <div class="modal-highlight">
+      <strong style="color:var(--gold);">Esto no es una sala de señales</strong>
+      <p style="margin:10px 0 0;color:var(--text-muted);font-size:14px;">Esta membresía no es un servicio de señales, alertas de compra o venta, ni trading en vivo. El propósito de MentoryCap Community es fomentar el aprendizaje y el desarrollo de criterio propio, no la dependencia de las decisiones u operaciones de otra persona.</p>
+    </div>
+    <p>Tanto si estás comenzando como si ya tienes experiencia, encontrarás un entorno donde podrás aprender, participar y mantenerte conectado con personas que comparten el interés por el crecimiento financiero.</p>
     <button class="btn btn-primary js-contacto" data-servicio="Mentorycap Community" onclick="closeModal('modal-comunidad')">Quiero más información</button>
   </div>
 </div>

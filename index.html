@@ -278,6 +278,77 @@
   .t-item h3{font-size:19px;margin-bottom:8px;font-weight:600;}
   .t-item p{color:var(--text-muted);font-size:15px;max-width:620px;}
 
+  /* ---------- HISTORIA: cita grande, highlights, chips ---------- */
+  .story-lead{
+    font-family:var(--display);
+    font-size:24px;
+    font-weight:600;
+    line-height:1.45;
+    color:var(--text);
+    max-width:680px;
+    margin-bottom:56px;
+    padding-left:22px;
+    border-left:3px solid var(--gold);
+  }
+  .story-lead span{color:var(--gold);}
+  .story-highlight{
+    border:1px dashed var(--gold-dim);
+    border-radius:10px;
+    padding:22px 26px;
+    background:rgba(212,175,55,0.06);
+    margin:8px 0 40px;
+    max-width:680px;
+  }
+  .story-highlight p{
+    color:var(--text);
+    font-size:16px;
+    line-height:1.6;
+    font-family:var(--display);
+    font-weight:500;
+  }
+  .story-highlight.beliefs p{
+    color:var(--text-muted);
+    font-family:var(--body);
+    font-weight:400;
+    font-size:14.5px;
+  }
+  .story-highlight .tag{
+    display:block;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.06em;
+    color:var(--gold);
+    text-transform:uppercase;
+    margin-bottom:10px;
+  }
+  .story-chips{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:18px 0 8px;
+  }
+  .story-chips span{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--gold);
+    border:1px solid rgba(212,175,55,0.3);
+    background:rgba(212,175,55,0.08);
+    padding:5px 12px;
+    border-radius:5px;
+  }
+  .story-closing{
+    font-family:var(--display);
+    font-size:21px;
+    font-weight:600;
+    line-height:1.5;
+    color:var(--text);
+    max-width:640px;
+    margin-top:48px;
+    padding-top:32px;
+    border-top:1px solid var(--border);
+  }
+  .story-closing span{color:var(--gold);}
+
   /* ---------- PILARES ---------- */
   #hoy{border-bottom:1px solid var(--border);}
   .pilares{
@@ -894,30 +965,61 @@
   <div class="container">
     <div class="section-head">
       <div class="eyebrow">MI HISTORIA</div>
-      <h2>No fue lineal. Fue constancia.</h2>
+      <h2>No llegué hasta aquí por un camino perfecto</h2>
     </div>
+
+    <p class="story-lead">Llegué porque <span>nunca dejé de construir</span>.</p>
+
     <div class="timeline">
       <div class="t-item">
-        <span class="t-date">2021</span>
-        <h3>Buscando algo distinto</h3>
-        <p>Todo empezó porque quería un ingreso extra. Ya había pasado por varios negocios y ninguno me daba lo que en el fondo buscaba: manejar mi propio tiempo, no depender de un lugar fijo para trabajar. El trading apareció como esa posibilidad, casi de casualidad.</p>
+        <span class="t-date">01 · Los inicios</span>
+        <h3>Un ingeniero con otros sueños</h3>
+        <p>Desde muy joven supe que quería una vida diferente. Soy ingeniero en Telecomunicaciones y siempre me apasionaron la tecnología, la innovación y el emprendimiento: crear proyectos, resolver problemas, construir algo propio. Pero la realidad fue muy distinta a la que imaginaba: negocios que no funcionaron, proyectos que nunca despegaron, personas con intenciones distintas a las mías, y hasta pérdidas por estafas. Cada intento parecía acercarme más al fracaso que a la libertad que buscaba.</p>
       </div>
       <div class="t-item">
-        <span class="t-date">2021 – 2023</span>
-        <h3>El precio de aprender</h3>
-        <p>Me metí de lleno: mentorías, academias, cursos con distintos traders. Aprendí a leer gráficos, a operar, a moverme en criptomonedas. Y lo curioso es que hacía buenas operaciones — el problema nunca fue el análisis — pero terminaba perdiendo cuentas reales y de fondeo una y otra vez. Fue una etapa cara, en dinero y en frustración.</p>
+        <span class="t-date">02 · España</span>
+        <h3>Crecer, pero no era suficiente</h3>
+        <p>Viví en España para seguir creciendo profesionalmente y ampliar mis conocimientos en tecnología. Fue una experiencia que fortaleció mi carrera como ingeniero, pero también me hizo entender algo incómodo: un buen empleo no era suficiente para la vida que quería construir. Buscaba independencia, la posibilidad de administrar mi tiempo, y que mis ingresos no dependieran únicamente de un salario.</p>
       </div>
       <div class="t-item">
-        <span class="t-date">El punto de quiebre</span>
-        <h3>Entender lo que de verdad importaba</h3>
-        <p>Con el tiempo até cabos: no se trataba de acertar la operación perfecta, sino de aguantar en el juego el tiempo suficiente para que la constancia hiciera su trabajo. Volví a empezar, esta vez con cuentas pequeñas y bastante más paciencia. Los resultados no llegaron de un día para otro, pero llegaron.</p>
-      </div>
-      <div class="t-item">
-        <span class="t-date">Hoy</span>
-        <h3>MentoryCap Academy y Partners</h3>
-        <p>Hoy enseño ese mismo proceso, tropiezos incluidos, a quien quiera aprender a operar desde cero. Ya son más de 20 estudiantes gestionando su propio capital en los mercados. Y para quienes prefieren no operar directamente, armé Mentorycap Partners, donde gestiono su dinero yo mismo.</p>
+        <span class="t-date">03 · Los mercados</span>
+        <h3>El verdadero reto no era operar</h3>
+        <p>Ahí descubrí el mundo de las inversiones. Como muchos, pensé que el reto era aprender a operar. Con el tiempo entendí que el verdadero desafío era mucho más profundo: gestionar el riesgo, controlar las emociones, administrar el dinero y tomar decisiones con disciplina. Perdí cuentas, cometí errores, y tuve que volver a empezar más de una vez.</p>
       </div>
     </div>
+
+    <div class="story-highlight">
+      <span class="tag">Un paréntesis, no un fracaso</span>
+      <p>Hubo momentos en los que tuve que regresar a un empleo fijo mientras reorganizaba mis objetivos. Lejos de verlo como un fracaso, fue una etapa que me permitió ordenar mis finanzas, dejar de buscar resultados inmediatos y comenzar a construir con paciencia.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="t-item">
+        <span class="t-date">04 · La filosofía</span>
+        <h3>Constancia, no un golpe de suerte</h3>
+        <p>Con el tiempo entendí que el éxito rara vez llega de un gran acierto. Llega de tomar buenas decisiones de forma constante durante muchos años. Esa filosofía es la base de todo lo que hoy representa MentoryCap.</p>
+      </div>
+    </div>
+
+    <div class="story-highlight beliefs">
+      <span class="tag">En lo que creo</span>
+      <p>No creo en los atajos, ni en las promesas de dinero fácil, ni en vender señales para que otros dependan de mí. Creo en la educación, en desarrollar criterio propio y en construir una relación sana con el dinero y las inversiones.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="t-item">
+        <span class="t-date">05 · Hoy</span>
+        <h3>Un ecosistema, no un producto</h3>
+        <p>Hoy acompaño a personas que desean aprender desde cero y desarrollar habilidades para gestionar su propio capital. Mantengo una comunidad activa donde seguimos aprendiendo y creciendo juntos. Y trabajo con quienes buscan una relación más cercana dentro de este ecosistema.</p>
+        <div class="story-chips">
+          <span>Mentorycap Academy</span>
+          <span>Mentorycap Community</span>
+          <span>Mentorycap Partners</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="story-closing">Las experiencias que un día me hicieron dudar de mi camino son precisamente las que hoy <span>me permiten ayudar a otros a construir el suyo</span>.</p>
   </div>
 </section>
 

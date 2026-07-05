@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MentoryCap — Trading, Formación y Gestión de Capital</title>
-<meta name="description" content="MentoryCap: formación en trading, comunidad gratuita y RC Capital, gestión de capital privado con Oscar.">
+<meta name="description" content="MentoryCap: Academy para aprender trading, Community gratuita y Partners para gestión de capital privado, con Oscar Rojas.">
 <link rel="icon" type="image/png" href="images/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -802,6 +802,38 @@
     white-space:nowrap;
   }
   .modal-box .btn{width:100%;justify-content:center;margin-top:6px;}
+
+  .modal-tabs{
+    display:flex;
+    gap:8px;
+    margin-bottom:22px;
+    border-bottom:1px solid var(--border);
+  }
+  .modal-tab{
+    flex:1;
+    background:none;
+    border:none;
+    border-bottom:2px solid transparent;
+    color:var(--text-muted);
+    font-family:var(--mono);
+    font-size:12.5px;
+    font-weight:600;
+    padding:10px 6px 12px;
+    cursor:pointer;
+    text-align:center;
+    -webkit-appearance:none;
+    appearance:none;
+  }
+  .modal-tab-sub{
+    display:block;
+    font-family:var(--body);
+    font-weight:400;
+    font-size:11px;
+    color:var(--text-muted);
+    margin-top:3px;
+  }
+  .modal-tab.active{color:var(--gold);border-bottom-color:var(--gold);}
+  .modal-tab.active .modal-tab-sub{color:var(--gold-dim);}
 </style>
 </head>
 <body>
@@ -883,8 +915,8 @@
       </div>
       <div class="t-item">
         <span class="t-date">Hoy</span>
-        <h3>MentoryCap y RC Capital</h3>
-        <p>Hoy enseño ese mismo proceso, tropiezos incluidos, a quien quiera aprender a operar desde cero. Ya son más de 20 estudiantes gestionando su propio capital en los mercados. Y para quienes prefieren no operar directamente, armé RC Capital, donde gestiono su dinero yo mismo.</p>
+        <h3>MentoryCap Academy y Partners</h3>
+        <p>Hoy enseño ese mismo proceso, tropiezos incluidos, a quien quiera aprender a operar desde cero. Ya son más de 20 estudiantes gestionando su propio capital en los mercados. Y para quienes prefieren no operar directamente, armé Mentorycap Partners, donde gestiono su dinero yo mismo.</p>
       </div>
     </div>
   </div>
@@ -911,7 +943,7 @@
           </svg>
         </div>
         <span class="num">01</span>
-        <h3>Comunidad MentoryCap</h3>
+        <h3>Mentorycap Community</h3>
         <p>Un espacio gratuito para compartir sobre mercados financieros, noticias y mindset. Ideal si estás dando tus primeros pasos.</p>
         <button class="btn btn-outline" onclick="openModal('modal-comunidad')" type="button">Leer más</button>
       </div>
@@ -932,7 +964,7 @@
           </svg>
         </div>
         <span class="num">02</span>
-        <h3>Mentorycap Private</h3>
+        <h3>Mentorycap Academy</h3>
         <p>Formación completa para aprender a operar desde cero, con acompañamiento personalizado y en grupo reducido.</p>
         <button class="btn btn-outline" onclick="openModal('modal-private')" type="button">Leer más</button>
       </div>
@@ -944,8 +976,8 @@
           </svg>
         </div>
         <span class="num">03</span>
-        <h3>RC Capital</h3>
-        <p>Gestión de capital para quienes prefieren invertir sin operar ellos mismos. Te explico cómo funciona según tu caso.</p>
+        <h3>Mentorycap Partners</h3>
+        <p>Dos formas de ser socio: aportando capital como inversionista, o conectando personas como socio de negocios.</p>
         <button class="btn btn-outline" onclick="openModal('modal-rccapital')" type="button">Leer más</button>
       </div>
     </div>
@@ -985,7 +1017,7 @@
       <h2>¿Quieres más información?</h2>
       <p>Cuéntame qué te interesa y con qué te puedo ayudar. Reviso cada mensaje personalmente y te contacto directo por WhatsApp con los detalles: precios, cupos y cómo seguir.</p>
       <div class="form-note">
-        La Comunidad y RC Capital son gratuitas pero requieren mi aprobación. Mentorycap Private es un cupo limitado. Te voy a escribir directo a tu WhatsApp.
+        La Mentorycap Community y Mentorycap Partners son gratuitas pero requieren mi aprobación. Mentorycap Academy es un cupo limitado. Te voy a escribir directo a tu WhatsApp.
       </div>
     </div>
     <form id="contact-form">
@@ -1010,9 +1042,10 @@
         <label for="servicio">¿Qué te interesa?</label>
         <select id="servicio" name="Servicio de interés" required>
           <option value="">Selecciona una opción</option>
-          <option value="Comunidad MentoryCap">Comunidad MentoryCap (gratis)</option>
-          <option value="Mentorycap Private">Mentorycap Private (formación)</option>
-          <option value="RC Capital">RC Capital (gestión de capital)</option>
+          <option value="Mentorycap Community">Mentorycap Community (gratis)</option>
+          <option value="Mentorycap Academy">Mentorycap Academy (formación)</option>
+          <option value="Mentorycap Partners - RC Capital">Mentorycap Partners · RC Capital (inversionista)</option>
+          <option value="Mentorycap Partners - Business Partners">Mentorycap Partners · Business Partners (socio de negocios)</option>
           <option value="No estoy seguro">No estoy seguro, quiero orientación</option>
         </select>
       </div>
@@ -1054,11 +1087,11 @@
 <div class="modal-overlay" id="modal-comunidad" onclick="if(event.target===this) closeModal('modal-comunidad')">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('modal-comunidad')" aria-label="Cerrar">✕</button>
-    <div class="modal-eyebrow">🌐 MentoryCap · Comunidad abierta</div>
+    <div class="modal-eyebrow">🌐 Mentorycap Community · Comunidad abierta</div>
     <h2>Un espacio gratuito para estar al día</h2>
     <p>Diseñado para estar en contacto y mantenernos actualizados sobre lo que sucede en los mercados financieros.</p>
     <p>El contenido es educativo e informativo: datos, noticias e información relevante para que empieces a entender cómo funciona la economía digital, los mercados y las herramientas que deberías tener para gestionar tu economía personal y acceder a nuevas oportunidades de inversión.</p>
-    <button class="btn btn-primary js-contacto" data-servicio="Comunidad MentoryCap" onclick="closeModal('modal-comunidad')">Quiero más información</button>
+    <button class="btn btn-primary js-contacto" data-servicio="Mentorycap Community" onclick="closeModal('modal-comunidad')">Quiero más información</button>
   </div>
 </div>
 
@@ -1066,7 +1099,7 @@
 <div class="modal-overlay" id="modal-private" onclick="if(event.target===this) closeModal('modal-private')">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('modal-private')" aria-label="Cerrar">✕</button>
-    <div class="modal-eyebrow">Mentorycap Private</div>
+    <div class="modal-eyebrow">Mentorycap Academy</div>
     <h2>Programa personalizado para aprender a invertir</h2>
     <p>MASTER TRADING está diseñado para personas que desean aprender a operar los mercados financieros de forma independiente, con método, disciplina y criterio profesional. No necesitas grandes cantidades de dinero para comenzar, pero sí compromiso y dedicación para desarrollar esta habilidad.</p>
     <h4>Duración del programa</h4>
@@ -1075,7 +1108,7 @@
       <div class="modal-plan featured"><span class="tag">Recomendado</span>3 meses</div>
       <div class="modal-plan">6 meses</div>
     </div>
-    <p>El plan de <strong style="color:var(--text);">3 meses</strong> es el ideal: es el tiempo justo para aprender con método, practicar con acompañamiento real y llegar completamente preparado para operar tu propio capital y moverte con confianza en el mundo cripto.</p>
+    <p>Mientras más tiempo cercano a tu mentor, mejores son tus resultados — pero te garantizo que en <strong style="color:var(--text);">3 meses</strong>, trabajando 1 a 1 conmigo, vas a aprender a operar por tu cuenta.</p>
     <h4>Incluye</h4>
     <ul>
       <li>Sesiones 1-1 en vivo con Oscar sobre análisis técnico, estrategia, psicología y gestión de riesgo.</li>
@@ -1087,41 +1120,77 @@
     <p>Ayudarte a desarrollar una base técnica sólida y una mentalidad profesional para que puedas gestionar tu propio capital en los mercados financieros. Operar puede convertirse en una nueva fuente de ingresos si aprendes a interpretar correctamente sus movimientos, gestionas adecuadamente el riesgo y mantienes la disciplina necesaria para preservar tu capital.</p>
     <p>El verdadero desafío no está solo en la estrategia, sino en el control emocional frente a las ganancias y las pérdidas. Si quieres formar parte de un grupo de personas que busca tomar el control de sus finanzas y aprovechar las oportunidades de la economía digital, este programa es para ti. ¡Te veo dentro!</p>
     <div class="modal-highlight">
-      <strong style="color:var(--gold);">Requisitos para aplicar</strong><br><br>
-      Por seguridad, este programa no es para cualquiera. Antes de aplicar, ten en cuenta: debes ser mayor de edad y contar con al menos una fuente de ingresos estable, tener disposición real de aprender y dejarte guiar, y entender que los mercados son de alta volatilidad, donde el riesgo siempre está presente. Buscamos personas con visión a largo plazo, no resultados rápidos — esto es una profesión real, que exige estudio, esfuerzo y compromiso.
+      <strong style="color:var(--gold);">Requisitos para aplicar</strong>
+      <p style="margin:10px 0 6px;color:var(--text-muted);font-size:14px;">Por seguridad, este programa no es para cualquiera. Antes de aplicar, ten en cuenta:</p>
+      <ul style="margin-bottom:0;">
+        <li>Ser mayor de edad y contar con al menos una fuente de ingresos estable.</li>
+        <li>Tener disposición real de aprender y dejarte guiar.</li>
+        <li>Entender que los mercados son de alta volatilidad, donde el riesgo siempre está presente.</li>
+        <li>Buscar resultados a largo plazo, no ganancias rápidas.</li>
+        <li>Ver esto como una profesión real, que exige estudio, esfuerzo y compromiso.</li>
+      </ul>
     </div>
-    <button class="btn btn-primary js-contacto" data-servicio="Mentorycap Private" onclick="closeModal('modal-private')">Quiero más información</button>
+    <button class="btn btn-primary js-contacto" data-servicio="Mentorycap Academy" onclick="closeModal('modal-private')">Quiero más información</button>
   </div>
 </div>
 
-<!-- ---------- MODAL: RC CAPITAL ---------- -->
+<!-- ---------- MODAL: MENTORYCAP PARTNERS ---------- -->
 <div class="modal-overlay" id="modal-rccapital" onclick="if(event.target===this) closeModal('modal-rccapital')">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('modal-rccapital')" aria-label="Cerrar">✕</button>
-    <div class="modal-eyebrow">RC Capital</div>
-    <h2>Te ayudo a gestionar tu capital en los mercados</h2>
-    <p>Un servicio privado de gestión de capital diseñado para personas que desean participar en los mercados financieros sin necesidad de operar por sí mismas.</p>
-    <div class="modal-highlight">
-      <strong style="color:var(--gold);">Un espacio exclusivo</strong><br><br>
-      RC Capital no es un servicio abierto al público: los cupos son muy limitados y no todos pueden aplicar. De hecho, nació como un programa confidencial pensado para familiares y amistades muy cercanas, y hoy abro un espacio reducido para quienes califican. El proceso incluye una reunión directa conmigo para conocer tu caso, y busco personas con alta tolerancia al riesgo y una mentalidad de largo plazo.
+    <div class="modal-eyebrow">Mentorycap Partners</div>
+    <h2>Dos formas de ser socio de MentoryCap</h2>
+    <p>Ya sea aportando capital o conectando personas, hay un camino para asociarte conmigo.</p>
+
+    <div class="modal-tabs">
+      <button class="modal-tab active" data-target="tab-rc" onclick="switchTab(this,'tab-rc')">RC Capital<span class="modal-tab-sub">Socios inversionistas</span></button>
+      <button class="modal-tab" data-target="tab-bp" onclick="switchTab(this,'tab-bp')">Business Partners<span class="modal-tab-sub">Socios de negocios</span></button>
     </div>
-    <h4>Ideal para personas que</h4>
-    <ul>
-      <li>Disponen de capital para invertir, pero no cuentan con el tiempo o la experiencia necesaria para operar los mercados.</li>
-      <li>Buscan un enfoque orientado a la preservación del capital, la consistencia y el crecimiento sostenible a largo plazo.</li>
-    </ul>
-    <h4>Transparencia y riesgo</h4>
-    <p>Toda inversión en mercados financieros implica riesgo. Los resultados pasados no garantizan resultados futuros y pueden producirse períodos de rentabilidad negativa o incluso pérdidas significativas del capital invertido.</p>
-    <h4>Modelo de participación</h4>
-    <p>Las ganancias se distribuyen bajo un esquema de reparto de beneficios: el inversor recibe el 70% y RC Capital, como gestor, el 30%. Puedes retirar en cualquier momento todo tu capital y recibirlo en menos de 48 horas.</p>
-    <h4>Nuestro compromiso</h4>
-    <ul>
-      <li>Gestión basada en criterios objetivos y disciplina operativa.</li>
-      <li>Control de riesgo adaptado a las condiciones del mercado.</li>
-      <li>Comunicación transparente y acceso a información real sobre el desempeño de la inversión.</li>
-    </ul>
-    <p>Nuestro propósito es brindar una alternativa profesional para quienes desean diversificar su patrimonio y poner a trabajar un % de su capital en los mercados financieros, sin tener que gestionar directamente la operativa.</p>
-    <button class="btn btn-primary js-contacto" data-servicio="RC Capital" onclick="closeModal('modal-rccapital')">Quiero más información</button>
+
+    <div class="modal-tab-panel" id="tab-rc">
+      <p>Un servicio privado de gestión de capital diseñado para personas que desean participar en los mercados financieros sin necesidad de operar por sí mismas.</p>
+      <div class="modal-highlight">
+        <strong style="color:var(--gold);">Un espacio exclusivo</strong>
+        <p style="margin:10px 0 0;color:var(--text-muted);font-size:14px;">RC Capital no es un servicio abierto al público: los cupos son muy limitados y no todos pueden aplicar. De hecho, nació como un programa confidencial pensado para familiares y amistades muy cercanas, y hoy abro un espacio reducido para quienes califican. El proceso incluye una reunión directa conmigo para conocer tu caso, y busco personas con alta tolerancia al riesgo y una mentalidad de largo plazo.</p>
+      </div>
+      <h4>Ideal para personas que</h4>
+      <ul>
+        <li>Disponen de capital para invertir, pero no cuentan con el tiempo o la experiencia necesaria para operar los mercados.</li>
+        <li>Buscan un enfoque orientado a la preservación del capital, la consistencia y el crecimiento sostenible a largo plazo.</li>
+      </ul>
+      <h4>Transparencia y riesgo</h4>
+      <p>Toda inversión en mercados financieros implica riesgo. Los resultados pasados no garantizan resultados futuros y pueden producirse períodos de rentabilidad negativa o incluso pérdidas significativas del capital invertido.</p>
+      <h4>Modelo de participación</h4>
+      <p>Las ganancias se distribuyen bajo un esquema de reparto de beneficios: el inversor recibe el 70% y RC Capital, como gestor, el 30%. Puedes retirar en cualquier momento todo tu capital y recibirlo en menos de 48 horas.</p>
+      <h4>Nuestro compromiso</h4>
+      <ul>
+        <li>Gestión basada en criterios objetivos y disciplina operativa.</li>
+        <li>Control de riesgo adaptado a las condiciones del mercado.</li>
+        <li>Comunicación transparente y acceso a información real sobre el desempeño de la inversión.</li>
+      </ul>
+      <p>Nuestro propósito es brindar una alternativa profesional para quienes desean diversificar su patrimonio y poner a trabajar un % de su capital en los mercados financieros, sin tener que gestionar directamente la operativa.</p>
+      <button class="btn btn-primary js-contacto" data-servicio="Mentorycap Partners - RC Capital" onclick="closeModal('modal-rccapital')">Quiero más información</button>
+    </div>
+
+    <div class="modal-tab-panel" id="tab-bp" style="display:none;">
+      <p>Pensado para profesionales, emprendedores, consultores, creadores de contenido y organizaciones que quieren colaborar con MentoryCap como socios estratégicos de ventas, conectando personas calificadas con nuestros programas educativos y servicios financieros.</p>
+      <div class="modal-highlight">
+        <strong style="color:var(--gold);">No necesitas ser trader</strong>
+        <p style="margin:10px 0 0;color:var(--text-muted);font-size:14px;">No necesitas saber de trading, poner dinero en riesgo ni ser experto en los mercados financieros para empezar. Tu aporte es valioso si puedes presentarnos a personas interesadas en aprender con nosotros y desarrollar mejores decisiones financieras.</p>
+      </div>
+      <p>Como Business Partner, tendrás acceso a materiales de apoyo, información clara sobre nuestras soluciones y una estructura de comisiones transparente, diseñada para reconocer tu desempeño y fortalecer relaciones a largo plazo.</p>
+      <h4>Ideal para</h4>
+      <ul>
+        <li>Asesores y consultores.</li>
+        <li>Emprendedores y dueños de negocio.</li>
+        <li>Creadores de contenido e influencers.</li>
+        <li>Líderes de comunidad.</li>
+        <li>Profesionales de ventas.</li>
+        <li>Socios estratégicos con una red de contactos.</li>
+        <li>Personas que quieran generar ingresos adicionales conectando clientes calificados.</li>
+      </ul>
+      <button class="btn btn-primary js-contacto" data-servicio="Mentorycap Partners - Business Partners" onclick="closeModal('modal-rccapital')">Quiero más información</button>
+    </div>
   </div>
 </div>
 
@@ -1136,6 +1205,13 @@
   function closeModal(id){
     document.getElementById(id).classList.remove('open');
     document.body.style.overflow = '';
+  }
+  function switchTab(btn, panelId){
+    const modal = btn.closest('.modal-box');
+    modal.querySelectorAll('.modal-tab').forEach(t => t.classList.remove('active'));
+    modal.querySelectorAll('.modal-tab-panel').forEach(p => p.style.display = 'none');
+    btn.classList.add('active');
+    document.getElementById(panelId).style.display = 'block';
   }
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape'){

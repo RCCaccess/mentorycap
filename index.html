@@ -452,46 +452,50 @@
   }
 
   /* ---------- ENLACES Y RECURSOS ---------- */
-  .links-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:14px;
-    margin-top:28px;
+  .links-groups{
+    max-width:640px;
+    margin:28px auto 0;
   }
-  @media(max-width:700px){.links-grid{grid-template-columns:1fr;}}
-  .link-card{
-    display:flex;
-    align-items:center;
-    gap:14px;
-    background:var(--bg-panel);
-    border:1px solid var(--border);
-    border-radius:10px;
-    padding:16px;
-    transition:border-color .15s ease, transform .15s ease;
-  }
-  .link-card:hover{border-color:var(--gold-dim);transform:translateY(-2px);}
-  .link-icon{
-    width:42px;height:42px;
-    border-radius:10px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+  .links-group{margin-bottom:26px;}
+  .links-group:last-child{margin-bottom:0;}
+  .links-group-label{
     font-family:var(--mono);
-    font-weight:700;
+    font-size:10.5px;
+    color:var(--gold);
+    text-transform:uppercase;
+    letter-spacing:0.07em;
+    padding-bottom:8px;
+    margin-bottom:2px;
+    border-bottom:1px solid var(--border);
+  }
+  .link-row{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:14px;
+    padding:12px 4px;
+    border-bottom:1px solid var(--border);
+    transition:padding-left .15s ease, background .15s ease;
+  }
+  .link-row:last-child{border-bottom:none;}
+  .link-row:hover{padding-left:8px;background:rgba(212,175,55,0.05);}
+  .link-row-text{
+    display:flex;
+    align-items:baseline;
+    gap:9px;
+    flex-wrap:wrap;
+    min-width:0;
+  }
+  .link-row-name{font-size:14px;font-weight:600;color:var(--text);}
+  .link-row-desc{font-size:12px;color:var(--text-muted);}
+  .link-row-arrow{
+    font-family:var(--mono);
     font-size:13px;
-    flex-shrink:0;
-  }
-  .link-info{flex:1;min-width:0;}
-  .link-info h4{font-size:14.5px;margin-bottom:2px;}
-  .link-info p{font-size:12px;color:var(--text-muted);}
-  .link-cta{
-    font-family:var(--mono);
-    font-size:11.5px;
     color:var(--text-muted);
-    white-space:nowrap;
     flex-shrink:0;
+    transition:color .15s ease;
   }
-  .link-card:hover .link-cta{color:var(--gold);}
+  .link-row:hover .link-row-arrow{color:var(--gold);}
 
   .fab-wrap{
     position:fixed;
@@ -1903,7 +1907,7 @@
     <div class="section-head">
       <div class="eyebrow">MIS HERRAMIENTAS</div>
       <h2>Enlaces y calculadora que uso todos los días</h2>
-      <p>Las plataformas con las que trabajo, y una calculadora rápida de lotaje. Algunos enlaces son de referido — si te registras a través de ellos, puedo recibir un beneficio, sin costo adicional para ti.</p>
+      <p>Las plataformas con las que trabajo, y una calculadora rápida de lotaje.</p>
     </div>
 
     <div class="top20-card" style="max-width:520px;">
@@ -1946,71 +1950,50 @@
       <div class="eyebrow">ENLACES</div>
       <h2 style="font-size:20px;">Lo que uso todos los días</h2>
     </div>
-    <div class="links-grid">
-      <a class="link-card" href="https://es.tradingview.com/pricing/?share_your_love=orojas0180" target="_blank" rel="noopener">
-        <div class="link-icon" style="background:rgba(41,98,255,0.12);color:#5B8DEF;">TV</div>
-        <div class="link-info">
-          <h4>TradingView</h4>
-          <p>Gráficos y análisis técnico en tiempo real.</p>
-        </div>
-        <span class="link-cta">Abrir →</span>
-      </a>
-      <a class="link-card" href="https://www.geckoterminal.com/es" target="_blank" rel="noopener">
-        <div class="link-icon" style="background:rgba(140,213,92,0.12);color:#8CD55C;">CG</div>
-        <div class="link-info">
-          <h4>CoinGecko</h4>
-          <p>Precios y datos de criptomonedas en tiempo real.</p>
-        </div>
-        <span class="link-cta">Abrir →</span>
-      </a>
-      <a class="link-card" href="https://www.litefinance.org/?uid=787594077" target="_blank" rel="noopener">
-        <div class="link-icon" style="background:rgba(212,175,55,0.12);color:var(--gold);">LF</div>
-        <div class="link-info">
-          <h4>LiteFinance</h4>
-          <p>Mi bróker para operar en los mercados.</p>
-        </div>
-        <span class="link-cta">Abrir →</span>
-      </a>
-      <a class="link-card" href="https://vigco.co/la-com/qGBBx3Cz" target="_blank" rel="noopener">
-        <div class="link-icon" style="background:rgba(239,83,80,0.12);color:#EF5350;">VT</div>
-        <div class="link-info">
-          <h4>Vantage</h4>
-          <p>Otro bróker que utilizo para operar.</p>
-        </div>
-        <span class="link-cta">Abrir →</span>
-      </a>
-      <a class="link-card" href="https://www.gate.com/es/referral/registry?ref=BFREUFhc&ref_type=103&page=superRebate" target="_blank" rel="noopener">
-        <div class="link-icon" style="background:rgba(38,166,154,0.12);color:var(--up);">GT</div>
-        <div class="link-info">
-          <h4>Gate.io</h4>
-          <p>Mi exchange para comprar y guardar cripto.</p>
-        </div>
-        <span class="link-cta">Abrir →</span>
-      </a>
-      <a class="link-card" href="https://lulubit.onelink.me/IwPm/wpp" target="_blank" rel="noopener">
-        <div class="link-icon" style="background:rgba(155,107,255,0.12);color:#9B6BFF;">LB</div>
-        <div class="link-info">
-          <h4>Lulubit</h4>
-          <p>Wallet para gestionar tus criptomonedas.</p>
-        </div>
-        <span class="link-cta">Abrir →</span>
-      </a>
-      <a class="link-card" href="https://www.ether.fi/refer/af522754" target="_blank" rel="noopener">
-        <div class="link-icon" style="background:rgba(91,141,239,0.12);color:#5B8DEF;">EF</div>
-        <div class="link-info">
-          <h4>ether.fi</h4>
-          <p>La tarjeta cripto que uso en el día a día.</p>
-        </div>
-        <span class="link-cta">Abrir →</span>
-      </a>
-      <a class="link-card" href="https://www.forexfactory.com/" target="_blank" rel="noopener">
-        <div class="link-icon" style="background:rgba(212,175,55,0.12);color:var(--gold);">FF</div>
-        <div class="link-info">
-          <h4>Forex Factory</h4>
-          <p>Donde reviso las noticias del mercado.</p>
-        </div>
-        <span class="link-cta">Abrir →</span>
-      </a>
+    <div class="links-groups">
+      <div class="links-group">
+        <div class="links-group-label">Análisis y datos</div>
+        <a class="link-row" href="https://es.tradingview.com/pricing/?share_your_love=orojas0180" target="_blank" rel="noopener">
+          <span class="link-row-text"><span class="link-row-name">TradingView</span><span class="link-row-desc">Gráficos y análisis técnico</span></span>
+          <span class="link-row-arrow">→</span>
+        </a>
+        <a class="link-row" href="https://www.geckoterminal.com/es" target="_blank" rel="noopener">
+          <span class="link-row-text"><span class="link-row-name">CoinGecko</span><span class="link-row-desc">Precios y datos de cripto</span></span>
+          <span class="link-row-arrow">→</span>
+        </a>
+        <a class="link-row" href="https://www.forexfactory.com/" target="_blank" rel="noopener">
+          <span class="link-row-text"><span class="link-row-name">Forex Factory</span><span class="link-row-desc">Noticias del mercado</span></span>
+          <span class="link-row-arrow">→</span>
+        </a>
+      </div>
+
+      <div class="links-group">
+        <div class="links-group-label">Brókers</div>
+        <a class="link-row" href="https://www.litefinance.org/?uid=787594077" target="_blank" rel="noopener">
+          <span class="link-row-text"><span class="link-row-name">LiteFinance</span><span class="link-row-desc">Mi bróker principal</span></span>
+          <span class="link-row-arrow">→</span>
+        </a>
+        <a class="link-row" href="https://vigco.co/la-com/qGBBx3Cz" target="_blank" rel="noopener">
+          <span class="link-row-text"><span class="link-row-name">Vantage</span><span class="link-row-desc">Otro bróker que utilizo</span></span>
+          <span class="link-row-arrow">→</span>
+        </a>
+      </div>
+
+      <div class="links-group">
+        <div class="links-group-label">Cripto</div>
+        <a class="link-row" href="https://www.gate.com/es/referral/registry?ref=BFREUFhc&ref_type=103&page=superRebate" target="_blank" rel="noopener">
+          <span class="link-row-text"><span class="link-row-name">Gate.io</span><span class="link-row-desc">Mi exchange de cripto</span></span>
+          <span class="link-row-arrow">→</span>
+        </a>
+        <a class="link-row" href="https://lulubit.onelink.me/IwPm/wpp" target="_blank" rel="noopener">
+          <span class="link-row-text"><span class="link-row-name">Lulubit</span><span class="link-row-desc">Wallet de criptomonedas</span></span>
+          <span class="link-row-arrow">→</span>
+        </a>
+        <a class="link-row" href="https://www.ether.fi/refer/af522754" target="_blank" rel="noopener">
+          <span class="link-row-text"><span class="link-row-name">ether.fi</span><span class="link-row-desc">Mi tarjeta cripto</span></span>
+          <span class="link-row-arrow">→</span>
+        </a>
+      </div>
     </div>
   </div>
 </div>

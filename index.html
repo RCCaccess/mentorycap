@@ -152,30 +152,13 @@
   /* ---------- HERO ---------- */
   .hero-bg{
     position:relative;
-    min-height:580px;
+    min-height:520px;
     display:flex;
     align-items:center;
     overflow:hidden;
     border-bottom:1px solid var(--border);
     padding:60px 0;
-  }
-  .hero-bg-photo{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    object-position:top center;
-    z-index:0;
-    opacity:0.85;
-    filter:blur(7px) saturate(0.85) brightness(0.75);
-    transform:scale(1.05);
-  }
-  .hero-overlay{
-    position:absolute;
-    inset:0;
-    background:linear-gradient(90deg, var(--bg) 0%, rgba(11,14,20,0.88) 30%, rgba(11,14,20,0.72) 55%, rgba(11,14,20,0.55) 100%);
-    z-index:1;
+    background:radial-gradient(ellipse 800px 500px at 75% 30%, rgba(212,175,55,0.08), transparent 70%), var(--bg);
   }
   .hero-content{
     position:relative;
@@ -183,8 +166,6 @@
     max-width:600px;
   }
   @media(max-width:760px){
-    .hero-bg-photo{opacity:0.6;}
-    .hero-overlay{background:linear-gradient(180deg, rgba(11,14,20,0.55) 0%, var(--bg) 88%);}
     .hero-content{max-width:100%;}
   }
   .hero h1{
@@ -214,22 +195,13 @@
     font-weight:700;
     font-size:20px;
     letter-spacing:0.02em;
-    background:linear-gradient(90deg, #D4AF37, #F5DFA0, #D4AF37, #F5DFA0);
-    background-size:300% 100%;
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
-    animation:motto-shine 5s linear infinite;
+    color:var(--gold);
   }
   .hero-motto i{
     font-style:normal;
     color:var(--text-muted);
     opacity:0.5;
     font-size:14px;
-  }
-  @keyframes motto-shine{
-    0%{background-position:0% 0;}
-    100%{background-position:300% 0;}
   }
   .hero p.lead{
     font-size:17px;
@@ -511,66 +483,6 @@
   }
   .link-card:hover .link-cta{color:var(--gold);}
 
-  /* ---------- FRANJA DE RELOJ + BOLSAS ---------- */
-  .market-strip{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    flex-wrap:wrap;
-    gap:10px;
-    padding:10px 24px;
-    background:var(--bg-panel);
-    border-bottom:1px solid var(--border);
-  }
-  .market-strip-clock{
-    display:flex;
-    align-items:baseline;
-    gap:9px;
-  }
-  .clock-time{
-    font-family:var(--mono);
-    font-size:15px;
-    font-weight:600;
-    color:var(--gold);
-    letter-spacing:0.02em;
-  }
-  .clock-label{
-    font-family:var(--mono);
-    font-size:10px;
-    color:var(--text-muted);
-    text-transform:uppercase;
-    letter-spacing:0.03em;
-  }
-  .market-strip-sessions{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    flex-wrap:wrap;
-  }
-  .session-chip{
-    display:inline-flex;
-    align-items:center;
-    gap:5px;
-    font-family:var(--mono);
-    font-size:10.5px;
-    padding:4px 9px;
-    border-radius:20px;
-    border:1px solid var(--border);
-    color:var(--text-muted);
-  }
-  .session-chip.open{border-color:rgba(38,166,154,0.4);color:var(--up);background:rgba(38,166,154,0.08);}
-  .session-dot{
-    width:6px;height:6px;
-    border-radius:50%;
-    flex-shrink:0;
-  }
-  .session-dot.open{background:var(--up);box-shadow:0 0 0 2px rgba(38,166,154,0.2);}
-  .session-dot.closed{background:var(--text-muted);opacity:0.5;}
-  @media(max-width:760px){
-    .market-strip{padding:8px 16px;justify-content:center;text-align:center;}
-    .market-strip-sessions{justify-content:center;}
-  }
-
   .fab-wrap{
     position:fixed;
     right:20px;
@@ -780,12 +692,12 @@
     text-align:center;
   }
   .historia-cta-photo{
-    width:112px;
-    height:112px;
+    width:168px;
+    height:168px;
     border-radius:50%;
     object-fit:cover;
     object-position:top center;
-    border:2px solid var(--gold-dim);
+    border:3px solid var(--gold-dim);
     margin:0 auto 18px;
     display:block;
   }
@@ -828,35 +740,6 @@
     .top20-row{grid-template-columns:20px 20px 1fr auto;font-size:12.5px;}
     .top20-change{display:none;}
   }
-  .ticker-wrap{
-    border-bottom:1px solid var(--border);
-    background:var(--bg-panel);
-    overflow:hidden;
-    white-space:nowrap;
-    padding:9px 0;
-  }
-  .ticker-track{
-    display:inline-flex;
-    animation:ticker-scroll 75s linear infinite;
-  }
-  .ticker-item{
-    display:inline-flex;
-    align-items:center;
-    gap:7px;
-    padding:0 28px;
-    font-family:var(--mono);
-    font-size:12.5px;
-    color:var(--text-muted);
-    white-space:nowrap;
-  }
-  .ticker-item .t-sym{color:var(--text);font-weight:600;}
-  .ticker-item .t-chg.up{color:var(--up);}
-  .ticker-item .t-chg.down{color:var(--down);}
-  @keyframes ticker-scroll{
-    from{transform:translateX(0);}
-    to{transform:translateX(-50%);}
-  }
-
   /* ---------- HERRAMIENTAS ---------- */
   #herramientas{border-bottom:1px solid var(--border);}
   .tools-grid{
@@ -1016,38 +899,34 @@
   #hoy{border-bottom:1px solid var(--border);}
   .roadmap{
     position:relative;
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-start;
-    margin:40px 0 48px;
-    padding:34px 6px 0;
+    height:260px;
+    margin:40px 0 50px;
   }
   .roadmap-path{
     position:absolute;
     top:0;
     left:0;
     width:100%;
-    height:110px;
+    height:100%;
     z-index:0;
   }
+  .road-base{stroke:#252B3B;stroke-width:26;}
+  .road-lane{stroke:#454D63;stroke-width:2;stroke-dasharray:10 12;}
   .roadmap-node{
-    position:relative;
+    position:absolute;
     z-index:1;
     display:flex;
     flex-direction:column;
     align-items:center;
-    gap:10px;
-    flex:1;
+    gap:8px;
     text-align:center;
+    transform:translateX(-50%);
+    width:110px;
   }
-  .roadmap-node.pos-0{margin-top:26px;}
-  .roadmap-node.pos-1{margin-top:0px;}
-  .roadmap-node.pos-2{margin-top:34px;}
-  .roadmap-node.pos-3{margin-top:4px;}
-  .roadmap-node.pos-4{margin-top:22px;}
+  .roadmap-stem{width:2px;background:var(--border);}
   .roadmap-dot{
-    width:52px;
-    height:52px;
+    width:50px;
+    height:50px;
     border-radius:50%;
     background:var(--bg-panel);
     border:2px solid var(--gold-dim);
@@ -1056,28 +935,37 @@
     justify-content:center;
     font-family:var(--mono);
     font-weight:700;
-    font-size:17px;
+    font-size:16px;
     color:var(--gold);
-    box-shadow:0 4px 14px rgba(0,0,0,0.35);
+    box-shadow:0 4px 14px rgba(0,0,0,0.4);
+    flex-shrink:0;
   }
-  .roadmap-dot.start{background:var(--bg);border-color:var(--border);font-size:18px;}
-  .roadmap-dot.end{background:#F7F0DC;border-color:var(--gold);color:#0B0E14;font-size:22px;}
-  .roadmap-node span{font-size:11.5px;color:var(--text-muted);max-width:100px;line-height:1.3;}
+  .roadmap-dot.start{background:var(--bg);border-color:var(--border);font-size:17px;}
+  .roadmap-dot.end{background:#F7F0DC;border-color:var(--gold);color:#0B0E14;font-size:20px;}
+  .roadmap-node span{font-size:11px;color:var(--text-muted);line-height:1.3;}
   @media(max-width:700px){
-    .roadmap{flex-direction:column;align-items:flex-start;gap:22px;padding:0 0 0 10px;}
+    .roadmap{height:auto;display:flex;flex-direction:column;align-items:flex-start;gap:22px;padding-left:10px;}
     .roadmap-path{display:none;}
-    .roadmap-node.pos-0, .roadmap-node.pos-1, .roadmap-node.pos-2, .roadmap-node.pos-3, .roadmap-node.pos-4{margin-top:0;}
-    .roadmap-node{flex-direction:row;text-align:left;gap:14px;position:relative;}
+    .roadmap-node{
+      position:relative;
+      flex-direction:row;
+      text-align:left;
+      gap:14px;
+      width:auto;
+      transform:none;
+      left:auto !important;
+      top:auto !important;
+    }
+    .roadmap-node .roadmap-stem{display:none;}
     .roadmap-node:not(:last-child)::after{
       content:'';
       position:absolute;
-      left:25px;
-      top:52px;
+      left:24px;
+      top:50px;
       width:0;
       height:22px;
       border-left:2px dashed var(--border);
     }
-    .roadmap-node span{max-width:none;}
   }
   .pilares{
     display:grid;
@@ -1720,7 +1608,7 @@
       <span class="logo-text">MENTORY<span>CAP</span></span>
     </div>
     <ul class="nav-links nav-mobile-hide">
-      <li><a href="#mercado">Mercado</a></li>
+      <li><button type="button" class="nav-link-btn" onclick="openModal('modal-mercado')">Mercado</button></li>
       <li><button type="button" class="nav-link-btn" onclick="openModal('modal-historia')">Historia</button></li>
       <li><a href="#servicios">Servicios</a></li>
       <li><button type="button" class="nav-link-btn" onclick="openModal('modal-enlaces')">Recursos</button></li>
@@ -1729,21 +1617,7 @@
   </nav>
 </header>
 
-<div class="ticker-wrap">
-  <div class="ticker-track" id="ticker-track"></div>
-</div>
-
-<div class="market-strip">
-  <div class="market-strip-clock">
-    <span class="clock-time" id="clock-time">--:--:--</span>
-    <span class="clock-label">Hora de Nueva York</span>
-  </div>
-  <div class="market-strip-sessions" id="sessions-list"></div>
-</div>
-
 <section class="hero hero-bg">
-  <img src="images/oscar.png" alt="Oscar Rojas, fundador de MentoryCap" class="hero-bg-photo">
-  <div class="hero-overlay"></div>
   <div class="container hero-content">
     <h1>Empieza a construir tu sistema financiero personal</h1>
     <p class="hero-subtitle">Dale mayor utilidad a tus ingresos.</p>
@@ -1767,8 +1641,9 @@
   </div>
 </section>
 
-<section id="mercado">
-  <div class="container">
+<div class="modal-overlay modal-full" id="modal-mercado" onclick="if(event.target===this) closeModal('modal-mercado')">
+  <div class="modal-box modal-wide">
+    <button class="modal-close" onclick="closeModal('modal-mercado')" aria-label="Cerrar">✕</button>
     <div class="section-head">
       <div class="eyebrow">EL MERCADO HOY</div>
     </div>
@@ -1833,8 +1708,16 @@
       </div>
     </div>
     <p class="calc-note" style="margin-top:14px;">Bitcoin y Oro en vivo (CoinGecko, proxy de oro tokenizado 1:1). EUR/USD y DXY con tasa de referencia diaria (BCE) — se actualizan una vez al día.</p>
+
+    <div class="top20-card" style="margin-top:32px;">
+      <h3>🏆 Top 10 criptomonedas</h3>
+      <p class="tool-desc">Por capitalización de mercado, actualizado en tiempo real (datos de CoinGecko).</p>
+      <div id="top10-list" class="top20-list">
+        <p class="calc-note">Cargando datos...</p>
+      </div>
+    </div>
   </div>
-</section>
+</div>
 
 
 <div class="modal-overlay modal-full" id="modal-enlaces" onclick="if(event.target===this) closeModal('modal-enlaces')">
@@ -2033,26 +1916,30 @@
     </div>
 
     <div class="roadmap">
-      <svg class="roadmap-path" viewBox="0 0 1000 110" preserveAspectRatio="none">
-        <path d="M40,70 C180,44 260,110 400,90 C540,68 620,10 760,30 C860,44 900,58 960,52" fill="none" stroke="var(--border)" stroke-width="2" stroke-dasharray="7 8"/>
+      <svg class="roadmap-path" viewBox="0 0 1000 260" preserveAspectRatio="none">
+        <path class="road-base" d="M50,175 C160,175 200,95 270,95 C370,95 400,195 500,195 C600,195 630,75 730,75 C830,75 870,145 950,145" fill="none"/>
+        <path class="road-lane" d="M50,175 C160,175 200,95 270,95 C370,95 400,195 500,195 C600,195 630,75 730,75 C830,75 870,145 950,145" fill="none"/>
       </svg>
-      <div class="roadmap-node pos-0">
+      <div class="roadmap-node" style="left:5%;top:143px;">
         <div class="roadmap-dot start">📍</div>
         <span>Inicio</span>
       </div>
-      <div class="roadmap-node pos-1">
+      <div class="roadmap-node" style="left:27%;top:8px;">
         <div class="roadmap-dot">1</div>
         <span>Academy</span>
+        <div class="roadmap-stem" style="height:24px;order:3;"></div>
       </div>
-      <div class="roadmap-node pos-2">
+      <div class="roadmap-node" style="left:50%;top:212px;">
+        <div class="roadmap-stem" style="height:22px;order:-1;"></div>
         <div class="roadmap-dot">2</div>
         <span>Members</span>
       </div>
-      <div class="roadmap-node pos-3">
+      <div class="roadmap-node" style="left:73%;top:2px;">
         <div class="roadmap-dot">3</div>
         <span>Partners</span>
+        <div class="roadmap-stem" style="height:22px;order:3;"></div>
       </div>
-      <div class="roadmap-node pos-4">
+      <div class="roadmap-node" style="left:95%;top:118px;">
         <div class="roadmap-dot end">🏁</div>
         <span>Independencia financiera</span>
       </div>
@@ -2094,7 +1981,7 @@
         </div>
         <span class="num">02</span>
         <h3>Mentorycap Members</h3>
-        <p>Acceso a un chat grupal de soporte, acompañamiento y actualizaciones — para que sigas en contacto conmigo después de tu formación, sin quedarte perdido en el camino.</p>
+        <p>Forma parte de un grupo que ve las finanzas y la vida distinto — un entorno que te mantiene enfocado, acompañado y en contacto conmigo después de tu formación.</p>
         <button class="btn btn-outline" onclick="openModal('modal-comunidad')" type="button">Leer más</button>
       </div>
       <div class="pilar">
@@ -2271,14 +2158,14 @@
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('modal-comunidad')" aria-label="Cerrar">✕</button>
     <div class="modal-eyebrow">💬 MentoryCap Members</div>
-    <h2>Soporte y acompañamiento, no otra fuente de contenido</h2>
-    <p>MentoryCap Members es un chat grupal pensado para quienes ya pasaron (o están pasando) por mis formaciones. Su propósito es simple: que no te quedes solo ni perdido después de terminar — que sigas teniendo un lugar donde preguntar, recibir actualizaciones y mantenerte en contacto conmigo.</p>
-    <p>No es un espacio donde deba estar generando contenido nuevo todo el tiempo, ni donde se espera que esté activo cada minuto del día. Es más bien continuidad: soporte cuando lo necesitas, acompañamiento en tu proceso, y actualizaciones relevantes que comparto cuando corresponde.</p>
+    <h2>Un lugar al que perteneces, no solo un chat más</h2>
+    <p>Ser parte de MentoryCap Members es formar parte de algo más grande que un grupo de chat: es rodearte de personas que ven las finanzas personales, el tiempo y las decisiones de vida de otra manera. Gente que, como tú, decidió construir en vez de quedarse esperando que las cosas cambien solas.</p>
+    <p>Aquí encontrarás soporte, acompañamiento y actualizaciones — pero sobre todo, un entorno que te ayuda a mantenerte enfocado. Rodearte de las personas correctas hace más fácil sostener el rumbo cuando las distracciones o las dudas intentan sabotear tu proceso. No estás solo en esto, y eso se nota.</p>
     <div class="modal-highlight">
       <strong style="color:var(--gold);">Esto no es una sala de señales</strong>
       <p style="margin:10px 0 0;color:var(--text-muted);font-size:14px;">Esta membresía no es un servicio de señales, alertas de compra o venta, ni trading en vivo. El propósito de MentoryCap Members es que no pierdas el acompañamiento después de tu formación — no reemplazar tu criterio propio con el mío.</p>
     </div>
-    <p>Ideal para quienes ya completaron (o están cerca de completar) Mentorycap Academy y quieren mantener ese hilo de contacto conmigo, en vez de terminar el curso y desaparecer del mapa.</p>
+    <p>Ideal para quienes ya completaron (o están cerca de completar) Mentorycap Academy y quieren mantener ese hilo de contacto conmigo — y con un entorno que los empuje hacia adelante — en vez de terminar el curso y desaparecer del mapa.</p>
     <button class="btn btn-primary js-contacto" data-servicio="Mentorycap Members" onclick="closeModal('modal-comunidad')">Quiero más información</button>
   </div>
 </div>
@@ -2386,6 +2273,7 @@
 <!-- ---------- MENÚ FLOTANTE + CHAT RÁPIDO ---------- -->
 <div class="fab-wrap">
   <div class="fab-menu" id="fab-menu">
+    <button type="button" class="fab-item" onclick="closeFabMenu(); openModal('modal-mercado')">📊 El mercado hoy</button>
     <button type="button" class="fab-item" onclick="closeFabMenu(); openModal('modal-enlaces')">🔗 Mis recursos</button>
     <button type="button" class="fab-item fab-item-chat" onclick="openChat()">💬 Escríbeme</button>
   </div>
@@ -2545,123 +2433,6 @@
   }
   loadMarketCards();
 
-  // ---------- Cintillo superior (propio, sin enlaces externos) ----------
-  async function loadTicker(){
-    const track = document.getElementById('ticker-track');
-    if (!track) return;
-    try{
-      const end = new Date();
-      const start = new Date();
-      start.setDate(end.getDate() - 5);
-      const fmt = d => d.toISOString().slice(0, 10);
-
-      const [cgRes, fxRes] = await Promise.all([
-        fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,pax-gold&vs_currencies=usd&include_24hr_change=true'),
-        fetch(`https://api.frankfurter.dev/v1/${fmt(start)}..${fmt(end)}?base=USD&symbols=EUR,GBP,JPY,CAD,SEK,CHF`)
-      ]);
-      const cg = await cgRes.json();
-      const fx = await fxRes.json();
-      const dates = Object.keys(fx.rates).sort();
-      const rFirst = fx.rates[dates[0]];
-      const rLast = fx.rates[dates[dates.length - 1]];
-      const pctChange = (a, b) => ((b - a) / a) * 100;
-
-      const eurusdFirst = 1 / rFirst.EUR, eurusdLast = 1 / rLast.EUR;
-      const gbpusdFirst = 1 / rFirst.GBP, gbpusdLast = 1 / rLast.GBP;
-
-      const dxyCalc = r => 50.14348112 *
-        Math.pow(1 / r.EUR, -0.576) *
-        Math.pow(r.JPY, 0.136) *
-        Math.pow(1 / r.GBP, -0.119) *
-        Math.pow(r.CAD, 0.091) *
-        Math.pow(r.SEK, 0.042) *
-        Math.pow(r.CHF, 0.036);
-      const dxyFirst = dxyCalc(rFirst), dxyLast = dxyCalc(rLast);
-
-      const items = [
-        { sym: 'BTC', price: '$' + cg.bitcoin.usd.toLocaleString('en-US', {maximumFractionDigits: 0}), chg: cg.bitcoin.usd_24h_change },
-        { sym: 'ETH', price: '$' + cg.ethereum.usd.toLocaleString('en-US', {maximumFractionDigits: 0}), chg: cg.ethereum.usd_24h_change },
-        { sym: 'ORO', price: '$' + cg['pax-gold'].usd.toLocaleString('en-US', {maximumFractionDigits: 0}), chg: cg['pax-gold'].usd_24h_change },
-        { sym: 'EUR/USD', price: eurusdLast.toFixed(4), chg: pctChange(eurusdFirst, eurusdLast) },
-        { sym: 'GBP/USD', price: gbpusdLast.toFixed(4), chg: pctChange(gbpusdFirst, gbpusdLast) },
-        { sym: 'USD/JPY', price: rLast.JPY.toFixed(2), chg: pctChange(rFirst.JPY, rLast.JPY) },
-        { sym: 'DXY', price: dxyLast.toFixed(2), chg: pctChange(dxyFirst, dxyLast) }
-      ];
-
-      const html = items.map(it => {
-        const isUp = it.chg >= 0;
-        return `<span class="ticker-item"><span class="t-sym">${it.sym}</span> ${it.price} <span class="t-chg ${isUp ? 'up' : 'down'}">${isUp ? '+' : ''}${it.chg.toFixed(2)}%</span></span>`;
-      }).join('');
-      track.innerHTML = html + html;
-    } catch(e){
-      track.innerHTML = '<span class="ticker-item">No se pudo cargar el mercado en este momento.</span>';
-    }
-  }
-  loadTicker();
-
-  // Reloj de Nueva York + sesiones bursátiles activas (horas mostradas en hora de Nueva York)
-  const marketSessions = [
-    { name: 'Nueva York', flag: '🇺🇸', tz: 'America/New_York', open: [9, 30],  close: [16, 0]  },
-    { name: 'Londres',    flag: '🇬🇧', tz: 'Europe/London',    open: [8, 0],   close: [16, 30] },
-    { name: 'Tokio',      flag: '🇯🇵', tz: 'Asia/Tokyo',       open: [9, 0],   close: [15, 0]  }
-  ];
-
-  function zonedParts(tz, date){
-    const parts = new Intl.DateTimeFormat('en-US', {
-      timeZone: tz, hourCycle: 'h23',
-      year: 'numeric', month: '2-digit', day: '2-digit',
-      hour: '2-digit', minute: '2-digit', second: '2-digit', weekday: 'short'
-    }).formatToParts(date);
-    const map = {};
-    parts.forEach(p => map[p.type] = p.value);
-    return map;
-  }
-
-  // Offset en minutos entre la hora local de tz y UTC, para el instante `date`
-  function zonedOffsetMinutes(tz, date){
-    const m = zonedParts(tz, date);
-    const asUTC = Date.UTC(+m.year, +m.month - 1, +m.day, +m.hour, +m.minute, +m.second);
-    return Math.round((asUTC - date.getTime()) / 60000);
-  }
-
-  // Construye el instante UTC real de "hoy a las hh:mm hora local de tz"
-  function zonedTimeToUTC(tz, hh, mm, referenceDate){
-    const m = zonedParts(tz, referenceDate);
-    const offset = zonedOffsetMinutes(tz, referenceDate);
-    const ms = Date.UTC(+m.year, +m.month - 1, +m.day, hh, mm, 0) - offset * 60000;
-    return new Date(ms);
-  }
-
-  function fmtNY(date){
-    return date.toLocaleTimeString('es-PA', {
-      timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', hour12: false
-    });
-  }
-
-  function updateClock(){
-    const clockEl = document.getElementById('clock-time');
-    if (!clockEl) return;
-    const now = new Date();
-    clockEl.textContent = new Date().toLocaleTimeString('es-PA', {
-      timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
-    });
-
-    const chips = marketSessions.map(s => {
-      const weekday = zonedParts(s.tz, now).weekday;
-      const isWeekday = weekday !== 'Sat' && weekday !== 'Sun';
-      const openUTC = zonedTimeToUTC(s.tz, s.open[0], s.open[1], now);
-      const closeUTC = zonedTimeToUTC(s.tz, s.close[0], s.close[1], now);
-      const isOpen = isWeekday && now >= openUTC && now < closeUTC;
-      return `<span class="session-chip ${isOpen ? 'open' : ''}">
-        <span class="session-dot ${isOpen ? 'open' : 'closed'}"></span>
-        ${s.flag} ${s.name} · ${fmtNY(openUTC)}–${fmtNY(closeUTC)}
-      </span>`;
-    }).join('');
-    document.getElementById('sessions-list').innerHTML = chips;
-  }
-  updateClock();
-  setInterval(updateClock, 1000);
-
   // Menú flotante (FAB)
   function toggleFabMenu(){
     const menu = document.getElementById('fab-menu');
@@ -2725,10 +2496,10 @@
       chatBtn.textContent = 'Enviar mensaje';
     }
   });
-  fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&price_change_percentage=24h')
+  fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&price_change_percentage=24h')
     .then(res => res.json())
     .then(coins => {
-      const list = document.getElementById('top20-list');
+      const list = document.getElementById('top10-list');
       if (!Array.isArray(coins)) throw new Error('respuesta inesperada');
       list.innerHTML = coins.map((c, i) => {
         const change = c.price_change_percentage_24h;
@@ -2747,7 +2518,7 @@
       }).join('');
     })
     .catch(() => {
-      document.getElementById('top20-list').innerHTML = '<p class="calc-note">No se pudo cargar el top 20 en este momento. Intenta recargar la página.</p>';
+      document.getElementById('top10-list').innerHTML = '<p class="calc-note">No se pudo cargar el top 10 en este momento. Intenta recargar la página.</p>';
     });
 
   // Calculadora de gestión de riesgo
@@ -2829,7 +2600,7 @@
     community: {
       tag: 'Tu camino: Mentorycap Members',
       title: 'Mantente en contacto y acompañado',
-      desc: 'Tu perfil encaja con un chat grupal de soporte y actualizaciones, para seguir en contacto conmigo sin quedarte perdido después de tu formación.',
+      desc: 'Tu perfil encaja con formar parte de un grupo que te acompaña y te mantiene enfocado, en contacto conmigo después de tu formación.',
       servicio: 'Mentorycap Members'
     },
     rccapital: {

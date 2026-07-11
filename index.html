@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MentoryCap — Trading, Formación y Gestión de Capital</title>
-<meta name="description" content="MentoryCap: Academy para aprender trading, Community por membresía mensual y Partners para gestión de capital privado, con Oscar Rojas.">
+<meta name="description" content="MentoryCap: Academy para aprender trading, Members como membresía de soporte y acompañamiento, y Partners para gestión de capital privado, con Oscar Rojas.">
 <link rel="icon" type="image/png" href="images/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -188,13 +188,48 @@
     .hero-content{max-width:100%;}
   }
   .hero h1{
-    font-size:44px;
-    line-height:1.12;
-    margin-bottom:22px;
+    font-size:42px;
+    line-height:1.14;
+    margin-bottom:14px;
   }
   .hero h1 em{
     font-style:normal;
     color:var(--gold);
+  }
+  .hero-subtitle{
+    font-size:18px;
+    color:var(--text-muted);
+    font-weight:400;
+    margin-bottom:18px;
+  }
+  .hero-motto{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:28px;
+    flex-wrap:wrap;
+  }
+  .hero-motto span{
+    font-family:var(--display);
+    font-weight:700;
+    font-size:20px;
+    letter-spacing:0.02em;
+    background:linear-gradient(90deg, #D4AF37, #F5DFA0, #D4AF37, #F5DFA0);
+    background-size:300% 100%;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    animation:motto-shine 5s linear infinite;
+  }
+  .hero-motto i{
+    font-style:normal;
+    color:var(--text-muted);
+    opacity:0.5;
+    font-size:14px;
+  }
+  @keyframes motto-shine{
+    0%{background-position:0% 0;}
+    100%{background-position:300% 0;}
   }
   .hero p.lead{
     font-size:17px;
@@ -382,6 +417,12 @@
     border-top:1px solid var(--border);
   }
   .story-closing span{color:var(--gold);}
+  .story-note{
+    font-family:var(--mono);
+    font-size:12.5px;
+    color:var(--text-muted);
+    margin-top:16px;
+  }
 
   .t-item-img{
     width:100%;
@@ -978,16 +1019,15 @@
     display:flex;
     justify-content:space-between;
     align-items:flex-start;
-    margin:36px 0 44px;
-    padding:0 6px;
+    margin:40px 0 48px;
+    padding:34px 6px 0;
   }
-  .roadmap-line{
+  .roadmap-path{
     position:absolute;
-    top:26px;
-    left:6%;
-    right:6%;
-    height:0;
-    border-top:2px dashed var(--border);
+    top:0;
+    left:0;
+    width:100%;
+    height:110px;
     z-index:0;
   }
   .roadmap-node{
@@ -1000,6 +1040,11 @@
     flex:1;
     text-align:center;
   }
+  .roadmap-node.pos-0{margin-top:26px;}
+  .roadmap-node.pos-1{margin-top:0px;}
+  .roadmap-node.pos-2{margin-top:34px;}
+  .roadmap-node.pos-3{margin-top:4px;}
+  .roadmap-node.pos-4{margin-top:22px;}
   .roadmap-dot{
     width:52px;
     height:52px;
@@ -1013,14 +1058,25 @@
     font-weight:700;
     font-size:17px;
     color:var(--gold);
+    box-shadow:0 4px 14px rgba(0,0,0,0.35);
   }
   .roadmap-dot.start{background:var(--bg);border-color:var(--border);font-size:18px;}
-  .roadmap-dot.end{background:var(--gold);border-color:var(--gold);color:#0B0E14;font-size:20px;}
-  .roadmap-node span{font-size:11.5px;color:var(--text-muted);max-width:90px;line-height:1.3;}
+  .roadmap-dot.end{background:#F7F0DC;border-color:var(--gold);color:#0B0E14;font-size:22px;}
+  .roadmap-node span{font-size:11.5px;color:var(--text-muted);max-width:100px;line-height:1.3;}
   @media(max-width:700px){
-    .roadmap{flex-direction:column;align-items:flex-start;gap:22px;padding-left:10px;}
-    .roadmap-line{top:0;bottom:0;left:31px;right:auto;width:0;height:auto;border-top:none;border-left:2px dashed var(--border);}
-    .roadmap-node{flex-direction:row;text-align:left;gap:14px;}
+    .roadmap{flex-direction:column;align-items:flex-start;gap:22px;padding:0 0 0 10px;}
+    .roadmap-path{display:none;}
+    .roadmap-node.pos-0, .roadmap-node.pos-1, .roadmap-node.pos-2, .roadmap-node.pos-3, .roadmap-node.pos-4{margin-top:0;}
+    .roadmap-node{flex-direction:row;text-align:left;gap:14px;position:relative;}
+    .roadmap-node:not(:last-child)::after{
+      content:'';
+      position:absolute;
+      left:25px;
+      top:52px;
+      width:0;
+      height:22px;
+      border-left:2px dashed var(--border);
+    }
     .roadmap-node span{max-width:none;}
   }
   .pilares{
@@ -1689,31 +1745,32 @@
   <img src="images/oscar.png" alt="Oscar Rojas, fundador de MentoryCap" class="hero-bg-photo">
   <div class="hero-overlay"></div>
   <div class="container hero-content">
-    <h1>Dale mayor utilidad a tus ingresos y construye tu <em>independencia financiera</em>.</h1>
-    <p class="lead">Soy Oscar. Ayudo a personas a aprender a operar en los mercados financieros desde cero y gestiono el capital de quienes prefieren invertir sin operar por sí mismos.</p>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <b>2021</b>
-        <span>Inicio en trading</span>
-      </div>
-      <div class="hero-stat">
-        <b class="up">20+</b>
-        <span>Estudiantes formados</span>
-      </div>
-      <div class="hero-stat">
-        <b>5.0★</b>
-        <span>Calificación</span>
-      </div>
+    <h1>Empieza a construir tu sistema financiero personal</h1>
+    <p class="hero-subtitle">Dale mayor utilidad a tus ingresos.</p>
+    <div class="hero-motto">
+      <span>Ahorra</span><i>•</i><span>Invierte</span><i>•</i><span>Crece</span>
     </div>
+    <p class="lead">Soy Oscar. Mi objetivo es ayudarte a que tu dinero trabaje para ti. A través de la educación y la inversión online, aprenderás a ahorrar mejor, invertir con criterio y construir una economía personal alternativa.</p>
   </div>
 </section>
 
+
+<section id="historia-cta">
+  <div class="container">
+    <div class="historia-cta-box">
+      <img src="images/oscar.png" alt="Oscar Rojas, fundador de MentoryCap" class="historia-cta-photo">
+      <div class="historia-cta-eyebrow">CONÓCEME</div>
+      <h2>No siempre fue fácil. Tampoco fue suerte.</h2>
+      <p>Antes de MentoryCap hubo negocios que no funcionaron, dinero perdido y más de un "empezar de nuevo". Te cuento cómo llegué hasta aquí — y por qué eso es exactamente lo que hoy me permite ayudarte a ti.</p>
+      <button type="button" class="btn btn-primary" onclick="openModal('modal-historia')">Conoce mi historia</button>
+    </div>
+  </div>
+</section>
 
 <section id="mercado">
   <div class="container">
     <div class="section-head">
       <div class="eyebrow">EL MERCADO HOY</div>
-      <h2>Un vistazo rápido antes de seguir</h2>
     </div>
     <div class="stocks-range" id="stocks-range">
       <button class="stocks-range-btn active" type="button" onclick="setStocksRange('dia', this)">Día</button>
@@ -1776,18 +1833,6 @@
       </div>
     </div>
     <p class="calc-note" style="margin-top:14px;">Bitcoin y Oro en vivo (CoinGecko, proxy de oro tokenizado 1:1). EUR/USD y DXY con tasa de referencia diaria (BCE) — se actualizan una vez al día.</p>
-  </div>
-</section>
-
-<section id="historia-cta">
-  <div class="container">
-    <div class="historia-cta-box">
-      <img src="images/oscar.png" alt="Oscar Rojas, fundador de MentoryCap" class="historia-cta-photo">
-      <div class="historia-cta-eyebrow">CONÓCEME</div>
-      <h2>No siempre fue fácil. Tampoco fue suerte.</h2>
-      <p>Antes de MentoryCap hubo negocios que no funcionaron, dinero perdido y más de un "empezar de nuevo". Te cuento cómo llegué hasta aquí — y por qué eso es exactamente lo que hoy me permite ayudarte a ti.</p>
-      <button type="button" class="btn btn-primary" onclick="openModal('modal-historia')">Conoce mi historia</button>
-    </div>
   </div>
 </section>
 
@@ -1965,16 +2010,17 @@
       <div class="t-item">
         <span class="t-date">05 · Hoy</span>
         <h3>Un ecosistema, no un producto</h3>
-        <p>Hoy acompaño a personas que desean aprender desde cero y desarrollar habilidades para gestionar su propio capital. Mantengo una comunidad activa donde seguimos aprendiendo y creciendo juntos. Y trabajo con quienes buscan una relación más cercana dentro de este ecosistema.</p>
+        <p>Hoy acompaño a personas que desean aprender desde cero y desarrollar habilidades para gestionar su propio capital. Mantengo el contacto con quienes ya pasaron por mi formación, para que no se queden solos después. Y trabajo con quienes buscan una relación más cercana dentro de este ecosistema.</p>
         <div class="story-chips">
           <span>Mentorycap Academy</span>
-          <span>Mentorycap Community</span>
+          <span>Mentorycap Members</span>
           <span>Mentorycap Partners</span>
         </div>
       </div>
     </div>
 
     <p class="story-closing">Las experiencias que un día me hicieron dudar de mi camino son precisamente las que hoy <span>me permiten ayudar a otros a construir el suyo</span>.</p>
+    <p class="story-note">Hoy, más de 20 estudiantes ya han pasado por este camino conmigo.</p>
   </div>
 </div>
 
@@ -1987,47 +2033,32 @@
     </div>
 
     <div class="roadmap">
-      <div class="roadmap-line"></div>
-      <div class="roadmap-node">
+      <svg class="roadmap-path" viewBox="0 0 1000 110" preserveAspectRatio="none">
+        <path d="M40,70 C180,44 260,110 400,90 C540,68 620,10 760,30 C860,44 900,58 960,52" fill="none" stroke="var(--border)" stroke-width="2" stroke-dasharray="7 8"/>
+      </svg>
+      <div class="roadmap-node pos-0">
         <div class="roadmap-dot start">📍</div>
         <span>Inicio</span>
       </div>
-      <div class="roadmap-node">
+      <div class="roadmap-node pos-1">
         <div class="roadmap-dot">1</div>
-        <span>Community</span>
-      </div>
-      <div class="roadmap-node">
-        <div class="roadmap-dot">2</div>
         <span>Academy</span>
       </div>
-      <div class="roadmap-node">
+      <div class="roadmap-node pos-2">
+        <div class="roadmap-dot">2</div>
+        <span>Members</span>
+      </div>
+      <div class="roadmap-node pos-3">
         <div class="roadmap-dot">3</div>
         <span>Partners</span>
       </div>
-      <div class="roadmap-node">
+      <div class="roadmap-node pos-4">
         <div class="roadmap-dot end">🏁</div>
         <span>Independencia financiera</span>
       </div>
     </div>
 
     <div class="pilares">
-      <div class="pilar">
-        <div class="pilar-art">
-          <svg width="76" height="76" viewBox="0 0 100 100" fill="none">
-            <rect x="14" y="20" width="52" height="36" rx="9" fill="#131722" stroke="#26A69A" stroke-width="2.5"/>
-            <path d="M24 56 L24 68 L37 56" fill="#131722" stroke="#26A69A" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-            <rect x="34" y="34" width="52" height="36" rx="9" fill="#1A2030" stroke="#D4AF37" stroke-width="2.5"/>
-            <path d="M76 70 L76 82 L63 70" fill="#1A2030" stroke="#D4AF37" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-            <circle cx="48" cy="52" r="2.6" fill="#D4AF37"/>
-            <circle cx="60" cy="52" r="2.6" fill="#D4AF37"/>
-            <circle cx="72" cy="52" r="2.6" fill="#D4AF37"/>
-          </svg>
-        </div>
-        <span class="num">01</span>
-        <h3>Mentorycap Community</h3>
-        <p>Una membresía para quienes desean mantenerse conectados con los mercados y fortalecer su criterio financiero.</p>
-        <button class="btn btn-outline" onclick="openModal('modal-comunidad')" type="button">Leer más</button>
-      </div>
       <div class="pilar">
         <div class="pilar-art">
           <svg width="76" height="76" viewBox="0 0 100 100" fill="none">
@@ -2044,10 +2075,27 @@
             <line x1="84" y1="30" x2="84" y2="46" stroke="#D4AF37" stroke-width="2.5" stroke-linecap="round"/>
           </svg>
         </div>
-        <span class="num">02</span>
+        <span class="num">01</span>
         <h3>Mentorycap Academy</h3>
         <p>Formación completa para aprender a operar desde cero, con acompañamiento personalizado y en grupo reducido.</p>
         <button class="btn btn-outline" onclick="openModal('modal-private')" type="button">Leer más</button>
+      </div>
+      <div class="pilar">
+        <div class="pilar-art">
+          <svg width="76" height="76" viewBox="0 0 100 100" fill="none">
+            <rect x="14" y="20" width="52" height="36" rx="9" fill="#131722" stroke="#26A69A" stroke-width="2.5"/>
+            <path d="M24 56 L24 68 L37 56" fill="#131722" stroke="#26A69A" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+            <rect x="34" y="34" width="52" height="36" rx="9" fill="#1A2030" stroke="#D4AF37" stroke-width="2.5"/>
+            <path d="M76 70 L76 82 L63 70" fill="#1A2030" stroke="#D4AF37" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+            <circle cx="48" cy="52" r="2.6" fill="#D4AF37"/>
+            <circle cx="60" cy="52" r="2.6" fill="#D4AF37"/>
+            <circle cx="72" cy="52" r="2.6" fill="#D4AF37"/>
+          </svg>
+        </div>
+        <span class="num">02</span>
+        <h3>Mentorycap Members</h3>
+        <p>Acceso a un chat grupal de soporte, acompañamiento y actualizaciones — para que sigas en contacto conmigo después de tu formación, sin quedarte perdido en el camino.</p>
+        <button class="btn btn-outline" onclick="openModal('modal-comunidad')" type="button">Leer más</button>
       </div>
       <div class="pilar">
         <div class="pilar-art">
@@ -2092,7 +2140,7 @@
     <div class="section-head">
       <div class="eyebrow">¿NO SABES POR DÓNDE EMPEZAR?</div>
       <h2>Descubre qué camino de MentoryCap es para ti</h2>
-      <p>Responde 4 preguntas rápidas y te digo si te conviene más Community, Academy, RC Capital o Business Partners.</p>
+      <p>Responde 4 preguntas rápidas y te digo si te conviene más Academy, Members, RC Capital o Business Partners.</p>
     </div>
     <div class="quiz-card">
       <div id="quiz-active">
@@ -2222,16 +2270,16 @@
 <div class="modal-overlay" id="modal-comunidad" onclick="if(event.target===this) closeModal('modal-comunidad')">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('modal-comunidad')" aria-label="Cerrar">✕</button>
-    <div class="modal-eyebrow">📈 MentoryCap Community</div>
-    <h2>Una membresía para mantenerte conectado con los mercados</h2>
-    <p>MentoryCap Community es un espacio abierto para cualquier persona interesada en aprender más sobre los mercados financieros y formar parte de una comunidad con una visión de crecimiento a largo plazo.</p>
-    <p>Aquí compartimos conocimientos, ideas, herramientas, noticias relevantes, recursos educativos y conversaciones sobre Forex, criptomonedas, inversión, economía y educación financiera. También encontrarás sesiones de preguntas y respuestas, reflexiones y contenido pensado para ayudarte a comprender mejor el funcionamiento de los mercados y desarrollar una base sólida para tomar mejores decisiones.</p>
+    <div class="modal-eyebrow">💬 MentoryCap Members</div>
+    <h2>Soporte y acompañamiento, no otra fuente de contenido</h2>
+    <p>MentoryCap Members es un chat grupal pensado para quienes ya pasaron (o están pasando) por mis formaciones. Su propósito es simple: que no te quedes solo ni perdido después de terminar — que sigas teniendo un lugar donde preguntar, recibir actualizaciones y mantenerte en contacto conmigo.</p>
+    <p>No es un espacio donde deba estar generando contenido nuevo todo el tiempo, ni donde se espera que esté activo cada minuto del día. Es más bien continuidad: soporte cuando lo necesitas, acompañamiento en tu proceso, y actualizaciones relevantes que comparto cuando corresponde.</p>
     <div class="modal-highlight">
       <strong style="color:var(--gold);">Esto no es una sala de señales</strong>
-      <p style="margin:10px 0 0;color:var(--text-muted);font-size:14px;">Esta membresía no es un servicio de señales, alertas de compra o venta, ni trading en vivo. El propósito de MentoryCap Community es fomentar el aprendizaje y el desarrollo de criterio propio, no la dependencia de las decisiones u operaciones de otra persona.</p>
+      <p style="margin:10px 0 0;color:var(--text-muted);font-size:14px;">Esta membresía no es un servicio de señales, alertas de compra o venta, ni trading en vivo. El propósito de MentoryCap Members es que no pierdas el acompañamiento después de tu formación — no reemplazar tu criterio propio con el mío.</p>
     </div>
-    <p>Tanto si estás comenzando como si ya tienes experiencia, encontrarás un entorno donde podrás aprender, participar y mantenerte conectado con personas que comparten el interés por el crecimiento financiero.</p>
-    <button class="btn btn-primary js-contacto" data-servicio="Mentorycap Community" onclick="closeModal('modal-comunidad')">Quiero más información</button>
+    <p>Ideal para quienes ya completaron (o están cerca de completar) Mentorycap Academy y quieren mantener ese hilo de contacto conmigo, en vez de terminar el curso y desaparecer del mapa.</p>
+    <button class="btn btn-primary js-contacto" data-servicio="Mentorycap Members" onclick="closeModal('modal-comunidad')">Quiero más información</button>
   </div>
 </div>
 
@@ -2739,7 +2787,7 @@
         { label: 'Aprender a operar por mi cuenta', scores: { academy: 2 } },
         { label: 'Que gestionen mi capital sin operar yo', scores: { rccapital: 2 } },
         { label: 'Conectar personas y generar ingresos extra', scores: { bizpartners: 2 } },
-        { label: 'Estar informado y aprender poco a poco', scores: { community: 2 } }
+        { label: 'Ya tengo una base y quiero seguir acompañado', scores: { community: 2 } }
       ]
     },
     {
@@ -2747,7 +2795,7 @@
       options: [
         { label: 'Varias horas, quiero tomarlo en serio', scores: { academy: 2 } },
         { label: 'Poco o nada, prefiero delegarlo', scores: { rccapital: 2 } },
-        { label: 'Un rato libre, solo para estar al tanto', scores: { community: 2 } },
+        { label: 'Poco, solo quiero mantenerme en contacto y al tanto', scores: { community: 2 } },
         { label: 'Mi tiempo lo invierto en mi red de contactos', scores: { bizpartners: 2 } }
       ]
     },
@@ -2756,7 +2804,7 @@
       options: [
         { label: 'Sí, y prefiero que alguien más lo gestione', scores: { rccapital: 2 } },
         { label: 'Tengo algo, pero quiero aprender a manejarlo yo', scores: { academy: 2 } },
-        { label: 'Todavía no, estoy empezando desde cero', scores: { community: 1, academy: 1 } },
+        { label: 'Todavía no, estoy empezando desde cero', scores: { academy: 2 } },
         { label: 'No, pero conozco personas interesadas en invertir o aprender', scores: { bizpartners: 2 } }
       ]
     },
@@ -2765,7 +2813,7 @@
       options: [
         { label: 'Quiero desarrollar una nueva habilidad o profesión', scores: { academy: 2 } },
         { label: 'Quiero diversificar mi patrimonio sin complicarme', scores: { rccapital: 2 } },
-        { label: 'Quiero mantenerme cerca del mundo financiero', scores: { community: 2 } },
+        { label: 'Ya pasé por una formación y no quiero perder el contacto', scores: { community: 2 } },
         { label: 'Tengo una red y quiero generar ingresos con ella', scores: { bizpartners: 2 } }
       ]
     }
@@ -2779,10 +2827,10 @@
       servicio: 'Mentorycap Academy'
     },
     community: {
-      tag: 'Tu camino: Mentorycap Community',
-      title: 'Mantente conectado con los mercados',
-      desc: 'Tu perfil encaja con un espacio para aprender poco a poco, sin presión, y fortalecer tu criterio financiero junto a otros.',
-      servicio: 'Mentorycap Community'
+      tag: 'Tu camino: Mentorycap Members',
+      title: 'Mantente en contacto y acompañado',
+      desc: 'Tu perfil encaja con un chat grupal de soporte y actualizaciones, para seguir en contacto conmigo sin quedarte perdido después de tu formación.',
+      servicio: 'Mentorycap Members'
     },
     rccapital: {
       tag: 'Tu camino: Mentorycap Partners · RC Capital',

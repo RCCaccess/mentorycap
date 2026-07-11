@@ -788,7 +788,12 @@
     padding:10px 4px;
     border-bottom:1px solid var(--border);
     font-size:13.5px;
+    cursor:pointer;
+    border-radius:6px;
+    transition:background .12s ease;
   }
+  .top20-row:hover{background:rgba(212,175,55,0.06);}
+  .top20-row.active{background:rgba(212,175,55,0.1);}
   .top20-row:last-child{border-bottom:none;}
   .top20-rank{font-family:var(--mono);color:var(--text-muted);font-size:12px;}
   .top20-icon{
@@ -807,9 +812,26 @@
   .top20-change{font-family:var(--mono);font-size:12px;text-align:right;min-width:58px;white-space:nowrap;}
   .top20-change.up{color:var(--up);}
   .top20-change.down{color:var(--down);}
+  .crypto-detail-card{
+    margin-top:20px;
+    position:relative;
+    max-width:420px;
+  }
+  .crypto-detail-close{
+    position:absolute;
+    top:14px;
+    right:14px;
+    background:none;
+    border:none;
+    color:var(--text-muted);
+    font-size:14px;
+    cursor:pointer;
+  }
+  .crypto-detail-close:hover{color:var(--gold);}
   @media(max-width:560px){
     .top20-row{grid-template-columns:20px 20px 1fr auto;font-size:12.5px;}
     .top20-change{display:none;}
+    .crypto-detail-card{max-width:100%;}
   }
   /* ---------- HERRAMIENTAS ---------- */
   #herramientas{border-bottom:1px solid var(--border);}
@@ -1739,7 +1761,8 @@
         <span class="clock-label">Hora de Nueva York</span>
       </div>
       <div class="market-strip-sessions" id="sessions-list"></div>
-      <p class="tool-desc" style="margin-top:12px;">Las bolsas de valores tienen horario fijo — solo se puede operar acciones mientras están "abiertas". El punto verde te dice cuál está activa ahora mismo, y a qué hora abre y cierra cada una (en hora de Nueva York, para comparar fácil).</p>
+      <p class="tool-desc" style="margin-top:12px;">En MentoryCap nos enfocamos en el mercado Forex (divisas), que opera 24 horas — pero estos horarios de bolsa igual te sirven: cuando una de estas bolsas está "abierta", también aumenta el volumen de transacciones y la volatilidad en la moneda de ese país. Por ejemplo, cuando Londres o Nueva York abren, el EUR/USD suele moverse con más fuerza. El punto verde te dice cuál está activa ahora mismo, y a qué hora abre y cierra cada una (en hora de Nueva York, para comparar fácil).</p>
+      <p class="tool-desc" style="margin-top:8px;">Fíjate también en las horas donde <strong style="color:var(--text);">dos bolsas coinciden abiertas</strong> (por ejemplo Londres y Nueva York) — ahí suele concentrarse la mayor actividad del día en el mercado de divisas.</p>
     </div>
 
     <div class="section-head" style="margin-top:36px;">
@@ -1810,9 +1833,30 @@
 
     <div class="top20-card" style="margin-top:32px;">
       <h3>🏆 Top 10 criptomonedas</h3>
-      <p class="tool-desc">Las 10 criptomonedas más importantes del momento, con su precio y cuánto subieron o bajaron en las últimas 24 horas (datos en vivo de Binance).</p>
+      <p class="tool-desc">Las 10 criptomonedas más importantes del momento, con su precio y cuánto subieron o bajaron en las últimas 24 horas. <strong style="color:var(--text);">Toca cualquiera para ver su gráfica</strong> — no te quedes solo con el precio, mira cómo se ha comportado.</p>
       <div id="top10-list" class="top20-list">
         <p class="calc-note">Cargando datos...</p>
+      </div>
+
+      <div class="stock-card crypto-detail-card" id="crypto-detail-card" style="display:none;">
+        <button class="crypto-detail-close" onclick="hideCryptoDetail()" aria-label="Cerrar">✕</button>
+        <div class="stock-top">
+          <div>
+            <div class="stock-symbol" id="crypto-detail-symbol">—</div>
+            <div class="stock-name" id="crypto-detail-name">—</div>
+          </div>
+          <div class="stock-price-wrap">
+            <div class="stock-price" id="crypto-detail-price">…</div>
+            <div class="stock-change" id="crypto-detail-change">—</div>
+          </div>
+        </div>
+        <svg class="stock-chart" id="crypto-detail-chart" viewBox="0 0 300 70" preserveAspectRatio="none"></svg>
+        <div class="stocks-range" id="crypto-detail-range" style="margin-top:14px;">
+          <button class="stocks-range-btn active" type="button" onclick="setCryptoDetailRange('dia', this)">Día</button>
+          <button class="stocks-range-btn" type="button" onclick="setCryptoDetailRange('semana', this)">Semana</button>
+          <button class="stocks-range-btn" type="button" onclick="setCryptoDetailRange('mes', this)">Mes</button>
+          <button class="stocks-range-btn" type="button" onclick="setCryptoDetailRange('todo', this)">Todo</button>
+        </div>
       </div>
     </div>
   </div>
@@ -2687,7 +2731,7 @@
         const priceStr = price >= 1
           ? '$' + price.toLocaleString('en-US', {maximumFractionDigits: 2})
           : '$' + price.toPrecision(4);
-        return `<div class="top20-row">
+        return `<div class="top20-row" id="row-${c.symbol}" onclick="showCryptoDetail('${c.symbol}', '${c.name}', '${c.tag}')">
           <span class="top20-rank">${i + 1}</span>
           <span class="top20-icon" style="background:${c.color}22;color:${c.color};">${c.tag.slice(0, 2)}</span>
           <span class="top20-name">${c.name}<span class="sym">${c.tag}</span></span>
@@ -2699,6 +2743,59 @@
     .catch(() => {
       document.getElementById('top10-list').innerHTML = '<p class="calc-note">No se pudo cargar el top 10 en este momento. Intenta recargar la página.</p>';
     });
+
+  // Gráfica de detalle al hacer clic en una criptomoneda del top 10
+  let cryptoDetailSymbol = null;
+  let cryptoDetailRange = 'dia';
+
+  function showCryptoDetail(symbol, name, tag){
+    cryptoDetailSymbol = symbol;
+    document.querySelectorAll('.top20-row').forEach(r => r.classList.remove('active'));
+    const row = document.getElementById(`row-${symbol}`);
+    if (row) row.classList.add('active');
+    document.getElementById('crypto-detail-symbol').textContent = tag + '/USDT';
+    document.getElementById('crypto-detail-name').textContent = name;
+    const card = document.getElementById('crypto-detail-card');
+    card.style.display = 'block';
+    card.scrollIntoView({behavior: 'smooth', block: 'nearest'});
+    loadCryptoDetail();
+  }
+
+  function hideCryptoDetail(){
+    document.getElementById('crypto-detail-card').style.display = 'none';
+    document.querySelectorAll('.top20-row').forEach(r => r.classList.remove('active'));
+    cryptoDetailSymbol = null;
+  }
+
+  function setCryptoDetailRange(range, btn){
+    cryptoDetailRange = range;
+    document.querySelectorAll('#crypto-detail-range .stocks-range-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    loadCryptoDetail();
+  }
+
+  async function loadCryptoDetail(){
+    if (!cryptoDetailSymbol) return;
+    const priceEl = document.getElementById('crypto-detail-price');
+    priceEl.textContent = '…';
+    try{
+      const interval = cryptoDetailRange === 'dia' ? '1h' : cryptoDetailRange === 'semana' ? '4h' : '1d';
+      const limit = cryptoDetailRange === 'dia' ? 24 : cryptoDetailRange === 'semana' ? 42 : cryptoDetailRange === 'mes' ? 30 : 365;
+      const res = await fetch(`https://api.binance.com/api/v3/klines?symbol=${cryptoDetailSymbol}&interval=${interval}&limit=${limit}`);
+      const data = await res.json();
+      const prices = data.map(c => parseFloat(c[4]));
+      const first = prices[0], last = prices[prices.length - 1];
+      const changePct = ((last - first) / first) * 100;
+      const isUp = changePct >= 0;
+      priceEl.textContent = '$' + last.toLocaleString('en-US', {maximumFractionDigits: last >= 1 ? 2 : 6});
+      const changeEl = document.getElementById('crypto-detail-change');
+      changeEl.textContent = (isUp ? '+' : '') + changePct.toFixed(2) + '%';
+      changeEl.className = 'stock-change ' + (isUp ? 'up' : 'down');
+      drawSparkline('crypto-detail-chart', prices, isUp);
+    } catch(e){
+      priceEl.textContent = 'N/D';
+    }
+  }
 
   // Calculadora de gestión de riesgo
   const instrumentSpecs = {

@@ -161,20 +161,20 @@
   }
   .hero-bg-photo{
     position:absolute;
-    right:0;
-    top:0;
+    inset:0;
+    width:100%;
     height:100%;
-    width:auto;
-    max-width:60%;
-    object-fit:contain;
-    object-position:bottom right;
+    object-fit:cover;
+    object-position:top center;
     z-index:0;
-    opacity:0.92;
+    opacity:0.85;
+    filter:blur(7px) saturate(0.85) brightness(0.75);
+    transform:scale(1.05);
   }
   .hero-overlay{
     position:absolute;
     inset:0;
-    background:linear-gradient(90deg, var(--bg) 0%, var(--bg) 32%, rgba(11,14,20,0.88) 52%, rgba(11,14,20,0.35) 75%, rgba(11,14,20,0.05) 100%);
+    background:linear-gradient(90deg, var(--bg) 0%, rgba(11,14,20,0.88) 30%, rgba(11,14,20,0.72) 55%, rgba(11,14,20,0.55) 100%);
     z-index:1;
   }
   .hero-content{
@@ -183,8 +183,8 @@
     max-width:600px;
   }
   @media(max-width:760px){
-    .hero-bg-photo{max-width:100%;opacity:0.18;object-position:top center;}
-    .hero-overlay{background:linear-gradient(180deg, var(--bg) 55%, rgba(11,14,20,0.7) 100%);}
+    .hero-bg-photo{opacity:0.6;}
+    .hero-overlay{background:linear-gradient(180deg, rgba(11,14,20,0.55) 0%, var(--bg) 88%);}
     .hero-content{max-width:100%;}
   }
   .hero h1{
@@ -593,19 +593,30 @@
   }
 
   /* ---------- VENTANITA DE CHAT ---------- */
+  .chat-backdrop{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(6,8,12,0.7);
+    z-index:159;
+  }
+  .chat-backdrop.open{display:block;}
   .chat-window{
     display:none;
     position:fixed;
-    right:20px;
-    bottom:90px;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
     z-index:160;
-    width:320px;
+    width:340px;
     max-width:calc(100vw - 40px);
+    max-height:calc(100vh - 40px);
+    overflow-y:auto;
     background:var(--bg-panel);
     border:1px solid var(--border);
     border-radius:14px;
     overflow:hidden;
-    box-shadow:0 16px 40px rgba(0,0,0,0.5);
+    box-shadow:0 20px 60px rgba(0,0,0,0.6);
   }
   .chat-window.open{display:block;}
   .chat-header{
@@ -648,6 +659,7 @@
     resize:none;
   }
   #chat-form input:focus, #chat-form textarea:focus{outline:none;border-color:var(--gold-dim);}
+  #chat-form input::placeholder, #chat-form textarea::placeholder{color:var(--text-muted);opacity:0.75;}
   #chat-form .btn{width:100%;justify-content:center;margin-top:2px;font-size:13px;padding:11px;}
   #chat-msg{
     font-family:var(--mono);
@@ -661,7 +673,6 @@
   #chat-msg.err{display:block;background:rgba(239,83,80,0.12);color:var(--down);border:1px solid rgba(239,83,80,0.3);}
   @media(max-width:480px){
     .fab-wrap{right:14px;bottom:14px;}
-    .chat-window{right:14px;bottom:82px;}
   }
   #mercado{border-bottom:1px solid var(--border);}
   .stocks-range{
@@ -688,10 +699,11 @@
   .stocks-range-btn.active{background:var(--bg);color:var(--gold);}
   .stocks-grid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(4,1fr);
     gap:16px;
   }
-  @media(max-width:860px){.stocks-grid{grid-template-columns:1fr;}}
+  @media(max-width:1000px){.stocks-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.stocks-grid{grid-template-columns:1fr;}}
   .stock-card{
     background:var(--bg-panel);
     border:1px solid var(--border);
@@ -1336,6 +1348,60 @@
     z-index:999;
   }
   #quiz-fijo{border-bottom:1px solid var(--border);}
+
+  /* ---------- FAQ ---------- */
+  .faq-categories{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:20px;
+    margin-top:28px;
+  }
+  @media(max-width:900px){.faq-categories{grid-template-columns:1fr;}}
+  .faq-cat{
+    background:var(--bg-panel);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:20px;
+  }
+  .faq-cat h3{
+    font-size:14.5px;
+    margin-bottom:12px;
+    padding-bottom:12px;
+    border-bottom:1px solid var(--border);
+  }
+  .faq-item{
+    border-bottom:1px solid var(--border);
+  }
+  .faq-item:last-child{border-bottom:none;}
+  .faq-item summary{
+    list-style:none;
+    cursor:pointer;
+    padding:12px 22px 12px 0;
+    font-size:13.5px;
+    font-weight:500;
+    color:var(--text);
+    position:relative;
+    line-height:1.4;
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{
+    content:'+';
+    position:absolute;
+    right:0;
+    top:10px;
+    font-family:var(--mono);
+    color:var(--gold);
+    font-size:16px;
+    transition:transform .15s ease;
+  }
+  .faq-item[open] summary::after{transform:rotate(45deg);}
+  .faq-item summary:hover{color:var(--gold);}
+  .faq-item p{
+    font-size:13px;
+    color:var(--text-muted);
+    line-height:1.6;
+    padding:0 0 16px;
+  }
   #quiz-fijo .quiz-card{margin-top:32px;max-width:680px;}
   .modal-close{
     position:absolute;
@@ -1504,7 +1570,6 @@
       <li><button type="button" class="nav-link-btn" onclick="openModal('modal-historia')">Historia</button></li>
       <li><a href="#servicios">Servicios</a></li>
       <li><button type="button" class="nav-link-btn" onclick="openModal('modal-enlaces')">Recursos</button></li>
-      <li><button type="button" class="nav-link-btn" onclick="openModal('modal-calculadora')">Calculadora</button></li>
       <li><button type="button" class="nav-link-btn" onclick="openChat()">Contacto</button></li>
     </ul>
   </nav>
@@ -1576,6 +1641,7 @@
       <button class="stocks-range-btn active" type="button" onclick="setStocksRange('dia', this)">Día</button>
       <button class="stocks-range-btn" type="button" onclick="setStocksRange('semana', this)">Semana</button>
       <button class="stocks-range-btn" type="button" onclick="setStocksRange('mes', this)">Mes</button>
+      <button class="stocks-range-btn" type="button" onclick="setStocksRange('todo', this)">Todo</button>
     </div>
     <div class="stocks-grid" id="stocks-grid">
       <div class="stock-card" id="stock-btc">
@@ -1590,6 +1656,19 @@
           </div>
         </div>
         <svg class="stock-chart" id="stock-btc-chart" viewBox="0 0 300 70" preserveAspectRatio="none"></svg>
+      </div>
+      <div class="stock-card" id="stock-xau">
+        <div class="stock-top">
+          <div>
+            <div class="stock-symbol">XAU/USD</div>
+            <div class="stock-name">Oro</div>
+          </div>
+          <div class="stock-price-wrap">
+            <div class="stock-price" id="stock-xau-price">…</div>
+            <div class="stock-change" id="stock-xau-change">—</div>
+          </div>
+        </div>
+        <svg class="stock-chart" id="stock-xau-chart" viewBox="0 0 300 70" preserveAspectRatio="none"></svg>
       </div>
       <div class="stock-card" id="stock-eurusd">
         <div class="stock-top">
@@ -1618,7 +1697,7 @@
         <svg class="stock-chart" id="stock-dxy-chart" viewBox="0 0 300 70" preserveAspectRatio="none"></svg>
       </div>
     </div>
-    <p class="calc-note" style="margin-top:14px;">Bitcoin en vivo (CoinGecko). EUR/USD y DXY con tasa de referencia diaria (BCE) — se actualizan una vez al día.</p>
+    <p class="calc-note" style="margin-top:14px;">Bitcoin y Oro en vivo (CoinGecko, proxy de oro tokenizado 1:1). EUR/USD y DXY con tasa de referencia diaria (BCE) — se actualizan una vez al día.</p>
   </div>
 </section>
 
@@ -1632,9 +1711,9 @@
   <div class="modal-box modal-wide">
     <button class="modal-close" onclick="closeModal('modal-enlaces')" aria-label="Cerrar">✕</button>
     <div class="section-head">
-      <div class="eyebrow">MIS RECURSOS</div>
-      <h2>Enlaces que uso todos los días</h2>
-      <p>Las plataformas y herramientas con las que trabajo. Algunos son enlaces de referido — si te registras a través de ellos, puedo recibir un beneficio, sin costo adicional para ti.</p>
+      <div class="eyebrow">MIS HERRAMIENTAS</div>
+      <h2>Enlaces y calculadora que uso todos los días</h2>
+      <p>Las plataformas con las que trabajo, y una calculadora rápida de lotaje. Algunos enlaces son de referido — si te registras a través de ellos, puedo recibir un beneficio, sin costo adicional para ti.</p>
     </div>
     <div class="links-grid">
       <a class="link-card" href="https://es.tradingview.com/pricing/?share_your_love=orojas0180" target="_blank" rel="noopener">
@@ -1703,12 +1782,40 @@
       </a>
     </div>
 
-    <div class="top20-card" style="margin-top:32px;">
-      <h3>🏆 Top 20 criptomonedas</h3>
-      <p class="tool-desc">Por capitalización de mercado, actualizado en tiempo real (datos de CoinGecko).</p>
-      <div id="top20-list" class="top20-list">
-        <p class="calc-note">Cargando datos...</p>
+    <div class="top20-card" style="margin-top:32px;max-width:520px;">
+      <h3>🧮 Calculadora de gestión de riesgo</h3>
+      <p class="tool-desc">Elige el instrumento, tu capital y tu stop loss — te digo cuánto arriesgas y el lote sugerido.</p>
+      <div class="calc-field">
+        <label for="calc-instrument">Instrumento</label>
+        <select id="calc-instrument" onchange="calcRisk()">
+          <option value="eurusd">EUR/USD</option>
+          <option value="btc">Bitcoin (BTC/USD)</option>
+          <option value="xau">Oro (XAU/USD)</option>
+        </select>
       </div>
+      <div class="calc-field">
+        <label for="calc-capital">Capital total ($)</label>
+        <input type="number" id="calc-capital" value="1000" min="0" oninput="calcRisk()">
+      </div>
+      <div class="calc-field">
+        <label for="calc-risk">Riesgo por operación (%)</label>
+        <input type="number" id="calc-risk" value="1" min="0" step="0.1" oninput="calcRisk()">
+      </div>
+      <div class="calc-field">
+        <label for="calc-sl" id="calc-sl-label">Distancia al Stop Loss (pips)</label>
+        <input type="number" id="calc-sl" value="20" min="0" step="0.1" oninput="calcRisk()">
+      </div>
+      <div class="calc-results">
+        <div class="calc-result-box">
+          <span class="val" id="calc-result-risk">$0</span>
+          <span class="lbl">Riesgo máximo</span>
+        </div>
+        <div class="calc-result-box">
+          <span class="val" id="calc-result-size">0.00</span>
+          <span class="lbl" id="calc-result-lbl">Lote sugerido</span>
+        </div>
+      </div>
+      <p class="calc-note">Esta herramienta es solo educativa y no constituye asesoría financiera. Los valores de pip/lote son estándar de la industria (1 lote EUR/USD = $10/pip, 1 lote XAU/USD = $100/punto, 1 lote BTC = 1 BTC) — confírmalos siempre con las especificaciones de tu bróker.</p>
     </div>
   </div>
 </div>
@@ -1785,7 +1892,7 @@
   <div class="container">
     <div class="section-head">
       <div class="eyebrow">MIS SERVICIOS</div>
-      <h2>Tres formas de formar parte de mi círculo más cercano</h2>
+      <h2>Tres maneras de unirte a mi círculo privado y comenzar a desarrollar nuevas habilidades.</h2>
       <p>No todos buscan lo mismo. Algunos quieren aprender, otros rodearse de personas con la misma visión y otros prefieren que su capital trabaje de forma inteligente. Sea cual sea tu objetivo, encontrarás un camino diseñado para ti dentro de MentoryCap.</p>
     </div>
     <div class="pilares">
@@ -1843,7 +1950,7 @@
 
     <div class="section-head" style="margin-top:48px;">
       <div class="eyebrow">LO QUE DICEN</div>
-      <h2>Lo que dicen quienes ya están dentro</h2>
+      <h2>Lo que dicen quienes han pasado por aquí</h2>
     </div>
     <div class="testi-grid">
       <div class="testi">
@@ -1864,50 +1971,6 @@
     </div>
   </div>
 </section>
-
-<div class="modal-overlay modal-full" id="modal-calculadora" onclick="if(event.target===this) closeModal('modal-calculadora')">
-  <div class="modal-box modal-wide">
-    <button class="modal-close" onclick="closeModal('modal-calculadora')" aria-label="Cerrar">✕</button>
-    <div class="section-head">
-      <div class="eyebrow">GRATIS PARA TI</div>
-      <h2>🧮 Calculadora de gestión de riesgo</h2>
-      <p>Elige el instrumento, tu capital y tu stop loss — te digo cuánto arriesgas y el lote sugerido para esa operación.</p>
-    </div>
-    <div class="tool-card" style="max-width:520px;">
-      <div class="calc-field">
-        <label for="calc-instrument">Instrumento</label>
-        <select id="calc-instrument" onchange="calcRisk()">
-          <option value="eurusd">EUR/USD</option>
-          <option value="btc">Bitcoin (BTC/USD)</option>
-          <option value="xau">Oro (XAU/USD)</option>
-        </select>
-      </div>
-      <div class="calc-field">
-        <label for="calc-capital">Capital total ($)</label>
-        <input type="number" id="calc-capital" value="1000" min="0" oninput="calcRisk()">
-      </div>
-      <div class="calc-field">
-        <label for="calc-risk">Riesgo por operación (%)</label>
-        <input type="number" id="calc-risk" value="1" min="0" step="0.1" oninput="calcRisk()">
-      </div>
-      <div class="calc-field">
-        <label for="calc-sl" id="calc-sl-label">Distancia al Stop Loss (pips)</label>
-        <input type="number" id="calc-sl" value="20" min="0" step="0.1" oninput="calcRisk()">
-      </div>
-      <div class="calc-results">
-        <div class="calc-result-box">
-          <span class="val" id="calc-result-risk">$0</span>
-          <span class="lbl">Riesgo máximo</span>
-        </div>
-        <div class="calc-result-box">
-          <span class="val" id="calc-result-size">0.00</span>
-          <span class="lbl" id="calc-result-lbl">Lote sugerido</span>
-        </div>
-      </div>
-      <p class="calc-note">Esta herramienta es solo educativa y no constituye asesoría financiera. Los valores de pip/lote son estándar de la industria (1 lote EUR/USD = $10/pip, 1 lote XAU/USD = $100/punto, 1 lote BTC = 1 BTC) — confírmalos siempre con las especificaciones de tu bróker.</p>
-    </div>
-  </div>
-</div>
 
 <section id="quiz-fijo">
   <div class="container">
@@ -1930,6 +1993,87 @@
         <p id="quiz-result-desc"></p>
         <button class="btn btn-primary" id="quiz-result-cta" type="button">Quiero más información</button>
         <button class="quiz-restart" type="button" onclick="quizRestart()">Volver a hacer el quiz</button>
+      </div>
+    </div>
+
+    <div class="faq-block">
+      <div class="section-head" style="margin-top:56px;">
+        <div class="eyebrow">PARA EMPEZAR DESDE CERO</div>
+        <h2>¿Nuevo en esto? Aquí tienes lo básico</h2>
+        <p>Si nunca has estado en los mercados, empieza por aquí. Respuestas simples, sin tecnicismos, organizadas por tema.</p>
+      </div>
+      <div class="faq-categories">
+        <div class="faq-cat">
+          <h3>📊 Los mercados</h3>
+          <details class="faq-item">
+            <summary>¿Qué son los mercados financieros?</summary>
+            <p>Son espacios digitales donde se compran y venden activos como monedas, acciones o materias primas. Cada vez que cambias dinero de una moneda a otra, ya estás tocando uno de estos mercados.</p>
+          </details>
+          <details class="faq-item">
+            <summary>¿Qué es el trading?</summary>
+            <p>Es comprar y vender activos financieros buscando ganar con el cambio de precio. Por ejemplo: comprar euros esperando que suban frente al dólar, y venderlos cuando efectivamente suben.</p>
+          </details>
+          <details class="faq-item">
+            <summary>¿Qué es el forex?</summary>
+            <p>Es el mercado donde se intercambian monedas de distintos países — el más grande del mundo por volumen de dinero que mueve cada día.</p>
+          </details>
+          <details class="faq-item">
+            <summary>¿Qué es el EUR/USD?</summary>
+            <p>Es el par de divisas más operado del mundo: mide cuántos dólares vale un euro. Si EUR/USD = 1.08, un euro equivale a 1.08 dólares.</p>
+          </details>
+          <details class="faq-item">
+            <summary>¿Qué es el XAU/USD?</summary>
+            <p>Es el precio del oro medido en dólares por onza. Muchos inversionistas lo usan como refugio cuando hay incertidumbre económica.</p>
+          </details>
+          <details class="faq-item">
+            <summary>¿Qué es el DXY?</summary>
+            <p>Es el índice del dólar: mide qué tan fuerte está el dólar frente a las principales monedas del mundo. Si sube, el dólar se está fortaleciendo en general.</p>
+          </details>
+        </div>
+
+        <div class="faq-cat">
+          <h3>₿ El mundo cripto</h3>
+          <details class="faq-item">
+            <summary>¿Qué son las criptomonedas y de dónde vienen?</summary>
+            <p>Son monedas digitales que no dependen de un banco, sino de una red de computadoras. Nacieron en 2009 con el Bitcoin, creado por una persona (o grupo) bajo el nombre Satoshi Nakamoto.</p>
+          </details>
+          <details class="faq-item">
+            <summary>¿Qué es el Bitcoin?</summary>
+            <p>Es la primera y más conocida criptomoneda. Funciona como un "oro digital": existe una cantidad limitada (21 millones) y ningún gobierno o empresa lo controla.</p>
+          </details>
+          <details class="faq-item">
+            <summary>¿Qué es blockchain?</summary>
+            <p>Es la tecnología detrás de las criptomonedas: un registro público compartido donde queda anotada cada transacción, de forma que nadie pueda alterarlo sin que se note. Como un libro contable que todos pueden ver, pero nadie puede borrar.</p>
+          </details>
+          <details class="faq-item">
+            <summary>¿Qué es una wallet?</summary>
+            <p>Es donde guardas tus criptomonedas — como una cuenta bancaria digital. Puede ser una app, un sitio web o incluso un dispositivo físico.</p>
+          </details>
+          <details class="faq-item">
+            <summary>¿Qué es un exchange?</summary>
+            <p>Es la plataforma donde compras y vendes criptomonedas, como una casa de cambio digital. Por ejemplo: usar un exchange para comprar Bitcoin con dólares.</p>
+          </details>
+        </div>
+
+        <div class="faq-cat">
+          <h3>🚀 Para empezar</h3>
+          <details class="faq-item">
+            <summary>¿Qué es invertir online hoy en día?</summary>
+            <p>Es usar plataformas digitales (brókers, exchanges, apps) para comprar activos financieros desde tu celular o computadora, sin ir a un banco o una bolsa física.</p>
+          </details>
+          <details class="faq-item">
+            <summary>¿Necesito mucho dinero para empezar?</summary>
+            <p>No. Hoy puedes empezar a aprender y practicar con montos pequeños. Al inicio lo importante es aprender a manejar el riesgo, no el tamaño del capital.</p>
+          </details>
+          <details class="faq-item">
+            <summary>¿Es lo mismo invertir que hacer trading?</summary>
+            <p>No exactamente. Invertir suele ser a largo plazo (comprar y mantener), mientras que el trading busca aprovechar movimientos de precio en plazos más cortos.</p>
+          </details>
+          <details class="faq-item">
+            <summary>¿Qué es un mentor en todo esto?</summary>
+            <p>Es alguien con experiencia real que te acompaña mientras aprendes, te ayuda a evitar errores comunes y acelera tu curva de aprendizaje — en vez de que lo descubras todo por prueba y error tú solo.</p>
+          </details>
+        </div>
       </div>
     </div>
   </div>
@@ -2087,6 +2231,7 @@
   </button>
 </div>
 
+<div class="chat-backdrop" id="chat-backdrop" onclick="closeChat()"></div>
 <div class="chat-window" id="chat-window">
   <div class="chat-header">
     <div class="chat-header-info">
@@ -2107,7 +2252,7 @@
       <input type="hidden" name="from_name" value="Chat MentoryCap">
       <input type="text" name="Nombre" placeholder="Tu nombre" required>
       <input type="tel" name="WhatsApp" placeholder="Tu WhatsApp" required>
-      <textarea name="Mensaje" placeholder="Escribe tu mensaje..." rows="3" required></textarea>
+      <textarea name="Mensaje" placeholder="Déjame un mensaje o cuéntame qué te interesó..." rows="3" required></textarea>
       <button type="submit" class="btn btn-primary" id="chat-submit-btn">Enviar mensaje</button>
       <div id="chat-msg"></div>
     </form>
@@ -2118,7 +2263,7 @@
   document.getElementById('year').textContent = new Date().getFullYear();
 
   // ---------- Mercado hoy: tarjetas estilo Bolsa de Apple ----------
-  let stocksRange = 'dia'; // 'dia' | 'semana' | 'mes'
+  let stocksRange = 'dia'; // 'dia' | 'semana' | 'mes' | 'todo'
 
   function setStocksRange(range, btn){
     stocksRange = range;
@@ -2166,24 +2311,27 @@
     drawSparkline(`stock-${key}-chart`, points, isUp);
   }
 
-  async function loadBTC(){
+  async function loadCoinGeckoAsset(coinId, key, decimals){
     try{
-      const days = stocksRange === 'dia' ? 1 : stocksRange === 'semana' ? 7 : 30;
-      const res = await fetch(`https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=${days}`);
+      const days = stocksRange === 'dia' ? 1 : stocksRange === 'semana' ? 7 : stocksRange === 'mes' ? 30 : 'max';
+      const res = await fetch(`https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=usd&days=${days}`);
       const data = await res.json();
       const prices = data.prices.map(p => p[1]);
       const first = prices[0], last = prices[prices.length - 1];
       const changePct = ((last - first) / first) * 100;
-      renderStock('btc', last.toLocaleString('en-US', {maximumFractionDigits: 0}), changePct, prices, '$');
+      const priceStr = decimals === 0
+        ? last.toLocaleString('en-US', {maximumFractionDigits: 0})
+        : last.toLocaleString('en-US', {maximumFractionDigits: decimals});
+      renderStock(key, priceStr, changePct, prices, '$');
     } catch(e){
-      const el = document.getElementById('stock-btc-price');
+      const el = document.getElementById(`stock-${key}-price`);
       if (el) el.textContent = 'N/D';
     }
   }
 
   async function loadForexAndDXY(){
     try{
-      const days = stocksRange === 'dia' ? 5 : stocksRange === 'semana' ? 9 : 32;
+      const days = stocksRange === 'dia' ? 5 : stocksRange === 'semana' ? 9 : stocksRange === 'mes' ? 32 : 1825;
       const end = new Date();
       const start = new Date();
       start.setDate(end.getDate() - days);
@@ -2224,46 +2372,68 @@
   }
 
   function loadMarketCards(){
-    loadBTC();
+    loadCoinGeckoAsset('bitcoin', 'btc', 0);
+    loadCoinGeckoAsset('pax-gold', 'xau', 2);
     loadForexAndDXY();
   }
   loadMarketCards();
 
-  // Reloj de Nueva York + sesiones bursátiles activas
+  // Reloj de Nueva York + sesiones bursátiles activas (horas mostradas en hora de Nueva York)
   const marketSessions = [
-    { name: 'Sídney',     flag: '🇦🇺', tz: 'Australia/Sydney', open: 10,   close: 16   },
-    { name: 'Tokio',      flag: '🇯🇵', tz: 'Asia/Tokyo',        open: 9,    close: 15   },
-    { name: 'Londres',    flag: '🇬🇧', tz: 'Europe/London',     open: 8,    close: 16.5 },
-    { name: 'Nueva York', flag: '🇺🇸', tz: 'America/New_York',  open: 9.5,  close: 16   }
+    { name: 'Nueva York', flag: '🇺🇸', tz: 'America/New_York', open: [9, 30],  close: [16, 0]  },
+    { name: 'Londres',    flag: '🇬🇧', tz: 'Europe/London',    open: [8, 0],   close: [16, 30] },
+    { name: 'Tokio',      flag: '🇯🇵', tz: 'Asia/Tokyo',       open: [9, 0],   close: [15, 0]  }
   ];
 
-  function fmtHour(h){
-    const hh = Math.floor(h);
-    const mm = h % 1 ? '30' : '00';
-    return String(hh).padStart(2, '0') + ':' + mm;
+  function zonedParts(tz, date){
+    const parts = new Intl.DateTimeFormat('en-US', {
+      timeZone: tz, hourCycle: 'h23',
+      year: 'numeric', month: '2-digit', day: '2-digit',
+      hour: '2-digit', minute: '2-digit', second: '2-digit', weekday: 'short'
+    }).formatToParts(date);
+    const map = {};
+    parts.forEach(p => map[p.type] = p.value);
+    return map;
+  }
+
+  // Offset en minutos entre la hora local de tz y UTC, para el instante `date`
+  function zonedOffsetMinutes(tz, date){
+    const m = zonedParts(tz, date);
+    const asUTC = Date.UTC(+m.year, +m.month - 1, +m.day, +m.hour, +m.minute, +m.second);
+    return Math.round((asUTC - date.getTime()) / 60000);
+  }
+
+  // Construye el instante UTC real de "hoy a las hh:mm hora local de tz"
+  function zonedTimeToUTC(tz, hh, mm, referenceDate){
+    const m = zonedParts(tz, referenceDate);
+    const offset = zonedOffsetMinutes(tz, referenceDate);
+    const ms = Date.UTC(+m.year, +m.month - 1, +m.day, hh, mm, 0) - offset * 60000;
+    return new Date(ms);
+  }
+
+  function fmtNY(date){
+    return date.toLocaleTimeString('es-PA', {
+      timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', hour12: false
+    });
   }
 
   function updateClock(){
     const clockEl = document.getElementById('clock-time');
     if (!clockEl) return;
-
+    const now = new Date();
     clockEl.textContent = new Date().toLocaleTimeString('es-PA', {
       timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
     });
 
     const chips = marketSessions.map(s => {
-      const parts = new Intl.DateTimeFormat('en-US', {
-        timeZone: s.tz, hour: 'numeric', minute: 'numeric', hour12: false, weekday: 'short'
-      }).formatToParts(new Date());
-      const hour = parseInt(parts.find(p => p.type === 'hour').value) % 24;
-      const minute = parseInt(parts.find(p => p.type === 'minute').value);
-      const weekday = parts.find(p => p.type === 'weekday').value;
-      const decHour = hour + minute / 60;
+      const weekday = zonedParts(s.tz, now).weekday;
       const isWeekday = weekday !== 'Sat' && weekday !== 'Sun';
-      const isOpen = isWeekday && decHour >= s.open && decHour < s.close;
+      const openUTC = zonedTimeToUTC(s.tz, s.open[0], s.open[1], now);
+      const closeUTC = zonedTimeToUTC(s.tz, s.close[0], s.close[1], now);
+      const isOpen = isWeekday && now >= openUTC && now < closeUTC;
       return `<span class="session-chip ${isOpen ? 'open' : ''}">
         <span class="session-dot ${isOpen ? 'open' : 'closed'}"></span>
-        ${s.flag} ${s.name} · ${fmtHour(s.open)}–${fmtHour(s.close)}
+        ${s.flag} ${s.name} · ${fmtNY(openUTC)}–${fmtNY(closeUTC)}
       </span>`;
     }).join('');
     document.getElementById('sessions-list').innerHTML = chips;
@@ -2292,9 +2462,11 @@
       msgField.value = 'Me interesa: ' + servicio + '. ';
     }
     document.getElementById('chat-window').classList.add('open');
+    document.getElementById('chat-backdrop').classList.add('open');
   }
   function closeChat(){
     document.getElementById('chat-window').classList.remove('open');
+    document.getElementById('chat-backdrop').classList.remove('open');
   }
 
   const chatForm = document.getElementById('chat-form');

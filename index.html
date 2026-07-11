@@ -168,6 +168,16 @@
   @media(max-width:760px){
     .hero-content{max-width:100%;}
   }
+  .hero-title-row{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:20px;
+  }
+  .hero-candles{flex-shrink:0;margin-top:6px;opacity:0.85;}
+  @media(max-width:640px){
+    .hero-candles{width:56px;height:50px;}
+  }
   .hero h1{
     font-size:42px;
     line-height:1.14;
@@ -628,6 +638,58 @@
     .fab-wrap{right:14px;bottom:14px;}
   }
   #mercado{border-bottom:1px solid var(--border);}
+  .market-clock-box{
+    background:var(--bg-panel);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:20px 22px;
+    margin-top:24px;
+  }
+  .market-clock-top{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    margin-bottom:14px;
+  }
+  .clock-time{
+    font-family:var(--mono);
+    font-size:22px;
+    font-weight:600;
+    color:var(--gold);
+    letter-spacing:0.02em;
+  }
+  .clock-label{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--text-muted);
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+  }
+  .market-strip-sessions{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    flex-wrap:wrap;
+  }
+  .session-chip{
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+    font-family:var(--mono);
+    font-size:11px;
+    padding:5px 10px;
+    border-radius:20px;
+    border:1px solid var(--border);
+    color:var(--text-muted);
+  }
+  .session-chip.open{border-color:rgba(38,166,154,0.4);color:var(--up);background:rgba(38,166,154,0.08);}
+  .session-dot{
+    width:6px;height:6px;
+    border-radius:50%;
+    flex-shrink:0;
+  }
+  .session-dot.open{background:var(--up);box-shadow:0 0 0 2px rgba(38,166,154,0.2);}
+  .session-dot.closed{background:var(--text-muted);opacity:0.5;}
   .stocks-range{
     display:inline-flex;
     gap:4px;
@@ -729,7 +791,16 @@
   }
   .top20-row:last-child{border-bottom:none;}
   .top20-rank{font-family:var(--mono);color:var(--text-muted);font-size:12px;}
-  .top20-row img{width:22px;height:22px;border-radius:50%;display:block;}
+  .top20-icon{
+    width:24px;height:24px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:var(--mono);
+    font-size:8.5px;
+    font-weight:700;
+  }
   .top20-name{color:var(--text);font-weight:500;}
   .top20-name .sym{color:var(--text-muted);font-family:var(--mono);font-size:11px;margin-left:6px;text-transform:uppercase;}
   .top20-price{font-family:var(--mono);color:var(--text);text-align:right;white-space:nowrap;}
@@ -1619,12 +1690,23 @@
 
 <section class="hero hero-bg">
   <div class="container hero-content">
-    <h1>Empieza a construir tu sistema financiero personal</h1>
+    <div class="hero-title-row">
+      <h1>Empieza a construir tu sistema financiero personal</h1>
+      <svg class="hero-candles" width="86" height="76" viewBox="0 0 90 80" fill="none">
+        <line x1="10" y1="8" x2="10" y2="60" stroke="#8A7328" stroke-width="2.5"/>
+        <rect x="4" y="24" width="12" height="22" rx="1.5" fill="#8A7328"/>
+        <line x1="32" y1="18" x2="32" y2="70" stroke="#8A7328" stroke-width="2.5"/>
+        <rect x="26" y="30" width="12" height="16" rx="1.5" fill="#8A7328"/>
+        <line x1="54" y1="2" x2="54" y2="56" stroke="#9C8330" stroke-width="2.5"/>
+        <rect x="48" y="14" width="12" height="30" rx="1.5" fill="#9C8330"/>
+        <line x1="76" y1="22" x2="76" y2="74" stroke="#8A7328" stroke-width="2.5"/>
+        <rect x="70" y="34" width="12" height="18" rx="1.5" fill="#8A7328"/>
+      </svg>
+    </div>
     <p class="hero-subtitle">Dale mayor utilidad a tus ingresos.</p>
     <div class="hero-motto">
       <span>Ahorra</span><i>•</i><span>Invierte</span><i>•</i><span>Crece</span>
     </div>
-    <p class="lead">Soy Oscar. Mi objetivo es ayudarte a que tu dinero trabaje para ti. A través de la educación y la inversión online, aprenderás a ahorrar mejor, invertir con criterio y construir una economía personal alternativa.</p>
   </div>
 </section>
 
@@ -1635,6 +1717,7 @@
       <img src="images/oscar.png" alt="Oscar Rojas, fundador de MentoryCap" class="historia-cta-photo">
       <div class="historia-cta-eyebrow">CONÓCEME</div>
       <h2>No siempre fue fácil. Tampoco fue suerte.</h2>
+      <p>Soy Oscar. Mi objetivo es ayudarte a que tu dinero trabaje para ti. A través de la educación y la inversión online, aprenderás a ahorrar mejor, invertir con criterio y construir una economía personal alternativa.</p>
       <p>Antes de MentoryCap hubo negocios que no funcionaron, dinero perdido y más de un "empezar de nuevo". Te cuento cómo llegué hasta aquí — y por qué eso es exactamente lo que hoy me permite ayudarte a ti.</p>
       <button type="button" class="btn btn-primary" onclick="openModal('modal-historia')">Conoce mi historia</button>
     </div>
@@ -1646,6 +1729,22 @@
     <button class="modal-close" onclick="closeModal('modal-mercado')" aria-label="Cerrar">✕</button>
     <div class="section-head">
       <div class="eyebrow">EL MERCADO HOY</div>
+      <h2 style="font-size:20px;">Un vistazo rápido, pensado para cualquiera</h2>
+      <p>No hace falta que seas trader para entender esto. Abajo tienes la hora y qué bolsas del mundo están abiertas ahora mismo, cómo se están moviendo los precios, y las criptomonedas más importantes — todo explicado.</p>
+    </div>
+
+    <div class="market-clock-box">
+      <div class="market-clock-top">
+        <span class="clock-time" id="clock-time">--:--:--</span>
+        <span class="clock-label">Hora de Nueva York</span>
+      </div>
+      <div class="market-strip-sessions" id="sessions-list"></div>
+      <p class="tool-desc" style="margin-top:12px;">Las bolsas de valores tienen horario fijo — solo se puede operar acciones mientras están "abiertas". El punto verde te dice cuál está activa ahora mismo, y a qué hora abre y cierra cada una (en hora de Nueva York, para comparar fácil).</p>
+    </div>
+
+    <div class="section-head" style="margin-top:36px;">
+      <h2 style="font-size:18px;">Gráficas en vivo</h2>
+      <p style="font-size:13px;">Cada tarjeta muestra un precio y su cambio reciente: <span class="up" style="font-weight:600;">verde</span> si subió, <span class="down" style="font-weight:600;">rojo</span> si bajó. Usa los botones de arriba para ver el día, la semana, el mes o el histórico completo.</p>
     </div>
     <div class="stocks-range" id="stocks-range">
       <button class="stocks-range-btn active" type="button" onclick="setStocksRange('dia', this)">Día</button>
@@ -1707,11 +1806,11 @@
         <svg class="stock-chart" id="stock-dxy-chart" viewBox="0 0 300 70" preserveAspectRatio="none"></svg>
       </div>
     </div>
-    <p class="calc-note" style="margin-top:14px;">Bitcoin y Oro en vivo (CoinGecko, proxy de oro tokenizado 1:1). EUR/USD y DXY con tasa de referencia diaria (BCE) — se actualizan una vez al día.</p>
+    <p class="calc-note" style="margin-top:14px;">Bitcoin y Oro en vivo (Binance). EUR/USD y DXY con tasa de referencia diaria (BCE) — se actualizan una vez al día.</p>
 
     <div class="top20-card" style="margin-top:32px;">
       <h3>🏆 Top 10 criptomonedas</h3>
-      <p class="tool-desc">Por capitalización de mercado, actualizado en tiempo real (datos de CoinGecko).</p>
+      <p class="tool-desc">Las 10 criptomonedas más importantes del momento, con su precio y cuánto subieron o bajaron en las últimas 24 horas (datos en vivo de Binance).</p>
       <div id="top10-list" class="top20-list">
         <p class="calc-note">Cargando datos...</p>
       </div>
@@ -2366,12 +2465,13 @@
     drawSparkline(`stock-${key}-chart`, points, isUp);
   }
 
-  async function loadCoinGeckoAsset(coinId, key, decimals){
+  async function loadBinanceAsset(symbol, key, decimals){
     try{
-      const days = stocksRange === 'dia' ? 1 : stocksRange === 'semana' ? 7 : stocksRange === 'mes' ? 30 : 365;
-      const res = await fetch(`https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=usd&days=${days}`);
+      const interval = stocksRange === 'dia' ? '1h' : stocksRange === 'semana' ? '4h' : stocksRange === 'mes' ? '1d' : '1d';
+      const limit = stocksRange === 'dia' ? 24 : stocksRange === 'semana' ? 42 : stocksRange === 'mes' ? 30 : 365;
+      const res = await fetch(`https://api.binance.com/api/v3/klines?symbol=${symbol}&interval=${interval}&limit=${limit}`);
       const data = await res.json();
-      const prices = data.prices.map(p => p[1]);
+      const prices = data.map(candle => parseFloat(candle[4]));
       const first = prices[0], last = prices[prices.length - 1];
       const changePct = ((last - first) / first) * 100;
       const priceStr = decimals === 0
@@ -2427,11 +2527,73 @@
   }
 
   function loadMarketCards(){
-    loadCoinGeckoAsset('bitcoin', 'btc', 0);
-    loadCoinGeckoAsset('pax-gold', 'xau', 2);
+    loadBinanceAsset('BTCUSDT', 'btc', 0);
+    loadBinanceAsset('PAXGUSDT', 'xau', 2);
     loadForexAndDXY();
   }
   loadMarketCards();
+
+  // Reloj de Nueva York + sesiones bursátiles activas (dentro del modal de mercado)
+  const marketSessions = [
+    { name: 'Nueva York', flag: '🇺🇸', tz: 'America/New_York', open: [9, 30],  close: [16, 0]  },
+    { name: 'Londres',    flag: '🇬🇧', tz: 'Europe/London',    open: [8, 0],   close: [16, 30] },
+    { name: 'Tokio',      flag: '🇯🇵', tz: 'Asia/Tokyo',       open: [9, 0],   close: [15, 0]  }
+  ];
+
+  function zonedParts(tz, date){
+    const parts = new Intl.DateTimeFormat('en-US', {
+      timeZone: tz, hourCycle: 'h23',
+      year: 'numeric', month: '2-digit', day: '2-digit',
+      hour: '2-digit', minute: '2-digit', second: '2-digit', weekday: 'short'
+    }).formatToParts(date);
+    const map = {};
+    parts.forEach(p => map[p.type] = p.value);
+    return map;
+  }
+
+  function zonedOffsetMinutes(tz, date){
+    const m = zonedParts(tz, date);
+    const asUTC = Date.UTC(+m.year, +m.month - 1, +m.day, +m.hour, +m.minute, +m.second);
+    return Math.round((asUTC - date.getTime()) / 60000);
+  }
+
+  function zonedTimeToUTC(tz, hh, mm, referenceDate){
+    const m = zonedParts(tz, referenceDate);
+    const offset = zonedOffsetMinutes(tz, referenceDate);
+    const ms = Date.UTC(+m.year, +m.month - 1, +m.day, hh, mm, 0) - offset * 60000;
+    return new Date(ms);
+  }
+
+  function fmtNY(date){
+    return date.toLocaleTimeString('es-PA', {
+      timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', hour12: false
+    });
+  }
+
+  function updateClock(){
+    const clockEl = document.getElementById('clock-time');
+    if (!clockEl) return;
+    const now = new Date();
+    clockEl.textContent = new Date().toLocaleTimeString('es-PA', {
+      timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
+    });
+
+    const chips = marketSessions.map(s => {
+      const weekday = zonedParts(s.tz, now).weekday;
+      const isWeekday = weekday !== 'Sat' && weekday !== 'Sun';
+      const openUTC = zonedTimeToUTC(s.tz, s.open[0], s.open[1], now);
+      const closeUTC = zonedTimeToUTC(s.tz, s.close[0], s.close[1], now);
+      const isOpen = isWeekday && now >= openUTC && now < closeUTC;
+      return `<span class="session-chip ${isOpen ? 'open' : ''}">
+        <span class="session-dot ${isOpen ? 'open' : 'closed'}"></span>
+        ${s.flag} ${s.name} · ${fmtNY(openUTC)}–${fmtNY(closeUTC)}
+      </span>`;
+    }).join('');
+    const sessEl = document.getElementById('sessions-list');
+    if (sessEl) sessEl.innerHTML = chips;
+  }
+  updateClock();
+  setInterval(updateClock, 1000);
 
   // Menú flotante (FAB)
   function toggleFabMenu(){
@@ -2496,24 +2658,41 @@
       chatBtn.textContent = 'Enviar mensaje';
     }
   });
-  fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&price_change_percentage=24h')
+  const top10Coins = [
+    { symbol: 'BTCUSDT', name: 'Bitcoin', tag: 'BTC', color: '#F7931A' },
+    { symbol: 'ETHUSDT', name: 'Ethereum', tag: 'ETH', color: '#8A92B2' },
+    { symbol: 'XRPUSDT', name: 'XRP', tag: 'XRP', color: '#5B8DEF' },
+    { symbol: 'BNBUSDT', name: 'BNB', tag: 'BNB', color: '#F0B90B' },
+    { symbol: 'SOLUSDT', name: 'Solana', tag: 'SOL', color: '#9B6BFF' },
+    { symbol: 'DOGEUSDT', name: 'Dogecoin', tag: 'DOGE', color: '#C2A633' },
+    { symbol: 'ADAUSDT', name: 'Cardano', tag: 'ADA', color: '#5B8DEF' },
+    { symbol: 'TRXUSDT', name: 'TRON', tag: 'TRX', color: '#EF5350' },
+    { symbol: 'LINKUSDT', name: 'Chainlink', tag: 'LINK', color: '#375BD2' },
+    { symbol: 'DOTUSDT', name: 'Polkadot', tag: 'DOT', color: '#E6007A' }
+  ];
+  const symbolsParam = encodeURIComponent(JSON.stringify(top10Coins.map(c => c.symbol)));
+  fetch(`https://api.binance.com/api/v3/ticker/24hr?symbols=${symbolsParam}`)
     .then(res => res.json())
-    .then(coins => {
+    .then(tickers => {
       const list = document.getElementById('top10-list');
-      if (!Array.isArray(coins)) throw new Error('respuesta inesperada');
-      list.innerHTML = coins.map((c, i) => {
-        const change = c.price_change_percentage_24h;
+      if (!Array.isArray(tickers)) throw new Error('respuesta inesperada');
+      const bySymbol = {};
+      tickers.forEach(t => bySymbol[t.symbol] = t);
+      list.innerHTML = top10Coins.map((c, i) => {
+        const t = bySymbol[c.symbol];
+        const change = t ? parseFloat(t.priceChangePercent) : 0;
+        const price = t ? parseFloat(t.lastPrice) : 0;
         const changeClass = change >= 0 ? 'up' : 'down';
         const changeSign = change >= 0 ? '+' : '';
-        const price = c.current_price >= 1
-          ? '$' + c.current_price.toLocaleString('en-US', {maximumFractionDigits: 2})
-          : '$' + c.current_price.toPrecision(4);
+        const priceStr = price >= 1
+          ? '$' + price.toLocaleString('en-US', {maximumFractionDigits: 2})
+          : '$' + price.toPrecision(4);
         return `<div class="top20-row">
           <span class="top20-rank">${i + 1}</span>
-          <img src="${c.image}" alt="${c.name}" loading="lazy">
-          <span class="top20-name">${c.name}<span class="sym">${c.symbol}</span></span>
-          <span class="top20-price">${price}</span>
-          <span class="top20-change ${changeClass}">${changeSign}${change ? change.toFixed(2) : '0.00'}%</span>
+          <span class="top20-icon" style="background:${c.color}22;color:${c.color};">${c.tag.slice(0, 2)}</span>
+          <span class="top20-name">${c.name}<span class="sym">${c.tag}</span></span>
+          <span class="top20-price">${priceStr}</span>
+          <span class="top20-change ${changeClass}">${changeSign}${change.toFixed(2)}%</span>
         </div>`;
       }).join('');
     })

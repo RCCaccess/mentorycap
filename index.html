@@ -158,52 +158,34 @@
     overflow:hidden;
     border-bottom:1px solid var(--border);
     padding:60px 0;
-    background:radial-gradient(ellipse 800px 500px at 75% 30%, rgba(212,175,55,0.08), transparent 70%), var(--bg);
   }
-  .hero-grid{
-    display:grid;
-    grid-template-columns:1.15fr 0.85fr;
-    gap:48px;
-    align-items:center;
+  .hero-bg-photo{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:top center;
+    z-index:0;
+    opacity:0.85;
+    filter:blur(7px) saturate(0.85) brightness(0.75);
+    transform:scale(1.05);
   }
-  @media(max-width:860px){
-    .hero-grid{grid-template-columns:1fr;}
+  .hero-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(90deg, var(--bg) 0%, rgba(11,14,20,0.88) 30%, rgba(11,14,20,0.72) 55%, rgba(11,14,20,0.55) 100%);
+    z-index:1;
   }
   .hero-content{
     position:relative;
     z-index:2;
     max-width:600px;
   }
-  @media(max-width:860px){
+  @media(max-width:760px){
+    .hero-bg-photo{opacity:0.6;}
+    .hero-overlay{background:linear-gradient(180deg, rgba(11,14,20,0.55) 0%, var(--bg) 88%);}
     .hero-content{max-width:100%;}
-  }
-  .hero-photo-wrap{
-    position:relative;
-    max-width:340px;
-    margin:0 auto;
-  }
-  .hero-photo{
-    width:100%;
-    display:block;
-    border-radius:16px;
-    border:1px solid var(--border);
-    box-shadow:0 20px 50px rgba(0,0,0,0.45);
-    object-fit:cover;
-    aspect-ratio:3/4;
-  }
-  .hero-candles-badge{
-    position:absolute;
-    bottom:-18px;
-    left:-18px;
-    background:var(--bg-panel);
-    border:1px solid var(--gold-dim);
-    border-radius:14px;
-    padding:10px 14px 4px;
-    box-shadow:0 10px 26px rgba(0,0,0,0.4);
-  }
-  .hero-candles{display:block;opacity:0.9;}
-  @media(max-width:860px){
-    .hero-photo-wrap{max-width:260px;}
   }
   .hero h1{
     font-size:42px;
@@ -1774,28 +1756,13 @@
 </header>
 
 <section class="hero hero-bg">
-  <div class="container hero-grid">
-    <div class="hero-content">
-      <h1>Empieza a construir una Economía Alternativa</h1>
-      <p class="hero-subtitle">Dale mayor utilidad a tus ingresos.</p>
-      <div class="hero-motto">
-        <span>Ahorra</span><i>•</i><span>Invierte</span><i>•</i><span>Crece</span>
-      </div>
-    </div>
-    <div class="hero-photo-wrap">
-      <img src="images/oscar-desk.png" alt="Oscar Rojas, fundador de MentoryCap" class="hero-photo">
-      <div class="hero-candles-badge">
-        <svg class="hero-candles" width="70" height="62" viewBox="0 0 90 80" fill="none">
-          <line x1="10" y1="8" x2="10" y2="60" stroke="#8A7328" stroke-width="2.5"/>
-          <rect x="4" y="24" width="12" height="22" rx="1.5" fill="#8A7328"/>
-          <line x1="32" y1="18" x2="32" y2="70" stroke="#8A7328" stroke-width="2.5"/>
-          <rect x="26" y="30" width="12" height="16" rx="1.5" fill="#8A7328"/>
-          <line x1="54" y1="2" x2="54" y2="56" stroke="#9C8330" stroke-width="2.5"/>
-          <rect x="48" y="14" width="12" height="30" rx="1.5" fill="#9C8330"/>
-          <line x1="76" y1="22" x2="76" y2="74" stroke="#8A7328" stroke-width="2.5"/>
-          <rect x="70" y="34" width="12" height="18" rx="1.5" fill="#8A7328"/>
-        </svg>
-      </div>
+  <img src="images/oscar-desk.png" alt="Oscar Rojas, fundador de MentoryCap" class="hero-bg-photo">
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <h1>Empieza a construir una Economía Alternativa</h1>
+    <p class="hero-subtitle">Dale mayor utilidad a tus ingresos.</p>
+    <div class="hero-motto">
+      <span>Ahorra</span><i>•</i><span>Invierte</span><i>•</i><span>Crece</span>
     </div>
   </div>
 </section>
@@ -1804,11 +1771,8 @@
 <section id="historia-cta">
   <div class="container">
     <div class="historia-cta-box">
-      <img src="images/oscar.png" alt="Oscar Rojas, fundador de MentoryCap" class="historia-cta-photo">
-      <div class="historia-cta-eyebrow">CONÓCEME</div>
-      <h2>No siempre fue fácil. Tampoco fue suerte.</h2>
+      <h2>Los errores son el costo de aprender algo valioso.</h2>
       <p>Soy Oscar. Mi objetivo es ayudarte a que tu dinero trabaje para ti. A través de la educación y la inversión online, aprenderás a ahorrar mejor, invertir con criterio y construir una economía personal alternativa.</p>
-      <p>MentoryCap nació después de muchos intentos, errores y aprendizajes. Como muchas personas, cometí malas decisiones, perdí dinero y más de una vez tuve que empezar de nuevo. Con el tiempo entendí que invertir no se trata de buscar atajos, sino de construir criterio y disciplina. Esa es la filosofía que hoy quiero compartir contigo.</p>
       <button type="button" class="btn btn-primary" onclick="openModal('modal-historia')">Conoce mi historia</button>
     </div>
   </div>

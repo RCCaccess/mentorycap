@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MentoryCap — Trading, Formación y Gestión de Capital</title>
-<meta name="description" content="MentoryCap: Academy para aprender trading, Members como membresía de soporte y acompañamiento, y Partners para gestión de capital privado, con Oscar Rojas.">
+<title>MentoryCap — Economía y Finanzas Personales</title>
+<meta name="description" content="MentoryCap: contenido y acompañamiento con Oscar Rojas para entender mejor la economía global y tus finanzas personales, con un lenguaje simple y sin tecnicismos.">
 <link rel="icon" type="image/png" href="images/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1095,6 +1095,7 @@
       border-left:2px dashed var(--border);
     }
   }
+
   .pilares{
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -1762,7 +1763,7 @@
     <h1>Empieza a construir una Economía Alternativa</h1>
     <p class="hero-subtitle">Dale mayor utilidad a tus ingresos.</p>
     <div class="hero-motto">
-      <span>Ahorra</span><i>•</i><span>Invierte</span><i>•</i><span>Crece</span>
+      <span>Ahorra</span><i>•</i><span>Aprende</span><i>•</i><span>Crece</span>
     </div>
   </div>
 </section>
@@ -1772,7 +1773,7 @@
   <div class="container">
     <div class="historia-cta-box">
       <h2>Los errores son el costo de aprender algo valioso.</h2>
-      <p>Soy Oscar. Mi objetivo es ayudarte a que tu dinero trabaje para ti. A través de la educación y la inversión online, aprenderás a ahorrar mejor, invertir con criterio y construir una economía personal alternativa.</p>
+      <p>Soy Oscar. Mi objetivo es ayudarte a entender mejor la economía global y tus finanzas personales, para que tomes decisiones con más criterio y confianza.</p>
       <button type="button" class="btn btn-primary" onclick="openModal('modal-historia')">Conoce mi historia</button>
     </div>
   </div>
@@ -1919,44 +1920,8 @@
     <button class="modal-close" onclick="closeModal('modal-enlaces')" aria-label="Cerrar">✕</button>
     <div class="section-head">
       <div class="eyebrow">MIS HERRAMIENTAS</div>
-      <h2>Enlaces y calculadora que uso todos los días</h2>
-      <p>Las plataformas con las que trabajo, y una calculadora rápida de lotaje.</p>
-    </div>
-
-    <div class="top20-card" style="max-width:520px;">
-      <h3>🧮 Calculadora de gestión de riesgo</h3>
-      <p class="tool-desc">Elige el instrumento, tu capital y tu stop loss — te digo cuánto arriesgas y el lote sugerido.</p>
-      <div class="calc-field">
-        <label for="calc-instrument">Instrumento</label>
-        <select id="calc-instrument" onchange="calcRisk()">
-          <option value="eurusd">EUR/USD</option>
-          <option value="btc">Bitcoin (BTC/USD)</option>
-          <option value="xau">Oro (XAU/USD)</option>
-        </select>
-      </div>
-      <div class="calc-field">
-        <label for="calc-capital">Capital total ($)</label>
-        <input type="number" id="calc-capital" value="1000" min="0" oninput="calcRisk()">
-      </div>
-      <div class="calc-field">
-        <label for="calc-risk">Riesgo por operación (%)</label>
-        <input type="number" id="calc-risk" value="1" min="0" step="0.1" oninput="calcRisk()">
-      </div>
-      <div class="calc-field">
-        <label for="calc-sl" id="calc-sl-label">Distancia al Stop Loss (pips)</label>
-        <input type="number" id="calc-sl" value="20" min="0" step="0.1" oninput="calcRisk()">
-      </div>
-      <div class="calc-results">
-        <div class="calc-result-box">
-          <span class="val" id="calc-result-risk">$0</span>
-          <span class="lbl">Riesgo máximo</span>
-        </div>
-        <div class="calc-result-box">
-          <span class="val" id="calc-result-size">0.00</span>
-          <span class="lbl" id="calc-result-lbl">Lote sugerido</span>
-        </div>
-      </div>
-      <p class="calc-note">Esta herramienta es solo educativa y no constituye asesoría financiera. Los valores de pip/lote son estándar de la industria (1 lote EUR/USD = $10/pip, 1 lote XAU/USD = $100/punto, 1 lote BTC = 1 BTC) — confírmalos siempre con las especificaciones de tu bróker.</p>
+      <h2>Enlaces que uso todos los días</h2>
+      <p>Las plataformas con las que trabajo.</p>
     </div>
 
     <div class="section-head" style="margin-top:40px;">
@@ -2023,204 +1988,41 @@
 
     <div class="timeline">
       <div class="t-item">
-        <span class="t-date">01 · Los inicios</span>
+        <span class="t-date">Los inicios</span>
         <h3>Un ingeniero con otros sueños</h3>
-        <p>Desde muy joven supe que quería una vida diferente. Soy ingeniero en Telecomunicaciones y siempre me apasionaron la tecnología, la innovación y el emprendimiento: crear proyectos, resolver problemas, construir algo propio. Pero la realidad fue muy distinta a la que imaginaba: negocios que no funcionaron, proyectos que nunca despegaron, personas con intenciones distintas a las mías, y hasta pérdidas por estafas. Cada intento parecía acercarme más al fracaso que a la libertad que buscaba.</p>
+        <p>Desde joven quise una vida diferente. Soy ingeniero en Telecomunicaciones, pero mi verdadero interés siempre fue emprender y seguir aprendiendo. No fue un camino fácil: negocios que no funcionaron, errores, y más de un "empezar de nuevo".</p>
       </div>
       <div class="t-item">
-        <span class="t-date">02 · Mi camino por Europa</span>
+        <span class="t-date">Mi camino por Europa</span>
         <h3>Lo que aprendí viendo cómo vivían otros</h3>
-        <p>Vivir en España me dio la oportunidad de conocer más de diez ciudades en Europa y observar distintas formas de vivir, trabajar y crecer.</p>
-        <p style="margin-top:14px;">Aunque las personas no eran muy diferentes a nosotros en Latinoamérica, hubo algo que llamó profundamente mi atención: muchas invertían constantemente en sí mismas. Emprendían, practicaban deporte, aprendían nuevas habilidades, leían, investigaban y buscaban formas de generar más oportunidades para su futuro.</p>
-        <p style="margin-top:14px;">Durante esa etapa también había algo que formaba parte de mi rutina sin darle demasiada importancia: cada mes debía convertir mis dólares a euros para cubrir mis gastos. Años después, resulta curioso que el principal mercado en el que me especializo sea precisamente el EUR/USD, el par de divisas entre el euro y el dólar. En ese momento era simplemente una necesidad; hoy es parte de mi profesión. A veces, experiencias que parecen insignificantes terminan cobrando sentido con el paso del tiempo.</p>
-        <p style="margin-top:14px;">Aquella experiencia cambió mi perspectiva. Comprendí que crecer profesionalmente era importante, pero que la verdadera libertad también requería desarrollar una mentalidad de aprendizaje continuo, construir proyectos propios y aprender a hacer que el dinero trabajara a tu favor, no solo depender de un salario.</p>
-      </div>
-      <div class="t-item">
-        <span class="t-date">03 · Los mercados</span>
-        <h3>El verdadero reto no era operar</h3>
-        <p>Ahí descubrí el mundo de las inversiones. Como muchos, pensé que el reto era aprender a operar. Con el tiempo entendí que el verdadero desafío era mucho más profundo: gestionar el riesgo, controlar las emociones, administrar el dinero y tomar decisiones con disciplina. Perdí cuentas, cometí errores, y tuve que volver a empezar más de una vez.</p>
-      </div>
-    </div>
-
-    <div class="story-highlight">
-      <span class="tag">El empleo, resignificado</span>
-      <p>Hubo una etapa en la que veía el empleo como una pérdida de tiempo, porque sentía que me alejaba de la libertad que tanto buscaba. Con el tiempo entendí que no era el empleo el problema, sino la forma en que lo veía.</p>
-      <p style="margin-top:14px;">Hoy lo considero una fuente de ingresos estable que, bien administrada, puede convertirse en la herramienta que financie la construcción de algo mucho más grande. Mientras desarrollas nuevas habilidades, emprendes o aprendes a invertir, ese ingreso puede darte la tranquilidad necesaria para avanzar sin tomar decisiones desesperadas.</p>
-      <p style="margin-top:14px;">La independencia financiera rara vez ocurre de un día para otro. Es una transición. Un proceso en el que, poco a poco, vas construyendo activos, experiencia y criterio, hasta que llega el momento en que puedes depender cada vez menos de aquello que consume la mayor parte de tu tiempo y dedicarte plenamente a lo que realmente has decidido construir.</p>
-    </div>
-
-    <div class="timeline">
-      <div class="t-item">
-        <span class="t-date">04 · La filosofía</span>
-        <h3>Constancia, no un golpe de suerte</h3>
-        <p>Con el tiempo entendí que el éxito rara vez llega de un gran acierto. Llega de tomar buenas decisiones de forma constante durante muchos años. Esa filosofía es la base de todo lo que hoy representa MentoryCap.</p>
+        <p>Viví varios años en España, donde conocí más de diez ciudades en Europa. Ahí aprendí algo que me marcó: la gente que más admiraba dedicaba tiempo constante a mejorar — a aprender, cuidar su salud, desarrollarse. Eso cambió mi forma de ver las cosas.</p>
       </div>
     </div>
 
     <div class="story-highlight beliefs">
       <span class="tag">En lo que creo</span>
-      <p>No creo en los atajos, ni en las promesas de dinero fácil, ni en vender señales para que otros dependan de mí. Creo en la educación, en desarrollar criterio propio y en construir una relación sana con el dinero y las inversiones.</p>
+      <p>No creo en los atajos ni en las promesas de dinero fácil. Creo en la educación, en desarrollar criterio propio y en construir una relación sana con el dinero.</p>
     </div>
 
-    <div class="timeline">
-      <div class="t-item">
-        <span class="t-date">05 · Hoy</span>
-        <h3>Un ecosistema, no un producto</h3>
-        <p>Hoy acompaño a personas que desean aprender desde cero y desarrollar habilidades para gestionar su propio capital. Mantengo el contacto con quienes ya pasaron por mi formación, para que no se queden solos después. Y trabajo con quienes buscan una relación más cercana dentro de este ecosistema.</p>
-        <div class="story-chips">
-          <span>Mentorycap Academy</span>
-          <span>Mentorycap Members</span>
-          <span>Mentorycap Partners</span>
-        </div>
-      </div>
-    </div>
-
-    <p class="story-closing">Las experiencias que un día me hicieron dudar de mi camino son precisamente las que hoy <span>me permiten ayudar a otros a construir el suyo</span>.</p>
-    <p class="story-note">Hoy, más de 20 estudiantes ya han pasado por este camino conmigo.</p>
+    <p class="story-closing">Con el tiempo entendí que el progreso real no viene de un golpe de suerte, sino de tomar buenas decisiones de forma constante durante mucho tiempo. Esa es la filosofía detrás de todo lo que hago hoy: <span>acompañar a otras personas a entender mejor la economía y sus finanzas personales</span>, con paciencia y criterio propio.</p>
   </div>
 </div>
 
 <section id="servicios">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow">MIS SERVICIOS</div>
-      <h2>Tres maneras de unirte a mi círculo privado y comenzar a desarrollar nuevas habilidades.</h2>
-      <p>No todos buscan lo mismo. Algunos quieren aprender, otros rodearse de personas con la misma visión y otros prefieren que su capital trabaje de forma inteligente. Sea cual sea tu objetivo, encontrarás un camino diseñado para ti dentro de MentoryCap.</p>
+  <div class="container" style="text-align:center;">
+    <div class="section-head" style="margin-left:auto;margin-right:auto;">
+      <div class="eyebrow">APRENDE CONMIGO</div>
+      <h2>Economía global, explicada de forma simple</h2>
+      <p>Comparto contenido y acompañamiento para que entiendas mejor cómo funciona la economía, los mercados y el dinero — con un lenguaje claro, sin tecnicismos innecesarios.</p>
     </div>
-
-    <div class="roadmap">
-      <svg class="roadmap-path" viewBox="0 0 1000 260" preserveAspectRatio="none">
-        <path class="road-base" d="M50,175 C160,175 200,95 270,95 C370,95 400,195 500,195 C600,195 630,75 730,75 C830,75 870,145 950,145" fill="none"/>
-        <path class="road-lane" d="M50,175 C160,175 200,95 270,95 C370,95 400,195 500,195 C600,195 630,75 730,75 C830,75 870,145 950,145" fill="none"/>
-      </svg>
-      <div class="roadmap-node" style="left:5%;top:143px;">
-        <div class="roadmap-dot start">📍</div>
-        <span>Inicio</span>
-      </div>
-      <div class="roadmap-node" style="left:27%;top:8px;">
-        <div class="roadmap-dot">1</div>
-        <span>Academy</span>
-        <div class="roadmap-stem" style="height:24px;order:3;"></div>
-      </div>
-      <div class="roadmap-node" style="left:50%;top:212px;">
-        <div class="roadmap-stem" style="height:22px;order:-1;"></div>
-        <div class="roadmap-dot">2</div>
-        <span>Members</span>
-      </div>
-      <div class="roadmap-node" style="left:73%;top:2px;">
-        <div class="roadmap-dot">3</div>
-        <span>Partners</span>
-        <div class="roadmap-stem" style="height:22px;order:3;"></div>
-      </div>
-      <div class="roadmap-node" style="left:95%;top:118px;">
-        <div class="roadmap-dot end">🏁</div>
-        <span>Independencia financiera</span>
-      </div>
-    </div>
-
-    <div class="pilares">
-      <div class="pilar">
-        <div class="pilar-art">
-          <svg width="76" height="76" viewBox="0 0 100 100" fill="none">
-            <g opacity="0.55">
-              <rect x="14" y="52" width="7" height="20" fill="#26A69A"/>
-              <line x1="17.5" y1="46" x2="17.5" y2="78" stroke="#26A69A" stroke-width="2"/>
-              <rect x="27" y="40" width="7" height="26" fill="#8A7328"/>
-              <line x1="30.5" y1="34" x2="30.5" y2="72" stroke="#8A7328" stroke-width="2"/>
-              <rect x="40" y="58" width="7" height="14" fill="#EF5350"/>
-              <line x1="43.5" y1="52" x2="43.5" y2="78" stroke="#EF5350" stroke-width="2"/>
-            </g>
-            <path d="M32 30 L58 18 L84 30 L58 42 Z" fill="#1A2030" stroke="#D4AF37" stroke-width="2.5" stroke-linejoin="round"/>
-            <path d="M42 35 V48 C42 53 49 57 58 57 C67 57 74 53 74 48 V35" stroke="#D4AF37" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-            <line x1="84" y1="30" x2="84" y2="46" stroke="#D4AF37" stroke-width="2.5" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <span class="num">01</span>
-        <h3>Mentorycap Academy</h3>
-        <p>Formación completa para aprender a operar desde cero, con acompañamiento personalizado y en grupo reducido.</p>
-        <button class="btn btn-outline" onclick="openModal('modal-private')" type="button">Leer más</button>
-      </div>
-      <div class="pilar">
-        <div class="pilar-art">
-          <svg width="76" height="76" viewBox="0 0 100 100" fill="none">
-            <rect x="14" y="20" width="52" height="36" rx="9" fill="#131722" stroke="#26A69A" stroke-width="2.5"/>
-            <path d="M24 56 L24 68 L37 56" fill="#131722" stroke="#26A69A" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-            <rect x="34" y="34" width="52" height="36" rx="9" fill="#1A2030" stroke="#D4AF37" stroke-width="2.5"/>
-            <path d="M76 70 L76 82 L63 70" fill="#1A2030" stroke="#D4AF37" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-            <circle cx="48" cy="52" r="2.6" fill="#D4AF37"/>
-            <circle cx="60" cy="52" r="2.6" fill="#D4AF37"/>
-            <circle cx="72" cy="52" r="2.6" fill="#D4AF37"/>
-          </svg>
-        </div>
-        <span class="num">02</span>
-        <h3>Mentorycap Members</h3>
-        <p>Forma parte de un grupo que ve las finanzas y la vida distinto — un entorno que te mantiene enfocado, acompañado y en contacto conmigo después de tu formación.</p>
-        <button class="btn btn-outline" onclick="openModal('modal-comunidad')" type="button">Leer más</button>
-      </div>
-      <div class="pilar">
-        <div class="pilar-art">
-          <svg width="76" height="76" viewBox="0 0 100 100" fill="none">
-            <path d="M50 14 L82 26 V50 C82 68 68 80 50 86 C32 80 18 68 18 50 V26 Z" fill="#1A2030" stroke="#D4AF37" stroke-width="2.5" stroke-linejoin="round"/>
-            <path d="M36 50 L46 60 L66 38" stroke="#26A69A" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <span class="num">03</span>
-        <h3>Mentorycap Partners</h3>
-        <p>Dos formas de ser socio: aportando capital como inversionista, o conectando personas como socio de negocios.</p>
-        <button class="btn btn-outline" onclick="openModal('modal-rccapital')" type="button">Leer más</button>
-      </div>
-    </div>
-
-    <div class="section-head" style="margin-top:48px;">
-      <div class="eyebrow">LO QUE DICEN</div>
-      <h2>Lo que dicen quienes han pasado por aquí</h2>
-    </div>
-    <div class="testi-grid">
-      <div class="testi">
-        <div class="stars">★★★★★</div>
-        <p>Cuenta que desde que empezó a tomar clases, su enfoque y sus resultados en el trading mejoraron de forma notable, destacando lo simple que se vuelven los conceptos complejos.</p>
-        <div class="who">— Christopher R.</div>
-      </div>
-      <div class="testi">
-        <div class="stars">★★★★★</div>
-        <p>Agradece haber sido introducido al mundo del trading con una guía que le ayudó a entender el mercado y desarrollar sus habilidades poco a poco.</p>
-        <div class="who">— Carlos F.</div>
-      </div>
-      <div class="testi">
-        <div class="stars">★★★★★</div>
-        <p>Describe el contenido como completo y bien estructurado, abarcando desde cripto hasta mindset y desarrollo personal.</p>
-        <div class="who">— Eugenio B.</div>
-      </div>
-    </div>
+    <button type="button" class="btn btn-primary" onclick="openChat()">Más información</button>
   </div>
 </section>
 
 <section id="quiz-fijo">
   <div class="container">
-    <div class="section-head">
-      <div class="eyebrow">¿NO SABES POR DÓNDE EMPEZAR?</div>
-      <h2>Descubre qué camino de MentoryCap es para ti</h2>
-      <p>Responde 4 preguntas rápidas y te digo si te conviene más Academy, Members, RC Capital o Business Partners.</p>
-    </div>
-    <div class="quiz-card">
-      <div id="quiz-active">
-        <div class="quiz-progress" id="quiz-progress">PREGUNTA 1 DE 4</div>
-        <div class="quiz-question">
-          <h3 id="quiz-question-text"></h3>
-          <div class="quiz-options" id="quiz-options"></div>
-        </div>
-      </div>
-      <div class="quiz-result" id="quiz-result">
-        <div class="result-tag" id="quiz-result-tag">TU RESULTADO</div>
-        <h3 id="quiz-result-title"></h3>
-        <p id="quiz-result-desc"></p>
-        <button class="btn btn-primary" id="quiz-result-cta" type="button">Quiero más información</button>
-        <button class="quiz-restart" type="button" onclick="quizRestart()">Volver a hacer el quiz</button>
-      </div>
-    </div>
-
     <div class="faq-block">
-      <div class="section-head" style="margin-top:56px;">
+      <div class="section-head" style="margin-top:0;">
         <div class="eyebrow">PARA EMPEZAR DESDE CERO</div>
         <h2>¿Nuevo en esto? Aquí tienes lo básico</h2>
         <p>Si nunca has estado en los mercados, empieza por aquí. Respuestas simples, sin tecnicismos, organizadas por tema.</p>
@@ -2246,7 +2048,7 @@
           </details>
           <details class="faq-item">
             <summary>¿Qué es el XAU/USD?</summary>
-            <p>Es el precio del oro medido en dólares por onza. Muchos inversionistas lo usan como refugio cuando hay incertidumbre económica.</p>
+            <p>Es el precio del oro medido en dólares por onza. Se usa como referencia de valor cuando hay incertidumbre económica.</p>
           </details>
           <details class="faq-item">
             <summary>¿Qué es el DXY?</summary>
@@ -2281,16 +2083,16 @@
         <div class="faq-cat">
           <h3>🚀 Para empezar</h3>
           <details class="faq-item">
-            <summary>¿Qué es invertir online hoy en día?</summary>
-            <p>Es usar plataformas digitales (brókers, exchanges, apps) para comprar activos financieros desde tu celular o computadora, sin ir a un banco o una bolsa física.</p>
+            <summary>¿Qué son las plataformas financieras digitales?</summary>
+            <p>Son apps y sitios web (brókers, exchanges, bancos digitales) que te permiten manejar dinero y activos financieros desde tu celular o computadora, sin ir a un banco o una bolsa física.</p>
           </details>
           <details class="faq-item">
             <summary>¿Necesito mucho dinero para empezar?</summary>
-            <p>No. Hoy puedes empezar a aprender y practicar con montos pequeños. Al inicio lo importante es aprender a manejar el riesgo, no el tamaño del capital.</p>
+            <p>No. Hoy puedes empezar a aprender y practicar con montos pequeños. Al inicio lo importante es entender bien el manejo del riesgo, no el tamaño del monto.</p>
           </details>
           <details class="faq-item">
-            <summary>¿Es lo mismo invertir que hacer trading?</summary>
-            <p>No exactamente. Invertir suele ser a largo plazo (comprar y mantener), mientras que el trading busca aprovechar movimientos de precio en plazos más cortos.</p>
+            <summary>¿Qué es la gestión del riesgo?</summary>
+            <p>Es el conjunto de decisiones que tomas para proteger tu dinero: cuánto arriesgas en cada movimiento, cuándo detenerte y cómo evitar que una mala decisión afecte todo lo demás.</p>
           </details>
           <details class="faq-item">
             <summary>¿Qué es un mentor en todo esto?</summary>
@@ -2333,123 +2135,6 @@
     </div>
   </div>
 </footer>
-
-<!-- ---------- MODAL: COMUNIDAD ---------- -->
-<div class="modal-overlay" id="modal-comunidad" onclick="if(event.target===this) closeModal('modal-comunidad')">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeModal('modal-comunidad')" aria-label="Cerrar">✕</button>
-    <div class="modal-eyebrow">💬 MentoryCap Members</div>
-    <h2>Un lugar al que perteneces, no solo un chat más</h2>
-    <p>Ser parte de MentoryCap Members es formar parte de algo más grande que un grupo de chat: es rodearte de personas que ven las finanzas personales, el tiempo y las decisiones de vida de otra manera. Gente que, como tú, decidió construir en vez de quedarse esperando que las cosas cambien solas.</p>
-    <p>Aquí encontrarás soporte, acompañamiento y actualizaciones — pero sobre todo, un entorno que te ayuda a mantenerte enfocado. Rodearte de las personas correctas hace más fácil sostener el rumbo cuando las distracciones o las dudas intentan sabotear tu proceso. No estás solo en esto, y eso se nota.</p>
-    <div class="modal-highlight">
-      <strong style="color:var(--gold);">Esto no es una sala de señales</strong>
-      <p style="margin:10px 0 0;color:var(--text-muted);font-size:14px;">Esta membresía no es un servicio de señales, alertas de compra o venta, ni trading en vivo. El propósito de MentoryCap Members es que no pierdas el acompañamiento después de tu formación — no reemplazar tu criterio propio con el mío.</p>
-    </div>
-    <p>Ideal para quienes ya completaron (o están cerca de completar) Mentorycap Academy y quieren mantener ese hilo de contacto conmigo — y con un entorno que los empuje hacia adelante — en vez de terminar el curso y desaparecer del mapa.</p>
-    <button class="btn btn-primary js-contacto" data-servicio="Mentorycap Members" onclick="closeModal('modal-comunidad')">Quiero más información</button>
-  </div>
-</div>
-
-<!-- ---------- MODAL: MENTORYCAP PRIVATE ---------- -->
-<div class="modal-overlay" id="modal-private" onclick="if(event.target===this) closeModal('modal-private')">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeModal('modal-private')" aria-label="Cerrar">✕</button>
-    <div class="modal-eyebrow">Mentorycap Academy</div>
-    <h2>Programa personalizado para aprender a invertir</h2>
-    <p>MASTER TRADING está diseñado para personas que desean aprender a operar los mercados financieros de forma independiente, con método, disciplina y criterio profesional. No necesitas grandes cantidades de dinero para comenzar, pero sí compromiso y dedicación para desarrollar esta habilidad.</p>
-    <h4>Duración del programa</h4>
-    <div class="modal-plans">
-      <div class="modal-plan">1 mes</div>
-      <div class="modal-plan featured"><span class="tag">Recomendado</span>3 meses</div>
-      <div class="modal-plan">6 meses</div>
-    </div>
-    <p>Mientras más tiempo cercano a tu mentor, mejores son tus resultados — pero te garantizo que en <strong style="color:var(--text);">3 meses</strong>, trabajando 1 a 1 conmigo, vas a aprender a operar por tu cuenta.</p>
-    <h4>Incluye</h4>
-    <ul>
-      <li>Sesiones 1-1 en vivo con Oscar sobre análisis técnico, estrategia, psicología y gestión de riesgo.</li>
-      <li>Acceso completo al curso grabado MASTER TRADING.</li>
-      <li>Acceso a todas las grabaciones de clases anteriores, con ejemplos prácticos.</li>
-      <li>Soporte directo por WhatsApp.</li>
-    </ul>
-    <h4>Objetivo</h4>
-    <p>Ayudarte a desarrollar una base técnica sólida y una mentalidad profesional para que puedas gestionar tu propio capital en los mercados financieros. Operar puede convertirse en una nueva fuente de ingresos si aprendes a interpretar correctamente sus movimientos, gestionas adecuadamente el riesgo y mantienes la disciplina necesaria para preservar tu capital.</p>
-    <p>El verdadero desafío no está solo en la estrategia, sino en el control emocional frente a las ganancias y las pérdidas. Si quieres formar parte de un grupo de personas que busca tomar el control de sus finanzas y aprovechar las oportunidades de la economía digital, este programa es para ti. ¡Te veo dentro!</p>
-    <div class="modal-highlight">
-      <strong style="color:var(--gold);">Requisitos para aplicar</strong>
-      <p style="margin:10px 0 6px;color:var(--text-muted);font-size:14px;">Por seguridad, este programa no es para cualquiera. Antes de aplicar, ten en cuenta:</p>
-      <ul style="margin-bottom:0;">
-        <li>Ser mayor de edad y contar con al menos una fuente de ingresos estable.</li>
-        <li>Tener disposición real de aprender y dejarte guiar.</li>
-        <li>Entender que los mercados son de alta volatilidad, donde el riesgo siempre está presente.</li>
-        <li>Buscar resultados a largo plazo, no ganancias rápidas.</li>
-        <li>Ver esto como una profesión real, que exige estudio, esfuerzo y compromiso.</li>
-      </ul>
-    </div>
-    <button class="btn btn-primary js-contacto" data-servicio="Mentorycap Academy" onclick="closeModal('modal-private')">Quiero más información</button>
-  </div>
-</div>
-
-<!-- ---------- MODAL: MENTORYCAP PARTNERS ---------- -->
-<div class="modal-overlay" id="modal-rccapital" onclick="if(event.target===this) closeModal('modal-rccapital')">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeModal('modal-rccapital')" aria-label="Cerrar">✕</button>
-    <div class="modal-eyebrow">Mentorycap Partners</div>
-    <h2>Dos formas de ser socio de MentoryCap</h2>
-    <p>Ya sea aportando capital o conectando personas, hay un camino para asociarte conmigo.</p>
-
-    <div class="modal-tabs">
-      <button class="modal-tab active" data-target="tab-rc" onclick="switchTab(this,'tab-rc')">RC Capital<span class="modal-tab-sub">Socios inversionistas</span></button>
-      <button class="modal-tab" data-target="tab-bp" onclick="switchTab(this,'tab-bp')">Business Partners<span class="modal-tab-sub">Socios de negocios</span></button>
-    </div>
-
-    <div class="modal-tab-panel" id="tab-rc">
-      <p>Un servicio privado de gestión de capital diseñado para personas que desean participar en los mercados financieros sin necesidad de operar por sí mismas.</p>
-      <div class="modal-highlight">
-        <strong style="color:var(--gold);">Un espacio exclusivo</strong>
-        <p style="margin:10px 0 0;color:var(--text-muted);font-size:14px;">RC Capital no es un servicio abierto al público: los cupos son muy limitados y no todos pueden aplicar. De hecho, nació como un programa confidencial pensado para familiares y amistades muy cercanas, y hoy abro un espacio reducido para quienes califican. El proceso incluye una reunión directa conmigo para conocer tu caso, y busco personas con alta tolerancia al riesgo y una mentalidad de largo plazo.</p>
-      </div>
-      <h4>Ideal para personas que</h4>
-      <ul>
-        <li>Disponen de capital para invertir, pero no cuentan con el tiempo o la experiencia necesaria para operar los mercados.</li>
-        <li>Buscan un enfoque orientado a la preservación del capital, la consistencia y el crecimiento sostenible a largo plazo.</li>
-      </ul>
-      <h4>Transparencia y riesgo</h4>
-      <p>Toda inversión en mercados financieros implica riesgo. Los resultados pasados no garantizan resultados futuros y pueden producirse períodos de rentabilidad negativa o incluso pérdidas significativas del capital invertido.</p>
-      <h4>Modelo de participación</h4>
-      <p>Las ganancias se distribuyen bajo un esquema de reparto de beneficios: el inversor recibe el 70% y RC Capital, como gestor, el 30%. Puedes retirar en cualquier momento todo tu capital y recibirlo en menos de 48 horas.</p>
-      <h4>Nuestro compromiso</h4>
-      <ul>
-        <li>Gestión basada en criterios objetivos y disciplina operativa.</li>
-        <li>Control de riesgo adaptado a las condiciones del mercado.</li>
-        <li>Comunicación transparente y acceso a información real sobre el desempeño de la inversión.</li>
-      </ul>
-      <p>Nuestro propósito es brindar una alternativa profesional para quienes desean diversificar su patrimonio y poner a trabajar un % de su capital en los mercados financieros, sin tener que gestionar directamente la operativa.</p>
-      <button class="btn btn-primary js-contacto" data-servicio="Mentorycap Partners - RC Capital" onclick="closeModal('modal-rccapital')">Quiero más información</button>
-    </div>
-
-    <div class="modal-tab-panel" id="tab-bp" style="display:none;">
-      <p>El programa de Business Partners reúne a profesionales, emprendedores, consultores, creadores de contenido y empresas que desean representar comercialmente a MentoryCap.</p>
-      <p>Nuestros socios tienen la oportunidad de generar ingresos mediante la comercialización de nuestros programas de formación y servicios financieros, recibiendo atractivas comisiones por cada venta concretada.</p>
-      <div class="modal-highlight">
-        <strong style="color:var(--gold);">No necesitas ser trader</strong>
-        <p style="margin:10px 0 0;color:var(--text-muted);font-size:14px;">No necesitas experiencia en trading ni invertir tu propio capital. Tu función es representar comercialmente a MentoryCap y generar ingresos mediante atractivas comisiones por cada programa o servicio vendido.</p>
-      </div>
-      <p>Como Business Partner, tendrás acceso a recursos comerciales, materiales de apoyo, capacitación sobre nuestros servicios, herramientas y un sistema de comisiones transparente y escalable, diseñado para impulsar relaciones comerciales de largo plazo basadas en resultados.</p>
-      <h4>Ideal para</h4>
-      <ul>
-        <li>Asesores y consultores.</li>
-        <li>Emprendedores y dueños de negocio.</li>
-        <li>Creadores de contenido e influencers.</li>
-        <li>Líderes de comunidad.</li>
-        <li>Profesionales de ventas.</li>
-        <li>Socios estratégicos con una red de contactos.</li>
-        <li>Personas que quieran generar ingresos adicionales cuando sus contactos se convierten en clientes de MentoryCap.</li>
-      </ul>
-      <button class="btn btn-primary js-contacto" data-servicio="Mentorycap Partners - Business Partners" onclick="closeModal('modal-rccapital')">Quiero más información</button>
-    </div>
-  </div>
-</div>
 
 <!-- ---------- MENÚ FLOTANTE + CHAT RÁPIDO ---------- -->
 <div class="fab-wrap">
@@ -2835,157 +2520,6 @@
       priceEl.textContent = 'N/D';
     }
   }
-
-  // Calculadora de gestión de riesgo
-  const instrumentSpecs = {
-    eurusd: { label: 'Distancia al Stop Loss (pips)', unit: 'pips', valuePerLot: 10 },   // 1 lote (100k) = $10/pip
-    btc:    { label: 'Distancia al Stop Loss ($)',    unit: '$',    valuePerLot: 1 },    // 1 lote (1 BTC) = $1 por cada $1 de movimiento
-    xau:    { label: 'Distancia al Stop Loss ($)',     unit: '$',    valuePerLot: 100 }   // 1 lote (100 oz) = $100 por cada $1 de movimiento
-  };
-
-  function calcRisk(){
-    const instrumentEl = document.getElementById('calc-instrument');
-    const instrument = instrumentEl ? instrumentEl.value : 'eurusd';
-    const spec = instrumentSpecs[instrument];
-
-    const slLabel = document.getElementById('calc-sl-label');
-    if (slLabel) slLabel.textContent = spec.label;
-
-    const capital = parseFloat(document.getElementById('calc-capital').value) || 0;
-    const riskPct = parseFloat(document.getElementById('calc-risk').value) || 0;
-    const slValue = parseFloat(document.getElementById('calc-sl').value) || 0;
-    const riskAmount = capital * (riskPct / 100);
-    const lotSize = slValue > 0 ? riskAmount / (slValue * spec.valuePerLot) : 0;
-
-    document.getElementById('calc-result-risk').textContent = '$' + riskAmount.toFixed(2);
-    const resultSize = document.getElementById('calc-result-size');
-    const resultLbl = document.getElementById('calc-result-lbl');
-    if (resultSize) resultSize.textContent = slValue > 0 ? lotSize.toFixed(2) : '—';
-    if (resultLbl) resultLbl.textContent = instrument === 'btc' ? 'BTC sugeridos' : 'Lote sugerido';
-  }
-  calcRisk();
-
-  // Quiz: ¿qué camino de MentoryCap es para ti?
-  const quizQuestions = [
-    {
-      text: '¿Qué buscas principalmente?',
-      options: [
-        { label: 'Aprender a operar por mi cuenta', scores: { academy: 2 } },
-        { label: 'Que gestionen mi capital sin operar yo', scores: { rccapital: 2 } },
-        { label: 'Conectar personas y generar ingresos extra', scores: { bizpartners: 2 } },
-        { label: 'Ya tengo una base y quiero seguir acompañado', scores: { community: 2 } }
-      ]
-    },
-    {
-      text: '¿Cuánto tiempo puedes dedicarle por semana?',
-      options: [
-        { label: 'Varias horas, quiero tomarlo en serio', scores: { academy: 2 } },
-        { label: 'Poco o nada, prefiero delegarlo', scores: { rccapital: 2 } },
-        { label: 'Poco, solo quiero mantenerme en contacto y al tanto', scores: { community: 2 } },
-        { label: 'Mi tiempo lo invierto en mi red de contactos', scores: { bizpartners: 2 } }
-      ]
-    },
-    {
-      text: '¿Tienes capital para invertir hoy?',
-      options: [
-        { label: 'Sí, y prefiero que alguien más lo gestione', scores: { rccapital: 2 } },
-        { label: 'Tengo algo, pero quiero aprender a manejarlo yo', scores: { academy: 2 } },
-        { label: 'Todavía no, estoy empezando desde cero', scores: { academy: 2 } },
-        { label: 'No, pero conozco personas interesadas en invertir o aprender', scores: { bizpartners: 2 } }
-      ]
-    },
-    {
-      text: '¿Qué te describe mejor?',
-      options: [
-        { label: 'Quiero desarrollar una nueva habilidad o profesión', scores: { academy: 2 } },
-        { label: 'Quiero diversificar mi patrimonio sin complicarme', scores: { rccapital: 2 } },
-        { label: 'Ya pasé por una formación y no quiero perder el contacto', scores: { community: 2 } },
-        { label: 'Tengo una red y quiero generar ingresos con ella', scores: { bizpartners: 2 } }
-      ]
-    }
-  ];
-
-  const quizResults = {
-    academy: {
-      tag: 'Tu camino: Mentorycap Academy',
-      title: 'Aprende a operar tu propio capital',
-      desc: 'Tu perfil encaja con formarte desde cero, con método y acompañamiento 1 a 1, hasta poder operar por tu cuenta con criterio propio.',
-      servicio: 'Mentorycap Academy'
-    },
-    community: {
-      tag: 'Tu camino: Mentorycap Members',
-      title: 'Mantente en contacto y acompañado',
-      desc: 'Tu perfil encaja con formar parte de un grupo que te acompaña y te mantiene enfocado, en contacto conmigo después de tu formación.',
-      servicio: 'Mentorycap Members'
-    },
-    rccapital: {
-      tag: 'Tu camino: Mentorycap Partners · RC Capital',
-      title: 'Deja que gestionemos tu capital',
-      desc: 'Tu perfil encaja con invertir sin operar tú mismo, con un enfoque en preservación de capital y crecimiento sostenible.',
-      servicio: 'Mentorycap Partners - RC Capital'
-    },
-    bizpartners: {
-      tag: 'Tu camino: Mentorycap Partners · Business Partners',
-      title: 'Genera ingresos como socio estratégico',
-      desc: 'Tu perfil encaja con representar comercialmente a MentoryCap y generar comisiones conectando personas con nuestros programas.',
-      servicio: 'Mentorycap Partners - Business Partners'
-    }
-  };
-
-  let quizIndex = 0;
-  let quizScores = { academy: 0, community: 0, rccapital: 0, bizpartners: 0 };
-
-  function quizRender(){
-    const q = quizQuestions[quizIndex];
-    document.getElementById('quiz-progress').textContent = 'PREGUNTA ' + (quizIndex + 1) + ' DE ' + quizQuestions.length;
-    document.getElementById('quiz-question-text').textContent = q.text;
-    const optsEl = document.getElementById('quiz-options');
-    optsEl.innerHTML = '';
-    q.options.forEach(opt => {
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'quiz-option';
-      btn.textContent = opt.label;
-      btn.addEventListener('click', () => quizAnswer(opt.scores));
-      optsEl.appendChild(btn);
-    });
-  }
-
-  function quizAnswer(scores){
-    Object.keys(scores).forEach(k => quizScores[k] += scores[k]);
-    quizIndex++;
-    if (quizIndex < quizQuestions.length){
-      quizRender();
-    } else {
-      quizShowResult();
-    }
-  }
-
-  function quizShowResult(){
-    let winner = 'academy';
-    let max = -1;
-    Object.keys(quizScores).forEach(k => {
-      if (quizScores[k] > max){ max = quizScores[k]; winner = k; }
-    });
-    const r = quizResults[winner];
-    document.getElementById('quiz-result-tag').textContent = r.tag;
-    document.getElementById('quiz-result-title').textContent = r.title;
-    document.getElementById('quiz-result-desc').textContent = r.desc;
-    const cta = document.getElementById('quiz-result-cta');
-    cta.onclick = () => openChat(r.servicio);
-    document.getElementById('quiz-active').style.display = 'none';
-    document.getElementById('quiz-result').classList.add('show');
-  }
-
-  function quizRestart(){
-    quizIndex = 0;
-    quizScores = { academy: 0, community: 0, rccapital: 0, bizpartners: 0 };
-    document.getElementById('quiz-result').classList.remove('show');
-    document.getElementById('quiz-active').style.display = 'block';
-    quizRender();
-  }
-
-  quizRender();
 
   // Modales de detalle de cada servicio
   function openModal(id){

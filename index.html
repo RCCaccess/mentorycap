@@ -762,6 +762,50 @@
   .stock-chart{width:100%;height:60px;margin-top:6px;display:block;}
   #historia-cta{border-bottom:1px solid var(--border);padding:56px 0;}
   #youtube-cta{border-bottom:1px solid var(--border);padding:56px 0;}
+  .two-options-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:36px;
+    align-items:start;
+    margin-top:36px;
+  }
+  @media(max-width:860px){.two-options-grid{grid-template-columns:1fr;}}
+  .option-col{
+    background:var(--bg-panel);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:26px;
+  }
+  .option-col h3{font-size:18px;margin-bottom:12px;}
+  .option-col p{color:var(--text-muted);font-size:14.5px;line-height:1.6;}
+  .option-col h4{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    color:var(--text);
+    margin:20px 0 10px;
+  }
+  .option-col ul{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    margin-bottom:14px;
+  }
+  .option-col li{
+    font-size:14px;
+    color:var(--text-muted);
+    padding-left:20px;
+    position:relative;
+    line-height:1.5;
+  }
+  .option-col li::before{
+    content:'—';
+    position:absolute;
+    left:0;
+    color:var(--gold-dim);
+  }
+  .option-col .youtube-embed-wrap{margin:20px auto 0;max-width:100%;}
   .youtube-embed-wrap{
     max-width:720px;
     margin:32px auto 0;
@@ -2003,18 +2047,50 @@
 <section id="youtube-cta">
   <div class="container">
     <div class="section-head" style="text-align:center;margin-left:auto;margin-right:auto;">
-      <div class="eyebrow">GRATIS</div>
-      <h2>Aprende gratis los conceptos básicos en mi YouTube</h2>
-      <p style="max-width:520px;margin-left:auto;margin-right:auto;">Antes de dar el siguiente paso, puedes ver mis videos gratuitos donde explico lo esencial para entender los mercados desde cero — sin costo, sin registro.</p>
+      <div class="eyebrow">DOS OPCIONES</div>
+      <h2>¿Por dónde quieres empezar?</h2>
+      <p style="max-width:560px;margin-left:auto;margin-right:auto;">No todos buscan lo mismo — elige el camino que mejor encaja contigo.</p>
     </div>
-    <div class="youtube-embed-wrap">
-      <iframe src="https://www.youtube.com/embed/videoseries?list=PLuJnrEPKGTVNtsjMhUeTVyw4r1icLWTZ6" title="Playlist de MentoryCap en YouTube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-    </div>
-    <div class="youtube-embed-wrap" style="margin-top:20px;">
-      <iframe src="https://www.youtube.com/embed/Ol4p5roljw4" title="Video de MentoryCap en YouTube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-    </div>
-    <div style="text-align:center;margin-top:24px;">
-      <a href="https://youtube.com/playlist?list=PLuJnrEPKGTVNtsjMhUeTVyw4r1icLWTZ6&si=_PKqaznTga0oL201" target="_blank" rel="noopener" class="btn youtube-btn">▶ Ver la playlist completa en YouTube</a>
+
+    <div class="two-options-grid">
+      <div class="option-col">
+        <h3>Opción 1 · Aprende por tu cuenta</h3>
+        <p>Si quieres aprender a operar los mercados por tu cuenta, empieza por aquí: tengo contenido gratuito en mi YouTube para que te inicies en este mundo, sin costo y sin registro.</p>
+        <div class="youtube-embed-wrap">
+          <iframe src="https://www.youtube.com/embed/videoseries?list=PLuJnrEPKGTVNtsjMhUeTVyw4r1icLWTZ6" title="Playlist de MentoryCap en YouTube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="youtube-embed-wrap" style="margin-top:16px;">
+          <iframe src="https://www.youtube.com/embed/Ol4p5roljw4" title="Video de MentoryCap en YouTube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div style="text-align:center;margin-top:20px;">
+          <a href="https://youtube.com/playlist?list=PLuJnrEPKGTVNtsjMhUeTVyw4r1icLWTZ6&si=_PKqaznTga0oL201" target="_blank" rel="noopener" class="btn youtube-btn">▶ Ver la playlist completa en YouTube</a>
+        </div>
+      </div>
+
+      <div class="option-col">
+        <h3>Opción 2 · Mentorycap Partners</h3>
+        <p>Un programa en el que te ayudo a gestionar tu capital, con seguimiento personalizado y acompañamiento constante — para quienes prefieren no operar los mercados por sí mismos.</p>
+        <div class="modal-highlight">
+          <strong style="color:var(--gold);">Un espacio exclusivo</strong>
+          <p style="margin:10px 0 0;color:var(--text-muted);font-size:14px;">No es un servicio abierto al público: los cupos son muy limitados y no todos pueden aplicar. Nació como un programa confidencial pensado para familiares y amistades muy cercanas, y hoy abro un espacio reducido para quienes califican. El proceso incluye una reunión directa conmigo para conocer tu caso.</p>
+        </div>
+        <h4>Ideal para personas que</h4>
+        <ul>
+          <li>Disponen de capital, pero no cuentan con el tiempo o la experiencia necesaria para operar los mercados.</li>
+          <li>Buscan un enfoque orientado a la preservación del capital, la consistencia y el crecimiento sostenible a largo plazo.</li>
+        </ul>
+        <h4>Transparencia y riesgo</h4>
+        <p style="font-size:14.5px;color:var(--text-muted);">Toda participación en los mercados financieros implica riesgo. Los resultados pasados no garantizan resultados futuros y pueden producirse períodos de rentabilidad negativa o incluso pérdidas significativas.</p>
+        <h4>Modelo de participación</h4>
+        <p style="font-size:14.5px;color:var(--text-muted);">Las ganancias se distribuyen bajo un esquema de reparto de beneficios: el cliente recibe el 70% y MentoryCap, como gestor, el 30%. Puedes retirar tu capital en cualquier momento y recibirlo en menos de 48 horas.</p>
+        <h4>Nuestro compromiso</h4>
+        <ul>
+          <li>Gestión basada en criterios objetivos y disciplina operativa.</li>
+          <li>Control de riesgo adaptado a las condiciones del mercado.</li>
+          <li>Comunicación transparente y acceso a información real sobre el desempeño.</li>
+        </ul>
+        <button class="btn btn-primary js-contacto" data-servicio="Mentorycap Partners" style="width:100%;justify-content:center;margin-top:16px;" type="button">Quiero más información</button>
+      </div>
     </div>
   </div>
 </section>

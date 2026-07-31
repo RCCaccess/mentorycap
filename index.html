@@ -810,9 +810,13 @@
     list-style:none;
     cursor:pointer;
     display:flex;
-    align-items:center;
+    align-items:flex-start;
     gap:16px;
-    padding:20px 22px;
+    padding:22px;
+    height:158px;
+  }
+  @media(max-width:400px){
+    .option-item summary{padding:20px 16px;height:164px;}
   }
   .option-item summary::-webkit-details-marker{display:none;}
   .option-num{
@@ -838,16 +842,27 @@
   .option-summary-text{
     display:flex;
     flex-direction:column;
-    gap:4px;
+    justify-content:center;
+    gap:6px;
     flex:1;
     min-width:0;
+    height:100%;
   }
   .option-summary-text strong{font-size:16px;color:var(--text);}
-  .option-tagline{font-size:13px;color:var(--text-muted);line-height:1.4;}
+  .option-tagline{
+    font-size:13px;
+    color:var(--text-muted);
+    line-height:1.4;
+    display:-webkit-box;
+    -webkit-line-clamp:4;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+  }
   .option-chevron{
     font-family:var(--mono);
     color:var(--text-muted);
     flex-shrink:0;
+    margin-top:2px;
     transition:transform .2s ease;
   }
   .option-item[open] .option-chevron{transform:rotate(180deg);color:var(--gold);}
@@ -2135,7 +2150,7 @@
     <div class="section-head" style="text-align:center;margin-left:auto;margin-right:auto;">
       <div class="eyebrow">TRES OPCIONES</div>
       <h2>¿Por dónde quieres empezar?</h2>
-      <p style="max-width:560px;margin-left:auto;margin-right:auto;">No todos buscan lo mismo — elige el camino que mejor encaja contigo.</p>
+      <p style="max-width:560px;margin-left:auto;margin-right:auto;">Mi objetivo es ayudarte a construir un patrimonio de forma inteligente. Elige el camino que mejor se adapte a ti.</p>
     </div>
 
     <div class="options-stack">
@@ -2144,7 +2159,7 @@
           <span class="option-num">1</span>
           <span class="option-summary-text">
             <strong>Aprende por tu cuenta</strong>
-            <span class="option-tagline">Contenido gratuito en mi YouTube para iniciarte, sin costo y sin registro.</span>
+            <span class="option-tagline">Accede a contenido gratuito para aprender sobre los mercados financieros.</span>
           </span>
           <span class="option-chevron">▾</span>
         </summary>
@@ -2167,7 +2182,7 @@
           <span class="option-num">2</span>
           <span class="option-summary-text">
             <strong>Aprende 1 a 1 conmigo</strong>
-            <span class="option-tagline">Acompañamiento personalizado, paso a paso, con atención directa por WhatsApp.</span>
+            <span class="option-tagline">Formación y acompañamiento privado para que operes los mercados con criterio y una estrategia definida.</span>
           </span>
           <span class="option-chevron">▾</span>
         </summary>
@@ -2194,7 +2209,7 @@
           <span class="option-num">3</span>
           <span class="option-summary-text">
             <strong>Seamos socios</strong>
-            <span class="option-tagline">Espacio exclusivo y por cupos limitados, con acompañamiento constante.</span>
+            <span class="option-tagline">Trabajemos juntos para construir y escalar tu patrimonio a largo plazo.</span>
           </span>
           <span class="option-chevron">▾</span>
         </summary>
@@ -2673,4 +2688,3 @@
 
 </body>
 </html>
-

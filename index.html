@@ -948,6 +948,106 @@
   }
   .historia-cta-box h2{font-size:24px;margin-bottom:14px;}
   .historia-cta-box p{color:var(--text-muted);font-size:14.5px;line-height:1.6;margin-bottom:26px;}
+
+  /* ---------- GRÁFICO DECORATIVO ANIMADO ---------- */
+  .chart-decor{
+    max-width:640px;
+    margin:8px auto 0;
+    padding:22px 24px 18px;
+    background:linear-gradient(180deg, #FFFFFF 0%, var(--bg-panel) 100%);
+    border:1px solid var(--border);
+    border-radius:16px;
+    box-shadow:0 16px 40px rgba(20,22,27,0.08);
+  }
+  .chart-decor-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:14px;
+  }
+  .chart-decor-symbol{
+    font-family:var(--mono);
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:0.03em;
+    color:var(--text);
+  }
+  .chart-decor-live{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--text-muted);
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+  }
+  .chart-decor-live-dot{
+    width:6px;height:6px;
+    border-radius:50%;
+    background:var(--up);
+    display:inline-block;
+    animation:chartLiveBlink 1.8s ease-in-out infinite;
+  }
+  .chart-decor-svg{width:100%;height:auto;display:block;overflow:visible;}
+  .chart-grid line{stroke:var(--border);stroke-width:1;}
+  .chart-candles .candle{
+    fill:var(--steel);
+    opacity:0.16;
+    animation:chartCandleFlicker 3.6s ease-in-out infinite;
+    transform-origin:center bottom;
+  }
+  .chart-candles .candle:nth-child(1){animation-delay:0.0s;}
+  .chart-candles .candle:nth-child(2){animation-delay:0.15s;}
+  .chart-candles .candle:nth-child(3){animation-delay:0.3s;}
+  .chart-candles .candle:nth-child(4){animation-delay:0.45s;}
+  .chart-candles .candle:nth-child(5){animation-delay:0.6s;}
+  .chart-candles .candle:nth-child(6){animation-delay:0.75s;}
+  .chart-candles .candle:nth-child(7){animation-delay:0.9s;}
+  .chart-candles .candle:nth-child(8){animation-delay:1.05s;}
+  .chart-candles .candle:nth-child(9){animation-delay:1.2s;}
+  .chart-candles .candle:nth-child(10){animation-delay:1.35s;}
+  .chart-candles .candle:nth-child(11){animation-delay:1.5s;}
+  .chart-candles .candle:nth-child(12){animation-delay:1.65s;}
+  .chart-candles .candle:nth-child(13){animation-delay:1.8s;}
+  .chart-candles .candle:nth-child(14){animation-delay:1.95s;}
+  .chart-area{animation:chartFloat 5s ease-in-out infinite;}
+  .chart-line{
+    stroke:#23639E;
+    stroke-width:2.5;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    stroke-dasharray:900;
+    stroke-dashoffset:900;
+    animation:chartDraw 2.6s ease-out forwards, chartFloat 5s ease-in-out infinite 2.6s;
+    filter:drop-shadow(0 2px 6px rgba(35,99,158,0.25));
+  }
+  .chart-live-dot{
+    fill:#23639E;
+    stroke:#FFFFFF;
+    stroke-width:2;
+    animation:chartFloat 5s ease-in-out infinite 2.6s, chartDotPulse 2s ease-in-out infinite 2.6s;
+  }
+  @keyframes chartDraw{to{stroke-dashoffset:0;}}
+  @keyframes chartFloat{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-5px);}
+  }
+  @keyframes chartDotPulse{
+    0%,100%{r:5;}
+    50%{r:7.5;}
+  }
+  @keyframes chartLiveBlink{
+    0%,100%{opacity:1;}
+    50%{opacity:0.35;}
+  }
+  @keyframes chartCandleFlicker{
+    0%,100%{opacity:0.14;}
+    50%{opacity:0.32;}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .chart-line, .chart-live-dot, .chart-area, .chart-candles .candle, .chart-decor-live-dot{animation:none;stroke-dashoffset:0;}
+  }
   .top20-card{
     background:var(--bg-panel);
     border:1px solid var(--border);
@@ -2144,6 +2244,46 @@
       <div class="eyebrow">APRENDE CONMIGO</div>
       <h2>Construye una economía personal más inteligente.</h2>
       <p>Aprende sobre mercados financieros, dinero digital y herramientas de inversión para administrar mejor tus ingresos, crear nuevas fuentes de valor y construir patrimonio a largo plazo.</p>
+    </div>
+
+    <div class="chart-decor">
+      <div class="chart-decor-head">
+        <span class="chart-decor-symbol">EUR/USD</span>
+        <span class="chart-decor-live"><span class="chart-decor-live-dot"></span>En vivo</span>
+      </div>
+      <svg viewBox="0 0 600 190" class="chart-decor-svg" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="chartFade" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#23639E" stop-opacity="0.32"/>
+            <stop offset="100%" stop-color="#23639E" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <g class="chart-grid">
+          <line x1="0" y1="35" x2="600" y2="35"/>
+          <line x1="0" y1="80" x2="600" y2="80"/>
+          <line x1="0" y1="125" x2="600" y2="125"/>
+          <line x1="0" y1="170" x2="600" y2="170"/>
+        </g>
+        <g class="chart-candles">
+          <rect x="24"  y="118" width="9" height="26" rx="1.5" class="candle"/>
+          <rect x="64"  y="96"  width="9" height="34" rx="1.5" class="candle"/>
+          <rect x="104" y="132" width="9" height="20" rx="1.5" class="candle"/>
+          <rect x="144" y="84"  width="9" height="30" rx="1.5" class="candle"/>
+          <rect x="184" y="104" width="9" height="24" rx="1.5" class="candle"/>
+          <rect x="224" y="70"  width="9" height="32" rx="1.5" class="candle"/>
+          <rect x="264" y="92"  width="9" height="22" rx="1.5" class="candle"/>
+          <rect x="304" y="58"  width="9" height="30" rx="1.5" class="candle"/>
+          <rect x="344" y="78"  width="9" height="24" rx="1.5" class="candle"/>
+          <rect x="384" y="46"  width="9" height="28" rx="1.5" class="candle"/>
+          <rect x="424" y="64"  width="9" height="22" rx="1.5" class="candle"/>
+          <rect x="464" y="38"  width="9" height="26" rx="1.5" class="candle"/>
+          <rect x="504" y="54"  width="9" height="20" rx="1.5" class="candle"/>
+          <rect x="544" y="30"  width="9" height="24" rx="1.5" class="candle"/>
+        </g>
+        <path class="chart-area" d="M0,142 L50,120 L100,132 L150,96 L200,110 L250,78 L300,90 L350,60 L400,72 L450,44 L500,58 L550,32 L600,42 L600,190 L0,190 Z" fill="url(#chartFade)"/>
+        <path class="chart-line" d="M0,142 L50,120 L100,132 L150,96 L200,110 L250,78 L300,90 L350,60 L400,72 L450,44 L500,58 L550,32 L600,42" fill="none"/>
+        <circle cx="600" cy="42" r="5" class="chart-live-dot"/>
+      </svg>
     </div>
   </div>
 </section>

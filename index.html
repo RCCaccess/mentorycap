@@ -913,6 +913,44 @@
     background:#000;
   }
   .youtube-embed-wrap iframe{width:100%;height:100%;display:block;border:none;}
+  .community-cta{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:18px;
+    flex-wrap:wrap;
+    margin:18px 0 22px;
+    padding:18px 22px;
+    border-radius:14px;
+    background:linear-gradient(120deg, rgba(35,99,158,0.10) 0%, rgba(35,99,158,0.04) 100%);
+    border:1px solid rgba(35,99,158,0.3);
+  }
+  .community-cta-text strong{display:block;font-size:15px;color:var(--text);margin-bottom:3px;}
+  .community-cta-text p{color:var(--text-muted);font-size:13px;margin:0;}
+  .community-cta-btn{
+    display:inline-flex;
+    align-items:center;
+    flex-shrink:0;
+    background:linear-gradient(180deg, #2C74B4 0%, #23639E 55%, #1D5488 100%);
+    color:#FFFFFF;
+    font-weight:600;
+    font-size:14px;
+    padding:12px 22px;
+    border-radius:var(--radius);
+    white-space:nowrap;
+    box-shadow:0 1px 0 rgba(255,255,255,0.22) inset, 0 8px 20px rgba(35,99,158,0.32);
+    animation:communityPulse 2.6s ease-in-out infinite;
+  }
+  .community-cta-btn:hover{background:linear-gradient(180deg, #337FC2 0%, #2A6EAC 55%, #215E96 100%);}
+  @keyframes communityPulse{
+    0%,100%{box-shadow:0 1px 0 rgba(255,255,255,0.22) inset, 0 8px 20px rgba(35,99,158,0.32);}
+    50%{box-shadow:0 1px 0 rgba(255,255,255,0.22) inset, 0 8px 26px rgba(35,99,158,0.5);}
+  }
+  @media(max-width:480px){
+    .community-cta{flex-direction:column;align-items:stretch;text-align:center;}
+    .community-cta-btn{justify-content:center;}
+  }
+
   .youtube-btn{
     background:linear-gradient(180deg, #2C74B4 0%, #23639E 55%, #1D5488 100%);
     color:#FFFFFF;
@@ -2308,6 +2346,15 @@
         </summary>
         <div class="option-body">
           <p>Si quieres empezar a construir una nueva relación con tu dinero, este es el mejor lugar para comenzar. En mi canal de YouTube comparto gratuitamente el conocimiento que me ha permitido trabajar durante años en los mercados financieros y desarrollar una forma diferente de entender las finanzas personales. Sin registros, sin promesas irreales y a tu propio ritmo.</p>
+
+          <div class="community-cta">
+            <div class="community-cta-text">
+              <strong>Únete a mi comunidad, es gratis</strong>
+              <p>Regístrate sin costo y sé parte de la comunidad de MentoryCap.</p>
+            </div>
+            <a href="https://whop.com/joined/mentorycap/products/comunidad-mentorycap-b8/" target="_blank" rel="noopener" class="community-cta-btn">Unirme gratis →</a>
+          </div>
+
           <div class="youtube-embed-wrap">
             <iframe src="https://www.youtube.com/embed/videoseries?list=PLuJnrEPKGTVNtsjMhUeTVyw4r1icLWTZ6" title="Playlist de MentoryCap en YouTube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
           </div>

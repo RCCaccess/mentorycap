@@ -875,6 +875,25 @@
   }
   .option-body h3{font-size:18px;margin-bottom:12px;}
   .option-body p{color:var(--text-muted);font-size:14.5px;line-height:1.6;}
+  .course-price-row{
+    display:flex;
+    align-items:baseline;
+    gap:12px;
+    margin-bottom:16px;
+  }
+  .course-price-old{
+    font-family:var(--mono);
+    font-size:15px;
+    color:var(--text-muted);
+    text-decoration:line-through;
+    opacity:0.7;
+  }
+  .course-price-new{
+    font-family:var(--mono);
+    font-size:26px;
+    font-weight:700;
+    color:var(--up);
+  }
   .option-body h4{
     font-family:var(--mono);
     font-size:12px;
@@ -1087,10 +1106,10 @@
   /* ---------- MINI DASHBOARD DE MERCADOS ---------- */
   .markets-grid{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns:repeat(2,1fr);
     gap:14px;
   }
-  @media(max-width:640px){.markets-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:480px){.markets-grid{grid-template-columns:1fr;}}
   .market-mini{
     background:var(--bg-panel);
     border:1px solid var(--border);
@@ -2101,7 +2120,6 @@
       <li><button type="button" class="nav-link-btn" onclick="openModal('modal-enlaces')">Recursos</button></li>
       <li><button type="button" class="nav-link-btn" onclick="openChat()">Contacto</button></li>
     </ul>
-    <a href="https://whop.com/mentorycap/" target="_blank" rel="noopener" class="nav-cta">Portal de Miembros</a>
   </nav>
 </header>
 
@@ -2354,19 +2372,19 @@
       <div class="markets-grid">
         <div class="market-mini">
           <div class="market-mini-top">
-            <span class="market-mini-label">Acciones</span>
-            <span class="market-mini-change">+2.4%</span>
+            <span class="market-mini-label">Forex</span>
+            <span class="market-mini-change">+1.2%</span>
           </div>
           <svg viewBox="0 0 140 50" class="market-mini-svg" preserveAspectRatio="none" aria-hidden="true">
             <defs>
-              <linearGradient id="mmFade1" x1="0" y1="0" x2="0" y2="1">
+              <linearGradient id="mmFade3" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stop-color="#23639E" stop-opacity="0.3"/>
                 <stop offset="100%" stop-color="#23639E" stop-opacity="0"/>
               </linearGradient>
             </defs>
-            <path class="market-mini-area" d="M0,40 L20,34 L40,36 L60,24 L80,28 L100,14 L120,18 L140,6 L140,50 L0,50 Z" fill="url(#mmFade1)"/>
-            <path class="market-mini-line" d="M0,40 L20,34 L40,36 L60,24 L80,28 L100,14 L120,18 L140,6" fill="none"/>
-            <circle cx="140" cy="6" r="3.5" class="market-mini-dot"/>
+            <path class="market-mini-area" d="M0,36 L20,40 L40,30 L60,34 L80,26 L100,30 L120,20 L140,16 L140,50 L0,50 Z" fill="url(#mmFade3)"/>
+            <path class="market-mini-line" d="M0,36 L20,40 L40,30 L60,34 L80,26 L100,30 L120,20 L140,16" fill="none"/>
+            <circle cx="140" cy="16" r="3.5" class="market-mini-dot"/>
           </svg>
         </div>
         <div class="market-mini">
@@ -2386,40 +2404,6 @@
             <circle cx="140" cy="12" r="3.5" class="market-mini-dot"/>
           </svg>
         </div>
-        <div class="market-mini">
-          <div class="market-mini-top">
-            <span class="market-mini-label">Forex</span>
-            <span class="market-mini-change">+1.2%</span>
-          </div>
-          <svg viewBox="0 0 140 50" class="market-mini-svg" preserveAspectRatio="none" aria-hidden="true">
-            <defs>
-              <linearGradient id="mmFade3" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#23639E" stop-opacity="0.3"/>
-                <stop offset="100%" stop-color="#23639E" stop-opacity="0"/>
-              </linearGradient>
-            </defs>
-            <path class="market-mini-area" d="M0,36 L20,40 L40,30 L60,34 L80,26 L100,30 L120,20 L140,16 L140,50 L0,50 Z" fill="url(#mmFade3)"/>
-            <path class="market-mini-line" d="M0,36 L20,40 L40,30 L60,34 L80,26 L100,30 L120,20 L140,16" fill="none"/>
-            <circle cx="140" cy="16" r="3.5" class="market-mini-dot"/>
-          </svg>
-        </div>
-        <div class="market-mini">
-          <div class="market-mini-top">
-            <span class="market-mini-label">Oro</span>
-            <span class="market-mini-change">+3.0%</span>
-          </div>
-          <svg viewBox="0 0 140 50" class="market-mini-svg" preserveAspectRatio="none" aria-hidden="true">
-            <defs>
-              <linearGradient id="mmFade4" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#23639E" stop-opacity="0.3"/>
-                <stop offset="100%" stop-color="#23639E" stop-opacity="0"/>
-              </linearGradient>
-            </defs>
-            <path class="market-mini-area" d="M0,38 L20,32 L40,34 L60,22 L80,26 L100,16 L120,20 L140,10 L140,50 L0,50 Z" fill="url(#mmFade4)"/>
-            <path class="market-mini-line" d="M0,38 L20,32 L40,34 L60,22 L80,26 L100,16 L120,20 L140,10" fill="none"/>
-            <circle cx="140" cy="10" r="3.5" class="market-mini-dot"/>
-          </svg>
-        </div>
       </div>
     </div>
   </div>
@@ -2437,6 +2421,98 @@
       <details class="option-item">
         <summary>
           <span class="option-num">1</span>
+          <span class="option-summary-text">
+            <strong>Aprende 1 a 1 conmigo</strong>
+            <span class="option-tagline">Formación y acompañamiento privado.</span>
+          </span>
+          <span class="option-chevron">▾</span>
+        </summary>
+        <div class="option-body">
+          <div class="course-price-row">
+            <span class="course-price-old">$1,200.00</span>
+            <span class="course-price-new">$599.00</span>
+          </div>
+          <p>Un programa privado de acompañamiento durante 90 días para ayudarte a construir una habilidad que puede acompañarte toda la vida: entender los mercados, administrar mejor tu dinero y aprovechar las oportunidades que ofrece la economía digital.</p>
+          <div class="modal-highlight">
+            <strong style="color:var(--gold);">Acompañamiento 100% personalizado</strong>
+            <p style="margin:10px 0 0;color:var(--text-muted);font-size:14px;">Trabajaremos directamente tú y yo. Tendrás acceso a mi experiencia, mi metodología y mi acompañamiento para que desarrolles criterio propio, aprendas a proteger tu capital y construyas una fuente adicional de ingresos de forma responsable.</p>
+          </div>
+          <h4>Qué incluye</h4>
+          <ul>
+            <li>Programa de 90 días.</li>
+            <li>Curso completo grabado.</li>
+            <li>Biblioteca de mentorías anteriores.</li>
+            <li>Soporte directo por WhatsApp durante todo el programa.</li>
+            <li>2 sesiones privadas cada mes.</li>
+            <li>Revisión de tu progreso y seguimiento personalizado.</li>
+            <li>Herramientas y recursos que utilizo diariamente.</li>
+          </ul>
+          <a href="https://whop.com/checkout/plan_RQyNcvkxdOAyE" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:16px;">Acceder ahora →</a>
+        </div>
+      </details>
+
+      <details class="option-item">
+        <summary>
+          <span class="option-num">2</span>
+          <span class="option-summary-text">
+            <strong>Curso Online</strong>
+            <span class="option-tagline">Formación grabada paso a paso, para aprender a operar los mercados.</span>
+          </span>
+          <span class="option-chevron">▾</span>
+        </summary>
+        <div class="option-body">
+          <div class="course-price-row">
+            <span class="course-price-old">$597.00</span>
+            <span class="course-price-new">$199.00</span>
+          </div>
+          <p>📈 <strong style="color:var(--text);">Curso Online</strong> — Esta es una formación creada y diseñada por Oscar, que ha convertido a personas sin conocimientos previos en los mercados financieros en traders totalmente independientes.</p>
+          <p>Aquí aprendes a operar el mercado de Forex de manera práctica, estructurada y profesional, a tu propio ritmo, desde los conceptos básicos hasta estrategias avanzadas de alta precisión. Este curso te da acceso a toda la formación al instante, para que puedas empezar a estudiarlo desde hoy.</p>
+          <h4>🎯 Qué incluye</h4>
+          <ul>
+            <li>Curso completo de MASTER TRADING: Fundamentos, Análisis técnico y Estrategias avanzadas.</li>
+            <li>Módulos paso a paso: diseñados para que puedas aprender y aplicar desde el primer día.</li>
+            <li>Ejemplos prácticos: estudios de casos reales para entender la operativa en diferentes contextos de mercado.</li>
+            <li>Grabaciones 100% accesibles 24/7.</li>
+          </ul>
+          <h4>💼 Resultados esperados</h4>
+          <ul>
+            <li>Analizar correctamente y operar el mercado de Forex de forma independiente.</li>
+            <li>Crear su propio plan y gestión de capital propio en los mercados financieros.</li>
+            <li>Crear una fuente de ingresos extra de forma online e independiente.</li>
+          </ul>
+          <a href="https://whop.com/checkout/plan_fMDPkoDSgzeQ3" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:16px;">Comprar el curso — $199.00</a>
+        </div>
+      </details>
+
+      <details class="option-item">
+        <summary>
+          <span class="option-num">3</span>
+          <span class="option-summary-text">
+            <strong>Trabajemos juntos (RC Capital)</strong>
+            <span class="option-tagline">Trabajemos juntos para construir y escalar tu patrimonio a largo plazo.</span>
+          </span>
+          <span class="option-chevron">▾</span>
+        </summary>
+        <div class="option-body">
+          <div class="modal-eyebrow" style="margin-bottom:12px;">RC Capital</div>
+          <p>Si cuentas con un capital que puedes destinar a la inversión o has logrado construir un ahorro que deseas poner a trabajar, podemos desarrollar juntos una estrategia enfocada en preservar el patrimonio, gestionar el riesgo de forma responsable y buscar un crecimiento sostenible a largo plazo.</p>
+          <h4>Ideal para personas que…</h4>
+          <ul>
+            <li>Sienten que su dinero podría estar haciendo más.</li>
+            <li>Quieren invertir, pero no saben por dónde empezar.</li>
+            <li>No tienen tiempo para seguir los mercados cada día.</li>
+            <li>Buscan a alguien de confianza que los acompañe en el proceso.</li>
+            <li>Piensan en el futuro y quieren construir una economía alternativa.</li>
+            <li>Creen en el potencial de invertir.</li>
+            <li>Están dispuestas a tomar riesgos.</li>
+          </ul>
+          <button class="btn btn-primary js-contacto" data-servicio="RC Capital" style="width:100%;justify-content:center;margin-top:16px;" type="button">Quiero más información</button>
+        </div>
+      </details>
+
+      <details class="option-item">
+        <summary>
+          <span class="option-num">4</span>
           <span class="option-summary-text">
             <strong>Aprende por tu cuenta</strong>
             <span class="option-tagline">Accede a contenido gratuito para entender los mercados financieros, Bitcoin y la economía digital desde cero.</span>
@@ -2463,63 +2539,8 @@
               <strong>Únete a mi comunidad, es gratis</strong>
               <p>Regístrate sin costo y sé parte de la comunidad de MentoryCap.</p>
             </div>
-            <a href="https://whop.com/joined/mentorycap/products/comunidad-mentorycap-b8/" target="_blank" rel="noopener" class="community-cta-btn">Unirme gratis →</a>
+            <a href="https://whop.com/checkout/plan_oshSI7MMsJmZr" target="_blank" rel="noopener" class="community-cta-btn">Unirme gratis →</a>
           </div>
-        </div>
-      </details>
-
-      <details class="option-item">
-        <summary>
-          <span class="option-num">2</span>
-          <span class="option-summary-text">
-            <strong>Aprende 1 a 1 conmigo</strong>
-            <span class="option-tagline">Formación y acompañamiento privado.</span>
-          </span>
-          <span class="option-chevron">▾</span>
-        </summary>
-        <div class="option-body">
-          <p>Un programa privado de acompañamiento durante 90 días para ayudarte a construir una habilidad que puede acompañarte toda la vida: entender los mercados, administrar mejor tu dinero y aprovechar las oportunidades que ofrece la economía digital.</p>
-          <div class="modal-highlight">
-            <strong style="color:var(--gold);">No es un curso más</strong>
-            <p style="margin:10px 0 0;color:var(--text-muted);font-size:14px;">Trabajaremos directamente tú y yo. Tendrás acceso a mi experiencia, mi metodología y mi acompañamiento para que desarrolles criterio propio, aprendas a proteger tu capital y construyas una fuente adicional de ingresos de forma responsable.</p>
-          </div>
-          <h4>Qué incluye</h4>
-          <ul>
-            <li>Programa de 90 días.</li>
-            <li>Curso completo grabado.</li>
-            <li>Biblioteca de mentorías anteriores.</li>
-            <li>Soporte directo por WhatsApp durante todo el programa.</li>
-            <li>2 sesiones privadas cada mes.</li>
-            <li>Revisión de tu progreso y seguimiento personalizado.</li>
-            <li>Herramientas y recursos que utilizo diariamente.</li>
-          </ul>
-          <button class="btn btn-primary js-contacto" data-servicio="Mentorycap 1 a 1" style="width:100%;justify-content:center;margin-top:16px;" type="button">Quiero más información</button>
-        </div>
-      </details>
-
-      <details class="option-item">
-        <summary>
-          <span class="option-num">3</span>
-          <span class="option-summary-text">
-            <strong>Seamos socios (RC Capital)</strong>
-            <span class="option-tagline">Trabajemos juntos para construir y escalar tu patrimonio a largo plazo.</span>
-          </span>
-          <span class="option-chevron">▾</span>
-        </summary>
-        <div class="option-body">
-          <div class="modal-eyebrow" style="margin-bottom:12px;">RC Capital</div>
-          <p>Si cuentas con un capital que puedes destinar a la inversión o has logrado construir un ahorro que deseas poner a trabajar, podemos desarrollar juntos una estrategia enfocada en preservar el patrimonio, gestionar el riesgo de forma responsable y buscar un crecimiento sostenible a largo plazo.</p>
-          <h4>Ideal para personas que…</h4>
-          <ul>
-            <li>Sienten que su dinero podría estar haciendo más.</li>
-            <li>Quieren invertir, pero no saben por dónde empezar.</li>
-            <li>No tienen tiempo para seguir los mercados cada día.</li>
-            <li>Buscan a alguien de confianza que los acompañe en el proceso.</li>
-            <li>Piensan en el futuro y quieren construir una economía alternativa.</li>
-            <li>Creen en el potencial de invertir.</li>
-            <li>Están dispuestas a tomar riesgos.</li>
-          </ul>
-          <button class="btn btn-primary js-contacto" data-servicio="RC Capital" style="width:100%;justify-content:center;margin-top:16px;" type="button">Quiero más información</button>
         </div>
       </details>
     </div>

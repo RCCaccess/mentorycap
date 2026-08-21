@@ -157,10 +157,14 @@
     color:#FFFFFF;
     font-weight:600;
     font-size:13px;
+    font-family:var(--body);
     padding:10px 18px;
     border-radius:var(--radius);
     white-space:nowrap;
     border:1px solid rgba(255,255,255,0.16);
+    cursor:pointer;
+    -webkit-appearance:none;
+    appearance:none;
   }
   .nav-cta:hover{background:#17497A;}
   .nav-mobile-hide{display:flex;}
@@ -787,6 +791,11 @@
   .stock-chart{width:100%;height:60px;margin-top:6px;display:block;}
   #historia-cta{border-bottom:1px solid var(--border);padding:56px 0;}
   #youtube-cta{border-bottom:1px solid var(--border);padding:56px 0;}
+  #el-problema, #nueva-forma, #partners, #rc-capital, #como-funciona, #capital-journey, #partner-experience, #sobre-oscar, #learn{
+    border-bottom:1px solid var(--border);
+    padding:52px 0;
+  }
+  #cta-final{padding:64px 0;}
   .options-stack{
     display:flex;
     flex-direction:column;
@@ -1007,6 +1016,301 @@
   .historia-cta-box p{color:var(--text-muted);font-size:14.5px;line-height:1.6;margin-bottom:26px;}
 
   /* ---------- GRÁFICO DECORATIVO ANIMADO ---------- */
+  /* ---------- RC CAPITAL: TAGLINE, DASHBOARD MOCK, FEATURES ---------- */
+  .rc-tagline{
+    font-family:var(--display);
+    font-weight:800;
+    font-size:clamp(30px,5vw,46px);
+    letter-spacing:-0.01em;
+    line-height:1.1;
+    margin:8px 0 18px;
+    background:linear-gradient(180deg, #2C74B4 0%, #1D5488 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .rc-dashboard-mock{
+    max-width:520px;
+    margin:36px auto 0;
+    padding:26px 28px;
+    background:linear-gradient(180deg, #FFFFFF 0%, var(--bg-panel) 100%);
+    border:1px solid var(--border);
+    border-radius:18px;
+    box-shadow:0 20px 50px rgba(20,22,27,0.1);
+  }
+  .rc-dashboard-top{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    margin-bottom:6px;
+  }
+  .rc-dashboard-label{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--text-muted);
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+  }
+  .rc-dashboard-balance{
+    font-family:var(--display);
+    font-weight:700;
+    font-size:34px;
+    color:var(--text);
+    margin-top:2px;
+  }
+  .rc-dashboard-balance span{color:var(--text-muted);font-size:20px;}
+  .rc-dashboard-badge{
+    font-family:var(--mono);
+    font-size:11.5px;
+    font-weight:700;
+    color:var(--up);
+    background:rgba(11,138,107,0.1);
+    border:1px solid rgba(11,138,107,0.3);
+    padding:5px 10px;
+    border-radius:20px;
+    white-space:nowrap;
+    margin-top:4px;
+  }
+  .rc-dashboard-chart{width:100%;height:auto;display:block;margin:14px 0 18px;overflow:visible;}
+  .rc-dashboard-area{animation:chartFloat 5s ease-in-out infinite;}
+  .rc-dashboard-line{
+    stroke:#23639E;
+    stroke-width:2.5;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    stroke-dasharray:600;
+    stroke-dashoffset:600;
+    animation:chartDraw 2.2s ease-out forwards, chartFloat 5s ease-in-out infinite 2.2s;
+  }
+  .rc-dashboard-dot{
+    fill:#23639E;
+    stroke:#FFFFFF;
+    stroke-width:2;
+    animation:chartFloat 5s ease-in-out infinite 2.2s, chartDotPulse 2s ease-in-out infinite 2.2s;
+  }
+  .rc-dashboard-goal-top{
+    display:flex;
+    justify-content:space-between;
+    font-family:var(--mono);
+    font-size:11.5px;
+    color:var(--text-muted);
+    margin-bottom:7px;
+  }
+  .rc-dashboard-goal-bar{
+    width:100%;
+    height:8px;
+    border-radius:5px;
+    background:var(--bg-panel-2);
+    overflow:hidden;
+  }
+  .rc-dashboard-goal-fill{
+    height:100%;
+    width:0%;
+    border-radius:5px;
+    background:linear-gradient(90deg, #2C74B4, #23639E);
+    animation:rcGoalFill 1.8s 0.4s ease-out forwards;
+  }
+  @keyframes rcGoalFill{to{width:86%;}}
+  @keyframes rcGoalFill70{to{width:70%;}}
+  .rc-dashboard-actions{
+    display:flex;
+    gap:10px;
+    margin-top:18px;
+  }
+  .rc-dashboard-action{
+    flex:1;
+    text-align:center;
+    font-family:var(--mono);
+    font-size:11.5px;
+    font-weight:600;
+    color:var(--text);
+    background:var(--bg-panel-2);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:10px 8px;
+  }
+  .rc-features-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    max-width:900px;
+    margin:44px auto 0;
+  }
+  @media(max-width:760px){.rc-features-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:480px){.rc-features-grid{grid-template-columns:1fr;}}
+  .rc-feature{
+    background:var(--bg-panel);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:20px;
+    text-align:left;
+  }
+  .rc-feature-icon{font-size:22px;display:block;margin-bottom:10px;}
+  .rc-feature h4{font-size:14.5px;color:var(--text);margin-bottom:6px;}
+  .rc-feature p{font-size:12.5px;color:var(--text-muted);line-height:1.5;margin:0;}
+  @media(prefers-reduced-motion:reduce){
+    .rc-dashboard-line, .rc-dashboard-dot, .rc-dashboard-area, .rc-dashboard-goal-fill{animation:none;stroke-dashoffset:0;width:86%;}
+  }
+
+  /* ---------- CÓMO FUNCIONA: PASOS ---------- */
+  .steps-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+    max-width:900px;
+    margin:36px auto 0;
+  }
+  @media(max-width:760px){.steps-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:480px){.steps-grid{grid-template-columns:1fr;}}
+  .step-card{
+    background:var(--bg-panel);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:22px 18px;
+    text-align:left;
+  }
+  .step-num{
+    font-family:var(--mono);
+    font-weight:700;
+    font-size:13px;
+    color:#FFFFFF;
+    background:linear-gradient(145deg, #2C74B4 0%, #1D5488 100%);
+    width:32px;height:32px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:12px;
+  }
+  .step-card h4{font-size:14.5px;color:var(--text);margin-bottom:6px;}
+  .step-card p{font-size:12.5px;color:var(--text-muted);line-height:1.5;margin:0;}
+
+  /* ---------- PARTNER PROFILE ROW (dentro del dashboard mock) ---------- */
+  .partner-profile-row{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding-bottom:16px;
+    margin-bottom:16px;
+    border-bottom:1px solid var(--border);
+    text-align:left;
+  }
+  .partner-avatar{
+    width:40px;height:40px;
+    border-radius:50%;
+    background:linear-gradient(145deg, #2C74B4 0%, #1D5488 100%);
+    color:#FFFFFF;
+    font-family:var(--mono);
+    font-weight:700;
+    font-size:13px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+  }
+  .partner-profile-info{display:flex;flex-direction:column;flex:1;min-width:0;}
+  .partner-profile-info strong{font-size:14px;color:var(--text);}
+  .partner-profile-info span{font-size:11.5px;color:var(--text-muted);}
+  .partner-level-badge{
+    font-family:var(--mono);
+    font-size:10.5px;
+    font-weight:700;
+    color:var(--gold);
+    background:rgba(35,99,158,0.08);
+    border:1px solid var(--gold-dim);
+    padding:5px 10px;
+    border-radius:20px;
+    white-space:nowrap;
+    flex-shrink:0;
+  }
+  .rc-dashboard-goal-remaining{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--text-muted);
+    margin-top:6px;
+    text-align:right;
+  }
+
+  /* ---------- NEXT CHAIN (¿qué sigue?) ---------- */
+  .next-chain{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    margin-top:18px;
+    padding-top:16px;
+    border-top:1px solid var(--border);
+  }
+  .next-chain-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:12.5px;
+  }
+  .next-chain-label{color:var(--text-muted);}
+  .next-chain-value{font-family:var(--mono);font-weight:700;color:var(--text);}
+
+  /* ---------- MILESTONES ---------- */
+  .milestones-row{
+    display:flex;
+    gap:12px;
+    overflow-x:auto;
+    max-width:900px;
+    margin:32px auto 0;
+    padding:6px 4px 14px;
+    -webkit-overflow-scrolling:touch;
+  }
+  .milestone-badge{
+    flex-shrink:0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:6px;
+    width:96px;
+    padding:16px 10px;
+    background:var(--bg-panel);
+    border:1px solid var(--border);
+    border-radius:12px;
+    opacity:0.45;
+    filter:grayscale(0.6);
+  }
+  .milestone-badge.achieved{
+    opacity:1;
+    filter:none;
+    border-color:var(--gold-dim);
+    background:linear-gradient(180deg, #FFFFFF 0%, var(--bg-panel) 100%);
+    box-shadow:0 6px 16px rgba(35,99,158,0.12);
+  }
+  .milestone-emoji{font-size:22px;}
+  .milestone-name{font-size:10.5px;color:var(--text-muted);text-align:center;line-height:1.3;}
+  .milestone-badge.achieved .milestone-name{color:var(--text);font-weight:600;}
+
+  /* ---------- PARTNER POINTS TABLE ---------- */
+  .points-table{
+    max-width:520px;
+    margin:32px auto 0;
+    background:var(--bg-panel);
+    border:1px solid var(--border);
+    border-radius:14px;
+    overflow:hidden;
+  }
+  .points-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:13px 20px;
+    border-bottom:1px solid var(--border);
+    font-size:13.5px;
+    color:var(--text);
+    text-align:left;
+  }
+  .points-row:last-child{border-bottom:none;}
+  .points-value{
+    font-family:var(--mono);
+    font-weight:700;
+    color:var(--up);
+    flex-shrink:0;
+  }
+
   .chart-decor{
     max-width:640px;
     margin:8px auto 0;
@@ -2113,13 +2417,12 @@
       <span class="logo-text">MENTORY<span>CAP</span></span>
     </div>
     <ul class="nav-links nav-mobile-hide">
-      <li><button type="button" class="nav-link-btn" onclick="openModal('modal-mercado')">Mercado</button></li>
-      <li><button type="button" class="nav-link-btn" onclick="openModal('modal-historia')">Historia</button></li>
-      <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#youtube-cta">YouTube</a></li>
-      <li><button type="button" class="nav-link-btn" onclick="openModal('modal-enlaces')">Recursos</button></li>
-      <li><button type="button" class="nav-link-btn" onclick="openChat()">Contacto</button></li>
+      <li><a href="#partners">Partners</a></li>
+      <li><a href="#rc-capital">RC Capital</a></li>
+      <li><a href="#como-funciona">Cómo funciona</a></li>
+      <li><a href="#learn">Learn</a></li>
     </ul>
+    <button type="button" onclick="openChat('MentoryCap Partners')" class="nav-cta">Become a Partner</button>
   </nav>
 </header>
 
@@ -2127,24 +2430,35 @@
   <img src="images/oscar-desk.png" alt="Oscar Rojas, fundador de MentoryCap" class="hero-bg-photo">
   <div class="hero-overlay"></div>
   <div class="container hero-content">
-    <h1>Empieza a construir una Economía Alternativa</h1>
-    <p class="hero-subtitle">No dependas únicamente de un ingreso. Aprende a utilizar los mercados financieros y la economía digital para darle un mayor propósito a tu dinero.</p>
-    <div class="hero-motto">
-      <span>Aprende</span><i>•</i><span>Invierte</span><i>•</i><span>Crece</span>
+    <h1 class="rc-tagline" style="font-size:clamp(34px,6vw,52px);margin-bottom:14px;">Your Capital.<br>Our Strategy.</h1>
+    <p class="hero-subtitle">Haz crecer tu capital sin convertirte en trader. Nosotros gestionamos la estrategia — tú sigues tu progreso.</p>
+    <div class="hero-actions" style="display:flex;gap:14px;flex-wrap:wrap;margin-top:26px;">
+      <button type="button" onclick="openChat('MentoryCap Partners')" class="btn btn-primary">Become a Partner</button>
+      <a href="#como-funciona" class="btn btn-outline">Ver cómo funciona</a>
     </div>
   </div>
 </section>
 
-
-<section id="historia-cta">
-  <div class="container">
-    <div class="historia-cta-box">
-      <h2>Entender el dinero cambia la forma en que construyes tu futuro.</h2>
-      <p>Soy Oscar. Mi objetivo es ayudarte a entender cómo funciona la economía digital y los mercados financieros para que tomes mejores decisiones con tu dinero y construyas nuevas oportunidades para tu futuro.</p>
-      <p>Con el tiempo entendí que el progreso real no depende de un golpe de suerte, sino de tomar buenas decisiones de forma constante. Esa es la filosofía detrás de MentoryCap: ayudarte a desarrollar criterio, comprender los mercados y utilizar las herramientas de la economía actual para construir una base financiera más sólida.</p>
+<section id="el-problema">
+  <div class="container" style="text-align:center;">
+    <div class="section-head" style="margin-left:auto;margin-right:auto;max-width:640px;">
+      <div class="eyebrow" style="justify-content:center;">EL PROBLEMA</div>
+      <h2>La mayoría de las personas no hace crecer su dinero.</h2>
+      <p style="font-size:16px;">No porque no puedan — sino porque no tienen tiempo, ni conocimiento, ni ganas de convertirse en traders. Y no deberían tener que hacerlo.</p>
     </div>
   </div>
 </section>
+
+<section id="nueva-forma">
+  <div class="container" style="text-align:center;">
+    <div class="section-head" style="margin-left:auto;margin-right:auto;max-width:680px;">
+      <div class="eyebrow" style="justify-content:center;">LA NUEVA FORMA DE VER TU CAPITAL</div>
+      <h2>No es solo rendimiento. Es progreso.</h2>
+      <p style="font-size:16px;">No necesitas entender gráficos ni pasar horas frente a una pantalla. Existe una estrategia trabajando por ti — tu única tarea es seguir tu progreso: tu balance, tus metas, tu Capital Journey.</p>
+    </div>
+  </div>
+</section>
+
 
 <div class="modal-overlay modal-full" id="modal-mercado" onclick="if(event.target===this) closeModal('modal-mercado')">
   <div class="modal-box modal-wide">
@@ -2356,65 +2670,199 @@
   </div>
 </div>
 
-<section id="servicios">
+<section id="partners">
   <div class="container" style="text-align:center;">
-    <div class="section-head" style="margin-left:auto;margin-right:auto;">
-      <div class="eyebrow">APRENDE CONMIGO</div>
-      <h2>Construye una economía personal más inteligente.</h2>
-      <p>Aprende sobre mercados financieros, dinero digital y herramientas de inversión para administrar mejor tus ingresos, crear nuevas fuentes de valor y construir patrimonio a largo plazo.</p>
+    <div class="section-head" style="margin-left:auto;margin-right:auto;max-width:680px;">
+      <div class="eyebrow" style="justify-content:center;">MENTORYCAP PARTNERS</div>
+      <h2>Más que invertir. Convertirte en Partner.</h2>
+      <p style="font-size:16px;">MentoryCap Partners no es un producto que compras. Es una relación de largo plazo entre tu capital y una estrategia real. Tienes tu propio Capital Journey, tus metas y tu progreso — siempre visibles, siempre tuyos.</p>
     </div>
 
-    <div class="chart-decor">
-      <div class="chart-decor-head">
-        <span class="chart-decor-symbol">Mercados financieros</span>
-        <span class="chart-decor-live"><span class="chart-decor-live-dot"></span>Crecimiento constante</span>
-      </div>
-      <div class="markets-grid">
-        <div class="market-mini">
-          <div class="market-mini-top">
-            <span class="market-mini-label">Forex</span>
-            <span class="market-mini-change">+1.2%</span>
-          </div>
-          <svg viewBox="0 0 140 50" class="market-mini-svg" preserveAspectRatio="none" aria-hidden="true">
-            <defs>
-              <linearGradient id="mmFade3" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#23639E" stop-opacity="0.3"/>
-                <stop offset="100%" stop-color="#23639E" stop-opacity="0"/>
-              </linearGradient>
-            </defs>
-            <path class="market-mini-area" d="M0,36 L20,40 L40,30 L60,34 L80,26 L100,30 L120,20 L140,16 L140,50 L0,50 Z" fill="url(#mmFade3)"/>
-            <path class="market-mini-line" d="M0,36 L20,40 L40,30 L60,34 L80,26 L100,30 L120,20 L140,16" fill="none"/>
-            <circle cx="140" cy="16" r="3.5" class="market-mini-dot"/>
-          </svg>
-        </div>
-        <div class="market-mini">
-          <div class="market-mini-top">
-            <span class="market-mini-label">Cripto</span>
-            <span class="market-mini-change">+5.1%</span>
-          </div>
-          <svg viewBox="0 0 140 50" class="market-mini-svg" preserveAspectRatio="none" aria-hidden="true">
-            <defs>
-              <linearGradient id="mmFade2" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#23639E" stop-opacity="0.3"/>
-                <stop offset="100%" stop-color="#23639E" stop-opacity="0"/>
-              </linearGradient>
-            </defs>
-            <path class="market-mini-area" d="M0,42 L20,38 L40,28 L60,32 L80,18 L100,22 L120,8 L140,12 L140,50 L0,50 Z" fill="url(#mmFade2)"/>
-            <path class="market-mini-line" d="M0,42 L20,38 L40,28 L60,32 L80,18 L100,22 L120,8 L140,12" fill="none"/>
-            <circle cx="140" cy="12" r="3.5" class="market-mini-dot"/>
-          </svg>
-        </div>
+    <div class="option-item" style="max-width:680px;margin:8px auto 0;" open>
+      <div class="option-body" style="border-top:none;padding-top:0;">
+        <h4>Ideal para personas que…</h4>
+        <ul>
+          <li>Sienten que su dinero podría estar haciendo más.</li>
+          <li>Quieren invertir, pero no saben por dónde empezar.</li>
+          <li>No tienen tiempo para seguir los mercados cada día.</li>
+          <li>Buscan a alguien de confianza que los acompañe en el proceso.</li>
+          <li>Piensan en el futuro y quieren construir una economía alternativa.</li>
+          <li>Creen en el potencial de invertir.</li>
+          <li>Están dispuestas a tomar riesgos.</li>
+        </ul>
+        <button type="button" onclick="openChat('MentoryCap Partners')" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:8px;">Become a Partner</button>
       </div>
     </div>
   </div>
 </section>
 
-<section id="youtube-cta">
+<section id="rc-capital">
+  <div class="container" style="text-align:center;">
+    <div class="section-head" style="margin-left:auto;margin-right:auto;max-width:680px;">
+      <div class="eyebrow" style="justify-content:center;">RC CAPITAL</div>
+      <h2 class="rc-tagline" style="font-size:clamp(26px,4vw,36px);">Our strategy. Your journey.</h2>
+      <p style="font-size:16px;">Detrás de tu Capital Journey hay una estrategia de gestión disciplinada, con control de riesgo real. RC Capital es el motor — tú no operas, tú sigues tu progreso.</p>
+    </div>
+
+    <div class="modal-highlight" style="max-width:640px;margin:8px auto 0;text-align:left;">
+      <strong style="color:var(--gold);">Transparencia, siempre</strong>
+      <p style="margin:10px 0 0;color:var(--text-muted);font-size:14px;">Toda estrategia de gestión de capital implica riesgo. No prometemos rentabilidad ni resultados garantizados — los resultados pasados no garantizan resultados futuros. Lo que sí garantizamos es transparencia: sabrás siempre cómo va tu capital, sin sorpresas.</p>
+    </div>
+  </div>
+</section>
+
+<section id="como-funciona">
+  <div class="container" style="text-align:center;">
+    <div class="section-head" style="margin-left:auto;margin-right:auto;max-width:680px;">
+      <div class="eyebrow" style="justify-content:center;">CÓMO FUNCIONA</div>
+      <h2>Simple, de principio a fin.</h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <span class="step-num">01</span>
+        <h4>Become a Partner</h4>
+        <p>Conversamos, resolvemos tus dudas y activamos tu cuenta.</p>
+      </div>
+      <div class="step-card">
+        <span class="step-num">02</span>
+        <h4>Define tu meta</h4>
+        <p>Estableces hacia dónde quieres llevar tu capital.</p>
+      </div>
+      <div class="step-card">
+        <span class="step-num">03</span>
+        <h4>La estrategia trabaja</h4>
+        <p>RC Capital gestiona con disciplina y control de riesgo.</p>
+      </div>
+      <div class="step-card">
+        <span class="step-num">04</span>
+        <h4>Sigue tu journey</h4>
+        <p>Ves tu progreso, tus metas y tu balance, siempre.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="capital-journey">
+  <div class="container" style="text-align:center;">
+    <div class="section-head" style="margin-left:auto;margin-right:auto;max-width:680px;">
+      <div class="eyebrow" style="justify-content:center;">CAPITAL JOURNEY</div>
+      <h2>Tu progreso, siempre a la vista.</h2>
+      <p style="font-size:16px;">Así se ve tu Capital Journey — un ejemplo real de cómo cualquier Partner sigue su progreso, sin tener que entender un solo gráfico de mercado.</p>
+    </div>
+
+    <div class="rc-dashboard-mock">
+      <div class="partner-profile-row">
+        <div class="partner-avatar">🔒</div>
+        <div class="partner-profile-info">
+          <strong>Partner Anónimo</strong>
+          <span>Capital Builder · Partner since May 2026</span>
+        </div>
+        <div class="partner-level-badge">Level 02 — Build</div>
+      </div>
+
+      <div class="rc-dashboard-top">
+        <div>
+          <span class="rc-dashboard-label">Capital actual</span>
+          <div class="rc-dashboard-balance">$700<span>.45</span></div>
+        </div>
+        <span class="rc-dashboard-badge">▲ +$96.73 (+16.02%)</span>
+      </div>
+      <svg class="rc-dashboard-chart" viewBox="0 0 400 80" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="rcFade" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#23639E" stop-opacity="0.32"/>
+            <stop offset="100%" stop-color="#23639E" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <path class="rc-dashboard-area" d="M0,60 L40,55 L80,58 L120,44 L160,48 L200,32 L240,38 L280,20 L320,26 L360,10 L400,16 L400,80 L0,80 Z" fill="url(#rcFade)"/>
+        <path class="rc-dashboard-line" d="M0,60 L40,55 L80,58 L120,44 L160,48 L200,32 L240,38 L280,20 L320,26 L360,10 L400,16" fill="none"/>
+        <circle cx="400" cy="16" r="4.5" class="rc-dashboard-dot"/>
+      </svg>
+      <div class="rc-dashboard-goal">
+        <div class="rc-dashboard-goal-top">
+          <span>🎯 Meta: $1,000</span>
+          <span>70%</span>
+        </div>
+        <div class="rc-dashboard-goal-bar"><div class="rc-dashboard-goal-fill" style="animation-name:rcGoalFill70;"></div></div>
+        <div class="rc-dashboard-goal-remaining">Faltan $299.55</div>
+      </div>
+      <div class="rc-dashboard-actions">
+        <span class="rc-dashboard-action">+ Depósito recurrente</span>
+        <span class="rc-dashboard-action">↓ Retiro</span>
+      </div>
+
+      <div class="next-chain">
+        <div class="next-chain-row">
+          <span class="next-chain-label">🏆 Próximo milestone</span>
+          <span class="next-chain-value">$1K Capital</span>
+        </div>
+        <div class="next-chain-row">
+          <span class="next-chain-label">⭐ Próximo nivel</span>
+          <span class="next-chain-value">Level 03 — Grow</span>
+        </div>
+        <div class="next-chain-row">
+          <span class="next-chain-label">👑 Próximo achievement</span>
+          <span class="next-chain-value">1 Year Partner</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="milestones-row">
+      <div class="milestone-badge achieved"><span class="milestone-emoji">🚀</span><span class="milestone-name">First Step</span></div>
+      <div class="milestone-badge achieved"><span class="milestone-emoji">👤</span><span class="milestone-name">Profile Complete</span></div>
+      <div class="milestone-badge achieved"><span class="milestone-emoji">🎯</span><span class="milestone-name">Goal Setter</span></div>
+      <div class="milestone-badge achieved"><span class="milestone-emoji">📈</span><span class="milestone-name">First Growth</span></div>
+      <div class="milestone-badge"><span class="milestone-emoji">🏆</span><span class="milestone-name">$1K Capital</span></div>
+      <div class="milestone-badge"><span class="milestone-emoji">💎</span><span class="milestone-name">$2.5K Capital</span></div>
+      <div class="milestone-badge"><span class="milestone-emoji">🏅</span><span class="milestone-name">$5K Capital</span></div>
+      <div class="milestone-badge"><span class="milestone-emoji">👑</span><span class="milestone-name">1 Year Partner</span></div>
+      <div class="milestone-badge"><span class="milestone-emoji">💎</span><span class="milestone-name">Long-Term Partner</span></div>
+      <div class="milestone-badge"><span class="milestone-emoji">🏆</span><span class="milestone-name">Legacy Partner</span></div>
+    </div>
+    <p class="calc-note" style="margin-top:12px;">*Datos reales de un Partner de MentoryCap. Su identidad se mantiene anónima por privacidad. Resultados pasados no garantizan resultados futuros.</p>
+  </div>
+</section>
+
+<section id="partner-experience">
+  <div class="container" style="text-align:center;">
+    <div class="section-head" style="margin-left:auto;margin-right:auto;max-width:680px;">
+      <div class="eyebrow" style="justify-content:center;">PARTNER EXPERIENCE</div>
+      <h2>No eres un número de cuenta. Eres un Partner.</h2>
+      <p style="font-size:16px;">Cada Partner acumula Partner Points con el tiempo. No se otorgan por depositar más, arriesgar más o operar más — se ganan por avanzar en tu journey.</p>
+    </div>
+
+    <div class="points-table">
+      <div class="points-row"><span>Completar perfil</span><span class="points-value">+100</span></div>
+      <div class="points-row"><span>Completar onboarding</span><span class="points-value">+150</span></div>
+      <div class="points-row"><span>Definir objetivo</span><span class="points-value">+100</span></div>
+      <div class="points-row"><span>30 días como Partner</span><span class="points-value">+100</span></div>
+      <div class="points-row"><span>90 días como Partner</span><span class="points-value">+250</span></div>
+      <div class="points-row"><span>6 meses como Partner</span><span class="points-value">+500</span></div>
+      <div class="points-row"><span>1 año como Partner</span><span class="points-value">+1,000</span></div>
+      <div class="points-row"><span>3 años como Partner</span><span class="points-value">+3,000</span></div>
+    </div>
+    <p class="calc-note" style="max-width:520px;margin:16px auto 0;">Partner Points podrán utilizarse para desbloquear beneficios exclusivos.</p>
+  </div>
+</section>
+
+
+<section id="sobre-oscar">
+  <div class="container">
+    <div class="historia-cta-box">
+      <div class="eyebrow" style="justify-content:center;">SOBRE OSCAR</div>
+      <h2>Entender el dinero cambia la forma en que construyes tu futuro.</h2>
+      <p>Soy Oscar, fundador de MentoryCap. No creo en los atajos ni en el dinero fácil — creo en construir a largo plazo, con criterio propio y decisiones constantes en el tiempo.</p>
+      <p>Esa es la misma filosofía detrás de RC Capital: disciplina, gestión de riesgo real, y transparencia con cada Partner que confía su capital en la estrategia.</p>
+    </div>
+  </div>
+</section>
+
+<section id="learn">
   <div class="container">
     <div class="section-head" style="text-align:center;margin-left:auto;margin-right:auto;">
-      <div class="eyebrow">TRES OPCIONES</div>
-      <h2>¿Por dónde quieres empezar?</h2>
-      <p style="max-width:560px;margin-left:auto;margin-right:auto;">Elige el camino que mejor se adapte a ti y a lo quieres lograr</p>
+      <div class="eyebrow" style="justify-content:center;">LEARN WITH MENTORYCAP</div>
+      <h2 style="font-size:24px;">¿Prefieres aprender por tu cuenta?</h2>
+      <p>Si tu interés va más allá y lo que realmente buscas es aprender a operar por ti mismo, aquí tienes mi contenido gratuito para arrancar, mi curso grabado si quieres ir a tu ritmo, o mi servicio privado para ayudarte de forma intensiva y personalizada a lograrlo.</p>
     </div>
 
     <div class="options-stack">
@@ -2488,32 +2936,6 @@
         <summary>
           <span class="option-num">3</span>
           <span class="option-summary-text">
-            <strong>Trabajemos juntos (RC Capital)</strong>
-            <span class="option-tagline">Trabajemos juntos para construir y escalar tu patrimonio a largo plazo.</span>
-          </span>
-          <span class="option-chevron">▾</span>
-        </summary>
-        <div class="option-body">
-          <div class="modal-eyebrow" style="margin-bottom:12px;">RC Capital</div>
-          <p>Si cuentas con un capital que puedes destinar a la inversión o has logrado construir un ahorro que deseas poner a trabajar, podemos desarrollar juntos una estrategia enfocada en preservar el patrimonio, gestionar el riesgo de forma responsable y buscar un crecimiento sostenible a largo plazo.</p>
-          <h4>Ideal para personas que…</h4>
-          <ul>
-            <li>Sienten que su dinero podría estar haciendo más.</li>
-            <li>Quieren invertir, pero no saben por dónde empezar.</li>
-            <li>No tienen tiempo para seguir los mercados cada día.</li>
-            <li>Buscan a alguien de confianza que los acompañe en el proceso.</li>
-            <li>Piensan en el futuro y quieren construir una economía alternativa.</li>
-            <li>Creen en el potencial de invertir.</li>
-            <li>Están dispuestas a tomar riesgos.</li>
-          </ul>
-          <button class="btn btn-primary js-contacto" data-servicio="RC Capital" style="width:100%;justify-content:center;margin-top:16px;" type="button">Quiero más información</button>
-        </div>
-      </details>
-
-      <details class="option-item">
-        <summary>
-          <span class="option-num">4</span>
-          <span class="option-summary-text">
             <strong>Aprende por tu cuenta</strong>
             <span class="option-tagline">Accede a contenido gratuito para entender los mercados financieros, Bitcoin y la economía digital desde cero.</span>
           </span>
@@ -2544,6 +2966,16 @@
         </div>
       </details>
     </div>
+  </div>
+</section>
+
+<section id="cta-final">
+  <div class="container" style="text-align:center;">
+    <div class="section-head" style="margin-left:auto;margin-right:auto;max-width:600px;">
+      <h2 class="rc-tagline" style="font-size:clamp(26px,4vw,36px);">Comienza tu Capital Journey.</h2>
+      <p style="font-size:16px;">Your capital. Our strategy. Tu progreso, siempre a la vista.</p>
+    </div>
+    <button type="button" onclick="openChat('MentoryCap Partners')" class="btn btn-primary" style="padding:16px 34px;font-size:15px;">Become a Partner</button>
   </div>
 </section>
 

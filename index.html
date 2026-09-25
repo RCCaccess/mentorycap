@@ -51,7 +51,7 @@ h1{font-size:clamp(48px,7vw,82px);line-height:.94;letter-spacing:-.065em;margin:
 .miniLabel{font-size:11px;color:#8fa1b5;text-transform:uppercase;letter-spacing:.15em}
 .value{font-size:40px;font-weight:800;letter-spacing:-.04em;margin-top:5px}
 .delta{color:var(--green);font-weight:750;font-size:14px}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:0 0 75px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:0 0 75px}
 .stat{border:1px solid var(--line);background:rgba(255,255,255,.025);border-radius:16px;padding:22px}
 .stat strong{display:block;font-size:24px;letter-spacing:-.03em;margin-bottom:4px}
 .stat span{color:var(--muted);font-size:13px}
@@ -102,13 +102,14 @@ h2{font-size:clamp(34px,5vw,56px);line-height:1;letter-spacing:-.055em;margin:0;
   .navlinks{display:none}
   .hero{grid-template-columns:1fr;padding-top:55px}
   .heroCard{min-height:360px}
-  .stats{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}
   .steps{grid-template-columns:1fr 1fr}
   .dashBody,.split,.founder{grid-template-columns:1fr}
   .dashSide{border-right:0;border-bottom:1px solid var(--line)}
 }
 @media(max-width:560px){
   .container{width:min(calc(100% - 32px),var(--max))}
+  .stats{grid-template-columns:1fr}
   .nav{height:68px}
   .navcta{padding:9px 12px;font-size:12px}
   h1{font-size:52px}
@@ -127,10 +128,36 @@ h2{font-size:clamp(34px,5vw,56px);line-height:1;letter-spacing:-.055em;margin:0;
 .hero .lead strong{color:#fff}
 .founderVisual{text-align:center}
 .profileRing{width:min(330px,78vw);height:min(330px,78vw);margin:auto;border-radius:50%;padding:7px;background:linear-gradient(145deg,rgba(121,184,244,.9),rgba(121,184,244,.08));box-shadow:0 30px 80px rgba(0,0,0,.35)}
-.profilePhoto{width:100%;height:100%;border-radius:50%;background-image:url("images/oscar-desk.png");background-size:cover;background-position:center 22%;position:relative}
+.profilePhoto{width:100%;height:100%;border-radius:50%;background-image:url("images/oscar-desk.png");background-size:cover;background-position:center 14%;position:relative}
 .profileCaption{margin-top:18px}
 .profileCaption strong{display:block;font-size:18px}
 .profileCaption span{display:block;color:#8fa1b5;font-size:13px;margin-top:3px}
+
+.modalBackdrop{position:fixed;inset:0;background:rgba(4,10,18,.72);backdrop-filter:blur(2px);display:none;align-items:center;justify-content:center;z-index:50;padding:20px}
+.modalBackdrop.open{display:flex}
+.modalBox{width:100%;max-width:420px;background:var(--panel2);border:1px solid var(--line);border-radius:22px;padding:30px;position:relative;box-shadow:0 40px 100px rgba(0,0,0,.45)}
+.modalClose{position:absolute;top:16px;right:18px;background:none;border:0;color:var(--muted);font-size:20px;cursor:pointer;line-height:1}
+.modalBox h3{margin:0 0 6px;font-size:24px;letter-spacing:-.03em}
+.modalBox p.sub{margin:0 0 22px;color:var(--muted);font-size:14px}
+.modalBox form{display:grid;gap:12px}
+.modalBox input,.modalBox select,.modalBox textarea{
+  width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--text);
+  border-radius:10px;padding:12px 14px;font-size:14px;font-family:inherit;
+}
+.modalBox select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239eacbc' stroke-width='2'><path d='M6 9l6 6 6-6'/></svg>");background-repeat:no-repeat;background-position:right 12px center;background-size:16px;padding-right:36px}
+.modalBox select option{background:#0d1d2e;color:var(--text)}
+.modalBox input::placeholder,.modalBox textarea::placeholder{color:#7f90a4}
+.modalBox input:focus,.modalBox select:focus,.modalBox textarea:focus{outline:none;border-color:var(--blue2)}
+.modalBox textarea{resize:vertical;min-height:90px}
+.modalBox .btn{width:100%;justify-content:center;border:0;cursor:pointer;font-size:14px}
+.modalLabel{font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:#7f90a4;margin:6px 0 -4px}
+.modalLabel:first-of-type{margin-top:0}
+#contactMsg{font-size:13px;min-height:16px}
+#contactMsg.ok{color:var(--green)}
+#contactMsg.err{color:#e88a8a}
+@media(max-width:560px){
+  .modalBox{padding:24px 22px}
+}
 </style>
 </head>
 <body>
@@ -144,7 +171,7 @@ h2{font-size:clamp(34px,5vw,56px);line-height:1;letter-spacing:-.055em;margin:0;
       <a href="#capital">Tu capital</a>
       <a href="#historia">Nosotros</a>
     </nav>
-    <a class="navcta" href="#contacto">Agendar conversación</a>
+    <a class="navcta" href="javascript:void(0)" onclick="openContact()">Quiero empezar</a>
   </div>
 </header>
 
@@ -171,6 +198,20 @@ h2{font-size:clamp(34px,5vw,56px);line-height:1;letter-spacing:-.055em;margin:0;
       </defs>
       <path d="M0 410 C65 395 70 350 130 365 S205 315 255 335 S315 280 365 300 S425 235 475 255 S535 175 600 120 L600 500 L0 500Z" fill="url(#fill)"/>
       <path d="M0 410 C65 395 70 350 130 365 S205 315 255 335 S315 280 365 300 S425 235 475 255 S535 175 600 120" fill="none" stroke="#75b7f2" stroke-width="3"/>
+      <g font-family="Inter,ui-sans-serif,system-ui,sans-serif">
+        <line x1="130" y1="137" x2="130" y2="358" stroke="rgba(234,242,251,.35)" stroke-width="1.5"/>
+        <circle cx="130" cy="365" r="5" fill="#55d6a2"/>
+        <rect x="56" y="103" width="148" height="34" rx="8" fill="rgba(6,16,29,.72)"/>
+        <text x="130" y="126" text-anchor="middle" font-size="20" font-weight="700"><tspan fill="#c7d3e0">Mes 1 </tspan><tspan fill="#55d6a2">+$35</tspan></text>
+        <line x1="300" y1="87" x2="255" y2="328" stroke="rgba(234,242,251,.35)" stroke-width="1.5"/>
+        <circle cx="255" cy="335" r="5" fill="#f2726c"/>
+        <rect x="226" y="53" width="148" height="34" rx="8" fill="rgba(6,16,29,.72)"/>
+        <text x="300" y="76" text-anchor="middle" font-size="20" font-weight="700"><tspan fill="#c7d3e0">Mes 2 </tspan><tspan fill="#f2726c">-$18</tspan></text>
+        <line x1="460" y1="57" x2="475" y2="248" stroke="rgba(234,242,251,.35)" stroke-width="1.5"/>
+        <circle cx="475" cy="255" r="5" fill="#55d6a2"/>
+        <rect x="386" y="23" width="148" height="34" rx="8" fill="rgba(6,16,29,.72)"/>
+        <text x="460" y="46" text-anchor="middle" font-size="20" font-weight="700"><tspan fill="#c7d3e0">Mes 3 </tspan><tspan fill="#55d6a2">+$57</tspan></text>
+      </g>
     </svg>
     <div class="heroInfo">
       <div class="miniLabel">Evolución de una cuenta</div>
@@ -183,7 +224,8 @@ h2{font-size:clamp(34px,5vw,56px);line-height:1;letter-spacing:-.055em;margin:0;
 <div class="container stats">
   <div class="stat"><strong>$500</strong><span>Inversión inicial y única</span></div>
   <div class="stat"><strong>Depósitos/retiros</strong><span>Cuando tú quieras</span></div>
-  <div class="stat"><strong>100%</strong><span>Trazabilidad de tu capital</span></div>
+  <div class="stat"><strong>Tiempo</strong><span>Inversión a largo plazo indefinido</span></div>
+  <div class="stat"><strong>Liquidez</strong><span>Disponibilidad de tu capital en gestión en todo momento</span></div>
 </div>
 
 <section class="section" id="rc">
@@ -224,6 +266,24 @@ h2{font-size:clamp(34px,5vw,56px);line-height:1;letter-spacing:-.055em;margin:0;
             </g>
             <path d="M0 238 C55 230 80 222 125 232 S205 194 250 203 S315 165 355 178 S420 130 470 148 S535 110 580 119 S655 70 760 48 L760 290 L0 290Z" fill="url(#area)"/>
             <path d="M0 238 C55 230 80 222 125 232 S205 194 250 203 S315 165 355 178 S420 130 470 148 S535 110 580 119 S655 70 760 48" fill="none" stroke="#72b5ef" stroke-width="4"/>
+            <g font-family="Inter,ui-sans-serif,system-ui,sans-serif" font-size="14" font-weight="700">
+              <line x1="125" y1="216" x2="125" y2="227" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/>
+              <circle cx="125" cy="232" r="4.5" fill="#55d6a2"/>
+              <rect x="75" y="188" width="100" height="28" rx="7" fill="rgba(8,21,34,.85)"/>
+              <text x="125" y="207" text-anchor="middle"><tspan fill="#9eacbc">M1 </tspan><tspan fill="#55d6a2">+$35</tspan></text>
+              <line x1="250" y1="187" x2="250" y2="198" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/>
+              <circle cx="250" cy="203" r="4.5" fill="#f2726c"/>
+              <rect x="200" y="159" width="100" height="28" rx="7" fill="rgba(8,21,34,.85)"/>
+              <text x="250" y="178" text-anchor="middle"><tspan fill="#9eacbc">M2 </tspan><tspan fill="#f2726c">-$18</tspan></text>
+              <line x1="470" y1="132" x2="470" y2="143" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/>
+              <circle cx="470" cy="148" r="4.5" fill="#55d6a2"/>
+              <rect x="420" y="104" width="100" height="28" rx="7" fill="rgba(8,21,34,.85)"/>
+              <text x="470" y="123" text-anchor="middle"><tspan fill="#9eacbc">M3 </tspan><tspan fill="#55d6a2">+$57</tspan></text>
+              <line x1="580" y1="103" x2="580" y2="114" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/>
+              <circle cx="580" cy="119" r="4.5" fill="#55d6a2"/>
+              <rect x="530" y="75" width="100" height="28" rx="7" fill="rgba(8,21,34,.85)"/>
+              <text x="580" y="94" text-anchor="middle"><tspan fill="#9eacbc">M4 </tspan><tspan fill="#55d6a2">+$10</tspan></text>
+            </g>
           </svg>
           <div class="alloc"><div class="allocCard"><b>$500</b><small>inversión inicial y única</small></div><div class="allocCard"><b>+/−</b><small>depósitos o retiros cuando quieras</small></div></div>
         </div>
@@ -272,7 +332,7 @@ h2{font-size:clamp(34px,5vw,56px);line-height:1;letter-spacing:-.055em;margin:0;
     <div class="eyebrow">RC CAPITAL</div>
     <h2>Haz que tu capital<br><span class="gradient">tenga una estrategia.</span></h2>
     <p>Conoce cómo funciona RC Capital, las condiciones de participación y cómo puedes comenzar.</p>
-    <a class="btn primary" href="mailto:contacto@mentorycap.com?subject=Quiero%20conocer%20RC%20Capital">Agendar una conversación</a>
+    <a class="btn primary" href="javascript:void(0)" onclick="openContact()">Quiero empezar</a>
   </div>
 </section>
 </main>
@@ -284,5 +344,74 @@ h2{font-size:clamp(34px,5vw,56px);line-height:1;letter-spacing:-.055em;margin:0;
   </div>
 </footer>
 
+
+<div class="modalBackdrop" id="contactBackdrop" onclick="if(event.target===this)closeContact()">
+  <div class="modalBox">
+    <button type="button" class="modalClose" onclick="closeContact()" aria-label="Cerrar">✕</button>
+    <h3>Quiero empezar</h3>
+    <p class="sub">Completa estos datos y te contacto para dar el siguiente paso.</p>
+    <form id="contact-form">
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+      <input type="hidden" name="access_key" value="ae42ef7b-30d5-4486-9833-8983ad082046">
+      <input type="hidden" name="subject" value="Nuevo mensaje desde RC Capital">
+      <input type="hidden" name="from_name" value="RC Capital · MentoryCap">
+      <label class="modalLabel">1. ¿Qué necesitas?</label>
+      <select name="Interés" required>
+        <option value="Quiero entrar" selected>Quiero abrir mi cuenta</option>
+        <option value="Más información">Tengo dudas antes de empezar</option>
+        <option value="Otro">Otro</option>
+      </select>
+      <label class="modalLabel">2. Tus datos</label>
+      <input type="text" name="Nombre" placeholder="Tu nombre" required>
+      <input type="email" name="Correo" placeholder="Tu correo" required>
+      <label class="modalLabel">3. Cuéntame más (opcional)</label>
+      <textarea name="Mensaje" placeholder="¿Algo puntual que quieras contarme antes de empezar?" rows="3"></textarea>
+      <button type="submit" class="btn primary" id="contact-submit-btn">Iniciar mi proceso</button>
+      <div id="contactMsg"></div>
+    </form>
+  </div>
+</div>
+
+<script>
+function openContact(){
+  document.getElementById('contactBackdrop').classList.add('open');
+}
+function closeContact(){
+  document.getElementById('contactBackdrop').classList.remove('open');
+}
+const contactForm = document.getElementById('contact-form');
+const contactMsg = document.getElementById('contactMsg');
+const contactBtn = document.getElementById('contact-submit-btn');
+contactForm.addEventListener('submit', async function(e){
+  e.preventDefault();
+  contactBtn.disabled = true;
+  contactBtn.textContent = 'Enviando...';
+  contactMsg.className = '';
+  contactMsg.textContent = '';
+  const formData = new FormData(contactForm);
+  try{
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: formData
+    });
+    const result = await response.json();
+    if (result.success){
+      contactMsg.textContent = '¡Listo! Te escribo pronto a tu correo para arrancar tu proceso.';
+      contactMsg.className = 'ok';
+      contactForm.reset();
+    } else {
+      contactMsg.textContent = 'No se pudo enviar. Intenta de nuevo.';
+      contactMsg.className = 'err';
+    }
+  } catch(err){
+    contactMsg.textContent = 'Error de conexión. Intenta de nuevo.';
+    contactMsg.className = 'err';
+  } finally {
+    contactBtn.disabled = false;
+    contactBtn.textContent = 'Iniciar mi proceso';
+  }
+});
+</script>
 </body>
 </html>

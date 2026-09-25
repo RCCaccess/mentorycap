@@ -195,7 +195,7 @@
   .hero-overlay{
     position:absolute;
     inset:0;
-    background:linear-gradient(90deg, var(--bg) 0%, rgba(255,255,255,0.88) 30%, rgba(255,255,255,0.68) 55%, rgba(255,255,255,0.42) 100%);
+    background:linear-gradient(100deg, var(--bg) 0%, var(--bg) 22%, rgba(255,255,255,0.92) 42%, rgba(255,255,255,0.55) 64%, rgba(255,255,255,0.2) 100%);
     z-index:1;
   }
   .hero-content{
@@ -203,11 +203,27 @@
     z-index:2;
     max-width:600px;
   }
+  .hero-content-card{
+    background:rgba(255,255,255,0.72);
+    -webkit-backdrop-filter:blur(6px);
+    backdrop-filter:blur(6px);
+    border-radius:18px;
+    padding:8px;
+  }
+  .hero-content-card .rc-tagline,
+  .hero-content-card .hero-subtitle{
+    text-shadow:0 1px 14px rgba(255,255,255,0.6);
+  }
   @media(max-width:760px){
     .hero-bg{min-height:680px;align-items:flex-end;padding-bottom:50px;}
     .hero-bg-photo{opacity:0.95;object-position:top center;}
-    .hero-overlay{background:linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.4) 55%, rgba(255,255,255,0.95) 100%);}
+    .hero-overlay{background:linear-gradient(180deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.55) 45%, rgba(255,255,255,0.97) 78%, var(--bg) 100%);}
     .hero-content{max-width:100%;}
+    .hero-content-card{
+      background:rgba(255,255,255,0.88);
+      padding:22px 20px;
+      box-shadow:0 -10px 30px rgba(255,255,255,0.6);
+    }
   }
   .hero h1{
     font-size:42px;
@@ -791,7 +807,7 @@
   .stock-chart{width:100%;height:60px;margin-top:6px;display:block;}
   #historia-cta{border-bottom:1px solid var(--border);padding:56px 0;}
   #youtube-cta{border-bottom:1px solid var(--border);padding:56px 0;}
-  #el-problema, #nueva-forma, #partners, #rc-capital, #como-funciona, #capital-journey, #agenda-llamada, #sobre-oscar, #learn{
+  #el-problema, #nueva-forma, #partners, #rc-capital, #como-funciona, #capital-journey, #agenda-llamada, #sobre-oscar{
     border-bottom:1px solid var(--border);
     padding:52px 0;
   }
@@ -830,53 +846,6 @@
     .option-item summary{padding:20px 16px;height:164px;}
   }
   .option-item summary::-webkit-details-marker{display:none;}
-  .option-num{
-    width:36px;
-    height:36px;
-    border-radius:50%;
-    background:linear-gradient(145deg, #1B222D 0%, #0D1218 100%);
-    border:1px solid rgba(255,255,255,0.1);
-    color:#E9EEF4;
-    font-family:var(--mono);
-    font-weight:700;
-    font-size:14px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-shrink:0;
-    box-shadow:0 3px 10px rgba(14,22,32,0.22);
-  }
-  .option-item[open] .option-num{
-    background:linear-gradient(145deg, #2C74B4 0%, #1D5488 100%);
-    border-color:rgba(255,255,255,0.2);
-  }
-  .option-summary-text{
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    gap:6px;
-    flex:1;
-    min-width:0;
-    height:100%;
-  }
-  .option-summary-text strong{font-size:16px;color:var(--text);}
-  .option-tagline{
-    font-size:13px;
-    color:var(--text-muted);
-    line-height:1.4;
-    display:-webkit-box;
-    -webkit-line-clamp:4;
-    -webkit-box-orient:vertical;
-    overflow:hidden;
-  }
-  .option-chevron{
-    font-family:var(--mono);
-    color:var(--text-muted);
-    flex-shrink:0;
-    margin-top:2px;
-    transition:transform .2s ease;
-  }
-  .option-item[open] .option-chevron{transform:rotate(180deg);color:var(--gold);}
   .option-body{
     padding:0 22px 26px;
     border-top:1px solid var(--border);
@@ -884,25 +853,6 @@
   }
   .option-body h3{font-size:18px;margin-bottom:12px;}
   .option-body p{color:var(--text-muted);font-size:14.5px;line-height:1.6;}
-  .course-price-row{
-    display:flex;
-    align-items:baseline;
-    gap:12px;
-    margin-bottom:16px;
-  }
-  .course-price-old{
-    font-family:var(--mono);
-    font-size:15px;
-    color:var(--text-muted);
-    text-decoration:line-through;
-    opacity:0.7;
-  }
-  .course-price-new{
-    font-family:var(--mono);
-    font-size:26px;
-    font-weight:700;
-    color:var(--up);
-  }
   .option-body h4{
     font-family:var(--mono);
     font-size:12px;
@@ -930,61 +880,10 @@
     left:0;
     color:var(--gold-dim);
   }
-  .option-body .youtube-embed-wrap{margin:16px auto 0;max-width:100%;}
-  .youtube-embed-wrap{
-    max-width:720px;
-    margin:32px auto 0;
-    aspect-ratio:16/9;
-    border-radius:12px;
-    overflow:hidden;
-    border:1px solid var(--border);
-    background:#000;
-  }
-  .youtube-embed-wrap iframe{width:100%;height:100%;display:block;border:none;}
-  .community-cta{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:18px;
-    flex-wrap:wrap;
-    margin:18px 0 22px;
-    padding:18px 22px;
-    border-radius:14px;
-    background:linear-gradient(120deg, rgba(35,99,158,0.10) 0%, rgba(35,99,158,0.04) 100%);
-    border:1px solid rgba(35,99,158,0.3);
-  }
-  .community-cta-text strong{display:block;font-size:15px;color:var(--text);margin-bottom:3px;}
-  .community-cta-text p{color:var(--text-muted);font-size:13px;margin:0;}
-  .community-cta-btn{
-    display:inline-flex;
-    align-items:center;
-    flex-shrink:0;
-    background:linear-gradient(180deg, #2C74B4 0%, #23639E 55%, #1D5488 100%);
-    color:#FFFFFF;
-    font-weight:600;
-    font-size:14px;
-    padding:12px 22px;
-    border-radius:var(--radius);
-    white-space:nowrap;
-    box-shadow:0 1px 0 rgba(255,255,255,0.22) inset, 0 8px 20px rgba(35,99,158,0.32);
-    animation:communityPulse 2.6s ease-in-out infinite;
-  }
-  .community-cta-btn:hover{background:linear-gradient(180deg, #337FC2 0%, #2A6EAC 55%, #215E96 100%);}
   @keyframes communityPulse{
     0%,100%{box-shadow:0 1px 0 rgba(255,255,255,0.22) inset, 0 8px 20px rgba(35,99,158,0.32);}
     50%{box-shadow:0 1px 0 rgba(255,255,255,0.22) inset, 0 8px 26px rgba(35,99,158,0.5);}
   }
-  @media(max-width:480px){
-    .community-cta{flex-direction:column;align-items:stretch;text-align:center;}
-    .community-cta-btn{justify-content:center;}
-  }
-
-  .youtube-btn{
-    background:linear-gradient(180deg, #2C74B4 0%, #23639E 55%, #1D5488 100%);
-    color:#FFFFFF;
-    box-shadow:0 1px 0 rgba(255,255,255,0.22) inset, 0 6px 18px rgba(35,99,158,0.28);
-  }
-  .youtube-btn:hover{background:linear-gradient(180deg, #337FC2 0%, #2A6EAC 55%, #215E96 100%);}
   .historia-cta-box{
     max-width:480px;
     margin:0 auto;
@@ -2358,9 +2257,8 @@
       <li><a href="#partners">Partners</a></li>
       <li><a href="#rc-capital">RC Capital</a></li>
       <li><a href="#como-funciona">Cómo funciona</a></li>
-      <li><a href="#learn">Learn</a></li>
     </ul>
-    <button type="button" onclick="openChat('MentoryCap Partners')" class="nav-cta">Become a Partner</button>
+    <a href="https://calendly.com/mentorycap" target="_blank" rel="noopener" class="nav-cta">📞 Agendar una llamada</a>
   </nav>
 </header>
 
@@ -2368,11 +2266,13 @@
   <img src="images/oscar-desk.png" alt="Oscar Rojas, fundador de MentoryCap" class="hero-bg-photo">
   <div class="hero-overlay"></div>
   <div class="container hero-content">
-    <h1 class="rc-tagline" style="font-size:clamp(34px,6vw,52px);margin-bottom:14px;">Your Capital.<br>Our Strategy.</h1>
-    <p class="hero-subtitle">Haz crecer tu capital sin convertirte en trader. Nosotros gestionamos la estrategia — tú sigues tu progreso.</p>
-    <div class="hero-actions" style="display:flex;gap:14px;flex-wrap:wrap;margin-top:26px;">
-      <button type="button" onclick="openChat('MentoryCap Partners')" class="btn btn-primary">Become a Partner</button>
-      <a href="#como-funciona" class="btn btn-outline">Ver cómo funciona</a>
+    <div class="hero-content-card">
+      <h1 class="rc-tagline" style="font-size:clamp(34px,6vw,52px);margin-bottom:14px;">Your Capital.<br>Our Strategy.</h1>
+      <p class="hero-subtitle">Haz crecer tu capital sin convertirte en trader. Nosotros gestionamos la estrategia — tú sigues tu progreso.</p>
+      <div class="hero-actions" style="display:flex;gap:14px;flex-wrap:wrap;margin-top:26px;">
+        <a href="https://calendly.com/mentorycap" target="_blank" rel="noopener" class="btn btn-primary">📞 Agendar una llamada</a>
+        <a href="#como-funciona" class="btn btn-outline">Ver cómo funciona</a>
+      </div>
     </div>
   </div>
 </section>
@@ -2628,7 +2528,7 @@
           <li>Creen en el potencial de invertir.</li>
           <li>Están dispuestas a tomar riesgos.</li>
         </ul>
-        <button type="button" onclick="openChat('MentoryCap Partners')" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:8px;">Become a Partner</button>
+        <a href="https://calendly.com/mentorycap" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:8px;">📞 Agendar una llamada</a>
       </div>
     </div>
   </div>
@@ -2658,7 +2558,7 @@
     <div class="steps-grid">
       <div class="step-card">
         <span class="step-num">01</span>
-        <h4>Become a Partner</h4>
+        <h4>Agenda una llamada</h4>
         <p>Conversamos, resolvemos tus dudas y activamos tu cuenta.</p>
       </div>
       <div class="step-card">
@@ -2756,123 +2656,13 @@
   </div>
 </section>
 
-<section id="learn">
-  <div class="container">
-    <div class="section-head" style="text-align:center;margin-left:auto;margin-right:auto;">
-      <div class="eyebrow" style="justify-content:center;">APRENDE CON MENTORYCAP</div>
-      <h2 style="font-size:24px;">¿Prefieres operar los mercados por tu cuenta?</h2>
-      <p>Si tu interés va más allá y lo que realmente buscas es aprender a operar por ti mismo, puedes elegir aprender 1 a 1 conmigo, aprender con mi curso online o simplemente empezar a conocer todo este mundo de forma gratuita en mi YouTube.</p>
-    </div>
-
-    <div class="options-stack">
-      <details class="option-item">
-        <summary>
-          <span class="option-num">1</span>
-          <span class="option-summary-text">
-            <strong>Aprende 1 a 1 conmigo</strong>
-            <span class="option-tagline">Formación y acompañamiento privado.</span>
-          </span>
-          <span class="option-chevron">▾</span>
-        </summary>
-        <div class="option-body">
-          <div class="course-price-row">
-            <span class="course-price-old">$1,200.00</span>
-            <span class="course-price-new">$599.00</span>
-          </div>
-          <p>Un programa privado de acompañamiento durante 90 días para ayudarte a construir una habilidad que puede acompañarte toda la vida: entender los mercados, administrar mejor tu dinero y aprovechar las oportunidades que ofrece la economía digital.</p>
-          <div class="modal-highlight">
-            <strong style="color:var(--gold);">Acompañamiento 100% personalizado</strong>
-            <p style="margin:10px 0 0;color:var(--text-muted);font-size:14px;">Trabajaremos directamente tú y yo. Tendrás acceso a mi experiencia, mi metodología y mi acompañamiento para que desarrolles criterio propio, aprendas a proteger tu capital y construyas una fuente adicional de ingresos de forma responsable.</p>
-          </div>
-          <h4>Qué incluye</h4>
-          <ul>
-            <li>Programa de 90 días.</li>
-            <li>Curso completo grabado.</li>
-            <li>Biblioteca de mentorías anteriores.</li>
-            <li>Soporte directo por WhatsApp durante todo el programa.</li>
-            <li>2 sesiones privadas cada mes.</li>
-            <li>Revisión de tu progreso y seguimiento personalizado.</li>
-            <li>Herramientas y recursos que utilizo diariamente.</li>
-          </ul>
-          <a href="https://whop.com/checkout/plan_RQyNcvkxdOAyE" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:16px;">Acceder ahora →</a>
-        </div>
-      </details>
-
-      <details class="option-item">
-        <summary>
-          <span class="option-num">2</span>
-          <span class="option-summary-text">
-            <strong>Aprende con mi Curso Online</strong>
-            <span class="option-tagline">Formación grabada paso a paso, para aprender a operar los mercados.</span>
-          </span>
-          <span class="option-chevron">▾</span>
-        </summary>
-        <div class="option-body">
-          <div class="course-price-row">
-            <span class="course-price-old">$597.00</span>
-            <span class="course-price-new">$199.00</span>
-          </div>
-          <p>📈 <strong style="color:var(--text);">Curso Online</strong> — Esta es una formación creada y diseñada por Oscar, que ha convertido a personas sin conocimientos previos en los mercados financieros en traders totalmente independientes.</p>
-          <p>Aquí aprendes a operar el mercado de Forex de manera práctica, estructurada y profesional, a tu propio ritmo, desde los conceptos básicos hasta estrategias avanzadas de alta precisión. Este curso te da acceso a toda la formación al instante, para que puedas empezar a estudiarlo desde hoy.</p>
-          <h4>🎯 Qué incluye</h4>
-          <ul>
-            <li>Curso completo de MASTER TRADING: Fundamentos, Análisis técnico y Estrategias avanzadas.</li>
-            <li>Módulos paso a paso: diseñados para que puedas aprender y aplicar desde el primer día.</li>
-            <li>Ejemplos prácticos: estudios de casos reales para entender la operativa en diferentes contextos de mercado.</li>
-            <li>Grabaciones 100% accesibles 24/7.</li>
-          </ul>
-          <h4>💼 Resultados esperados</h4>
-          <ul>
-            <li>Analizar correctamente y operar el mercado de Forex de forma independiente.</li>
-            <li>Crear su propio plan y gestión de capital propio en los mercados financieros.</li>
-            <li>Crear una fuente de ingresos extra de forma online e independiente.</li>
-          </ul>
-          <a href="https://whop.com/checkout/plan_fMDPkoDSgzeQ3" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:16px;">Comprar el curso — $199.00</a>
-        </div>
-      </details>
-
-      <details class="option-item">
-        <summary>
-          <span class="option-num">3</span>
-          <span class="option-summary-text">
-            <strong>Aprende en mi YouTube</strong>
-            <span class="option-tagline">Accede a contenido gratuito para entender los mercados financieros, Bitcoin y la economía digital desde cero.</span>
-          </span>
-          <span class="option-chevron">▾</span>
-        </summary>
-        <div class="option-body">
-          <p>Te invito a mi canal de YouTube, comparto los fundamentos básicos de los mercados financieros, con un enfoque en Forex y crypto. Aprenderás cómo funcionan, cómo acceder a ellos, qué herramientas utilizo para analizarlos y cómo desarrollar una forma práctica de interpretar sus movimientos.</p>
-
-          <div class="youtube-embed-wrap">
-            <iframe src="https://www.youtube.com/embed/videoseries?list=PLuJnrEPKGTVNtsjMhUeTVyw4r1icLWTZ6" title="Playlist de MentoryCap en YouTube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-          </div>
-          <div class="youtube-embed-wrap" style="margin-top:16px;">
-            <iframe src="https://www.youtube.com/embed/Ol4p5roljw4" title="Video de MentoryCap en YouTube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-          </div>
-          <div style="text-align:center;margin-top:20px;">
-            <a href="https://youtube.com/playlist?list=PLuJnrEPKGTVNtsjMhUeTVyw4r1icLWTZ6&si=_PKqaznTga0oL201" target="_blank" rel="noopener" class="btn youtube-btn">▶ Ver la playlist completa en YouTube</a>
-          </div>
-        </div>
-      </details>
-    </div>
-
-    <div class="community-cta" style="max-width:680px;margin:32px auto 0;">
-      <div class="community-cta-text">
-        <strong>Independientemente de si quieres aprender o convertirte en Partner</strong>
-        <p>Puedes unirte a nuestra comunidad gratuita — es un espacio donde compartimos contenido relevante, resolvemos dudas y analizamos temas de actualidad.</p>
-      </div>
-      <a href="https://whop.com/checkout/plan_oshSI7MMsJmZr" target="_blank" rel="noopener" class="community-cta-btn">Unirme gratis →</a>
-    </div>
-  </div>
-</section>
-
 <section id="cta-final">
   <div class="container" style="text-align:center;">
     <div class="section-head" style="margin-left:auto;margin-right:auto;max-width:600px;">
       <h2 class="rc-tagline" style="font-size:clamp(26px,4vw,36px);">Comienza tu Capital Journey.</h2>
       <p style="font-size:16px;">Your capital. Our strategy. Tu progreso, siempre a la vista.</p>
     </div>
-    <button type="button" onclick="openChat('MentoryCap Partners')" class="btn btn-primary" style="padding:16px 34px;font-size:15px;">Become a Partner</button>
+    <a href="https://calendly.com/mentorycap" target="_blank" rel="noopener" class="btn btn-primary" style="padding:16px 34px;font-size:15px;">📞 Agendar una llamada</a>
   </div>
 </section>
 

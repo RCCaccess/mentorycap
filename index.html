@@ -181,7 +181,8 @@
     }
   }
   @media(max-width:380px){
-    .nav-cta{padding:8px 10px;font-size:11.5px;}
+    .nav-cta{padding:8px 10px;font-size:11px;}
+    .logo-lockup .logo-text{display:none;}
   }
 
   /* ---------- HERO ---------- */
@@ -278,41 +279,6 @@
     .hero-actions{flex-direction:column;align-items:stretch;}
     .hero-actions .btn{width:100%;justify-content:center;}
   }
-  .hero-motto{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    margin-bottom:28px;
-    flex-wrap:wrap;
-  }
-  .hero-motto span{
-    font-family:var(--display);
-    font-weight:700;
-    font-size:20px;
-    letter-spacing:0.02em;
-    background:linear-gradient(180deg, #2C74B4 0%, #1D5488 100%);
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
-  }
-  .hero-motto i{
-    font-style:normal;
-    color:var(--text-muted);
-    opacity:0.5;
-    font-size:14px;
-  }
-  .hero p.lead{
-    font-size:17px;
-    color:var(--text-muted);
-    max-width:520px;
-    margin-bottom:32px;
-  }
-  .hero-actions{
-    display:flex;
-    gap:14px;
-    flex-wrap:wrap;
-    margin-bottom:40px;
-  }
   .btn{
     display:inline-flex;
     align-items:center;
@@ -339,46 +305,6 @@
   .btn-primary:hover{background:linear-gradient(180deg, #337FC2 0%, #2A6EAC 55%, #215E96 100%);}
   .btn-outline{background:transparent;border-color:var(--border);color:var(--text);}
   .btn-outline:hover{border-color:var(--gold);color:var(--gold);background:rgba(35,99,158,0.06);}
-
-  .hero-stats{
-    display:flex;
-    gap:32px;
-    font-family:var(--mono);
-  }
-  .hero-stat b{
-    display:block;
-    font-size:22px;
-    color:var(--text);
-  }
-  .hero-stat span{
-    font-size:12px;
-    color:var(--text-muted);
-  }
-  .up{color:var(--up);}
-  .down{color:var(--down);}
-
-  /* chart visual */
-  .chart-panel{
-    background:var(--bg-panel);
-    border:1px solid var(--border);
-    border-radius:8px;
-    padding:20px;
-  }
-  .chart-panel-head{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    font-family:var(--mono);
-    font-size:12px;
-    color:var(--text-muted);
-    margin-bottom:14px;
-  }
-  .chart-panel-head b{color:var(--text);}
-  svg.candles rect.candle-up{fill:var(--up);}
-  svg.candles rect.candle-down{fill:var(--down);}
-  svg.candles line{stroke-width:1.5;}
-  svg.candles line.wick-up{stroke:var(--up);}
-  svg.candles line.wick-down{stroke:var(--down);}
 
   /* ---------- SECTION GENERIC ---------- */
   section{padding:88px 0;}
@@ -543,52 +469,6 @@
     margin-top:8px;
   }
 
-  /* ---------- ENLACES Y RECURSOS ---------- */
-  .links-groups{
-    max-width:640px;
-    margin:28px auto 0;
-  }
-  .links-group{margin-bottom:26px;}
-  .links-group:last-child{margin-bottom:0;}
-  .links-group-label{
-    font-family:var(--mono);
-    font-size:10.5px;
-    color:var(--gold);
-    text-transform:uppercase;
-    letter-spacing:0.07em;
-    padding-bottom:8px;
-    margin-bottom:2px;
-    border-bottom:1px solid var(--border);
-  }
-  .link-row{
-    display:flex;
-    align-items:baseline;
-    justify-content:space-between;
-    gap:14px;
-    padding:12px 4px;
-    border-bottom:1px solid var(--border);
-    transition:padding-left .15s ease, background .15s ease;
-  }
-  .link-row:last-child{border-bottom:none;}
-  .link-row:hover{padding-left:8px;background:rgba(35,99,158,0.05);}
-  .link-row-text{
-    display:flex;
-    align-items:baseline;
-    gap:9px;
-    flex-wrap:wrap;
-    min-width:0;
-  }
-  .link-row-name{font-size:14px;font-weight:600;color:var(--text);}
-  .link-row-desc{font-size:12px;color:var(--text-muted);}
-  .link-row-arrow{
-    font-family:var(--mono);
-    font-size:13px;
-    color:var(--text-muted);
-    flex-shrink:0;
-    transition:color .15s ease;
-  }
-  .link-row:hover .link-row-arrow{color:var(--gold);}
-
   .fab-wrap{
     position:fixed;
     right:20px;
@@ -614,42 +494,6 @@
     transition:transform .15s ease;
   }
   .fab-btn:hover{transform:scale(1.06);}
-  .fab-menu{
-    display:none;
-    flex-direction:column;
-    gap:8px;
-    background:#FFFFFF;
-    border:1px solid var(--border);
-    border-radius:12px;
-    padding:10px;
-    box-shadow:0 12px 32px rgba(20,22,27,0.14);
-    min-width:190px;
-  }
-  .fab-menu.open{display:flex;}
-  .fab-item{
-    display:block;
-    width:100%;
-    text-align:left;
-    background:none;
-    border:none;
-    color:var(--text);
-    font-family:var(--body);
-    font-size:14px;
-    padding:10px 12px;
-    border-radius:8px;
-    cursor:pointer;
-    text-decoration:none;
-    -webkit-appearance:none;
-    appearance:none;
-  }
-  .fab-item:hover{background:var(--bg);color:var(--gold);}
-  .fab-item-chat{
-    border-top:1px solid var(--border);
-    margin-top:2px;
-    padding-top:12px;
-    color:var(--gold);
-    font-weight:600;
-  }
 
   /* ---------- VENTANITA DE CHAT ---------- */
   .chat-backdrop{
@@ -733,226 +577,12 @@
   @media(max-width:480px){
     .fab-wrap{right:14px;bottom:14px;}
   }
-  #mercado{border-bottom:1px solid var(--border);}
-  .market-clock-box{
-    background:var(--bg-panel);
-    border:1px solid var(--border);
-    border-radius:12px;
-    padding:20px 22px;
-    margin-top:24px;
-  }
-  .market-clock-top{
-    display:flex;
-    align-items:baseline;
-    gap:10px;
-    margin-bottom:14px;
-  }
-  .clock-time{
-    font-family:var(--mono);
-    font-size:22px;
-    font-weight:600;
-    color:var(--gold);
-    letter-spacing:0.02em;
-  }
-  .clock-label{
-    font-family:var(--mono);
-    font-size:11px;
-    color:var(--text-muted);
-    text-transform:uppercase;
-    letter-spacing:0.03em;
-  }
-  .market-strip-sessions{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    flex-wrap:wrap;
-  }
-  .session-chip{
-    display:inline-flex;
-    align-items:center;
-    gap:5px;
-    font-family:var(--mono);
-    font-size:11px;
-    padding:5px 10px;
-    border-radius:20px;
-    border:1px solid var(--border);
-    color:var(--text-muted);
-  }
-  .session-chip.open{border-color:rgba(11,138,107,0.4);color:var(--up);background:rgba(11,138,107,0.08);}
-  .session-dot{
-    width:6px;height:6px;
-    border-radius:50%;
-    flex-shrink:0;
-  }
-  .session-dot.open{background:var(--up);box-shadow:0 0 0 2px rgba(11,138,107,0.2);}
-  .session-dot.closed{background:var(--text-muted);opacity:0.5;}
-  .stocks-range{
-    display:inline-flex;
-    gap:4px;
-    background:var(--bg-panel);
-    border:1px solid var(--border);
-    border-radius:9px;
-    padding:3px;
-    margin-bottom:20px;
-  }
-  .stocks-range-btn{
-    font-family:var(--mono);
-    font-size:12px;
-    padding:7px 16px;
-    border-radius:7px;
-    border:none;
-    background:none;
-    color:var(--text-muted);
-    cursor:pointer;
-    -webkit-appearance:none;
-    appearance:none;
-  }
-  .stocks-range-btn.active{background:var(--bg);color:var(--gold);}
-  .stocks-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:16px;
-  }
-  @media(max-width:1000px){.stocks-grid{grid-template-columns:repeat(2,1fr);}}
-  @media(max-width:560px){.stocks-grid{grid-template-columns:1fr;}}
-  .stock-card{
-    background:var(--bg-panel);
-    border:1px solid var(--border);
-    border-radius:14px;
-    padding:18px;
-  }
-  .stock-top{
-    display:flex;
-    align-items:flex-start;
-    justify-content:space-between;
-    margin-bottom:6px;
-  }
-  .stock-symbol{font-family:var(--display);font-weight:600;font-size:15px;}
-  .stock-name{font-size:11px;color:var(--text-muted);margin-top:2px;}
-  .stock-price-wrap{text-align:right;}
-  .stock-price{font-family:var(--mono);font-size:16px;font-weight:600;color:var(--text);}
-  .stock-change{
-    font-family:var(--mono);
-    font-size:11.5px;
-    font-weight:600;
-    padding:2px 7px;
-    border-radius:5px;
-    display:inline-block;
-    margin-top:4px;
-  }
-  .stock-change.up{color:var(--up);background:rgba(11,138,107,0.12);}
-  .stock-change.down{color:var(--down);background:rgba(200,72,60,0.12);}
-  .stock-chart{width:100%;height:60px;margin-top:6px;display:block;}
-  #historia-cta{border-bottom:1px solid var(--border);padding:56px 0;}
-  #youtube-cta{border-bottom:1px solid var(--border);padding:56px 0;}
-  #el-problema, #nueva-forma, #partners, #rc-capital, #como-funciona, #capital-journey, #filosofia, #para-quien, #agenda-llamada, #sobre-oscar{
+  #por-que, #rc-capital, #partners, #como-funciona, #dashboard, #para-quien{
     border-bottom:1px solid var(--border);
     padding:52px 0;
   }
-  #filosofia{padding:76px 0;}
+  #fundador{border-bottom:1px solid var(--border);}
   #cta-final{padding:64px 0;}
-  .options-stack{
-    display:flex;
-    flex-direction:column;
-    gap:16px;
-    margin-top:36px;
-    max-width:720px;
-    margin-left:auto;
-    margin-right:auto;
-  }
-  .option-item{
-    background:linear-gradient(180deg, #FFFFFF 0%, var(--bg-panel) 100%);
-    border:1px solid var(--border);
-    border-radius:14px;
-    overflow:hidden;
-    transition:border-color .18s ease, box-shadow .18s ease, transform .18s ease;
-  }
-  .option-item:hover{border-color:var(--gold-dim);box-shadow:0 8px 22px rgba(14,22,32,0.07);}
-  .option-item[open]{
-    border-color:var(--gold);
-    box-shadow:0 10px 30px rgba(35,99,158,0.14);
-  }
-  .option-item summary{
-    list-style:none;
-    cursor:pointer;
-    display:flex;
-    align-items:flex-start;
-    gap:16px;
-    padding:22px;
-    height:158px;
-  }
-  @media(max-width:400px){
-    .option-item summary{padding:20px 16px;height:164px;}
-  }
-  .option-item summary::-webkit-details-marker{display:none;}
-  .option-body{
-    padding:0 22px 26px;
-    border-top:1px solid var(--border);
-    padding-top:20px;
-  }
-  .option-body h3{font-size:18px;margin-bottom:12px;}
-  .option-body p{color:var(--text-muted);font-size:14.5px;line-height:1.6;}
-  .option-body h4{
-    font-family:var(--mono);
-    font-size:12px;
-    letter-spacing:0.05em;
-    text-transform:uppercase;
-    color:var(--text);
-    margin:20px 0 10px;
-  }
-  .option-body ul{
-    display:flex;
-    flex-direction:column;
-    gap:8px;
-    margin-bottom:14px;
-  }
-  .option-body li{
-    font-size:14px;
-    color:var(--text-muted);
-    padding-left:20px;
-    position:relative;
-    line-height:1.5;
-  }
-  .option-body li::before{
-    content:'—';
-    position:absolute;
-    left:0;
-    color:var(--gold-dim);
-  }
-  @keyframes communityPulse{
-    0%,100%{box-shadow:0 1px 0 rgba(255,255,255,0.22) inset, 0 8px 20px rgba(35,99,158,0.32);}
-    50%{box-shadow:0 1px 0 rgba(255,255,255,0.22) inset, 0 8px 26px rgba(35,99,158,0.5);}
-  }
-  .historia-cta-box{
-    max-width:480px;
-    margin:0 auto;
-    text-align:center;
-  }
-  .historia-cta-box .btn{
-    display:flex;
-    width:max-content;
-    margin:0 auto;
-  }
-  .historia-cta-photo{
-    width:168px;
-    height:168px;
-    border-radius:50%;
-    object-fit:cover;
-    object-position:top center;
-    border:3px solid var(--gold-dim);
-    margin:0 auto 18px;
-    display:block;
-  }
-  .historia-cta-eyebrow{
-    font-family:var(--mono);
-    font-size:11.5px;
-    color:var(--gold);
-    letter-spacing:0.08em;
-    margin-bottom:10px;
-  }
-  .historia-cta-box h2{font-size:24px;margin-bottom:14px;}
-  .historia-cta-box p{color:var(--text-muted);font-size:14.5px;line-height:1.6;margin-bottom:26px;}
-
   /* ---------- GRÁFICO DECORATIVO ANIMADO ---------- */
   /* ---------- RC CAPITAL: TAGLINE, DASHBOARD MOCK, FEATURES ---------- */
   .rc-tagline{
@@ -975,6 +605,15 @@
     border:1px solid var(--border);
     border-radius:18px;
     box-shadow:0 20px 50px rgba(20,22,27,0.1);
+  }
+  .rc-dashboard-mock-featured{
+    max-width:600px;
+    padding:34px 36px;
+    border-radius:22px;
+    box-shadow:0 28px 70px rgba(20,22,27,0.14);
+  }
+  @media(max-width:480px){
+    .rc-dashboard-mock-featured{padding:24px 20px;}
   }
   .rc-dashboard-top{
     display:flex;
@@ -1123,73 +762,107 @@
   .step-card h4{font-size:14.5px;color:var(--text);margin-bottom:6px;}
   .step-card p{font-size:12.5px;color:var(--text-muted);line-height:1.5;margin:0;}
 
-  /* ---------- FILOSOFÍA (posicionamiento) ---------- */
-  .philosophy-line{
-    font-family:var(--display);
-    font-weight:700;
-    font-size:clamp(21px,3.2vw,29px);
-    line-height:1.45;
-    color:var(--text);
-    margin:0 0 40px;
-  }
-  .philosophy-line-sub{
-    font-family:var(--display);
-    font-weight:600;
-    font-size:clamp(17px,2.4vw,22px);
-    color:var(--text-muted);
-    margin-bottom:0;
-  }
-  @media(max-width:480px){
-    .philosophy-line{margin-bottom:28px;}
-  }
-
-  /* ---------- PARA QUIÉN ES ---------- */
-  .fit-grid{
+  /* ---------- RC CAPITAL: PILARES ---------- */
+  .rc-pillars{
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
-    max-width:820px;
-    margin:36px auto 0;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+    max-width:920px;
+    margin:40px auto 0;
     text-align:left;
   }
-  @media(max-width:680px){.fit-grid{grid-template-columns:1fr;}}
-  .fit-card{
+  @media(max-width:760px){.rc-pillars{grid-template-columns:1fr;}}
+  .rc-pillar{
     background:var(--bg-panel);
     border:1px solid var(--border);
     border-radius:14px;
-    padding:26px 24px;
+    padding:28px 24px;
   }
-  .fit-card h4{
-    font-size:14.5px;
-    color:var(--text);
-    margin-bottom:16px;
+  .rc-pillar-icon{
     display:flex;
     align-items:center;
-    gap:8px;
+    justify-content:center;
+    width:44px;height:44px;
+    border-radius:50%;
+    background:rgba(35,99,158,0.08);
+    color:var(--gold);
+    margin-bottom:16px;
   }
-  .fit-card ul{display:flex;flex-direction:column;gap:11px;}
-  .fit-card li{
-    font-size:14px;
-    color:var(--text-muted);
-    padding-left:20px;
+  .rc-pillar h4{font-size:15px;color:var(--text);margin-bottom:8px;}
+  .rc-pillar p{font-size:13.5px;color:var(--text-muted);line-height:1.6;margin:0;}
+
+  /* ---------- FUNDADOR ---------- */
+  .founder-bg{
     position:relative;
-    line-height:1.5;
+    overflow:hidden;
+    padding:88px 0;
   }
-  .fit-card.fit-yes li::before{
-    content:'✓';
-    position:absolute;
-    left:0;
-    color:var(--up);
-    font-weight:700;
+  @media(max-width:600px){
+    .founder-bg{padding:56px 0;}
   }
-  .fit-card.fit-no li::before{
-    content:'—';
+  .founder-bg-photo{
     position:absolute;
-    left:0;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center 20%;
+    z-index:0;
+    opacity:0.34;
+    filter:grayscale(0.5) saturate(0.8);
+  }
+  .founder-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(11,15,22,0.92) 0%, rgba(11,15,22,0.86) 100%);
+    z-index:1;
+  }
+  .founder-content{
+    position:relative;
+    z-index:2;
+    max-width:520px;
+    margin:0 auto;
+    text-align:center;
+  }
+  .founder-content .eyebrow{justify-content:center;color:#5FA8E0;}
+  .founder-content h2{color:#F2F6FA;font-size:28px;margin-bottom:22px;}
+  .founder-name{color:#FFFFFF;font-family:var(--display);font-weight:700;font-size:17px;margin-bottom:2px;}
+  .founder-role{color:#8B98A9;font-size:13px;margin-bottom:22px;}
+  .founder-bio{color:#C3CDD9;font-size:14.5px;line-height:1.7;margin-bottom:14px;}
+  .founder-bio-strong{color:#F2F6FA;font-weight:600;margin-bottom:26px;}
+  .btn-founder{border-color:rgba(255,255,255,0.28);color:#F2F6FA;}
+  .btn-founder:hover{border-color:#5FA8E0;color:#5FA8E0;background:rgba(95,168,224,0.08);}
+
+  /* ---------- PARA QUIÉN ES (RC Capital) ---------- */
+  .fit-grid-4{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+    max-width:920px;
+    margin:36px auto 0;
+    text-align:left;
+  }
+  @media(max-width:900px){.fit-grid-4{grid-template-columns:1fr 1fr;}}
+  @media(max-width:480px){.fit-grid-4{grid-template-columns:1fr;}}
+  .fit-block{
+    background:var(--bg-panel);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:22px 20px;
+  }
+  .fit-block h4{font-size:14px;color:var(--gold);margin-bottom:8px;}
+  .fit-block p{font-size:13.5px;color:var(--text-muted);line-height:1.55;margin:0;}
+
+  /* ---------- DISCLAIMER ---------- */
+  .disclaimer-line{
+    max-width:640px;
+    margin:0 auto;
+    padding:22px 24px 0;
+    text-align:center;
+    font-size:12px;
     color:var(--text-muted);
+    line-height:1.6;
   }
-  .fit-card.fit-yes h4 .fit-icon{color:var(--up);}
-  .fit-card.fit-no{background:transparent;}
 
   /* ---------- PARTNER PROFILE ROW (dentro del dashboard mock) ---------- */
   .partner-profile-row{
@@ -1225,35 +898,6 @@
     text-align:right;
   }
 
-  /* ---------- CALENDLY CTA (agenda una llamada) ---------- */
-  .calendly-box{
-    max-width:640px;
-    margin:0 auto;
-    padding:36px 32px;
-    border-radius:20px;
-    background:linear-gradient(145deg, rgba(35,99,158,0.10) 0%, rgba(35,99,158,0.03) 100%);
-    border:1.5px solid var(--gold-dim);
-    box-shadow:0 1px 0 rgba(255,255,255,0.5) inset, 0 14px 36px rgba(35,99,158,0.16);
-  }
-  .calendly-box-icon{font-size:32px;margin-bottom:12px;}
-  .calendly-box h3{font-size:clamp(20px,3vw,26px);margin:0 0 10px;color:var(--text);}
-  .calendly-box p{color:var(--text-muted);font-size:15px;max-width:460px;margin:0 auto 22px;}
-  .calendly-box-btn{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    background:linear-gradient(180deg, #2C74B4 0%, #23639E 55%, #1D5488 100%);
-    color:#FFFFFF;
-    font-weight:700;
-    font-size:15.5px;
-    padding:15px 30px;
-    border-radius:var(--radius);
-    white-space:nowrap;
-    box-shadow:0 1px 0 rgba(255,255,255,0.22) inset, 0 8px 22px rgba(35,99,158,0.36);
-    animation:communityPulse 2.6s ease-in-out infinite;
-  }
-  .calendly-box-btn:hover{background:linear-gradient(180deg, #337FC2 0%, #2A6EAC 55%, #215E96 100%);}
-  .calendly-box-note{display:block;margin-top:14px;font-size:12.5px;color:var(--text-muted);}
 
   .chart-decor{
     max-width:640px;
@@ -1351,149 +995,9 @@
     50%{opacity:0.32;}
   }
 
-  /* ---------- MINI DASHBOARD DE MERCADOS ---------- */
-  .markets-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:14px;
-  }
-  @media(max-width:480px){.markets-grid{grid-template-columns:1fr;}}
-  .market-mini{
-    background:var(--bg-panel);
-    border:1px solid var(--border);
-    border-radius:12px;
-    padding:14px;
-  }
-  .market-mini-top{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    margin-bottom:8px;
-  }
-  .market-mini-label{
-    font-family:var(--mono);
-    font-size:11px;
-    color:var(--text-muted);
-    text-transform:uppercase;
-    letter-spacing:0.03em;
-  }
-  .market-mini-change{
-    font-family:var(--mono);
-    font-size:11.5px;
-    font-weight:700;
-    color:var(--up);
-  }
-  .market-mini-svg{width:100%;height:auto;display:block;overflow:visible;}
-  .market-mini-area{animation:chartFloat 4.5s ease-in-out infinite;}
-  .market-mini-line{
-    stroke:#23639E;
-    stroke-width:2.2;
-    stroke-linecap:round;
-    stroke-linejoin:round;
-    stroke-dasharray:260;
-    stroke-dashoffset:260;
-    animation:chartDraw 1.8s ease-out forwards, chartFloat 4.5s ease-in-out infinite 1.8s;
-  }
-  .market-mini-dot{
-    fill:#23639E;
-    stroke:var(--bg-panel);
-    stroke-width:2;
-    animation:chartFloat 4.5s ease-in-out infinite 1.8s, chartDotPulse 2s ease-in-out infinite 1.8s;
-  }
-  .market-mini:nth-child(1) .market-mini-line{animation-delay:0.1s, 1.9s;}
-  .market-mini:nth-child(1) .market-mini-dot{animation-delay:1.9s, 1.9s;}
-  .market-mini:nth-child(2) .market-mini-line{animation-delay:0.3s, 2.1s;}
-  .market-mini:nth-child(2) .market-mini-dot{animation-delay:2.1s, 2.1s;}
-  .market-mini:nth-child(3) .market-mini-line{animation-delay:0.5s, 2.3s;}
-  .market-mini:nth-child(3) .market-mini-dot{animation-delay:2.3s, 2.3s;}
-  .market-mini:nth-child(4) .market-mini-line{animation-delay:0.7s, 2.5s;}
-  .market-mini:nth-child(4) .market-mini-dot{animation-delay:2.5s, 2.5s;}
-  @media(prefers-reduced-motion:reduce){
-    .market-mini-line, .market-mini-dot, .market-mini-area{animation:none;stroke-dashoffset:0;}
-  }
-
   @media(prefers-reduced-motion:reduce){
     .chart-line, .chart-live-dot, .chart-area, .chart-candles .candle, .chart-decor-live-dot{animation:none;stroke-dashoffset:0;}
   }
-  .top20-card{
-    background:var(--bg-panel);
-    border:1px solid var(--border);
-    border-radius:12px;
-    padding:26px;
-  }
-  .top20-card h3{font-size:16.5px;margin-bottom:4px;}
-  .top20-list{margin-top:16px;display:flex;flex-direction:column;}
-  .top20-row{
-    display:grid;
-    grid-template-columns:26px 24px 1fr auto auto;
-    align-items:center;
-    gap:12px;
-    padding:10px 4px;
-    border-bottom:1px solid var(--border);
-    font-size:13.5px;
-    cursor:pointer;
-    border-radius:6px;
-    transition:background .12s ease;
-  }
-  .top20-row:hover{background:rgba(35,99,158,0.06);}
-  .top20-row.active{background:rgba(35,99,158,0.1);}
-  .top20-row:last-child{border-bottom:none;}
-  .top20-rank{font-family:var(--mono);color:var(--text-muted);font-size:12px;}
-  .top20-icon{
-    width:24px;height:24px;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-family:var(--mono);
-    font-size:8.5px;
-    font-weight:700;
-  }
-  .top20-name{color:var(--text);font-weight:500;}
-  .top20-name .sym{color:var(--text-muted);font-family:var(--mono);font-size:11px;margin-left:6px;text-transform:uppercase;}
-  .top20-price{font-family:var(--mono);color:var(--text);text-align:right;white-space:nowrap;}
-  .top20-change{font-family:var(--mono);font-size:12px;text-align:right;min-width:58px;white-space:nowrap;}
-  .top20-change.up{color:var(--up);}
-  .top20-change.down{color:var(--down);}
-  .crypto-detail-card{
-    margin-top:20px;
-    position:relative;
-    max-width:420px;
-  }
-  .crypto-detail-close{
-    position:absolute;
-    top:14px;
-    right:14px;
-    background:none;
-    border:none;
-    color:var(--text-muted);
-    font-size:14px;
-    cursor:pointer;
-  }
-  .crypto-detail-close:hover{color:var(--gold);}
-  @media(max-width:560px){
-    .top20-row{grid-template-columns:20px 20px 1fr auto;font-size:12.5px;}
-    .top20-change{display:none;}
-    .crypto-detail-card{max-width:100%;}
-  }
-  /* ---------- HERRAMIENTAS ---------- */
-  #herramientas{border-bottom:1px solid var(--border);}
-  .tools-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:24px;
-    margin-top:32px;
-  }
-  @media(max-width:900px){.tools-grid{grid-template-columns:1fr;}}
-  .tool-card{
-    background:var(--bg-panel);
-    border:1px solid var(--border);
-    border-radius:12px;
-    padding:28px;
-  }
-  .tool-card h3{font-size:17px;margin-bottom:6px;}
-  .tool-card .tool-desc{color:var(--text-muted);font-size:13.5px;margin-bottom:20px;}
-
   /* Quiz */
   .quiz-card{
     background:var(--bg-panel);
@@ -2318,38 +1822,6 @@
     white-space:nowrap;
   }
   .modal-box .btn{width:100%;justify-content:center;margin-top:6px;}
-
-  .modal-tabs{
-    display:flex;
-    gap:8px;
-    margin-bottom:22px;
-    border-bottom:1px solid var(--border);
-  }
-  .modal-tab{
-    flex:1;
-    background:none;
-    border:none;
-    border-bottom:2px solid transparent;
-    color:var(--text-muted);
-    font-family:var(--mono);
-    font-size:12.5px;
-    font-weight:600;
-    padding:10px 6px 12px;
-    cursor:pointer;
-    text-align:center;
-    -webkit-appearance:none;
-    appearance:none;
-  }
-  .modal-tab-sub{
-    display:block;
-    font-family:var(--body);
-    font-weight:400;
-    font-size:11px;
-    color:var(--text-muted);
-    margin-top:3px;
-  }
-  .modal-tab.active{color:var(--gold);border-bottom-color:var(--gold);}
-  .modal-tab.active .modal-tab-sub{color:var(--gold-dim);}
 </style>
 </head>
 <body>
@@ -2361,11 +1833,10 @@
       <span class="logo-text">MENTORY<span>CAP</span></span>
     </div>
     <ul class="nav-links nav-mobile-hide">
-      <li><a href="#partners">Partners</a></li>
       <li><a href="#rc-capital">RC Capital</a></li>
-      <li><a href="#como-funciona">Cómo funciona</a></li>
+      <li><a href="#partners">Partners</a></li>
+      <li><a href="#fundador">Sobre nosotros</a></li>
     </ul>
-    <a href="https://calendly.com/mentorycap" target="_blank" rel="noopener" class="nav-cta">Agendar una llamada</a>
   </nav>
 </header>
 
@@ -2374,286 +1845,69 @@
   <div class="hero-overlay"></div>
   <div class="container hero-content">
     <div class="hero-content-card">
-      <h1 class="rc-tagline" style="font-size:clamp(32px,6vw,50px);margin-bottom:16px;text-transform:uppercase;">Your Capital.<br>Our Strategy.</h1>
-      <p class="hero-subtitle">Participa en una estrategia de trading sin tener que convertirte en trader.</p>
-      <p class="hero-subtitle-sub">Gestionamos la estrategia mientras tú mantienes visibilidad sobre la evolución de tu capital.</p>
+      <h1 class="rc-tagline" style="font-size:clamp(32px,6vw,50px);margin-bottom:16px;">Tu capital.<br>Nuestra estrategia.</h1>
+      <p class="hero-subtitle">Una estrategia de gestión de capital diseñada para quienes quieren participar en los mercados financieros sin tener que gestionarlos por su cuenta.</p>
       <div class="hero-actions">
-        <a href="https://calendly.com/mentorycap" target="_blank" rel="noopener" class="btn btn-primary btn-hero-main">Agendar una llamada</a>
-        <a href="#como-funciona" class="btn btn-outline">Cómo funciona</a>
+        <a href="https://calendly.com/mentorycap" target="_blank" rel="noopener" class="btn btn-primary btn-hero-main">Agendar una conversación</a>
+        <a href="#rc-capital" class="btn btn-outline">Conocer RC Capital</a>
       </div>
     </div>
   </div>
 </section>
 
-<section id="el-problema">
+<section id="por-que">
   <div class="container" style="text-align:center;">
     <div class="section-head" style="margin-left:auto;margin-right:auto;max-width:640px;">
-      <div class="eyebrow" style="justify-content:center;">EL PROBLEMA</div>
-      <h2>La mayoría de las personas no hace crecer su dinero.</h2>
-      <p style="font-size:16px;">No porque no puedan — sino porque no tienen tiempo, ni conocimiento, ni ganas de convertirse en traders. Y no deberían tener que hacerlo.</p>
-    </div>
-  </div>
-</section>
-
-<section id="nueva-forma">
-  <div class="container" style="text-align:center;">
-    <div class="section-head" style="margin-left:auto;margin-right:auto;max-width:680px;">
-      <div class="eyebrow" style="justify-content:center;">LA NUEVA FORMA DE VER TU CAPITAL</div>
-      <h2>No es solo rendimiento. Es progreso.</h2>
-      <p style="font-size:16px;">No necesitas entender gráficos ni pasar horas frente a una pantalla. Existe una estrategia trabajando por ti — tú puedes seguir la evolución de tu capital: tu balance, tus metas, tu Capital Journey.</p>
+      <h2>El capital necesita una estrategia.</h2>
+      <p style="font-size:16px;">Los mercados financieros ofrecen oportunidades, pero aprovecharlas requiere tiempo, disciplina y gestión del riesgo. RC Capital permite participar de una estrategia estructurada mientras nosotros nos encargamos de la gestión y tú mantienes visibilidad sobre la evolución de tu capital.</p>
     </div>
   </div>
 </section>
 
 
-<div class="modal-overlay modal-full" id="modal-mercado" onclick="if(event.target===this) closeModal('modal-mercado')">
-  <div class="modal-box modal-wide">
-    <button class="modal-close" onclick="closeModal('modal-mercado')" aria-label="Cerrar">✕</button>
-    <div class="section-head">
-      <div class="eyebrow">EL MERCADO HOY</div>
-      <h2 style="font-size:20px;">Un vistazo rápido, pensado para cualquiera</h2>
-      <p>No hace falta que seas trader para entender esto. Abajo tienes la hora y qué bolsas del mundo están abiertas ahora mismo, cómo se están moviendo los precios, y las criptomonedas más importantes — todo explicado.</p>
-    </div>
-
-    <div class="market-clock-box">
-      <div class="market-clock-top">
-        <span class="clock-time" id="clock-time">--:--:--</span>
-        <span class="clock-label">Hora de Nueva York</span>
-      </div>
-      <div class="market-strip-sessions" id="sessions-list"></div>
-      <p class="tool-desc" style="margin-top:12px;">En MentoryCap nos enfocamos en el mercado Forex (divisas), que opera 24 horas — pero estos horarios de bolsa igual te sirven: cuando una de estas bolsas está "abierta", también aumenta el volumen de transacciones y la volatilidad en la moneda de ese país. Por ejemplo, cuando Londres o Nueva York abren, el EUR/USD suele moverse con más fuerza. El punto verde te dice cuál está activa ahora mismo, y a qué hora abre y cierra cada una (en hora de Nueva York, para comparar fácil).</p>
-      <p class="tool-desc" style="margin-top:8px;">Fíjate también en las horas donde <strong style="color:var(--text);">dos bolsas coinciden abiertas</strong> (por ejemplo Londres y Nueva York) — ahí suele concentrarse la mayor actividad del día en el mercado de divisas.</p>
-    </div>
-
-    <div class="section-head" style="margin-top:36px;">
-      <h2 style="font-size:18px;">Gráficas en vivo</h2>
-      <p style="font-size:13px;">Cada tarjeta muestra un precio y su cambio reciente: <span class="up" style="font-weight:600;">verde</span> si subió, <span class="down" style="font-weight:600;">rojo</span> si bajó. Usa los botones de arriba para ver el día, la semana, el mes o el histórico completo.</p>
-    </div>
-    <div class="stocks-range" id="stocks-range">
-      <button class="stocks-range-btn active" type="button" onclick="setStocksRange('dia', this)">Día</button>
-      <button class="stocks-range-btn" type="button" onclick="setStocksRange('semana', this)">Semana</button>
-      <button class="stocks-range-btn" type="button" onclick="setStocksRange('mes', this)">Mes</button>
-      <button class="stocks-range-btn" type="button" onclick="setStocksRange('todo', this)">Todo</button>
-    </div>
-    <div class="stocks-grid" id="stocks-grid">
-      <div class="stock-card" id="stock-btc">
-        <div class="stock-top">
-          <div>
-            <div class="stock-symbol">BTC/USD</div>
-            <div class="stock-name">Bitcoin</div>
-          </div>
-          <div class="stock-price-wrap">
-            <div class="stock-price" id="stock-btc-price">…</div>
-            <div class="stock-change" id="stock-btc-change">—</div>
-          </div>
-        </div>
-        <svg class="stock-chart" id="stock-btc-chart" viewBox="0 0 300 70" preserveAspectRatio="none"></svg>
-      </div>
-      <div class="stock-card" id="stock-xau">
-        <div class="stock-top">
-          <div>
-            <div class="stock-symbol">XAU/USD</div>
-            <div class="stock-name">Oro</div>
-          </div>
-          <div class="stock-price-wrap">
-            <div class="stock-price" id="stock-xau-price">…</div>
-            <div class="stock-change" id="stock-xau-change">—</div>
-          </div>
-        </div>
-        <svg class="stock-chart" id="stock-xau-chart" viewBox="0 0 300 70" preserveAspectRatio="none"></svg>
-      </div>
-      <div class="stock-card" id="stock-eurusd">
-        <div class="stock-top">
-          <div>
-            <div class="stock-symbol">EUR/USD</div>
-            <div class="stock-name">Euro / Dólar</div>
-          </div>
-          <div class="stock-price-wrap">
-            <div class="stock-price" id="stock-eurusd-price">…</div>
-            <div class="stock-change" id="stock-eurusd-change">—</div>
-          </div>
-        </div>
-        <svg class="stock-chart" id="stock-eurusd-chart" viewBox="0 0 300 70" preserveAspectRatio="none"></svg>
-      </div>
-      <div class="stock-card" id="stock-dxy">
-        <div class="stock-top">
-          <div>
-            <div class="stock-symbol">DXY</div>
-            <div class="stock-name">Dólar Index</div>
-          </div>
-          <div class="stock-price-wrap">
-            <div class="stock-price" id="stock-dxy-price">…</div>
-            <div class="stock-change" id="stock-dxy-change">—</div>
-          </div>
-        </div>
-        <svg class="stock-chart" id="stock-dxy-chart" viewBox="0 0 300 70" preserveAspectRatio="none"></svg>
-      </div>
-    </div>
-    <p class="calc-note" style="margin-top:14px;">Bitcoin y Oro en vivo (Binance). EUR/USD y DXY con tasa de referencia diaria (BCE) — se actualizan una vez al día.</p>
-
-    <div class="top20-card" style="margin-top:32px;">
-      <h3>🏆 Top 10 criptomonedas</h3>
-      <p class="tool-desc">Las 10 criptomonedas más importantes del momento, con su precio y cuánto subieron o bajaron en las últimas 24 horas. <strong style="color:var(--text);">Toca cualquiera para ver su gráfica</strong> — no te quedes solo con el precio, mira cómo se ha comportado.</p>
-      <div id="top10-list" class="top20-list">
-        <p class="calc-note">Cargando datos...</p>
-      </div>
-
-      <div class="stock-card crypto-detail-card" id="crypto-detail-card" style="display:none;">
-        <button class="crypto-detail-close" onclick="hideCryptoDetail()" aria-label="Cerrar">✕</button>
-        <div class="stock-top">
-          <div>
-            <div class="stock-symbol" id="crypto-detail-symbol">—</div>
-            <div class="stock-name" id="crypto-detail-name">—</div>
-          </div>
-          <div class="stock-price-wrap">
-            <div class="stock-price" id="crypto-detail-price">…</div>
-            <div class="stock-change" id="crypto-detail-change">—</div>
-          </div>
-        </div>
-        <svg class="stock-chart" id="crypto-detail-chart" viewBox="0 0 300 70" preserveAspectRatio="none"></svg>
-        <div class="stocks-range" id="crypto-detail-range" style="margin-top:14px;">
-          <button class="stocks-range-btn active" type="button" onclick="setCryptoDetailRange('dia', this)">Día</button>
-          <button class="stocks-range-btn" type="button" onclick="setCryptoDetailRange('semana', this)">Semana</button>
-          <button class="stocks-range-btn" type="button" onclick="setCryptoDetailRange('mes', this)">Mes</button>
-          <button class="stocks-range-btn" type="button" onclick="setCryptoDetailRange('todo', this)">Todo</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="modal-overlay modal-full" id="modal-enlaces" onclick="if(event.target===this) closeModal('modal-enlaces')">
-  <div class="modal-box modal-wide">
-    <button class="modal-close" onclick="closeModal('modal-enlaces')" aria-label="Cerrar">✕</button>
-    <div class="section-head">
-      <div class="eyebrow">MIS HERRAMIENTAS</div>
-      <h2>Enlaces que uso todos los días</h2>
-      <p>Las plataformas con las que trabajo.</p>
-    </div>
-
-    <div class="section-head" style="margin-top:40px;">
-      <div class="eyebrow">ENLACES</div>
-      <h2 style="font-size:20px;">Lo que uso todos los días</h2>
-    </div>
-    <div class="links-groups">
-      <div class="links-group">
-        <div class="links-group-label">Análisis y datos</div>
-        <a class="link-row" href="https://es.tradingview.com/pricing/?share_your_love=orojas0180" target="_blank" rel="noopener">
-          <span class="link-row-text"><span class="link-row-name">TradingView</span><span class="link-row-desc">Gráficos y análisis técnico</span></span>
-          <span class="link-row-arrow">→</span>
-        </a>
-        <a class="link-row" href="https://www.geckoterminal.com/es" target="_blank" rel="noopener">
-          <span class="link-row-text"><span class="link-row-name">CoinGecko</span><span class="link-row-desc">Precios y datos de cripto</span></span>
-          <span class="link-row-arrow">→</span>
-        </a>
-        <a class="link-row" href="https://www.forexfactory.com/" target="_blank" rel="noopener">
-          <span class="link-row-text"><span class="link-row-name">Forex Factory</span><span class="link-row-desc">Noticias del mercado</span></span>
-          <span class="link-row-arrow">→</span>
-        </a>
-      </div>
-
-      <div class="links-group">
-        <div class="links-group-label">Brókers</div>
-        <a class="link-row" href="https://www.litefinance.org/?uid=787594077" target="_blank" rel="noopener">
-          <span class="link-row-text"><span class="link-row-name">LiteFinance</span><span class="link-row-desc">Mi bróker principal</span></span>
-          <span class="link-row-arrow">→</span>
-        </a>
-        <a class="link-row" href="https://vigco.co/la-com/qGBBx3Cz" target="_blank" rel="noopener">
-          <span class="link-row-text"><span class="link-row-name">Vantage</span><span class="link-row-desc">Otro bróker que utilizo</span></span>
-          <span class="link-row-arrow">→</span>
-        </a>
-      </div>
-
-      <div class="links-group">
-        <div class="links-group-label">Cripto</div>
-        <a class="link-row" href="https://www.gate.com/es/referral/registry?ref=BFREUFhc&ref_type=103&page=superRebate" target="_blank" rel="noopener">
-          <span class="link-row-text"><span class="link-row-name">Gate.io</span><span class="link-row-desc">Mi exchange de cripto</span></span>
-          <span class="link-row-arrow">→</span>
-        </a>
-        <a class="link-row" href="https://lulubit.onelink.me/IwPm/wpp" target="_blank" rel="noopener">
-          <span class="link-row-text"><span class="link-row-name">Lulubit</span><span class="link-row-desc">Wallet de criptomonedas</span></span>
-          <span class="link-row-arrow">→</span>
-        </a>
-        <a class="link-row" href="https://www.ether.fi/refer/af522754" target="_blank" rel="noopener">
-          <span class="link-row-text"><span class="link-row-name">ether.fi</span><span class="link-row-desc">Mi tarjeta cripto</span></span>
-          <span class="link-row-arrow">→</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal-overlay modal-full" id="modal-historia" onclick="if(event.target===this) closeModal('modal-historia')">
-  <div class="modal-box modal-wide">
-    <button class="modal-close" onclick="closeModal('modal-historia')" aria-label="Cerrar">✕</button>
-    <div class="section-head">
-      <div class="eyebrow">MI HISTORIA</div>
-      <h2>No ha sido un camino perfecto. Sigue siendo un camino de construcción.</h2>
-    </div>
-
-    <p class="story-lead">Llegué porque <span>nunca dejé de construir</span>.</p>
-
-    <div class="timeline">
-      <div class="t-item">
-        <span class="t-date">Los inicios</span>
-        <h3>Un ingeniero con otros sueños</h3>
-        <p>Desde joven quise una vida diferente. Soy ingeniero en Telecomunicaciones, pero mi verdadero interés siempre fue emprender y seguir aprendiendo. No fue un camino fácil: negocios que no funcionaron, errores, y más de un "empezar de nuevo".</p>
-      </div>
-      <div class="t-item">
-        <span class="t-date">Mi camino por Europa</span>
-        <h3>Lo que aprendí viendo cómo vivían otros</h3>
-        <p>He vivido en Europa y visitado muchos países, lo que me dio una mirada mucho más amplia sobre cómo funciona la economía, las personas y el mundo en general. Ver de cerca tantas formas distintas de vivir, trabajar y pensar el dinero me enseñó que la perspectiva con la que miras algo cambia por completo lo que eres capaz de ver en ello. Esa visión global es, hoy, una de las cosas que más valoro de mi camino: muchas veces, donde otros solo ven riesgo, yo he aprendido a buscar primero qué oportunidad puede haber detrás.</p>
-      </div>
-    </div>
-
-    <div class="story-highlight beliefs">
-      <span class="tag">En lo que creo</span>
-      <p>No creo en los atajos ni en las promesas de dinero fácil. Creo en la educación, en desarrollar criterio propio y en construir una relación sana con el dinero.</p>
-    </div>
-
-    <p class="story-closing">Con el tiempo entendí que el progreso real no viene de un golpe de suerte, sino de tomar buenas decisiones de forma constante durante mucho tiempo. Esa es la filosofía detrás de todo lo que hago hoy: <span>acompañar a otras personas a entender mejor la economía y sus finanzas personales</span>, con paciencia y criterio propio.</p>
-  </div>
-</div>
-
-<section id="partners">
-  <div class="container" style="text-align:center;">
-    <div class="section-head" style="margin-left:auto;margin-right:auto;max-width:680px;">
-      <div class="eyebrow" style="justify-content:center;">MENTORYCAP PARTNERS</div>
-      <h2>Más que invertir. Convertirte en Partner.</h2>
-      <p style="font-size:16px;">MentoryCap Partners no es un producto que compras. Es una relación de largo plazo entre tu capital y una estrategia real. Tienes tu propio Capital Journey, tus metas y la evolución de tu capital — siempre visibles, siempre tuyos.</p>
-    </div>
-
-    <div class="option-item" style="max-width:680px;margin:8px auto 0;" open>
-      <div class="option-body" style="border-top:none;padding-top:0;">
-        <h4>Ideal para personas que…</h4>
-        <ul>
-          <li>Sienten que su dinero podría estar haciendo más.</li>
-          <li>Quieren invertir, pero no saben por dónde empezar.</li>
-          <li>No tienen tiempo para seguir los mercados cada día.</li>
-          <li>Buscan a alguien de confianza que los acompañe en el proceso.</li>
-          <li>Piensan en el futuro y quieren construir una economía alternativa.</li>
-          <li>Creen en el potencial de invertir.</li>
-          <li>Están dispuestas a tomar riesgos.</li>
-        </ul>
-        <a href="https://calendly.com/mentorycap" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:8px;">Agendar una llamada</a>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section id="rc-capital">
   <div class="container" style="text-align:center;">
     <div class="section-head" style="margin-left:auto;margin-right:auto;max-width:680px;">
       <div class="eyebrow" style="justify-content:center;">RC CAPITAL</div>
-      <h2 class="rc-tagline" style="font-size:clamp(26px,4vw,36px);">Our strategy. Your journey.</h2>
-      <p style="font-size:16px;">Detrás de tu Capital Journey hay una estrategia de gestión disciplinada, con control de riesgo real. RC Capital es el motor — tú no operas, tú puedes seguir la evolución de tu capital.</p>
+      <h2>RC Capital</h2>
+      <p style="font-size:16px;">Gestión estratégica para tu capital.</p>
     </div>
 
-    <div class="modal-highlight" style="max-width:640px;margin:8px auto 0;text-align:left;">
-      <strong style="color:var(--gold);">Transparencia, siempre</strong>
-      <p style="margin:10px 0 0;color:var(--text-muted);font-size:14px;">Toda estrategia de gestión de capital implica riesgo. No prometemos rentabilidad ni resultados garantizados — los resultados pasados no garantizan resultados futuros. Lo que sí garantizamos es transparencia: sabrás siempre cómo va tu capital, sin sorpresas.</p>
+    <div class="rc-pillars">
+      <div class="rc-pillar">
+        <span class="rc-pillar-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="0.75" fill="currentColor"/></svg>
+        </span>
+        <h4>Estrategia</h4>
+        <p>Tomamos decisiones de gestión basadas en nuestro análisis de los mercados financieros.</p>
+      </div>
+      <div class="rc-pillar">
+        <span class="rc-pillar-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 3.5l7 2.6v5.4c0 4.4-3 7.9-7 9-4-1.1-7-4.6-7-9V6.1l7-2.6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        </span>
+        <h4>Gestión de riesgo</h4>
+        <p>La gestión responsable del riesgo forma parte central de nuestra metodología.</p>
+      </div>
+      <div class="rc-pillar">
+        <span class="rc-pillar-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M2 12c2-4 6-6.5 10-6.5S20 8 22 12c-2 4-6 6.5-10 6.5S4 16 2 12z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="12" cy="12" r="2.6" stroke="currentColor" stroke-width="1.5"/></svg>
+        </span>
+        <h4>Transparencia</h4>
+        <p>Mantienes visibilidad sobre la evolución de tu capital y el desempeño de la estrategia.</p>
+      </div>
     </div>
+  </div>
+</section>
+
+<section id="partners">
+  <div class="container" style="text-align:center;">
+    <div class="section-head" style="margin-left:auto;margin-right:auto;max-width:640px;">
+      <div class="eyebrow" style="justify-content:center;">PARTNERS</div>
+      <h2>Una relación a largo plazo.</h2>
+      <p style="font-size:16px;">Ser Partner de MentoryCap es formar parte de una relación continua entre tu capital y la estrategia de RC Capital, con acceso directo a tu información y a nuestro equipo.</p>
+    </div>
+    <a href="https://calendly.com/mentorycap" target="_blank" rel="noopener" class="btn btn-primary">Agendar una conversación</a>
   </div>
 </section>
 
@@ -2682,26 +1936,26 @@
       <div class="step-card">
         <span class="step-num">04</span>
         <h4>Tomas tus decisiones</h4>
-        <p>Puedes decidir cómo continuar según las condiciones acordadas.</p>
+        <p>Puedes hacer depósitos adicionales para crecer tu capital, o retiros cuando quieras para cumplir tus metas.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="capital-journey">
+<section id="dashboard">
   <div class="container" style="text-align:center;">
     <div class="section-head" style="margin-left:auto;margin-right:auto;max-width:680px;">
-      <div class="eyebrow" style="justify-content:center;">TRANSPARENCIA</div>
-      <h2>No tienes que creer en nosotros. Puedes verlo.</h2>
-      <p style="font-size:16px;">Creemos que la relación con nuestros clientes debe construirse sobre visibilidad, seguimiento y comunicación. Así se ve el Capital Journey de un Partner — su capital, su evolución y su historial, siempre a la vista.</p>
+      <div class="eyebrow" style="justify-content:center;">TU CAPITAL</div>
+      <h2>Tu capital, siempre visible.</h2>
+      <p style="font-size:16px;">Consulta la evolución de tu capital, historial de resultados y actividad de tu cuenta desde un espacio diseñado para mantenerte informado.</p>
     </div>
 
-    <div class="rc-dashboard-mock">
+    <div class="rc-dashboard-mock rc-dashboard-mock-featured">
       <div class="partner-profile-row">
-        <div class="partner-avatar">🔒</div>
+        <div class="partner-avatar">P</div>
         <div class="partner-profile-info">
           <strong>Partner Anónimo</strong>
-          <span>Capital Builder · Partner since May 2026</span>
+          <span>Cliente desde mayo de 2026</span>
         </div>
       </div>
 
@@ -2725,7 +1979,7 @@
       </svg>
       <div class="rc-dashboard-goal">
         <div class="rc-dashboard-goal-top">
-          <span>🎯 Meta: $1,000</span>
+          <span>Meta: $1,000</span>
           <span>70%</span>
         </div>
         <div class="rc-dashboard-goal-bar"><div class="rc-dashboard-goal-fill" style="animation-name:rcGoalFill70;"></div></div>
@@ -2740,10 +1994,18 @@
   </div>
 </section>
 
-<section id="filosofia">
-  <div class="container" style="text-align:center;">
-    <p class="philosophy-line">No buscamos que seas trader.<br>Buscamos que entiendas qué ocurre con tu capital.</p>
-    <p class="philosophy-line-sub">Tu capital no necesita tu tiempo.<br>Necesita una estrategia.</p>
+<section id="fundador" class="founder-bg">
+  <img src="images/oscar-desk.png" alt="Oscar Rojas, fundador de MentoryCap" class="founder-bg-photo">
+  <div class="founder-overlay"></div>
+  <div class="container">
+    <div class="founder-content">
+      <div class="eyebrow">MENTORYCAP</div>
+      <h2>Detrás de RC Capital</h2>
+      <p class="founder-name">Oscar Rojas</p>
+      <p class="founder-role">Fundador de MentoryCap</p>
+      <p class="founder-bio">Mi recorrido comenzó en la ingeniería y pasó por emprendimiento, mercados financieros y construcción de negocios. MentoryCap nace de una idea sencilla: el capital debe gestionarse con criterio, disciplina y una visión de largo plazo.</p>
+      <p class="founder-bio founder-bio-strong">Hoy esa filosofía se materializa en RC Capital.</p>
+    </div>
   </div>
 </section>
 
@@ -2751,51 +2013,25 @@
   <div class="container" style="text-align:center;">
     <div class="section-head" style="margin-left:auto;margin-right:auto;max-width:600px;">
       <div class="eyebrow" style="justify-content:center;">¿PARA QUIÉN ES?</div>
-      <h2>¿Para quién es MentoryCap?</h2>
+      <h2>¿Para quién es RC Capital?</h2>
     </div>
-    <div class="fit-grid">
-      <div class="fit-card fit-yes">
-        <h4><span class="fit-icon">✓</span> Puede tener sentido para ti si…</h4>
-        <ul>
-          <li>Tienes capital que no necesitas inmediatamente.</li>
-          <li>No quieres convertirte en trader.</li>
-          <li>Valoras una estrategia estructurada.</li>
-          <li>Quieres seguimiento y transparencia.</li>
-        </ul>
+    <div class="fit-grid-4">
+      <div class="fit-block">
+        <h4>Capital</h4>
+        <p>Para personas que cuentan con capital y buscan una estrategia para gestionarlo.</p>
       </div>
-      <div class="fit-card fit-no">
-        <h4>Probablemente no sea para ti si…</h4>
-        <ul>
-          <li>Buscas resultados rápidos.</li>
-          <li>Quieres hacer trading todos los días.</li>
-          <li>Esperas resultados garantizados.</li>
-          <li>Quieres tomar decisiones impulsivas sobre el capital.</li>
-        </ul>
+      <div class="fit-block">
+        <h4>Tiempo</h4>
+        <p>Para quienes no quieren dedicar su día a seguir los mercados.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<section id="agenda-llamada">
-  <div class="container" style="text-align:center;">
-    <div class="calendly-box">
-      <div class="calendly-box-icon">📅</div>
-      <h3>¿Quieres más información sobre nuestros servicios?</h3>
-      <p>Agenda una llamada conmigo, sin costo, y resolvemos juntos todas tus dudas sobre cómo funciona MentoryCap Partners.</p>
-      <a href="https://calendly.com/mentorycap" target="_blank" rel="noopener" class="calendly-box-btn">Agendar una llamada →</a>
-      <span class="calendly-box-note">15 minutos · Sin compromiso</span>
-    </div>
-  </div>
-</section>
-
-
-<section id="sobre-oscar">
-  <div class="container">
-    <div class="historia-cta-box">
-      <div class="eyebrow" style="justify-content:center;">SOBRE OSCAR</div>
-      <h2>Entender el dinero cambia la forma en que construyes tu futuro.</h2>
-      <p>Soy Oscar, fundador de MentoryCap. No creo en los atajos ni en el dinero fácil — creo en construir a largo plazo, con criterio propio y decisiones constantes en el tiempo.</p>
-      <p>Esa es la misma filosofía detrás de RC Capital: disciplina, gestión de riesgo real, y transparencia con cada Partner que confía su capital en la estrategia.</p>
+      <div class="fit-block">
+        <h4>Transparencia</h4>
+        <p>Para quienes quieren mantener visibilidad sobre la evolución de su capital.</p>
+      </div>
+      <div class="fit-block">
+        <h4>Visión</h4>
+        <p>Para quienes entienden que toda estrategia financiera implica riesgo y piensan a largo plazo.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -2803,12 +2039,14 @@
 <section id="cta-final">
   <div class="container" style="text-align:center;">
     <div class="section-head" style="margin-left:auto;margin-right:auto;max-width:600px;">
-      <h2 class="rc-tagline" style="font-size:clamp(26px,4vw,36px);">Conoce cómo funciona.</h2>
-      <p style="font-size:16px;">Agenda una conversación y conoce nuestro modelo, nuestra estrategia y cómo damos seguimiento al capital.</p>
+      <h2 class="rc-tagline" style="font-size:clamp(26px,4vw,36px);">Conoce RC Capital</h2>
+      <p style="font-size:16px;">Hablemos sobre tu capital, tus objetivos y cómo funciona nuestra estrategia.</p>
     </div>
-    <a href="https://calendly.com/mentorycap" target="_blank" rel="noopener" class="btn btn-primary" style="padding:16px 34px;font-size:15px;">Agendar una llamada</a>
+    <a href="https://calendly.com/mentorycap" target="_blank" rel="noopener" class="btn btn-primary" style="padding:16px 34px;font-size:15px;">Agendar una conversación</a>
   </div>
 </section>
+
+<p class="disclaimer-line">Toda estrategia relacionada con mercados financieros implica riesgo. Los resultados pasados no garantizan resultados futuros.</p>
 
 <footer>
   <div class="container">
@@ -2823,9 +2061,6 @@
         </a>
         <a href="https://x.com/oscar_rojasc_?s=11&t=BxWIWbcISMwzg2Uzb_PjQA" target="_blank" rel="noopener" aria-label="X">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 3h4.2l4 5.5L16.8 3H20l-6.4 8.1L20.4 21H16.2l-4.4-6-5.3 6H3l6.8-8.6L4 3z" fill="currentColor"/></svg>
-        </a>
-        <a href="https://youtube.com/playlist?list=PLuJnrEPKGTVNtsjMhUeTVyw4r1icLWTZ6&si=_PKqaznTga0oL201" target="_blank" rel="noopener" aria-label="YouTube">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="20" height="14" rx="4" stroke="currentColor" stroke-width="2"/><path d="M10.5 9.5l5 2.5-5 2.5v-5z" fill="currentColor"/></svg>
         </a>
       </div>
     </div>
@@ -2844,14 +2079,8 @@
 
 <!-- ---------- MENÚ FLOTANTE + CHAT RÁPIDO ---------- -->
 <div class="fab-wrap">
-  <div class="fab-menu" id="fab-menu">
-    <button type="button" class="fab-item" onclick="closeFabMenu(); openModal('modal-mercado')">📊 El mercado hoy</button>
-    <a href="https://youtube.com/playlist?list=PLuJnrEPKGTVNtsjMhUeTVyw4r1icLWTZ6&si=_PKqaznTga0oL201" target="_blank" rel="noopener" class="fab-item" onclick="closeFabMenu()">▶️ Mi YouTube</a>
-    <button type="button" class="fab-item" onclick="closeFabMenu(); openModal('modal-enlaces')">🔗 Mis recursos</button>
-    <button type="button" class="fab-item fab-item-chat" onclick="openChat()">💬 Escríbeme</button>
-  </div>
-  <button type="button" class="fab-btn" id="fab-btn" onclick="toggleFabMenu()">
-    <span id="fab-icon">☰</span>
+  <button type="button" class="fab-btn" id="fab-btn" onclick="openChat()" aria-label="Escríbenos">
+    <span id="fab-icon">💬</span>
   </button>
 </div>
 
@@ -2886,204 +2115,8 @@
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // ---------- Mercado hoy: tarjetas estilo Bolsa de Apple ----------
-  let stocksRange = 'dia'; // 'dia' | 'semana' | 'mes' | 'todo'
-
-  function setStocksRange(range, btn){
-    stocksRange = range;
-    document.querySelectorAll('.stocks-range-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    ['btc','xau','eurusd','dxy'].forEach(k => {
-      const el = document.getElementById(`stock-${k}-price`);
-      if (el) el.textContent = '…';
-    });
-    loadMarketCards();
-  }
-
-  function drawSparkline(svgId, points, isUp){
-    const svg = document.getElementById(svgId);
-    if (!svg || !points || points.length < 2) return;
-    const w = 300, h = 70, pad = 4;
-    const min = Math.min(...points), max = Math.max(...points);
-    const range = (max - min) || 1;
-    const stepX = (w - pad * 2) / (points.length - 1);
-    const coords = points.map((p, i) => {
-      const x = pad + i * stepX;
-      const y = pad + (h - pad * 2) * (1 - (p - min) / range);
-      return [x, y];
-    });
-    const linePath = coords.map((c, i) => (i === 0 ? 'M' : 'L') + c[0].toFixed(1) + ',' + c[1].toFixed(1)).join(' ');
-    const areaPath = linePath + ` L${coords[coords.length - 1][0].toFixed(1)},${h} L${coords[0][0].toFixed(1)},${h} Z`;
-    const color = isUp ? '#0B8A6B' : '#C8483C';
-    const gradId = svgId + '-grad';
-    svg.innerHTML = `
-      <defs>
-        <linearGradient id="${gradId}" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="${color}" stop-opacity="0.25"/>
-          <stop offset="100%" stop-color="${color}" stop-opacity="0"/>
-        </linearGradient>
-      </defs>
-      <path d="${areaPath}" fill="url(#${gradId})" stroke="none"/>
-      <path d="${linePath}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
-    `;
-  }
-
-  function renderStock(key, price, changePct, points, prefix){
-    const priceEl = document.getElementById(`stock-${key}-price`);
-    const changeEl = document.getElementById(`stock-${key}-change`);
-    if (!priceEl) return;
-    priceEl.textContent = prefix + price;
-    const isUp = changePct >= 0;
-    changeEl.textContent = (isUp ? '+' : '') + changePct.toFixed(2) + '%';
-    changeEl.className = 'stock-change ' + (isUp ? 'up' : 'down');
-    drawSparkline(`stock-${key}-chart`, points, isUp);
-  }
-
-  async function loadBinanceAsset(symbol, key, decimals){
-    try{
-      const interval = stocksRange === 'dia' ? '1h' : stocksRange === 'semana' ? '4h' : stocksRange === 'mes' ? '1d' : '1d';
-      const limit = stocksRange === 'dia' ? 24 : stocksRange === 'semana' ? 42 : stocksRange === 'mes' ? 30 : 365;
-      const res = await fetch(`https://api.binance.com/api/v3/klines?symbol=${symbol}&interval=${interval}&limit=${limit}`);
-      const data = await res.json();
-      const prices = data.map(candle => parseFloat(candle[4]));
-      const first = prices[0], last = prices[prices.length - 1];
-      const changePct = ((last - first) / first) * 100;
-      const priceStr = decimals === 0
-        ? last.toLocaleString('en-US', {maximumFractionDigits: 0})
-        : last.toLocaleString('en-US', {maximumFractionDigits: decimals});
-      renderStock(key, priceStr, changePct, prices, '$');
-    } catch(e){
-      const el = document.getElementById(`stock-${key}-price`);
-      if (el) el.textContent = 'N/D';
-    }
-  }
-
-  async function loadForexAndDXY(){
-    try{
-      const days = stocksRange === 'dia' ? 5 : stocksRange === 'semana' ? 9 : stocksRange === 'mes' ? 32 : 365;
-      const end = new Date();
-      const start = new Date();
-      start.setDate(end.getDate() - days);
-      const fmt = d => d.toISOString().slice(0, 10);
-      const url = `https://api.frankfurter.dev/v1/${fmt(start)}..${fmt(end)}?base=USD&symbols=EUR,JPY,GBP,CAD,SEK,CHF`;
-      const res = await fetch(url);
-      const data = await res.json();
-      const dates = Object.keys(data.rates).sort();
-
-      const eurusdPoints = [];
-      const dxyPoints = [];
-      dates.forEach(d => {
-        const r = data.rates[d];
-        const eurusd = 1 / r.EUR;
-        const gbpusd = 1 / r.GBP;
-        const dxy = 50.14348112 *
-          Math.pow(eurusd, -0.576) *
-          Math.pow(r.JPY, 0.136) *
-          Math.pow(gbpusd, -0.119) *
-          Math.pow(r.CAD, 0.091) *
-          Math.pow(r.SEK, 0.042) *
-          Math.pow(r.CHF, 0.036);
-        eurusdPoints.push(eurusd);
-        dxyPoints.push(dxy);
-      });
-
-      const eFirst = eurusdPoints[0], eLast = eurusdPoints[eurusdPoints.length - 1];
-      renderStock('eurusd', eLast.toFixed(4), ((eLast - eFirst) / eFirst) * 100, eurusdPoints, '');
-
-      const dFirst = dxyPoints[0], dLast = dxyPoints[dxyPoints.length - 1];
-      renderStock('dxy', dLast.toFixed(2), ((dLast - dFirst) / dFirst) * 100, dxyPoints, '');
-    } catch(e){
-      const el1 = document.getElementById('stock-eurusd-price');
-      const el2 = document.getElementById('stock-dxy-price');
-      if (el1) el1.textContent = 'N/D';
-      if (el2) el2.textContent = 'N/D';
-    }
-  }
-
-  function loadMarketCards(){
-    loadBinanceAsset('BTCUSDT', 'btc', 0);
-    loadBinanceAsset('PAXGUSDT', 'xau', 2);
-    loadForexAndDXY();
-  }
-  loadMarketCards();
-
-  // Reloj de Nueva York + sesiones bursátiles activas (dentro del modal de mercado)
-  const marketSessions = [
-    { name: 'Nueva York', flag: '🇺🇸', tz: 'America/New_York', open: [9, 30],  close: [16, 0]  },
-    { name: 'Londres',    flag: '🇬🇧', tz: 'Europe/London',    open: [8, 0],   close: [16, 30] },
-    { name: 'Tokio',      flag: '🇯🇵', tz: 'Asia/Tokyo',       open: [9, 0],   close: [15, 0]  }
-  ];
-
-  function zonedParts(tz, date){
-    const parts = new Intl.DateTimeFormat('en-US', {
-      timeZone: tz, hourCycle: 'h23',
-      year: 'numeric', month: '2-digit', day: '2-digit',
-      hour: '2-digit', minute: '2-digit', second: '2-digit', weekday: 'short'
-    }).formatToParts(date);
-    const map = {};
-    parts.forEach(p => map[p.type] = p.value);
-    return map;
-  }
-
-  function zonedOffsetMinutes(tz, date){
-    const m = zonedParts(tz, date);
-    const asUTC = Date.UTC(+m.year, +m.month - 1, +m.day, +m.hour, +m.minute, +m.second);
-    return Math.round((asUTC - date.getTime()) / 60000);
-  }
-
-  function zonedTimeToUTC(tz, hh, mm, referenceDate){
-    const m = zonedParts(tz, referenceDate);
-    const offset = zonedOffsetMinutes(tz, referenceDate);
-    const ms = Date.UTC(+m.year, +m.month - 1, +m.day, hh, mm, 0) - offset * 60000;
-    return new Date(ms);
-  }
-
-  function fmtNY(date){
-    return date.toLocaleTimeString('es-PA', {
-      timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', hour12: false
-    });
-  }
-
-  function updateClock(){
-    const clockEl = document.getElementById('clock-time');
-    if (!clockEl) return;
-    const now = new Date();
-    clockEl.textContent = new Date().toLocaleTimeString('es-PA', {
-      timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
-    });
-
-    const chips = marketSessions.map(s => {
-      const weekday = zonedParts(s.tz, now).weekday;
-      const isWeekday = weekday !== 'Sat' && weekday !== 'Sun';
-      const openUTC = zonedTimeToUTC(s.tz, s.open[0], s.open[1], now);
-      const closeUTC = zonedTimeToUTC(s.tz, s.close[0], s.close[1], now);
-      const isOpen = isWeekday && now >= openUTC && now < closeUTC;
-      return `<span class="session-chip ${isOpen ? 'open' : ''}">
-        <span class="session-dot ${isOpen ? 'open' : 'closed'}"></span>
-        ${s.flag} ${s.name} · ${fmtNY(openUTC)}–${fmtNY(closeUTC)}
-      </span>`;
-    }).join('');
-    const sessEl = document.getElementById('sessions-list');
-    if (sessEl) sessEl.innerHTML = chips;
-  }
-  updateClock();
-  setInterval(updateClock, 1000);
-
-  // Menú flotante (FAB)
-  function toggleFabMenu(){
-    const menu = document.getElementById('fab-menu');
-    const icon = document.getElementById('fab-icon');
-    const isOpen = menu.classList.toggle('open');
-    icon.textContent = isOpen ? '✕' : '☰';
-  }
-  function closeFabMenu(){
-    document.getElementById('fab-menu').classList.remove('open');
-    document.getElementById('fab-icon').textContent = '☰';
-  }
-
   // Ventanita de chat rápido
   function openChat(servicio){
-    closeFabMenu();
     document.querySelectorAll('.modal-overlay.open').forEach(m => closeModal(m.id));
     const msgField = document.querySelector('#chat-form textarea[name="Mensaje"]');
     if (servicio && msgField && !msgField.value) {
@@ -3132,101 +2165,6 @@
       chatBtn.textContent = 'Enviar mensaje';
     }
   });
-  const top10Coins = [
-    { symbol: 'BTCUSDT', name: 'Bitcoin', tag: 'BTC', color: '#F7931A' },
-    { symbol: 'ETHUSDT', name: 'Ethereum', tag: 'ETH', color: '#8A92B2' },
-    { symbol: 'XRPUSDT', name: 'XRP', tag: 'XRP', color: '#5B8DEF' },
-    { symbol: 'BNBUSDT', name: 'BNB', tag: 'BNB', color: '#F0B90B' },
-    { symbol: 'SOLUSDT', name: 'Solana', tag: 'SOL', color: '#9B6BFF' },
-    { symbol: 'DOGEUSDT', name: 'Dogecoin', tag: 'DOGE', color: '#C2A633' },
-    { symbol: 'ADAUSDT', name: 'Cardano', tag: 'ADA', color: '#5B8DEF' },
-    { symbol: 'TRXUSDT', name: 'TRON', tag: 'TRX', color: '#C8483C' },
-    { symbol: 'LINKUSDT', name: 'Chainlink', tag: 'LINK', color: '#375BD2' },
-    { symbol: 'DOTUSDT', name: 'Polkadot', tag: 'DOT', color: '#E6007A' }
-  ];
-  const symbolsParam = encodeURIComponent(JSON.stringify(top10Coins.map(c => c.symbol)));
-  fetch(`https://api.binance.com/api/v3/ticker/24hr?symbols=${symbolsParam}`)
-    .then(res => res.json())
-    .then(tickers => {
-      const list = document.getElementById('top10-list');
-      if (!Array.isArray(tickers)) throw new Error('respuesta inesperada');
-      const bySymbol = {};
-      tickers.forEach(t => bySymbol[t.symbol] = t);
-      list.innerHTML = top10Coins.map((c, i) => {
-        const t = bySymbol[c.symbol];
-        const change = t ? parseFloat(t.priceChangePercent) : 0;
-        const price = t ? parseFloat(t.lastPrice) : 0;
-        const changeClass = change >= 0 ? 'up' : 'down';
-        const changeSign = change >= 0 ? '+' : '';
-        const priceStr = price >= 1
-          ? '$' + price.toLocaleString('en-US', {maximumFractionDigits: 2})
-          : '$' + price.toPrecision(4);
-        return `<div class="top20-row" id="row-${c.symbol}" onclick="showCryptoDetail('${c.symbol}', '${c.name}', '${c.tag}')">
-          <span class="top20-rank">${i + 1}</span>
-          <span class="top20-icon" style="background:${c.color}22;color:${c.color};">${c.tag.slice(0, 2)}</span>
-          <span class="top20-name">${c.name}<span class="sym">${c.tag}</span></span>
-          <span class="top20-price">${priceStr}</span>
-          <span class="top20-change ${changeClass}">${changeSign}${change.toFixed(2)}%</span>
-        </div>`;
-      }).join('');
-    })
-    .catch(() => {
-      document.getElementById('top10-list').innerHTML = '<p class="calc-note">No se pudo cargar el top 10 en este momento. Intenta recargar la página.</p>';
-    });
-
-  // Gráfica de detalle al hacer clic en una criptomoneda del top 10
-  let cryptoDetailSymbol = null;
-  let cryptoDetailRange = 'dia';
-
-  function showCryptoDetail(symbol, name, tag){
-    cryptoDetailSymbol = symbol;
-    document.querySelectorAll('.top20-row').forEach(r => r.classList.remove('active'));
-    const row = document.getElementById(`row-${symbol}`);
-    if (row) row.classList.add('active');
-    document.getElementById('crypto-detail-symbol').textContent = tag + '/USDT';
-    document.getElementById('crypto-detail-name').textContent = name;
-    const card = document.getElementById('crypto-detail-card');
-    card.style.display = 'block';
-    card.scrollIntoView({behavior: 'smooth', block: 'nearest'});
-    loadCryptoDetail();
-  }
-
-  function hideCryptoDetail(){
-    document.getElementById('crypto-detail-card').style.display = 'none';
-    document.querySelectorAll('.top20-row').forEach(r => r.classList.remove('active'));
-    cryptoDetailSymbol = null;
-  }
-
-  function setCryptoDetailRange(range, btn){
-    cryptoDetailRange = range;
-    document.querySelectorAll('#crypto-detail-range .stocks-range-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    loadCryptoDetail();
-  }
-
-  async function loadCryptoDetail(){
-    if (!cryptoDetailSymbol) return;
-    const priceEl = document.getElementById('crypto-detail-price');
-    priceEl.textContent = '…';
-    try{
-      const interval = cryptoDetailRange === 'dia' ? '1h' : cryptoDetailRange === 'semana' ? '4h' : '1d';
-      const limit = cryptoDetailRange === 'dia' ? 24 : cryptoDetailRange === 'semana' ? 42 : cryptoDetailRange === 'mes' ? 30 : 365;
-      const res = await fetch(`https://api.binance.com/api/v3/klines?symbol=${cryptoDetailSymbol}&interval=${interval}&limit=${limit}`);
-      const data = await res.json();
-      const prices = data.map(c => parseFloat(c[4]));
-      const first = prices[0], last = prices[prices.length - 1];
-      const changePct = ((last - first) / first) * 100;
-      const isUp = changePct >= 0;
-      priceEl.textContent = '$' + last.toLocaleString('en-US', {maximumFractionDigits: last >= 1 ? 2 : 6});
-      const changeEl = document.getElementById('crypto-detail-change');
-      changeEl.textContent = (isUp ? '+' : '') + changePct.toFixed(2) + '%';
-      changeEl.className = 'stock-change ' + (isUp ? 'up' : 'down');
-      drawSparkline('crypto-detail-chart', prices, isUp);
-    } catch(e){
-      priceEl.textContent = 'N/D';
-    }
-  }
-
   // Modales de detalle de cada servicio
   function openModal(id){
     document.getElementById(id).classList.add('open');
@@ -3236,26 +2174,12 @@
     document.getElementById(id).classList.remove('open');
     document.body.style.overflow = '';
   }
-  function switchTab(btn, panelId){
-    const modal = btn.closest('.modal-box');
-    modal.querySelectorAll('.modal-tab').forEach(t => t.classList.remove('active'));
-    modal.querySelectorAll('.modal-tab-panel').forEach(p => p.style.display = 'none');
-    btn.classList.add('active');
-    document.getElementById(panelId).style.display = 'block';
-  }
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape'){
       document.querySelectorAll('.modal-overlay.open').forEach(m => closeModal(m.id));
     }
   });
 
-  // Botones "Quiero más información" (dentro de los modales): abren el chat rápido con el servicio preseleccionado.
-  document.querySelectorAll('.js-contacto').forEach(btn => {
-    btn.addEventListener('click', function(e){
-      e.preventDefault();
-      openChat(this.dataset.servicio);
-    });
-  });
 </script>
 
 </body>

@@ -180,7 +180,7 @@ footer{border-top:1px solid var(--border);padding:44px 0}
 .formMsg.ok{color:var(--active)}
 .formMsg.err{color:#f87171}
 </style>
-</head>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script></head>
 <body>
 
 <div class="navWrap">
@@ -192,7 +192,7 @@ footer{border-top:1px solid var(--border);padding:44px 0}
       <a href="#riesgo">Riesgo</a>
       <a href="#nosotros">Nosotros</a>
     </div>
-    <div class="navCta"><a class="btn primary" href="#rc-capital">Conoce RC Capital</a></div>
+    <div class="navCta"><a class="btn ghost" href="https://rccaccess.github.io/RCCapital/inversores.html">Acceso inversores</a><button class="btn primary" onclick="rcOpenApplication()">Quiero ingresar</button></div>
   </div>
 </div>
 
@@ -552,5 +552,5 @@ const observer = new IntersectionObserver((entries)=>{
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 </script>
 
-</body>
+<script src="application.js"></script></body>
 </html>

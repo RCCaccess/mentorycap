@@ -27,19 +27,19 @@ body{
   line-height:1.5;-webkit-font-smoothing:antialiased;
 }
 a{color:inherit;text-decoration:none}
-.container{max-width:var(--max);margin:0 auto;padding:0 32px}
+.container{width:100%;max-width:var(--max);margin:0 auto;padding:0 32px}
 .reveal{opacity:0;transform:translateY(14px);transition:opacity .8s ease,transform .8s ease}
 .reveal.in{opacity:1;transform:none}
 
 /* ---------- NAV ---------- */
 .navWrap{position:sticky;top:0;z-index:40;backdrop-filter:blur(14px);background:rgba(8,9,11,.75);border-bottom:1px solid var(--border)}
-.nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 32px}
 .brand{display:flex;align-items:center;gap:10px;font-weight:650;font-size:15.5px;letter-spacing:-.01em}
 .brand .mark{width:26px;height:26px;border-radius:7px;background:var(--text);color:var(--bg);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800}
 .navLinks{display:flex;gap:34px;font-size:14px;color:var(--muted)}
 .navLinks a:hover{color:var(--text)}
-.navCta{display:flex;align-items:center}
-@media(max-width:760px){.navLinks{display:none}}
+.navCta{display:flex;align-items:center;gap:10px;min-width:0}
+@media(max-width:980px){.navLinks{display:none}}
 
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 24px;border-radius:10px;font-size:14.5px;font-weight:600;cursor:pointer;transition:opacity .2s ease,background .2s ease}
 .btn.primary{background:var(--text);color:var(--bg)}
@@ -60,8 +60,8 @@ h2{font-size:34px;line-height:1.2;font-weight:700;letter-spacing:-.015em}
 @media(max-width:760px){h1{font-size:38px}h2{font-size:27px}.section{padding:80px 0}}
 
 /* ---------- HERO ---------- */
-.hero{padding:150px 0 120px;position:relative}
-.hero:before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:900px;height:500px;background:radial-gradient(ellipse at top,rgba(255,255,255,.035),transparent 70%);pointer-events:none}
+.hero{padding:150px 0 120px;position:relative;overflow:hidden;overflow:clip}
+.hero:before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:min(900px,100%);height:500px;background:radial-gradient(ellipse at top,rgba(255,255,255,.035),transparent 70%);pointer-events:none}
 .heroInner{position:relative;max-width:760px}
 .heroInner .eyebrow{margin-bottom:24px}
 .heroInner h1{margin-bottom:26px}
@@ -153,7 +153,7 @@ footer{border-top:1px solid var(--border);padding:44px 0}
 .footGrid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
 .footBrand b{font-size:15px}
 .footBrand p{color:var(--muted2);font-size:13.5px;margin-top:6px;max-width:340px}
-.footLinks{display:flex;gap:24px;font-size:13.5px;color:var(--muted)}
+.footLinks{display:flex;flex-wrap:wrap;gap:24px;font-size:13.5px;color:var(--muted)}
 .footLinks a:hover{color:var(--text)}
 .footAdmin{display:flex;justify-content:flex-end;margin-top:16px}
 .footAdmin a{font-size:11px;color:var(--muted2);padding:6px 0;text-decoration:none}
@@ -183,6 +183,26 @@ footer{border-top:1px solid var(--border);padding:44px 0}
 .formMsg{font-size:13.5px;margin-top:4px}
 .formMsg.ok{color:var(--active)}
 .formMsg.err{color:#f87171}
+
+/* Ajuste responsive: evita que la decoración ensanche la página en iPhone. */
+html,body{min-width:0;width:100%}
+.heroInner,.sectionHead,.origenGrid>*,.aboutGrid>*,.stepsSimple>*{min-width:0}
+.brand{flex-shrink:0}
+.modalBackdrop{overflow-y:auto}
+.modalBox{max-height:calc(100dvh - 40px);overflow-y:auto}
+@media(max-width:760px){
+ .container{padding-left:24px;padding-right:24px}
+ .nav{flex-wrap:wrap;gap:14px;padding-top:16px;padding-bottom:16px}
+ .navCta{width:100%;gap:10px}
+ .navCta .btn{flex:1;min-width:0;padding:12px 10px;font-size:14px;text-align:center}
+ .hero{padding-top:64px}
+ .heroInner{max-width:100%}
+ .heroInner h1{font-size:clamp(32px,8.6vw,38px)}
+ .heroInner .actions .btn{max-width:100%}
+ .footLinks{gap:14px 20px}
+ .modalBox{padding:24px}
+ .modalBox input,.modalBox select,.modalBox textarea{font-size:16px}
+}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script></head>
 <body>

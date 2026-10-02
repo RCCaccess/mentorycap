@@ -61,14 +61,16 @@ h2{font-size:34px;line-height:1.2;font-weight:700;letter-spacing:-.015em}
 
 /* ---------- HERO ---------- */
 .hero{padding:150px 0 120px;position:relative;overflow:hidden;overflow:clip}
-.hero:before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:min(900px,100%);height:500px;background:radial-gradient(ellipse at top,rgba(255,255,255,.035),transparent 70%);pointer-events:none}
-.heroInner{position:relative;max-width:760px}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--bg) 0%,rgba(7,8,11,.08) 40%),linear-gradient(90deg,rgba(7,8,11,.94) 0%,rgba(7,8,11,.78) 40%,rgba(7,8,11,.12) 100%),url("images/hero-markets-v1.webp") center right / cover no-repeat;pointer-events:none}
+
+.heroInner{position:relative;max-width:var(--max)}
+.heroInner h1{max-width:720px}.heroInner .lead{color:#b9bec8}
 .heroInner .eyebrow{margin-bottom:24px}
 .heroInner h1{margin-bottom:26px}
 .heroInner .lead{margin-bottom:14px;max-width:640px}
 .heroInner .lead.small{font-size:16px;color:var(--muted2);max-width:600px}
 .heroInner .actions{margin-top:38px}
-@media(max-width:760px){.hero{padding:100px 0 70px}}
+@media(max-width:760px){.hero{padding:100px 0 90px}.hero:before{background:linear-gradient(0deg,var(--bg) 0%,rgba(7,8,11,.25) 55%),linear-gradient(90deg,rgba(7,8,11,.82),rgba(7,8,11,.58)),url("images/hero-markets-v1.webp") 76% center / cover no-repeat}.heroInner .btn.ghost{background:rgba(7,8,11,.6)}}
 
 /* ---------- PASOS (idea simple) ---------- */
 .stepsSimple{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;margin-top:64px}
